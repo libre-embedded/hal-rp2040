@@ -2,9 +2,3 @@
 includes:
   - ../config/python/yambs/cflag_groups.yaml
   - ../config/python/yambs/svd.yaml
-
-variants:
-  picolibc:
-    prefix: "arm-picolibc-eabi-"
-    cflag_groups: [picolib]
-    ldflag_groups: [semihost]
