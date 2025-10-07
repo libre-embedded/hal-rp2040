@@ -1854,7 +1854,7 @@ enums:
         value: 0
       sio_30:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false
@@ -1941,7 +1941,7 @@ enums:
         value: 0
       sio_31:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false
@@ -2028,7 +2028,7 @@ enums:
         value: 0
       sio_32:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false
@@ -2115,7 +2115,7 @@ enums:
         value: 0
       sio_33:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false
@@ -2202,7 +2202,7 @@ enums:
         value: 0
       sio_34:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false
@@ -2289,7 +2289,7 @@ enums:
         value: 0
       sio_35:
         value: 5
-      'null':
+      null_:
         value: 31
     unit_test: false
     json: false

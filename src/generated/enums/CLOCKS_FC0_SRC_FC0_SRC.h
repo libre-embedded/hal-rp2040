@@ -16,7 +16,7 @@ namespace RP2040
 
 enum class CLOCKS_FC0_SRC_FC0_SRC : uint8_t
 {
-    NULL,
+    NULL_,
     pll_sys_clksrc_primary = 1,
     pll_usb_clksrc_primary = 2,
     rosc_clksrc = 3,
@@ -45,8 +45,8 @@ inline const char *to_string(CLOCKS_FC0_SRC_FC0_SRC instance)
 
     switch (instance)
     {
-    case CLOCKS_FC0_SRC_FC0_SRC::NULL:
-        result = "NULL";
+    case CLOCKS_FC0_SRC_FC0_SRC::NULL_:
+        result = "NULL_";
         break;
     case CLOCKS_FC0_SRC_FC0_SRC::pll_sys_clksrc_primary:
         result = "pll_sys_clksrc_primary";
@@ -109,9 +109,9 @@ inline bool from_string(const char *data, CLOCKS_FC0_SRC_FC0_SRC &output)
 {
     bool result = false;
 
-    if ((result = !strncmp(data, "NULL", 4)))
+    if ((result = !strncmp(data, "NULL_", 5)))
     {
-        output = CLOCKS_FC0_SRC_FC0_SRC::NULL;
+        output = CLOCKS_FC0_SRC_FC0_SRC::NULL_;
     }
     else if ((result = !strncmp(data, "pll_sys_clksrc_primary", 22)))
     {

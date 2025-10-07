@@ -249,10 +249,10 @@ enums:
         value: 4004
       MEDIUM:
         value: 4005
-      HIGH:
-        value: 4007
       TOOHIGH:
         value: 4006
+      HIGH:
+        value: 4007
     unit_test: false
     json: false
     use_map: false

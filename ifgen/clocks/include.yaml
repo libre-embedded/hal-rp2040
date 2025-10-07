@@ -1859,7 +1859,7 @@ enums:
     identifier: false
   CLOCKS_FC0_SRC_FC0_SRC:
     enum:
-      'NULL':
+      NULL_:
         value: 0
       pll_sys_clksrc_primary:
         value: 1

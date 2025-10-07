@@ -18,7 +18,7 @@ enum class IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL : uint8_t
 {
     xip_sd1,
     sio_33 = 5,
-    null = 31
+    null_ = 31
 };
 static_assert(sizeof(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL) == 1);
 
@@ -40,8 +40,8 @@ inline const char *to_string(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL instance)
     case IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::sio_33:
         result = "sio_33";
         break;
-    case IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::null:
-        result = "null";
+    case IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::null_:
+        result = "null_";
         break;
     }
 
@@ -73,9 +73,9 @@ inline bool from_string(const char *data, IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL &ou
     {
         output = IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::sio_33;
     }
-    else if ((result = !strncmp(data, "null", 4)))
+    else if ((result = !strncmp(data, "null_", 5)))
     {
-        output = IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::null;
+        output = IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL::null_;
     }
 
     return result;

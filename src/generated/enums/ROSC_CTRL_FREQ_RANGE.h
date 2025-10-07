@@ -18,8 +18,8 @@ enum class ROSC_CTRL_FREQ_RANGE : uint16_t
 {
     LOW = 4004,
     MEDIUM = 4005,
-    HIGH = 4007,
-    TOOHIGH = 4006
+    TOOHIGH = 4006,
+    HIGH = 4007
 };
 static_assert(sizeof(ROSC_CTRL_FREQ_RANGE) == 2);
 
@@ -41,11 +41,11 @@ inline const char *to_string(ROSC_CTRL_FREQ_RANGE instance)
     case ROSC_CTRL_FREQ_RANGE::MEDIUM:
         result = "MEDIUM";
         break;
-    case ROSC_CTRL_FREQ_RANGE::HIGH:
-        result = "HIGH";
-        break;
     case ROSC_CTRL_FREQ_RANGE::TOOHIGH:
         result = "TOOHIGH";
+        break;
+    case ROSC_CTRL_FREQ_RANGE::HIGH:
+        result = "HIGH";
         break;
     }
 
@@ -77,13 +77,13 @@ inline bool from_string(const char *data, ROSC_CTRL_FREQ_RANGE &output)
     {
         output = ROSC_CTRL_FREQ_RANGE::MEDIUM;
     }
-    else if ((result = !strncmp(data, "HIGH", 4)))
-    {
-        output = ROSC_CTRL_FREQ_RANGE::HIGH;
-    }
     else if ((result = !strncmp(data, "TOOHIGH", 7)))
     {
         output = ROSC_CTRL_FREQ_RANGE::TOOHIGH;
+    }
+    else if ((result = !strncmp(data, "HIGH", 4)))
+    {
+        output = ROSC_CTRL_FREQ_RANGE::HIGH;
     }
 
     return result;
