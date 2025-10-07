@@ -7,10 +7,7 @@
 #ifndef RP2040_STRUCTS_BUSCTRL_H
 #define RP2040_STRUCTS_BUSCTRL_H
 
-#include "../enums/BUSCTRL_PERFSEL0_PERFSEL0.h"
-#include "../enums/BUSCTRL_PERFSEL1_PERFSEL1.h"
-#include "../enums/BUSCTRL_PERFSEL2_PERFSEL2.h"
-#include "../enums/BUSCTRL_PERFSEL3_PERFSEL3.h"
+#include "../enums/BUSCTRL_PERFSEL.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -281,9 +278,9 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR0. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline BUSCTRL_PERFSEL0_PERFSEL0 get_PERFSEL0_PERFSEL0() volatile
+    inline BUSCTRL_PERFSEL get_PERFSEL0_PERFSEL0() volatile
     {
-        return BUSCTRL_PERFSEL0_PERFSEL0((PERFSEL0 >> 0u) & 0b11111u);
+        return BUSCTRL_PERFSEL((PERFSEL0 >> 0u) & 0b11111u);
     }
 
     /**
@@ -291,7 +288,7 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR0. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline void set_PERFSEL0_PERFSEL0(BUSCTRL_PERFSEL0_PERFSEL0 value) volatile
+    inline void set_PERFSEL0_PERFSEL0(BUSCTRL_PERFSEL value) volatile
     {
         uint32_t curr = PERFSEL0;
 
@@ -335,9 +332,9 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR1. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline BUSCTRL_PERFSEL1_PERFSEL1 get_PERFSEL1_PERFSEL1() volatile
+    inline BUSCTRL_PERFSEL get_PERFSEL1_PERFSEL1() volatile
     {
-        return BUSCTRL_PERFSEL1_PERFSEL1((PERFSEL1 >> 0u) & 0b11111u);
+        return BUSCTRL_PERFSEL((PERFSEL1 >> 0u) & 0b11111u);
     }
 
     /**
@@ -345,7 +342,7 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR1. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline void set_PERFSEL1_PERFSEL1(BUSCTRL_PERFSEL1_PERFSEL1 value) volatile
+    inline void set_PERFSEL1_PERFSEL1(BUSCTRL_PERFSEL value) volatile
     {
         uint32_t curr = PERFSEL1;
 
@@ -389,9 +386,9 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR2. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline BUSCTRL_PERFSEL2_PERFSEL2 get_PERFSEL2_PERFSEL2() volatile
+    inline BUSCTRL_PERFSEL get_PERFSEL2_PERFSEL2() volatile
     {
-        return BUSCTRL_PERFSEL2_PERFSEL2((PERFSEL2 >> 0u) & 0b11111u);
+        return BUSCTRL_PERFSEL((PERFSEL2 >> 0u) & 0b11111u);
     }
 
     /**
@@ -399,7 +396,7 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR2. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline void set_PERFSEL2_PERFSEL2(BUSCTRL_PERFSEL2_PERFSEL2 value) volatile
+    inline void set_PERFSEL2_PERFSEL2(BUSCTRL_PERFSEL value) volatile
     {
         uint32_t curr = PERFSEL2;
 
@@ -443,9 +440,9 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR3. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline BUSCTRL_PERFSEL3_PERFSEL3 get_PERFSEL3_PERFSEL3() volatile
+    inline BUSCTRL_PERFSEL get_PERFSEL3_PERFSEL3() volatile
     {
-        return BUSCTRL_PERFSEL3_PERFSEL3((PERFSEL3 >> 0u) & 0b11111u);
+        return BUSCTRL_PERFSEL((PERFSEL3 >> 0u) & 0b11111u);
     }
 
     /**
@@ -453,7 +450,7 @@ struct [[gnu::packed]] busctrl
      *
      * Select an event for PERFCTR3. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
-    inline void set_PERFSEL3_PERFSEL3(BUSCTRL_PERFSEL3_PERFSEL3 value) volatile
+    inline void set_PERFSEL3_PERFSEL3(BUSCTRL_PERFSEL value) volatile
     {
         uint32_t curr = PERFSEL3;
 
