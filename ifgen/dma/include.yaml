@@ -67,8 +67,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -113,8 +114,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -189,9 +191,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -323,8 +325,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -369,8 +372,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -445,9 +449,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -579,8 +583,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -625,8 +630,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -701,9 +707,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -835,8 +841,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -881,8 +888,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -957,9 +965,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -1091,8 +1099,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -1137,8 +1146,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -1213,9 +1223,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -1347,8 +1357,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -1393,8 +1404,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -1469,9 +1481,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -1603,8 +1615,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -1649,8 +1662,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -1725,9 +1739,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -1859,8 +1873,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -1905,8 +1920,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -1981,9 +1997,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -2115,8 +2131,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -2161,8 +2178,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -2237,9 +2255,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -2371,8 +2389,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -2417,8 +2436,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -2493,9 +2513,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -2627,8 +2647,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -2673,8 +2694,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -2749,9 +2771,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -2883,8 +2905,9 @@ structs:
             read: true
             write: true
           - name: DATA_SIZE
-            description: Set the size of each bus transfer (byte/halfword/word). READ_ADDR
-              and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            description: Set the size of each bus transfer (byte/halfword/word).
+              READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with
+              each transfer.
             index: 2
             width: 2
             read: true
@@ -2929,8 +2952,9 @@ structs:
             read: true
             write: true
           - name: CHAIN_TO
-            description: When this channel completes, it will trigger the channel
-              indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            description: When this channel completes, it will trigger the 
+              channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = 
+              _(this channel)_.
             index: 11
             width: 4
             read: true
@@ -3005,9 +3029,9 @@ structs:
             read: true
             write: true
           - name: AHB_ERROR
-            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel
-              halts when it encounters any bus error, and always raises its channel
-              IRQ flag.
+            description: Logical OR of the READ_ERROR and WRITE_ERROR flags. The
+              channel halts when it encounters any bus error, and always raises 
+              its channel IRQ flag.
             index: 31
             width: 1
             read: true
@@ -3106,7 +3130,8 @@ structs:
         description: (read-write) Interrupt Enables for IRQ 0
         fields:
           - name: INTE0
-            description: Set bit n to pass interrupts from channel n to DMA IRQ 0.
+            description: Set bit n to pass interrupts from channel n to DMA IRQ 
+              0.
             index: 0
             width: 16
             read: true
@@ -3118,8 +3143,8 @@ structs:
         description: (read-write) Force Interrupts
         fields:
           - name: INTF0
-            description: Write 1s to force the corresponding bits in INTE0. The interrupt
-              remains asserted until INTF0 is cleared.
+            description: Write 1s to force the corresponding bits in INTE0. The 
+              interrupt remains asserted until INTF0 is cleared.
             index: 0
             width: 16
             read: true
@@ -3145,7 +3170,8 @@ structs:
         description: (read-write) Interrupt Enables for IRQ 1
         fields:
           - name: INTE1
-            description: Set bit n to pass interrupts from channel n to DMA IRQ 1.
+            description: Set bit n to pass interrupts from channel n to DMA IRQ 
+              1.
             index: 0
             width: 16
             read: true
@@ -3157,8 +3183,8 @@ structs:
         description: (read-write) Force Interrupts for IRQ 1
         fields:
           - name: INTF1
-            description: Write 1s to force the corresponding bits in INTE0. The interrupt
-              remains asserted until INTF0 is cleared.
+            description: Write 1s to force the corresponding bits in INTE0. The 
+              interrupt remains asserted until INTF0 is cleared.
             index: 0
             width: 16
             read: true
@@ -3187,15 +3213,15 @@ structs:
           TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less."
         fields:
           - name: Y
-            description: Pacing Timer Divisor. Specifies the Y value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Divisor. Specifies the Y value for the 
+              (X/Y) fractional timer.
             index: 0
             width: 16
             read: true
             write: true
           - name: X
-            description: Pacing Timer Dividend. Specifies the X value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Dividend. Specifies the X value for the 
+              (X/Y) fractional timer.
             index: 16
             width: 16
             read: true
@@ -3210,15 +3236,15 @@ structs:
           TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less."
         fields:
           - name: Y
-            description: Pacing Timer Divisor. Specifies the Y value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Divisor. Specifies the Y value for the 
+              (X/Y) fractional timer.
             index: 0
             width: 16
             read: true
             write: true
           - name: X
-            description: Pacing Timer Dividend. Specifies the X value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Dividend. Specifies the X value for the 
+              (X/Y) fractional timer.
             index: 16
             width: 16
             read: true
@@ -3233,15 +3259,15 @@ structs:
           TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less."
         fields:
           - name: Y
-            description: Pacing Timer Divisor. Specifies the Y value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Divisor. Specifies the Y value for the 
+              (X/Y) fractional timer.
             index: 0
             width: 16
             read: true
             write: true
           - name: X
-            description: Pacing Timer Dividend. Specifies the X value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Dividend. Specifies the X value for the 
+              (X/Y) fractional timer.
             index: 16
             width: 16
             read: true
@@ -3256,15 +3282,15 @@ structs:
           TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less."
         fields:
           - name: Y
-            description: Pacing Timer Divisor. Specifies the Y value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Divisor. Specifies the Y value for the 
+              (X/Y) fractional timer.
             index: 0
             width: 16
             read: true
             write: true
           - name: X
-            description: Pacing Timer Dividend. Specifies the X value for the (X/Y)
-              fractional timer.
+            description: Pacing Timer Dividend. Specifies the X value for the 
+              (X/Y) fractional timer.
             index: 16
             width: 16
             read: true
@@ -3276,10 +3302,10 @@ structs:
         description: (read-write) Trigger one or more channels simultaneously
         fields:
           - name: MULTI_CHAN_TRIGGER
-            description: Each bit in this register corresponds to a DMA channel. Writing
-              a 1 to the relevant bit is the same as writing to that channel's trigger
-              register; the channel will start if it is currently enabled and not
-              already busy.
+            description: Each bit in this register corresponds to a DMA channel.
+              Writing a 1 to the relevant bit is the same as writing to that 
+              channel's trigger register; the channel will start if it is 
+              currently enabled and not already busy.
             index: 0
             width: 16
             read: true
@@ -3319,18 +3345,18 @@ structs:
             read: true
             write: true
           - name: OUT_REV
-            description: If set, the result appears bit-reversed when read. This does
-              not affect the way the checksum is calculated; the result is transformed
-              on-the-fly between the result register and the bus.
+            description: If set, the result appears bit-reversed when read. This
+              does not affect the way the checksum is calculated; the result is 
+              transformed on-the-fly between the result register and the bus.
             index: 10
             width: 1
             read: true
             write: true
           - name: OUT_INV
-            description: If set, the result appears inverted (bitwise complement)
-              when read. This does not affect the way the checksum is calculated;
-              the result is transformed on-the-fly between the result register and
-              the bus.
+            description: If set, the result appears inverted (bitwise 
+              complement) when read. This does not affect the way the checksum 
+              is calculated; the result is transformed on-the-fly between the 
+              result register and the bus.
             index: 11
             width: 1
             read: true
@@ -3373,8 +3399,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 1092
-        description: (read-write) Abort an in-progress transfer sequence on one or
-          more channels
+        description: (read-write) Abort an in-progress transfer sequence on one 
+          or more channels
         fields:
           - name: CHAN_ABORT
             description: "Each bit corresponds to a channel. Writing a 1 aborts whatever
@@ -3392,9 +3418,9 @@ structs:
         expected_size: 4
         expected_offset: 1096
         const: true
-        description: (read-only) The number of channels this DMA instance is equipped
-          with. This DMA supports up to 16 hardware channels, but can be configured
-          with as few as one, to minimise silicon area.
+        description: (read-only) The number of channels this DMA instance is 
+          equipped with. This DMA supports up to 16 hardware channels, but can 
+          be configured with as few as one, to minimise silicon area.
         fields:
           - name: N_CHANNELS
             index: 0
@@ -3419,8 +3445,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2052
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH1_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3439,8 +3465,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2116
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH2_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3459,8 +3485,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2180
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH3_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3479,8 +3505,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2244
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH4_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3499,8 +3525,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2308
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH5_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3519,8 +3545,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2372
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH6_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3539,8 +3565,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2436
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH7_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3559,8 +3585,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2500
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH8_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3579,8 +3605,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2564
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH9_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3599,8 +3625,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2628
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH10_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3619,8 +3645,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2692
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
       - name: CH11_DBG_CTDREQ
         type: uint32_t
         expected_size: 4
@@ -3639,13 +3665,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 2756
-        description: (read-write) Read to get channel TRANS_COUNT reload value, i.e.
-          the length of the next transfer
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
+        description: (read-write) Read to get channel TRANS_COUNT reload value, 
+          i.e. the length of the next transfer
 enums:
   DMA_CH0_CTRL_TRIG_DATA_SIZE:
     enum:
@@ -4145,7 +4166,8 @@ enums:
         description: Calculate a CRC-32 (IEEE802.3 polynomial)
         value: 0
       CRC32R:
-        description: Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed data
+        description: Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed
+          data
         value: 1
       CRC16:
         description: Calculate a CRC-16-CCITT
@@ -4154,11 +4176,12 @@ enums:
         description: Calculate a CRC-16-CCITT with bit reversed data
         value: 3
       EVEN:
-        description: XOR reduction over all data. == 1 if the total 1 population count
-          is odd.
+        description: XOR reduction over all data. == 1 if the total 1 population
+          count is odd.
         value: 14
       SUM:
-        description: Calculate a simple 32-bit checksum (addition with a 32 bit accumulator)
+        description: Calculate a simple 32-bit checksum (addition with a 32 bit 
+          accumulator)
         value: 15
     unit_test: false
     json: false

@@ -32,8 +32,8 @@ structs:
         expected_size: 4
         expected_offset: 4
         const: true
-        description: (read-only) Platform register. Allows software to know what environment
-          it is running in.
+        description: (read-only) Platform register. Allows software to know what
+          environment it is running in.
         fields:
           - name: FPGA
             index: 0
@@ -49,11 +49,6 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 64
-        description: (read-write) Git hash of the chip source. Used to identify chip
-          version.
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
+        description: (read-write) Git hash of the chip source. Used to identify 
+          chip version.
 enums: {}

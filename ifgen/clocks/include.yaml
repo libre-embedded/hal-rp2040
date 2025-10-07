@@ -9,11 +9,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 0
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 4
             read: true
@@ -83,11 +84,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 4
             read: true
@@ -157,11 +159,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 24
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 4
             read: true
@@ -231,11 +234,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 4
             read: true
@@ -305,18 +309,20 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 48
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: SRC
-            description: Selects the clock source glitchlessly, can be changed on-the-fly
+            description: Selects the clock source glitchlessly, can be changed 
+              on-the-fly
             index: 0
             width: 2
             read: true
             write: true
             type: CLOCKS_CLK_REF_CTRL_SRC
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 2
             read: true
@@ -350,17 +356,20 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 60
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: SRC
-            description: Selects the clock source glitchlessly, can be changed on-the-fly
+            description: Selects the clock source glitchlessly, can be changed 
+              on-the-fly
             index: 0
             width: 1
             read: true
             write: true
+            type: CLOCKS_CLK_SYS_CTRL_SRC
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 3
             read: true
@@ -400,11 +409,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 72
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 3
             read: true
@@ -434,11 +444,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 84
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 3
             read: true
@@ -496,11 +507,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 96
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 3
             read: true
@@ -558,11 +570,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 108
-        description: (read-write) Clock control, can be changed on-the-fly (except
-          for auxsrc)
+        description: (read-write) Clock control, can be changed on-the-fly 
+          (except for auxsrc)
         fields:
           - name: AUXSRC
-            description: Selects the auxiliary clock source, will glitch when switching
+            description: Selects the auxiliary clock source, will glitch when 
+              switching
             index: 5
             width: 3
             read: true
@@ -647,8 +660,8 @@ structs:
             read: true
             write: true
           - name: CLEAR
-            description: For clearing the resus after the fault that triggered it
-              has been corrected
+            description: For clearing the resus after the fault that triggered 
+              it has been corrected
             index: 16
             width: 1
             read: true
@@ -660,8 +673,8 @@ structs:
         const: true
         fields:
           - name: RESUSSED
-            description: Clock has been resuscitated, correct the error then send
-              ctrl_clear=1
+            description: Clock has been resuscitated, correct the error then 
+              send ctrl_clear=1
             index: 0
             width: 1
             read: true
@@ -681,8 +694,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 132
-        description: (read-write) Minimum pass frequency in kHz. This is optional.
-          Set to 0 if you are not using the pass/fail flags
+        description: (read-write) Minimum pass frequency in kHz. This is 
+          optional. Set to 0 if you are not using the pass/fail flags
         fields:
           - name: FC0_MIN_KHZ
             index: 0
@@ -693,8 +706,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 136
-        description: (read-write) Maximum pass frequency in kHz. This is optional.
-          Set to 0x1ffffff if you are not using the pass/fail flags
+        description: (read-write) Maximum pass frequency in kHz. This is 
+          optional. Set to 0x1ffffff if you are not using the pass/fail flags
         fields:
           - name: FC0_MAX_KHZ
             index: 0
@@ -779,13 +792,15 @@ structs:
             read: true
             write: false
           - name: SLOW
-            description: Test clock slower than expected, only valid when status_done=1
+            description: Test clock slower than expected, only valid when 
+              status_done=1
             index: 20
             width: 1
             read: true
             write: false
           - name: FAST
-            description: Test clock faster than expected, only valid when status_done=1
+            description: Test clock faster than expected, only valid when 
+              status_done=1
             index: 24
             width: 1
             read: true
@@ -801,8 +816,8 @@ structs:
         expected_size: 4
         expected_offset: 156
         const: true
-        description: (read-only) Result of frequency measurement, only valid when
-          status_done=1
+        description: (read-only) Result of frequency measurement, only valid 
+          when status_done=1
         fields:
           - name: FRAC
             index: 0
@@ -1603,11 +1618,6 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   CLOCKS_CLK_GPOUT0_CTRL_AUXSRC:
     enum:
@@ -1741,6 +1751,16 @@ enums:
         value: 1
       gpin1:
         value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_SYS_CTRL_SRC:
+    enum:
+      _ref:
+        value: 0
+      src_clk_sys_aux:
+        value: 1
     unit_test: false
     json: false
     use_map: false

@@ -605,8 +605,8 @@ structs:
             write: true
             type: XIP_SSI_SPI_CTRLR0_INST_L
           - name: WAIT_CYCLES
-            description: Wait cycles between control frame transmit and data reception
-              (in SCLK cycles)
+            description: Wait cycles between control frame transmit and data 
+              reception (in SCLK cycles)
             index: 11
             width: 5
             read: true
@@ -630,8 +630,8 @@ structs:
             read: true
             write: true
           - name: XIP_CMD
-            description: SPI Command to send in XIP mode (INST_L = 8-bit) or to append
-              to Address (INST_L = 0-bit)
+            description: SPI Command to send in XIP mode (INST_L = 8-bit) or to 
+              append to Address (INST_L = 0-bit)
             index: 24
             width: 8
             read: true
@@ -648,11 +648,6 @@ structs:
             width: 8
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   XIP_SSI_CTRLR0_TMOD:
     enum:
@@ -666,7 +661,8 @@ enums:
         description: Receive only (not for FRF == 0, standard SPI mode)
         value: 2
       EEPROM_READ:
-        description: EEPROM read mode (TX then RX; RX starts after control data TX'd)
+        description: EEPROM read mode (TX then RX; RX starts after control data 
+          TX'd)
         value: 3
     unit_test: false
     json: false
@@ -693,11 +689,12 @@ enums:
         description: Command and address both in standard SPI frame format
         value: 0
       _1C2A:
-        description: Command in standard SPI format, address in format specified by
-          FRF
+        description: Command in standard SPI format, address in format specified
+          by FRF
         value: 1
       _2C2A:
-        description: Command and address both in format specified by FRF (e.g. Dual-SPI)
+        description: Command and address both in format specified by FRF (e.g. 
+          Dual-SPI)
         value: 2
     unit_test: false
     json: false

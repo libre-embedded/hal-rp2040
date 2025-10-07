@@ -1,6 +1,6 @@
 ---
 structs:
-  spi0:
+  spi:
     instances:
       - name: SPI0
         address: '0x4003c000'
@@ -33,15 +33,15 @@ structs:
             read: true
             write: true
           - name: SPO
-            description: SSPCLKOUT polarity, applicable to Motorola SPI frame format
-              only. See Motorola SPI frame format on page 2-10.
+            description: SSPCLKOUT polarity, applicable to Motorola SPI frame 
+              format only. See Motorola SPI frame format on page 2-10.
             index: 6
             width: 1
             read: true
             write: true
           - name: SPH
-            description: SSPCLKOUT phase, applicable to Motorola SPI frame format
-              only. See Motorola SPI frame format on page 2-10.
+            description: SSPCLKOUT phase, applicable to Motorola SPI frame 
+              format only. See Motorola SPI frame format on page 2-10.
             index: 7
             width: 1
             read: true
@@ -162,9 +162,9 @@ structs:
         description: (read-write) Clock prescale register, SSPCPSR on page 3-8
         fields:
           - name: CPSDVSR
-            description: Clock prescale divisor. Must be an even number from 2-254,
-              depending on the frequency of SSPCLK. The least significant bit always
-              returns zero on reads.
+            description: Clock prescale divisor. Must be an even number from 
+              2-254, depending on the frequency of SSPCLK. The least significant
+              bit always returns zero on reads.
             index: 0
             width: 8
             read: true
@@ -173,8 +173,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Interrupt mask set or clear register, SSPIMSC on
-          page 3-9
+        description: (read-write) Interrupt mask set or clear register, SSPIMSC 
+          on page 3-9
         fields:
           - name: RORIM
             description: 'Receive overrun interrupt mask: 0 Receive FIFO written to
@@ -213,32 +213,33 @@ structs:
         expected_size: 4
         expected_offset: 24
         const: true
-        description: (read-only) Raw interrupt status register, SSPRIS on page 3-10
+        description: (read-only) Raw interrupt status register, SSPRIS on page 
+          3-10
         fields:
           - name: RORRIS
-            description: Gives the raw interrupt state, prior to masking, of the SSPRORINTR
-              interrupt
+            description: Gives the raw interrupt state, prior to masking, of the
+              SSPRORINTR interrupt
             index: 0
             width: 1
             read: true
             write: false
           - name: RTRIS
-            description: Gives the raw interrupt state, prior to masking, of the SSPRTINTR
-              interrupt
+            description: Gives the raw interrupt state, prior to masking, of the
+              SSPRTINTR interrupt
             index: 1
             width: 1
             read: true
             write: false
           - name: RXRIS
-            description: Gives the raw interrupt state, prior to masking, of the SSPRXINTR
-              interrupt
+            description: Gives the raw interrupt state, prior to masking, of the
+              SSPRXINTR interrupt
             index: 2
             width: 1
             read: true
             write: false
           - name: TXRIS
-            description: Gives the raw interrupt state, prior to masking, of the SSPTXINTR
-              interrupt
+            description: Gives the raw interrupt state, prior to masking, of the
+              SSPTXINTR interrupt
             index: 3
             width: 1
             read: true
@@ -248,33 +249,33 @@ structs:
         expected_size: 4
         expected_offset: 28
         const: true
-        description: (read-only) Masked interrupt status register, SSPMIS on page
-          3-11
+        description: (read-only) Masked interrupt status register, SSPMIS on 
+          page 3-11
         fields:
           - name: RORMIS
-            description: Gives the receive over run masked interrupt status, after
-              masking, of the SSPRORINTR interrupt
+            description: Gives the receive over run masked interrupt status, 
+              after masking, of the SSPRORINTR interrupt
             index: 0
             width: 1
             read: true
             write: false
           - name: RTMIS
-            description: Gives the receive timeout masked interrupt state, after masking,
-              of the SSPRTINTR interrupt
+            description: Gives the receive timeout masked interrupt state, after
+              masking, of the SSPRTINTR interrupt
             index: 1
             width: 1
             read: true
             write: false
           - name: RXMIS
-            description: Gives the receive FIFO masked interrupt state, after masking,
-              of the SSPRXINTR interrupt
+            description: Gives the receive FIFO masked interrupt state, after 
+              masking, of the SSPRXINTR interrupt
             index: 2
             width: 1
             read: true
             write: false
           - name: TXMIS
-            description: Gives the transmit FIFO masked interrupt state, after masking,
-              of the SSPTXINTR interrupt
+            description: Gives the transmit FIFO masked interrupt state, after 
+              masking, of the SSPTXINTR interrupt
             index: 3
             width: 1
             read: true
@@ -304,15 +305,15 @@ structs:
         description: (read-write) DMA control register, SSPDMACR on page 3-12
         fields:
           - name: RXDMAE
-            description: Receive DMA Enable. If this bit is set to 1, DMA for the
-              receive FIFO is enabled.
+            description: Receive DMA Enable. If this bit is set to 1, DMA for 
+              the receive FIFO is enabled.
             index: 0
             width: 1
             read: true
             write: true
           - name: TXDMAE
-            description: Transmit DMA Enable. If this bit is set to 1, DMA for the
-              transmit FIFO is enabled.
+            description: Transmit DMA Enable. If this bit is set to 1, DMA for 
+              the transmit FIFO is enabled.
             index: 1
             width: 1
             read: true
@@ -322,8 +323,8 @@ structs:
         expected_size: 4
         expected_offset: 4064
         const: true
-        description: (read-only) Peripheral identification registers, SSPPeriphID0-3
-          on page 3-13
+        description: (read-only) Peripheral identification registers, 
+          SSPPeriphID0-3 on page 3-13
         fields:
           - name: PARTNUMBER0
             description: These bits read back as 0x22
@@ -336,8 +337,8 @@ structs:
         expected_size: 4
         expected_offset: 4068
         const: true
-        description: (read-only) Peripheral identification registers, SSPPeriphID0-3
-          on page 3-13
+        description: (read-only) Peripheral identification registers, 
+          SSPPeriphID0-3 on page 3-13
         fields:
           - name: PARTNUMBER1
             description: These bits read back as 0x0
@@ -356,8 +357,8 @@ structs:
         expected_size: 4
         expected_offset: 4072
         const: true
-        description: (read-only) Peripheral identification registers, SSPPeriphID0-3
-          on page 3-13
+        description: (read-only) Peripheral identification registers, 
+          SSPPeriphID0-3 on page 3-13
         fields:
           - name: DESIGNER1
             description: These bits read back as 0x4
@@ -376,8 +377,8 @@ structs:
         expected_size: 4
         expected_offset: 4076
         const: true
-        description: (read-only) Peripheral identification registers, SSPPeriphID0-3
-          on page 3-13
+        description: (read-only) Peripheral identification registers, 
+          SSPPeriphID0-3 on page 3-13
         fields:
           - name: CONFIGURATION
             description: These bits read back as 0x00
@@ -390,8 +391,8 @@ structs:
         expected_size: 4
         expected_offset: 4080
         const: true
-        description: (read-only) PrimeCell identification registers, SSPPCellID0-3
-          on page 3-16
+        description: (read-only) PrimeCell identification registers, 
+          SSPPCellID0-3 on page 3-16
         fields:
           - name: SSPPCELLID0
             description: These bits read back as 0x0D
@@ -404,8 +405,8 @@ structs:
         expected_size: 4
         expected_offset: 4084
         const: true
-        description: (read-only) PrimeCell identification registers, SSPPCellID0-3
-          on page 3-16
+        description: (read-only) PrimeCell identification registers, 
+          SSPPCellID0-3 on page 3-16
         fields:
           - name: SSPPCELLID1
             description: These bits read back as 0xF0
@@ -418,8 +419,8 @@ structs:
         expected_size: 4
         expected_offset: 4088
         const: true
-        description: (read-only) PrimeCell identification registers, SSPPCellID0-3
-          on page 3-16
+        description: (read-only) PrimeCell identification registers, 
+          SSPPCellID0-3 on page 3-16
         fields:
           - name: SSPPCELLID2
             description: These bits read back as 0x05
@@ -432,8 +433,8 @@ structs:
         expected_size: 4
         expected_offset: 4092
         const: true
-        description: (read-only) PrimeCell identification registers, SSPPCellID0-3
-          on page 3-16
+        description: (read-only) PrimeCell identification registers, 
+          SSPPCellID0-3 on page 3-16
         fields:
           - name: SSPPCELLID3
             description: These bits read back as 0xB1
@@ -441,9 +442,4 @@ structs:
             width: 8
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

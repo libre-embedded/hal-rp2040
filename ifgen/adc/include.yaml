@@ -26,15 +26,16 @@ structs:
             read: true
             write: true
           - name: START_ONCE
-            description: Start a single conversion. Self-clearing. Ignored if start_many
-              is asserted.
+            description: Start a single conversion. Self-clearing. Ignored if 
+              start_many is asserted.
             index: 2
             width: 1
             read: true
             write: true
           - name: START_MANY
-            description: Continuously perform conversions whilst this bit is 1. A
-              new conversion will start immediately after the previous finishes.
+            description: Continuously perform conversions whilst this bit is 1. 
+              A new conversion will start immediately after the previous 
+              finishes.
             index: 3
             width: 1
             read: true
@@ -48,22 +49,22 @@ structs:
             read: true
             write: false
           - name: ERR
-            description: The most recent ADC conversion encountered an error; result
-              is undefined or noisy.
+            description: The most recent ADC conversion encountered an error; 
+              result is undefined or noisy.
             index: 9
             width: 1
             read: true
             write: false
           - name: ERR_STICKY
-            description: Some past ADC conversion encountered an error. Write 1 to
-              clear.
+            description: Some past ADC conversion encountered an error. Write 1 
+              to clear.
             index: 10
             width: 1
             read: true
             write: true
           - name: AINSEL
-            description: Select analog mux input. Updated automatically in round-robin
-              mode.
+            description: Select analog mux input. Updated automatically in 
+              round-robin mode.
             index: 12
             width: 3
             read: true
@@ -146,8 +147,8 @@ structs:
             read: true
             write: true
           - name: LEVEL
-            description: The number of conversion results currently waiting in the
-              FIFO
+            description: The number of conversion results currently waiting in 
+              the FIFO
             index: 16
             width: 4
             read: true
@@ -171,8 +172,8 @@ structs:
             read: true
             write: false
           - name: ERR
-            description: 1 if this particular sample experienced a conversion error.
-              Remains in the same location if the sample is shifted.
+            description: 1 if this particular sample experienced a conversion 
+              error. Remains in the same location if the sample is shifted.
             index: 15
             width: 1
             read: true
@@ -187,7 +188,8 @@ structs:
           n\n            Total period is 1 + INT + FRAC / 256"
         fields:
           - name: FRAC
-            description: Fractional part of clock divisor. First-order delta-sigma.
+            description: Fractional part of clock divisor. First-order 
+              delta-sigma.
             index: 0
             width: 8
             read: true
@@ -252,9 +254,4 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

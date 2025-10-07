@@ -1,8 +1,8 @@
 ---
 structs:
   vreg_and_chip_reset:
-    description: control and status for on-chip voltage regulator and chip level reset
-      subsystem
+    description: control and status for on-chip voltage regulator and chip level
+      reset subsystem
     instances:
       - name: VREG_AND_CHIP_RESET
         address: '0x40064000'
@@ -79,8 +79,8 @@ structs:
         description: (read-write) Chip reset control and status
         fields:
           - name: HAD_POR
-            description: Last reset was from the power-on reset or brown-out detection
-              blocks
+            description: Last reset was from the power-on reset or brown-out 
+              detection blocks
             index: 8
             width: 1
             read: true
@@ -107,9 +107,4 @@ structs:
             width: 1
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

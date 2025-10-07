@@ -1,6 +1,6 @@
 ---
 structs:
-  pio0:
+  pio:
     description: Programmable IO block
     instances:
       - name: PIO0
@@ -15,11 +15,12 @@ structs:
         description: (read-write) PIO control register
         fields:
           - name: SM_ENABLE
-            description: Enable/disable each of the four state machines by writing
-              1/0 to each of these four bits. When disabled, a state machine will
-              cease executing instructions, except those written directly to SMx_INSTR
-              by the system. Multiple bits can be set/cleared at once to run/halt
-              multiple state machines simultaneously.
+            description: Enable/disable each of the four state machines by 
+              writing 1/0 to each of these four bits. When disabled, a state 
+              machine will cease executing instructions, except those written 
+              directly to SMx_INSTR by the system. Multiple bits can be 
+              set/cleared at once to run/halt multiple state machines 
+              simultaneously.
             index: 0
             width: 4
             read: true
@@ -94,37 +95,37 @@ structs:
         description: (read-write) FIFO debug register
         fields:
           - name: RXSTALL
-            description: State machine has stalled on full RX FIFO during a blocking
-              PUSH, or an IN with autopush enabled. This flag is also set when a nonblocking
-              PUSH to a full FIFO took place, in which case the state machine has
-              dropped data. Write 1 to clear.
+            description: State machine has stalled on full RX FIFO during a 
+              blocking PUSH, or an IN with autopush enabled. This flag is also 
+              set when a nonblocking PUSH to a full FIFO took place, in which 
+              case the state machine has dropped data. Write 1 to clear.
             index: 0
             width: 4
             read: true
             write: true
           - name: RXUNDER
-            description: RX FIFO underflow (i.e. read-on-empty by the system) has
-              occurred. Write 1 to clear. Note that read-on-empty does not perturb
-              the state of the FIFO in any way, but the data returned by reading from
-              an empty FIFO is undefined, so this flag generally only becomes set
-              due to some kind of software error.
+            description: RX FIFO underflow (i.e. read-on-empty by the system) 
+              has occurred. Write 1 to clear. Note that read-on-empty does not 
+              perturb the state of the FIFO in any way, but the data returned by
+              reading from an empty FIFO is undefined, so this flag generally 
+              only becomes set due to some kind of software error.
             index: 8
             width: 4
             read: true
             write: true
           - name: TXOVER
-            description: TX FIFO overflow (i.e. write-on-full by the system) has occurred.
-              Write 1 to clear. Note that write-on-full does not alter the state or
-              contents of the FIFO in any way, but the data that the system attempted
-              to write is dropped, so if this flag is set, your software has quite
-              likely dropped some data on the floor.
+            description: TX FIFO overflow (i.e. write-on-full by the system) has
+              occurred. Write 1 to clear. Note that write-on-full does not alter
+              the state or contents of the FIFO in any way, but the data that 
+              the system attempted to write is dropped, so if this flag is set, 
+              your software has quite likely dropped some data on the floor.
             index: 16
             width: 4
             read: true
             write: true
           - name: TXSTALL
-            description: State machine has stalled on empty TX FIFO during a blocking
-              PULL, or an OUT with autopull enabled. Write 1 to clear.
+            description: State machine has stalled on empty TX FIFO during a 
+              blocking PULL, or an OUT with autopull enabled. Write 1 to clear.
             index: 24
             width: 4
             read: true
@@ -180,70 +181,70 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 16
-        description: (read-write) Direct write access to the TX FIFO for this state
-          machine. Each write pushes one word to the FIFO. Attempting to write to
-          a full FIFO has no effect on the FIFO state or contents, and sets the sticky
-          FDEBUG_TXOVER error flag for this FIFO.
+        description: (read-write) Direct write access to the TX FIFO for this 
+          state machine. Each write pushes one word to the FIFO. Attempting to 
+          write to a full FIFO has no effect on the FIFO state or contents, and 
+          sets the sticky FDEBUG_TXOVER error flag for this FIFO.
       - name: TXF1
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Direct write access to the TX FIFO for this state
-          machine. Each write pushes one word to the FIFO. Attempting to write to
-          a full FIFO has no effect on the FIFO state or contents, and sets the sticky
-          FDEBUG_TXOVER error flag for this FIFO.
+        description: (read-write) Direct write access to the TX FIFO for this 
+          state machine. Each write pushes one word to the FIFO. Attempting to 
+          write to a full FIFO has no effect on the FIFO state or contents, and 
+          sets the sticky FDEBUG_TXOVER error flag for this FIFO.
       - name: TXF2
         type: uint32_t
         expected_size: 4
         expected_offset: 24
-        description: (read-write) Direct write access to the TX FIFO for this state
-          machine. Each write pushes one word to the FIFO. Attempting to write to
-          a full FIFO has no effect on the FIFO state or contents, and sets the sticky
-          FDEBUG_TXOVER error flag for this FIFO.
+        description: (read-write) Direct write access to the TX FIFO for this 
+          state machine. Each write pushes one word to the FIFO. Attempting to 
+          write to a full FIFO has no effect on the FIFO state or contents, and 
+          sets the sticky FDEBUG_TXOVER error flag for this FIFO.
       - name: TXF3
         type: uint32_t
         expected_size: 4
         expected_offset: 28
-        description: (read-write) Direct write access to the TX FIFO for this state
-          machine. Each write pushes one word to the FIFO. Attempting to write to
-          a full FIFO has no effect on the FIFO state or contents, and sets the sticky
-          FDEBUG_TXOVER error flag for this FIFO.
+        description: (read-write) Direct write access to the TX FIFO for this 
+          state machine. Each write pushes one word to the FIFO. Attempting to 
+          write to a full FIFO has no effect on the FIFO state or contents, and 
+          sets the sticky FDEBUG_TXOVER error flag for this FIFO.
       - name: RXF0
         type: uint32_t
         expected_size: 4
         expected_offset: 32
-        description: (read-write) Direct read access to the RX FIFO for this state
-          machine. Each read pops one word from the FIFO. Attempting to read from
-          an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER
-          error flag for this FIFO. The data returned to the system on a read from
-          an empty FIFO is undefined.
+        description: (read-write) Direct read access to the RX FIFO for this 
+          state machine. Each read pops one word from the FIFO. Attempting to 
+          read from an empty FIFO has no effect on the FIFO state, and sets the 
+          sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to 
+          the system on a read from an empty FIFO is undefined.
       - name: RXF1
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) Direct read access to the RX FIFO for this state
-          machine. Each read pops one word from the FIFO. Attempting to read from
-          an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER
-          error flag for this FIFO. The data returned to the system on a read from
-          an empty FIFO is undefined.
+        description: (read-write) Direct read access to the RX FIFO for this 
+          state machine. Each read pops one word from the FIFO. Attempting to 
+          read from an empty FIFO has no effect on the FIFO state, and sets the 
+          sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to 
+          the system on a read from an empty FIFO is undefined.
       - name: RXF2
         type: uint32_t
         expected_size: 4
         expected_offset: 40
-        description: (read-write) Direct read access to the RX FIFO for this state
-          machine. Each read pops one word from the FIFO. Attempting to read from
-          an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER
-          error flag for this FIFO. The data returned to the system on a read from
-          an empty FIFO is undefined.
+        description: (read-write) Direct read access to the RX FIFO for this 
+          state machine. Each read pops one word from the FIFO. Attempting to 
+          read from an empty FIFO has no effect on the FIFO state, and sets the 
+          sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to 
+          the system on a read from an empty FIFO is undefined.
       - name: RXF3
         type: uint32_t
         expected_size: 4
         expected_offset: 44
-        description: (read-write) Direct read access to the RX FIFO for this state
-          machine. Each read pops one word from the FIFO. Attempting to read from
-          an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER
-          error flag for this FIFO. The data returned to the system on a read from
-          an empty FIFO is undefined.
+        description: (read-write) Direct read access to the RX FIFO for this 
+          state machine. Each read pops one word from the FIFO. Attempting to 
+          read from an empty FIFO has no effect on the FIFO state, and sets the 
+          sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to 
+          the system on a read from an empty FIFO is undefined.
       - name: IRQ
         type: uint32_t
         expected_size: 4
@@ -290,16 +291,16 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 60
-        description: (read-write) Read to sample the pad output values PIO is currently
-          driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant
-          bits are hardwired to 0.
+        description: (read-write) Read to sample the pad output values PIO is 
+          currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the 
+          two most significant bits are hardwired to 0.
       - name: DBG_PADOE
         type: uint32_t
         expected_size: 4
         expected_offset: 64
-        description: (read-write) Read to sample the pad output enables (direction)
-          PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so
-          the two most significant bits are hardwired to 0.
+        description: (read-write) Read to sample the pad output enables 
+          (direction) PIO is currently driving to the GPIOs. On RP2040 there are
+          30 GPIOs, so the two most significant bits are hardwired to 0.
       - name: DBG_CFGINFO
         type: uint32_t
         expected_size: 4
@@ -318,15 +319,15 @@ structs:
             read: true
             write: false
           - name: SM_COUNT
-            description: The number of state machines this PIO instance is equipped
-              with.
+            description: The number of state machines this PIO instance is 
+              equipped with.
             index: 8
             width: 4
             read: true
             write: false
           - name: IMEM_SIZE
-            description: The size of the instruction memory, measured in units of
-              one instruction
+            description: The size of the instruction memory, measured in units 
+              of one instruction
             index: 16
             width: 6
             read: true
@@ -335,8 +336,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 72
-        description: (write-only) Write-only access to instruction memory location
-          0
+        description: (write-only) Write-only access to instruction memory 
+          location 0
         fields:
           - name: INSTR_MEM0
             index: 0
@@ -347,8 +348,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 76
-        description: (write-only) Write-only access to instruction memory location
-          1
+        description: (write-only) Write-only access to instruction memory 
+          location 1
         fields:
           - name: INSTR_MEM1
             index: 0
@@ -359,8 +360,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 80
-        description: (write-only) Write-only access to instruction memory location
-          2
+        description: (write-only) Write-only access to instruction memory 
+          location 2
         fields:
           - name: INSTR_MEM2
             index: 0
@@ -371,8 +372,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 84
-        description: (write-only) Write-only access to instruction memory location
-          3
+        description: (write-only) Write-only access to instruction memory 
+          location 3
         fields:
           - name: INSTR_MEM3
             index: 0
@@ -383,8 +384,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 88
-        description: (write-only) Write-only access to instruction memory location
-          4
+        description: (write-only) Write-only access to instruction memory 
+          location 4
         fields:
           - name: INSTR_MEM4
             index: 0
@@ -395,8 +396,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 92
-        description: (write-only) Write-only access to instruction memory location
-          5
+        description: (write-only) Write-only access to instruction memory 
+          location 5
         fields:
           - name: INSTR_MEM5
             index: 0
@@ -407,8 +408,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 96
-        description: (write-only) Write-only access to instruction memory location
-          6
+        description: (write-only) Write-only access to instruction memory 
+          location 6
         fields:
           - name: INSTR_MEM6
             index: 0
@@ -419,8 +420,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 100
-        description: (write-only) Write-only access to instruction memory location
-          7
+        description: (write-only) Write-only access to instruction memory 
+          location 7
         fields:
           - name: INSTR_MEM7
             index: 0
@@ -431,8 +432,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 104
-        description: (write-only) Write-only access to instruction memory location
-          8
+        description: (write-only) Write-only access to instruction memory 
+          location 8
         fields:
           - name: INSTR_MEM8
             index: 0
@@ -443,8 +444,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 108
-        description: (write-only) Write-only access to instruction memory location
-          9
+        description: (write-only) Write-only access to instruction memory 
+          location 9
         fields:
           - name: INSTR_MEM9
             index: 0
@@ -455,8 +456,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 112
-        description: (write-only) Write-only access to instruction memory location
-          10
+        description: (write-only) Write-only access to instruction memory 
+          location 10
         fields:
           - name: INSTR_MEM10
             index: 0
@@ -467,8 +468,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 116
-        description: (write-only) Write-only access to instruction memory location
-          11
+        description: (write-only) Write-only access to instruction memory 
+          location 11
         fields:
           - name: INSTR_MEM11
             index: 0
@@ -479,8 +480,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 120
-        description: (write-only) Write-only access to instruction memory location
-          12
+        description: (write-only) Write-only access to instruction memory 
+          location 12
         fields:
           - name: INSTR_MEM12
             index: 0
@@ -491,8 +492,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 124
-        description: (write-only) Write-only access to instruction memory location
-          13
+        description: (write-only) Write-only access to instruction memory 
+          location 13
         fields:
           - name: INSTR_MEM13
             index: 0
@@ -503,8 +504,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 128
-        description: (write-only) Write-only access to instruction memory location
-          14
+        description: (write-only) Write-only access to instruction memory 
+          location 14
         fields:
           - name: INSTR_MEM14
             index: 0
@@ -515,8 +516,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 132
-        description: (write-only) Write-only access to instruction memory location
-          15
+        description: (write-only) Write-only access to instruction memory 
+          location 15
         fields:
           - name: INSTR_MEM15
             index: 0
@@ -527,8 +528,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 136
-        description: (write-only) Write-only access to instruction memory location
-          16
+        description: (write-only) Write-only access to instruction memory 
+          location 16
         fields:
           - name: INSTR_MEM16
             index: 0
@@ -539,8 +540,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 140
-        description: (write-only) Write-only access to instruction memory location
-          17
+        description: (write-only) Write-only access to instruction memory 
+          location 17
         fields:
           - name: INSTR_MEM17
             index: 0
@@ -551,8 +552,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 144
-        description: (write-only) Write-only access to instruction memory location
-          18
+        description: (write-only) Write-only access to instruction memory 
+          location 18
         fields:
           - name: INSTR_MEM18
             index: 0
@@ -563,8 +564,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 148
-        description: (write-only) Write-only access to instruction memory location
-          19
+        description: (write-only) Write-only access to instruction memory 
+          location 19
         fields:
           - name: INSTR_MEM19
             index: 0
@@ -575,8 +576,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 152
-        description: (write-only) Write-only access to instruction memory location
-          20
+        description: (write-only) Write-only access to instruction memory 
+          location 20
         fields:
           - name: INSTR_MEM20
             index: 0
@@ -587,8 +588,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 156
-        description: (write-only) Write-only access to instruction memory location
-          21
+        description: (write-only) Write-only access to instruction memory 
+          location 21
         fields:
           - name: INSTR_MEM21
             index: 0
@@ -599,8 +600,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 160
-        description: (write-only) Write-only access to instruction memory location
-          22
+        description: (write-only) Write-only access to instruction memory 
+          location 22
         fields:
           - name: INSTR_MEM22
             index: 0
@@ -611,8 +612,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 164
-        description: (write-only) Write-only access to instruction memory location
-          23
+        description: (write-only) Write-only access to instruction memory 
+          location 23
         fields:
           - name: INSTR_MEM23
             index: 0
@@ -623,8 +624,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 168
-        description: (write-only) Write-only access to instruction memory location
-          24
+        description: (write-only) Write-only access to instruction memory 
+          location 24
         fields:
           - name: INSTR_MEM24
             index: 0
@@ -635,8 +636,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 172
-        description: (write-only) Write-only access to instruction memory location
-          25
+        description: (write-only) Write-only access to instruction memory 
+          location 25
         fields:
           - name: INSTR_MEM25
             index: 0
@@ -647,8 +648,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 176
-        description: (write-only) Write-only access to instruction memory location
-          26
+        description: (write-only) Write-only access to instruction memory 
+          location 26
         fields:
           - name: INSTR_MEM26
             index: 0
@@ -659,8 +660,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 180
-        description: (write-only) Write-only access to instruction memory location
-          27
+        description: (write-only) Write-only access to instruction memory 
+          location 27
         fields:
           - name: INSTR_MEM27
             index: 0
@@ -671,8 +672,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 184
-        description: (write-only) Write-only access to instruction memory location
-          28
+        description: (write-only) Write-only access to instruction memory 
+          location 28
         fields:
           - name: INSTR_MEM28
             index: 0
@@ -683,8 +684,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 188
-        description: (write-only) Write-only access to instruction memory location
-          29
+        description: (write-only) Write-only access to instruction memory 
+          location 29
         fields:
           - name: INSTR_MEM29
             index: 0
@@ -695,8 +696,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 192
-        description: (write-only) Write-only access to instruction memory location
-          30
+        description: (write-only) Write-only access to instruction memory 
+          location 30
         fields:
           - name: INSTR_MEM30
             index: 0
@@ -707,8 +708,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 196
-        description: (write-only) Write-only access to instruction memory location
-          31
+        description: (write-only) Write-only access to instruction memory 
+          location 31
         fields:
           - name: INSTR_MEM31
             index: 0
@@ -740,8 +741,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 204
-        description: (read-write) Execution/behavioural settings for state machine
-          0
+        description: (read-write) Execution/behavioural settings for state 
+          machine 0
         fields:
           - name: STATUS_N
             description: Comparison level for the MOV x, STATUS instruction
@@ -755,8 +756,10 @@ structs:
             width: 1
             read: true
             write: true
+            type: PIO0_SM0_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
-            description: After reaching wrap_top, execution is wrapped to this address.
+            description: After reaching wrap_top, execution is wrapped to this 
+              address.
             index: 7
             width: 5
             read: true
@@ -793,34 +796,34 @@ structs:
             read: true
             write: true
           - name: JMP_PIN
-            description: The GPIO number to use as condition for JMP PIN. Unaffected
-              by input mapping.
+            description: The GPIO number to use as condition for JMP PIN. 
+              Unaffected by input mapping.
             index: 24
             width: 5
             read: true
             write: true
           - name: SIDE_PINDIR
-            description: If 1, side-set data is asserted to pin directions, instead
-              of pin values
+            description: If 1, side-set data is asserted to pin directions, 
+              instead of pin values
             index: 29
             width: 1
             read: true
             write: true
           - name: SIDE_EN
-            description: If 1, the MSB of the Delay/Side-set instruction field is
-              used as side-set enable, rather than a side-set data bit. This allows
-              instructions to perform side-set optionally, rather than on every instruction,
-              but the maximum possible side-set width is reduced from 5 to 4. Note
-              that the value of PINCTRL_SIDESET_COUNT is inclusive of this enable
-              bit.
+            description: If 1, the MSB of the Delay/Side-set instruction field 
+              is used as side-set enable, rather than a side-set data bit. This 
+              allows instructions to perform side-set optionally, rather than on
+              every instruction, but the maximum possible side-set width is 
+              reduced from 5 to 4. Note that the value of PINCTRL_SIDESET_COUNT 
+              is inclusive of this enable bit.
             index: 30
             width: 1
             read: true
             write: true
           - name: EXEC_STALLED
-            description: If 1, an instruction written to SMx_INSTR is stalled, and
-              latched by the state machine. Will clear to 0 once this instruction
-              completes.
+            description: If 1, an instruction written to SMx_INSTR is stalled, 
+              and latched by the state machine. Will clear to 0 once this 
+              instruction completes.
             index: 31
             width: 1
             read: true
@@ -829,34 +832,35 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 208
-        description: (read-write) Control behaviour of the input/output shift registers
-          for state machine 0
+        description: (read-write) Control behaviour of the input/output shift 
+          registers for state machine 0
         fields:
           - name: AUTOPUSH
-            description: Push automatically when the input shift register is filled,
-              i.e. on an IN instruction which causes the input shift counter to reach
-              or exceed PUSH_THRESH.
+            description: Push automatically when the input shift register is 
+              filled, i.e. on an IN instruction which causes the input shift 
+              counter to reach or exceed PUSH_THRESH.
             index: 16
             width: 1
             read: true
             write: true
           - name: AUTOPULL
-            description: Pull automatically when the output shift register is emptied,
-              i.e. on or following an OUT instruction which causes the output shift
-              counter to reach or exceed PULL_THRESH.
+            description: Pull automatically when the output shift register is 
+              emptied, i.e. on or following an OUT instruction which causes the 
+              output shift counter to reach or exceed PULL_THRESH.
             index: 17
             width: 1
             read: true
             write: true
           - name: IN_SHIFTDIR
-            description: 1 = shift input shift register to right (data enters from
-              left). 0 = to left.
+            description: 1 = shift input shift register to right (data enters 
+              from left). 0 = to left.
             index: 18
             width: 1
             read: true
             write: true
           - name: OUT_SHIFTDIR
-            description: 1 = shift out of output shift register to right. 0 = to left.
+            description: 1 = shift out of output shift register to right. 0 = to
+              left.
             index: 19
             width: 1
             read: true
@@ -927,59 +931,62 @@ structs:
         description: (read-write) State machine pin control
         fields:
           - name: OUT_BASE
-            description: The lowest-numbered pin that will be affected by an OUT PINS,
-              OUT PINDIRS or MOV PINS instruction. The data written to this pin will
-              always be the least-significant bit of the OUT or MOV data.
+            description: The lowest-numbered pin that will be affected by an OUT
+              PINS, OUT PINDIRS or MOV PINS instruction. The data written to 
+              this pin will always be the least-significant bit of the OUT or 
+              MOV data.
             index: 0
             width: 5
             read: true
             write: true
           - name: SET_BASE
-            description: The lowest-numbered pin that will be affected by a SET PINS
-              or SET PINDIRS instruction. The data written to this pin is the least-significant
-              bit of the SET data.
+            description: The lowest-numbered pin that will be affected by a SET 
+              PINS or SET PINDIRS instruction. The data written to this pin is 
+              the least-significant bit of the SET data.
             index: 5
             width: 5
             read: true
             write: true
           - name: SIDESET_BASE
-            description: The lowest-numbered pin that will be affected by a side-set
-              operation. The MSBs of an instruction's side-set/delay field (up to
-              5, determined by SIDESET_COUNT) are used for side-set data, with the
-              remaining LSBs used for delay. The least-significant bit of the side-set
-              portion is the bit written to this pin, with more-significant bits written
-              to higher-numbered pins.
+            description: The lowest-numbered pin that will be affected by a 
+              side-set operation. The MSBs of an instruction's side-set/delay 
+              field (up to 5, determined by SIDESET_COUNT) are used for side-set
+              data, with the remaining LSBs used for delay. The 
+              least-significant bit of the side-set portion is the bit written 
+              to this pin, with more-significant bits written to higher-numbered
+              pins.
             index: 10
             width: 5
             read: true
             write: true
           - name: IN_BASE
-            description: The pin which is mapped to the least-significant bit of a
-              state machine's IN data bus. Higher-numbered pins are mapped to consecutively
-              more-significant data bits, with a modulo of 32 applied to pin number.
+            description: The pin which is mapped to the least-significant bit of
+              a state machine's IN data bus. Higher-numbered pins are mapped to 
+              consecutively more-significant data bits, with a modulo of 32 
+              applied to pin number.
             index: 15
             width: 5
             read: true
             write: true
           - name: OUT_COUNT
-            description: The number of pins asserted by an OUT PINS, OUT PINDIRS or
-              MOV PINS instruction. In the range 0 to 32 inclusive.
+            description: The number of pins asserted by an OUT PINS, OUT PINDIRS
+              or MOV PINS instruction. In the range 0 to 32 inclusive.
             index: 20
             width: 6
             read: true
             write: true
           - name: SET_COUNT
-            description: The number of pins asserted by a SET. In the range 0 to 5
-              inclusive.
+            description: The number of pins asserted by a SET. In the range 0 to
+              5 inclusive.
             index: 26
             width: 3
             read: true
             write: true
           - name: SIDESET_COUNT
-            description: The number of MSBs of the Delay/Side-set instruction field
-              which are used for side-set. Inclusive of the enable bit, if present.
-              Minimum of 0 (all delay bits, no side-set) and maximum of 5 (all side-set,
-              no delay).
+            description: The number of MSBs of the Delay/Side-set instruction 
+              field which are used for side-set. Inclusive of the enable bit, if
+              present. Minimum of 0 (all delay bits, no side-set) and maximum of
+              5 (all side-set, no delay).
             index: 29
             width: 3
             read: true
@@ -1009,8 +1016,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 228
-        description: (read-write) Execution/behavioural settings for state machine
-          1
+        description: (read-write) Execution/behavioural settings for state 
+          machine 1
         fields:
           - name: STATUS_N
             description: Comparison level for the MOV x, STATUS instruction
@@ -1024,8 +1031,10 @@ structs:
             width: 1
             read: true
             write: true
+            type: PIO0_SM1_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
-            description: After reaching wrap_top, execution is wrapped to this address.
+            description: After reaching wrap_top, execution is wrapped to this 
+              address.
             index: 7
             width: 5
             read: true
@@ -1062,34 +1071,34 @@ structs:
             read: true
             write: true
           - name: JMP_PIN
-            description: The GPIO number to use as condition for JMP PIN. Unaffected
-              by input mapping.
+            description: The GPIO number to use as condition for JMP PIN. 
+              Unaffected by input mapping.
             index: 24
             width: 5
             read: true
             write: true
           - name: SIDE_PINDIR
-            description: If 1, side-set data is asserted to pin directions, instead
-              of pin values
+            description: If 1, side-set data is asserted to pin directions, 
+              instead of pin values
             index: 29
             width: 1
             read: true
             write: true
           - name: SIDE_EN
-            description: If 1, the MSB of the Delay/Side-set instruction field is
-              used as side-set enable, rather than a side-set data bit. This allows
-              instructions to perform side-set optionally, rather than on every instruction,
-              but the maximum possible side-set width is reduced from 5 to 4. Note
-              that the value of PINCTRL_SIDESET_COUNT is inclusive of this enable
-              bit.
+            description: If 1, the MSB of the Delay/Side-set instruction field 
+              is used as side-set enable, rather than a side-set data bit. This 
+              allows instructions to perform side-set optionally, rather than on
+              every instruction, but the maximum possible side-set width is 
+              reduced from 5 to 4. Note that the value of PINCTRL_SIDESET_COUNT 
+              is inclusive of this enable bit.
             index: 30
             width: 1
             read: true
             write: true
           - name: EXEC_STALLED
-            description: If 1, an instruction written to SMx_INSTR is stalled, and
-              latched by the state machine. Will clear to 0 once this instruction
-              completes.
+            description: If 1, an instruction written to SMx_INSTR is stalled, 
+              and latched by the state machine. Will clear to 0 once this 
+              instruction completes.
             index: 31
             width: 1
             read: true
@@ -1098,34 +1107,35 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 232
-        description: (read-write) Control behaviour of the input/output shift registers
-          for state machine 1
+        description: (read-write) Control behaviour of the input/output shift 
+          registers for state machine 1
         fields:
           - name: AUTOPUSH
-            description: Push automatically when the input shift register is filled,
-              i.e. on an IN instruction which causes the input shift counter to reach
-              or exceed PUSH_THRESH.
+            description: Push automatically when the input shift register is 
+              filled, i.e. on an IN instruction which causes the input shift 
+              counter to reach or exceed PUSH_THRESH.
             index: 16
             width: 1
             read: true
             write: true
           - name: AUTOPULL
-            description: Pull automatically when the output shift register is emptied,
-              i.e. on or following an OUT instruction which causes the output shift
-              counter to reach or exceed PULL_THRESH.
+            description: Pull automatically when the output shift register is 
+              emptied, i.e. on or following an OUT instruction which causes the 
+              output shift counter to reach or exceed PULL_THRESH.
             index: 17
             width: 1
             read: true
             write: true
           - name: IN_SHIFTDIR
-            description: 1 = shift input shift register to right (data enters from
-              left). 0 = to left.
+            description: 1 = shift input shift register to right (data enters 
+              from left). 0 = to left.
             index: 18
             width: 1
             read: true
             write: true
           - name: OUT_SHIFTDIR
-            description: 1 = shift out of output shift register to right. 0 = to left.
+            description: 1 = shift out of output shift register to right. 0 = to
+              left.
             index: 19
             width: 1
             read: true
@@ -1196,59 +1206,62 @@ structs:
         description: (read-write) State machine pin control
         fields:
           - name: OUT_BASE
-            description: The lowest-numbered pin that will be affected by an OUT PINS,
-              OUT PINDIRS or MOV PINS instruction. The data written to this pin will
-              always be the least-significant bit of the OUT or MOV data.
+            description: The lowest-numbered pin that will be affected by an OUT
+              PINS, OUT PINDIRS or MOV PINS instruction. The data written to 
+              this pin will always be the least-significant bit of the OUT or 
+              MOV data.
             index: 0
             width: 5
             read: true
             write: true
           - name: SET_BASE
-            description: The lowest-numbered pin that will be affected by a SET PINS
-              or SET PINDIRS instruction. The data written to this pin is the least-significant
-              bit of the SET data.
+            description: The lowest-numbered pin that will be affected by a SET 
+              PINS or SET PINDIRS instruction. The data written to this pin is 
+              the least-significant bit of the SET data.
             index: 5
             width: 5
             read: true
             write: true
           - name: SIDESET_BASE
-            description: The lowest-numbered pin that will be affected by a side-set
-              operation. The MSBs of an instruction's side-set/delay field (up to
-              5, determined by SIDESET_COUNT) are used for side-set data, with the
-              remaining LSBs used for delay. The least-significant bit of the side-set
-              portion is the bit written to this pin, with more-significant bits written
-              to higher-numbered pins.
+            description: The lowest-numbered pin that will be affected by a 
+              side-set operation. The MSBs of an instruction's side-set/delay 
+              field (up to 5, determined by SIDESET_COUNT) are used for side-set
+              data, with the remaining LSBs used for delay. The 
+              least-significant bit of the side-set portion is the bit written 
+              to this pin, with more-significant bits written to higher-numbered
+              pins.
             index: 10
             width: 5
             read: true
             write: true
           - name: IN_BASE
-            description: The pin which is mapped to the least-significant bit of a
-              state machine's IN data bus. Higher-numbered pins are mapped to consecutively
-              more-significant data bits, with a modulo of 32 applied to pin number.
+            description: The pin which is mapped to the least-significant bit of
+              a state machine's IN data bus. Higher-numbered pins are mapped to 
+              consecutively more-significant data bits, with a modulo of 32 
+              applied to pin number.
             index: 15
             width: 5
             read: true
             write: true
           - name: OUT_COUNT
-            description: The number of pins asserted by an OUT PINS, OUT PINDIRS or
-              MOV PINS instruction. In the range 0 to 32 inclusive.
+            description: The number of pins asserted by an OUT PINS, OUT PINDIRS
+              or MOV PINS instruction. In the range 0 to 32 inclusive.
             index: 20
             width: 6
             read: true
             write: true
           - name: SET_COUNT
-            description: The number of pins asserted by a SET. In the range 0 to 5
-              inclusive.
+            description: The number of pins asserted by a SET. In the range 0 to
+              5 inclusive.
             index: 26
             width: 3
             read: true
             write: true
           - name: SIDESET_COUNT
-            description: The number of MSBs of the Delay/Side-set instruction field
-              which are used for side-set. Inclusive of the enable bit, if present.
-              Minimum of 0 (all delay bits, no side-set) and maximum of 5 (all side-set,
-              no delay).
+            description: The number of MSBs of the Delay/Side-set instruction 
+              field which are used for side-set. Inclusive of the enable bit, if
+              present. Minimum of 0 (all delay bits, no side-set) and maximum of
+              5 (all side-set, no delay).
             index: 29
             width: 3
             read: true
@@ -1278,8 +1291,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 252
-        description: (read-write) Execution/behavioural settings for state machine
-          2
+        description: (read-write) Execution/behavioural settings for state 
+          machine 2
         fields:
           - name: STATUS_N
             description: Comparison level for the MOV x, STATUS instruction
@@ -1293,8 +1306,10 @@ structs:
             width: 1
             read: true
             write: true
+            type: PIO0_SM2_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
-            description: After reaching wrap_top, execution is wrapped to this address.
+            description: After reaching wrap_top, execution is wrapped to this 
+              address.
             index: 7
             width: 5
             read: true
@@ -1331,34 +1346,34 @@ structs:
             read: true
             write: true
           - name: JMP_PIN
-            description: The GPIO number to use as condition for JMP PIN. Unaffected
-              by input mapping.
+            description: The GPIO number to use as condition for JMP PIN. 
+              Unaffected by input mapping.
             index: 24
             width: 5
             read: true
             write: true
           - name: SIDE_PINDIR
-            description: If 1, side-set data is asserted to pin directions, instead
-              of pin values
+            description: If 1, side-set data is asserted to pin directions, 
+              instead of pin values
             index: 29
             width: 1
             read: true
             write: true
           - name: SIDE_EN
-            description: If 1, the MSB of the Delay/Side-set instruction field is
-              used as side-set enable, rather than a side-set data bit. This allows
-              instructions to perform side-set optionally, rather than on every instruction,
-              but the maximum possible side-set width is reduced from 5 to 4. Note
-              that the value of PINCTRL_SIDESET_COUNT is inclusive of this enable
-              bit.
+            description: If 1, the MSB of the Delay/Side-set instruction field 
+              is used as side-set enable, rather than a side-set data bit. This 
+              allows instructions to perform side-set optionally, rather than on
+              every instruction, but the maximum possible side-set width is 
+              reduced from 5 to 4. Note that the value of PINCTRL_SIDESET_COUNT 
+              is inclusive of this enable bit.
             index: 30
             width: 1
             read: true
             write: true
           - name: EXEC_STALLED
-            description: If 1, an instruction written to SMx_INSTR is stalled, and
-              latched by the state machine. Will clear to 0 once this instruction
-              completes.
+            description: If 1, an instruction written to SMx_INSTR is stalled, 
+              and latched by the state machine. Will clear to 0 once this 
+              instruction completes.
             index: 31
             width: 1
             read: true
@@ -1367,34 +1382,35 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 256
-        description: (read-write) Control behaviour of the input/output shift registers
-          for state machine 2
+        description: (read-write) Control behaviour of the input/output shift 
+          registers for state machine 2
         fields:
           - name: AUTOPUSH
-            description: Push automatically when the input shift register is filled,
-              i.e. on an IN instruction which causes the input shift counter to reach
-              or exceed PUSH_THRESH.
+            description: Push automatically when the input shift register is 
+              filled, i.e. on an IN instruction which causes the input shift 
+              counter to reach or exceed PUSH_THRESH.
             index: 16
             width: 1
             read: true
             write: true
           - name: AUTOPULL
-            description: Pull automatically when the output shift register is emptied,
-              i.e. on or following an OUT instruction which causes the output shift
-              counter to reach or exceed PULL_THRESH.
+            description: Pull automatically when the output shift register is 
+              emptied, i.e. on or following an OUT instruction which causes the 
+              output shift counter to reach or exceed PULL_THRESH.
             index: 17
             width: 1
             read: true
             write: true
           - name: IN_SHIFTDIR
-            description: 1 = shift input shift register to right (data enters from
-              left). 0 = to left.
+            description: 1 = shift input shift register to right (data enters 
+              from left). 0 = to left.
             index: 18
             width: 1
             read: true
             write: true
           - name: OUT_SHIFTDIR
-            description: 1 = shift out of output shift register to right. 0 = to left.
+            description: 1 = shift out of output shift register to right. 0 = to
+              left.
             index: 19
             width: 1
             read: true
@@ -1465,59 +1481,62 @@ structs:
         description: (read-write) State machine pin control
         fields:
           - name: OUT_BASE
-            description: The lowest-numbered pin that will be affected by an OUT PINS,
-              OUT PINDIRS or MOV PINS instruction. The data written to this pin will
-              always be the least-significant bit of the OUT or MOV data.
+            description: The lowest-numbered pin that will be affected by an OUT
+              PINS, OUT PINDIRS or MOV PINS instruction. The data written to 
+              this pin will always be the least-significant bit of the OUT or 
+              MOV data.
             index: 0
             width: 5
             read: true
             write: true
           - name: SET_BASE
-            description: The lowest-numbered pin that will be affected by a SET PINS
-              or SET PINDIRS instruction. The data written to this pin is the least-significant
-              bit of the SET data.
+            description: The lowest-numbered pin that will be affected by a SET 
+              PINS or SET PINDIRS instruction. The data written to this pin is 
+              the least-significant bit of the SET data.
             index: 5
             width: 5
             read: true
             write: true
           - name: SIDESET_BASE
-            description: The lowest-numbered pin that will be affected by a side-set
-              operation. The MSBs of an instruction's side-set/delay field (up to
-              5, determined by SIDESET_COUNT) are used for side-set data, with the
-              remaining LSBs used for delay. The least-significant bit of the side-set
-              portion is the bit written to this pin, with more-significant bits written
-              to higher-numbered pins.
+            description: The lowest-numbered pin that will be affected by a 
+              side-set operation. The MSBs of an instruction's side-set/delay 
+              field (up to 5, determined by SIDESET_COUNT) are used for side-set
+              data, with the remaining LSBs used for delay. The 
+              least-significant bit of the side-set portion is the bit written 
+              to this pin, with more-significant bits written to higher-numbered
+              pins.
             index: 10
             width: 5
             read: true
             write: true
           - name: IN_BASE
-            description: The pin which is mapped to the least-significant bit of a
-              state machine's IN data bus. Higher-numbered pins are mapped to consecutively
-              more-significant data bits, with a modulo of 32 applied to pin number.
+            description: The pin which is mapped to the least-significant bit of
+              a state machine's IN data bus. Higher-numbered pins are mapped to 
+              consecutively more-significant data bits, with a modulo of 32 
+              applied to pin number.
             index: 15
             width: 5
             read: true
             write: true
           - name: OUT_COUNT
-            description: The number of pins asserted by an OUT PINS, OUT PINDIRS or
-              MOV PINS instruction. In the range 0 to 32 inclusive.
+            description: The number of pins asserted by an OUT PINS, OUT PINDIRS
+              or MOV PINS instruction. In the range 0 to 32 inclusive.
             index: 20
             width: 6
             read: true
             write: true
           - name: SET_COUNT
-            description: The number of pins asserted by a SET. In the range 0 to 5
-              inclusive.
+            description: The number of pins asserted by a SET. In the range 0 to
+              5 inclusive.
             index: 26
             width: 3
             read: true
             write: true
           - name: SIDESET_COUNT
-            description: The number of MSBs of the Delay/Side-set instruction field
-              which are used for side-set. Inclusive of the enable bit, if present.
-              Minimum of 0 (all delay bits, no side-set) and maximum of 5 (all side-set,
-              no delay).
+            description: The number of MSBs of the Delay/Side-set instruction 
+              field which are used for side-set. Inclusive of the enable bit, if
+              present. Minimum of 0 (all delay bits, no side-set) and maximum of
+              5 (all side-set, no delay).
             index: 29
             width: 3
             read: true
@@ -1547,8 +1566,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 276
-        description: (read-write) Execution/behavioural settings for state machine
-          3
+        description: (read-write) Execution/behavioural settings for state 
+          machine 3
         fields:
           - name: STATUS_N
             description: Comparison level for the MOV x, STATUS instruction
@@ -1562,8 +1581,10 @@ structs:
             width: 1
             read: true
             write: true
+            type: PIO0_SM3_EXECCTRL_STATUS_SEL
           - name: WRAP_BOTTOM
-            description: After reaching wrap_top, execution is wrapped to this address.
+            description: After reaching wrap_top, execution is wrapped to this 
+              address.
             index: 7
             width: 5
             read: true
@@ -1600,34 +1621,34 @@ structs:
             read: true
             write: true
           - name: JMP_PIN
-            description: The GPIO number to use as condition for JMP PIN. Unaffected
-              by input mapping.
+            description: The GPIO number to use as condition for JMP PIN. 
+              Unaffected by input mapping.
             index: 24
             width: 5
             read: true
             write: true
           - name: SIDE_PINDIR
-            description: If 1, side-set data is asserted to pin directions, instead
-              of pin values
+            description: If 1, side-set data is asserted to pin directions, 
+              instead of pin values
             index: 29
             width: 1
             read: true
             write: true
           - name: SIDE_EN
-            description: If 1, the MSB of the Delay/Side-set instruction field is
-              used as side-set enable, rather than a side-set data bit. This allows
-              instructions to perform side-set optionally, rather than on every instruction,
-              but the maximum possible side-set width is reduced from 5 to 4. Note
-              that the value of PINCTRL_SIDESET_COUNT is inclusive of this enable
-              bit.
+            description: If 1, the MSB of the Delay/Side-set instruction field 
+              is used as side-set enable, rather than a side-set data bit. This 
+              allows instructions to perform side-set optionally, rather than on
+              every instruction, but the maximum possible side-set width is 
+              reduced from 5 to 4. Note that the value of PINCTRL_SIDESET_COUNT 
+              is inclusive of this enable bit.
             index: 30
             width: 1
             read: true
             write: true
           - name: EXEC_STALLED
-            description: If 1, an instruction written to SMx_INSTR is stalled, and
-              latched by the state machine. Will clear to 0 once this instruction
-              completes.
+            description: If 1, an instruction written to SMx_INSTR is stalled, 
+              and latched by the state machine. Will clear to 0 once this 
+              instruction completes.
             index: 31
             width: 1
             read: true
@@ -1636,34 +1657,35 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 280
-        description: (read-write) Control behaviour of the input/output shift registers
-          for state machine 3
+        description: (read-write) Control behaviour of the input/output shift 
+          registers for state machine 3
         fields:
           - name: AUTOPUSH
-            description: Push automatically when the input shift register is filled,
-              i.e. on an IN instruction which causes the input shift counter to reach
-              or exceed PUSH_THRESH.
+            description: Push automatically when the input shift register is 
+              filled, i.e. on an IN instruction which causes the input shift 
+              counter to reach or exceed PUSH_THRESH.
             index: 16
             width: 1
             read: true
             write: true
           - name: AUTOPULL
-            description: Pull automatically when the output shift register is emptied,
-              i.e. on or following an OUT instruction which causes the output shift
-              counter to reach or exceed PULL_THRESH.
+            description: Pull automatically when the output shift register is 
+              emptied, i.e. on or following an OUT instruction which causes the 
+              output shift counter to reach or exceed PULL_THRESH.
             index: 17
             width: 1
             read: true
             write: true
           - name: IN_SHIFTDIR
-            description: 1 = shift input shift register to right (data enters from
-              left). 0 = to left.
+            description: 1 = shift input shift register to right (data enters 
+              from left). 0 = to left.
             index: 18
             width: 1
             read: true
             write: true
           - name: OUT_SHIFTDIR
-            description: 1 = shift out of output shift register to right. 0 = to left.
+            description: 1 = shift out of output shift register to right. 0 = to
+              left.
             index: 19
             width: 1
             read: true
@@ -1734,59 +1756,62 @@ structs:
         description: (read-write) State machine pin control
         fields:
           - name: OUT_BASE
-            description: The lowest-numbered pin that will be affected by an OUT PINS,
-              OUT PINDIRS or MOV PINS instruction. The data written to this pin will
-              always be the least-significant bit of the OUT or MOV data.
+            description: The lowest-numbered pin that will be affected by an OUT
+              PINS, OUT PINDIRS or MOV PINS instruction. The data written to 
+              this pin will always be the least-significant bit of the OUT or 
+              MOV data.
             index: 0
             width: 5
             read: true
             write: true
           - name: SET_BASE
-            description: The lowest-numbered pin that will be affected by a SET PINS
-              or SET PINDIRS instruction. The data written to this pin is the least-significant
-              bit of the SET data.
+            description: The lowest-numbered pin that will be affected by a SET 
+              PINS or SET PINDIRS instruction. The data written to this pin is 
+              the least-significant bit of the SET data.
             index: 5
             width: 5
             read: true
             write: true
           - name: SIDESET_BASE
-            description: The lowest-numbered pin that will be affected by a side-set
-              operation. The MSBs of an instruction's side-set/delay field (up to
-              5, determined by SIDESET_COUNT) are used for side-set data, with the
-              remaining LSBs used for delay. The least-significant bit of the side-set
-              portion is the bit written to this pin, with more-significant bits written
-              to higher-numbered pins.
+            description: The lowest-numbered pin that will be affected by a 
+              side-set operation. The MSBs of an instruction's side-set/delay 
+              field (up to 5, determined by SIDESET_COUNT) are used for side-set
+              data, with the remaining LSBs used for delay. The 
+              least-significant bit of the side-set portion is the bit written 
+              to this pin, with more-significant bits written to higher-numbered
+              pins.
             index: 10
             width: 5
             read: true
             write: true
           - name: IN_BASE
-            description: The pin which is mapped to the least-significant bit of a
-              state machine's IN data bus. Higher-numbered pins are mapped to consecutively
-              more-significant data bits, with a modulo of 32 applied to pin number.
+            description: The pin which is mapped to the least-significant bit of
+              a state machine's IN data bus. Higher-numbered pins are mapped to 
+              consecutively more-significant data bits, with a modulo of 32 
+              applied to pin number.
             index: 15
             width: 5
             read: true
             write: true
           - name: OUT_COUNT
-            description: The number of pins asserted by an OUT PINS, OUT PINDIRS or
-              MOV PINS instruction. In the range 0 to 32 inclusive.
+            description: The number of pins asserted by an OUT PINS, OUT PINDIRS
+              or MOV PINS instruction. In the range 0 to 32 inclusive.
             index: 20
             width: 6
             read: true
             write: true
           - name: SET_COUNT
-            description: The number of pins asserted by a SET. In the range 0 to 5
-              inclusive.
+            description: The number of pins asserted by a SET. In the range 0 to
+              5 inclusive.
             index: 26
             width: 3
             read: true
             write: true
           - name: SIDESET_COUNT
-            description: The number of MSBs of the Delay/Side-set instruction field
-              which are used for side-set. Inclusive of the enable bit, if present.
-              Minimum of 0 (all delay bits, no side-set) and maximum of 5 (all side-set,
-              no delay).
+            description: The number of MSBs of the Delay/Side-set instruction 
+              field which are used for side-set. Inclusive of the enable bit, if
+              present. Minimum of 0 (all delay bits, no side-set) and maximum of
+              5 (all side-set, no delay).
             index: 29
             width: 3
             read: true
@@ -1995,7 +2020,8 @@ structs:
         expected_size: 4
         expected_offset: 308
         const: true
-        description: (read-only) Interrupt status after masking & forcing for irq0
+        description: (read-only) Interrupt status after masking & forcing for 
+          irq0
         fields:
           - name: SM0_RXNEMPTY
             index: 0
@@ -2194,7 +2220,8 @@ structs:
         expected_size: 4
         expected_offset: 320
         const: true
-        description: (read-only) Interrupt status after masking & forcing for irq1
+        description: (read-only) Interrupt status after masking & forcing for 
+          irq1
         fields:
           - name: SM0_RXNEMPTY
             index: 0
@@ -2256,9 +2283,52 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
+enums:
+  PIO0_SM0_EXECCTRL_STATUS_SEL:
+    enum:
+      TXLEVEL:
+        description: All-ones if TX FIFO level < N, otherwise all-zeroes
+        value: 0
+      RXLEVEL:
+        description: All-ones if RX FIFO level < N, otherwise all-zeroes
+        value: 1
     unit_test: false
+    json: false
+    use_map: false
     identifier: false
-enums: {}
+  PIO0_SM1_EXECCTRL_STATUS_SEL:
+    enum:
+      TXLEVEL:
+        description: All-ones if TX FIFO level < N, otherwise all-zeroes
+        value: 0
+      RXLEVEL:
+        description: All-ones if RX FIFO level < N, otherwise all-zeroes
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  PIO0_SM2_EXECCTRL_STATUS_SEL:
+    enum:
+      TXLEVEL:
+        description: All-ones if TX FIFO level < N, otherwise all-zeroes
+        value: 0
+      RXLEVEL:
+        description: All-ones if RX FIFO level < N, otherwise all-zeroes
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  PIO0_SM3_EXECCTRL_STATUS_SEL:
+    enum:
+      TXLEVEL:
+        description: All-ones if TX FIFO level < N, otherwise all-zeroes
+        value: 0
+      RXLEVEL:
+        description: All-ones if RX FIFO level < N, otherwise all-zeroes
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

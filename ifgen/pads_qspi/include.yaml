@@ -16,6 +16,7 @@ structs:
             width: 1
             read: true
             write: true
+            type: PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT
       - name: GPIO_QSPI_SCLK
         type: uint32_t
         expected_size: 4
@@ -60,7 +61,8 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
@@ -109,7 +111,8 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
@@ -158,7 +161,8 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
@@ -207,7 +211,8 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
@@ -256,7 +261,8 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
@@ -305,17 +311,25 @@ structs:
             read: true
             write: true
           - name: OD
-            description: Output disable. Has priority over output enable from peripherals
+            description: Output disable. Has priority over output enable from 
+              peripherals
             index: 7
             width: 1
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
+  PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT:
+    enum:
+      _3v3:
+        description: Set voltage to 3.3V (DVDD >= 2V5)
+        value: 0
+      _1v8:
+        description: Set voltage to 1.8V (DVDD <= 1V8)
+        value: 1
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
   PADS_QSPI_GPIO_QSPI_SCLK_DRIVE:
     enum:
       _2mA:

@@ -13,15 +13,17 @@ structs:
         description: (read-write) Device address and endpoint control
         fields:
           - name: ADDRESS
-            description: In device mode, the address that the device should respond
-              to. Set in response to a SET_ADDR setup packet from the host. In host
-              mode set to the address of the device to communicate with.
+            description: In device mode, the address that the device should 
+              respond to. Set in response to a SET_ADDR setup packet from the 
+              host. In host mode set to the address of the device to communicate
+              with.
             index: 0
             width: 7
             read: true
             write: true
           - name: ENDPOINT
-            description: Device endpoint to send data to. Only valid for HOST mode.
+            description: Device endpoint to send data to. Only valid for HOST 
+              mode.
             index: 16
             width: 4
             read: true
@@ -30,7 +32,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (read-write) Interrupt endpoint 1. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 1. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -51,8 +54,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -61,7 +64,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 8
-        description: (read-write) Interrupt endpoint 2. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 2. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -82,8 +86,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -92,7 +96,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: (read-write) Interrupt endpoint 3. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 3. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -113,8 +118,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -123,7 +128,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 16
-        description: (read-write) Interrupt endpoint 4. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 4. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -144,8 +150,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -154,7 +160,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Interrupt endpoint 5. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 5. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -175,8 +182,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -185,7 +192,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 24
-        description: (read-write) Interrupt endpoint 6. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 6. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -206,8 +214,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -216,7 +224,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 28
-        description: (read-write) Interrupt endpoint 7. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 7. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -237,8 +246,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -247,7 +256,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 32
-        description: (read-write) Interrupt endpoint 8. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 8. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -268,8 +278,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -278,7 +288,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) Interrupt endpoint 9. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 9. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -299,8 +310,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -309,7 +320,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 40
-        description: (read-write) Interrupt endpoint 10. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 10. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -330,8 +342,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -340,7 +352,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 44
-        description: (read-write) Interrupt endpoint 11. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 11. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -361,8 +374,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -371,7 +384,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 48
-        description: (read-write) Interrupt endpoint 12. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 12. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -392,8 +406,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -402,7 +416,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 52
-        description: (read-write) Interrupt endpoint 13. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 13. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -423,8 +438,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -433,7 +448,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 56
-        description: (read-write) Interrupt endpoint 14. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 14. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -454,8 +470,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -464,7 +480,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 60
-        description: (read-write) Interrupt endpoint 15. Only valid for HOST mode.
+        description: (read-write) Interrupt endpoint 15. Only valid for HOST 
+          mode.
         fields:
           - name: ADDRESS
             description: Device address
@@ -485,8 +502,8 @@ structs:
             read: true
             write: true
           - name: INTEP_PREAMBLE
-            description: Interrupt EP requires preamble (is a low speed device on
-              a full speed hub)
+            description: Interrupt EP requires preamble (is a low speed device 
+              on a full speed hub)
             index: 26
             width: 1
             read: true
@@ -519,9 +536,9 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 68
-        description: (write-only) Set the SOF (Start of Frame) frame number in the
-          host controller. The SOF packet is sent every 1ms and the host will increment
-          the frame number by 1 each time.
+        description: (write-only) Set the SOF (Start of Frame) frame number in 
+          the host controller. The SOF packet is sent every 1ms and the host 
+          will increment the frame number by 1 each time.
         fields:
           - name: COUNT
             index: 0
@@ -533,9 +550,9 @@ structs:
         expected_size: 4
         expected_offset: 72
         const: true
-        description: (read-only) Read the last SOF (Start of Frame) frame number seen.
-          In device mode the last SOF received from the host. In host mode the last
-          SOF sent by the host.
+        description: (read-only) Read the last SOF (Start of Frame) frame number
+          seen. In device mode the last SOF received from the host. In host mode
+          the last SOF sent by the host.
         fields:
           - name: COUNT
             index: 0
@@ -716,8 +733,9 @@ structs:
             read: true
             write: false
           - name: SUSPENDED
-            description: Bus in suspended state. Valid for device and host. Host and
-              device will go into suspend if neither Keep Alive / SOF frames are enabled.
+            description: Bus in suspended state. Valid for device and host. Host
+              and device will go into suspend if neither Keep Alive / SOF frames
+              are enabled.
             index: 4
             width: 1
             read: true
@@ -785,15 +803,15 @@ structs:
             read: true
             write: true
           - name: RX_OVERFLOW
-            description: RX overflow is raised by the Serial RX engine if the incoming
-              data is too fast.
+            description: RX overflow is raised by the Serial RX engine if the 
+              incoming data is too fast.
             index: 26
             width: 1
             read: true
             write: true
           - name: RX_TIMEOUT
-            description: RX timeout is raised by both the host and device if an ACK
-              is not received in the maximum time specified by the USB spec.
+            description: RX timeout is raised by both the host and device if an 
+              ACK is not received in the maximum time specified by the USB spec.
             index: 27
             width: 1
             read: true
@@ -845,10 +863,11 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 88
-        description: (read-write) Buffer status register. A bit set here indicates
-          that a buffer has completed on the endpoint (if the buffer interrupt is
-          enabled). It is possible for 2 buffers to be completed, so clearing the
-          buffer status bit may instantly re set it on the next clock cycle.
+        description: (read-write) Buffer status register. A bit set here 
+          indicates that a buffer has completed on the endpoint (if the buffer 
+          interrupt is enabled). It is possible for 2 buffers to be completed, 
+          so clearing the buffer status bit may instantly re set it on the next 
+          clock cycle.
         fields:
           - name: EP0_IN
             index: 0
@@ -1015,9 +1034,10 @@ structs:
         expected_size: 4
         expected_offset: 92
         const: true
-        description: (read-only) Which of the double buffers should be handled. Only
-          valid if using an interrupt per buffer (i.e. not per 2 buffers). Not valid
-          for host interrupt endpoint polling because they are only single buffered.
+        description: (read-only) Which of the double buffers should be handled. 
+          Only valid if using an interrupt per buffer (i.e. not per 2 buffers). 
+          Not valid for host interrupt endpoint polling because they are only 
+          single buffered.
         fields:
           - name: EP0_IN
             index: 0
@@ -1541,8 +1561,9 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 108
-        description: (read-write) Used by the host controller. Sets the wait time
-          in microseconds before trying again if the device replies with a NAK.
+        description: (read-write) Used by the host controller. Sets the wait 
+          time in microseconds before trying again if the device replies with a 
+          NAK.
         fields:
           - name: DELAY_LS
             description: NAK polling interval for a low speed device
@@ -1728,8 +1749,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 116
-        description: (read-write) Where to connect the USB controller. Should be to_phy
-          by default.
+        description: (read-write) Where to connect the USB controller. Should be
+          to_phy by default.
         fields:
           - name: TO_PHY
             index: 0
@@ -1755,9 +1776,10 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 120
-        description: (read-write) Overrides for the power signals in the event that
-          the VBUS signals are not hooked up to GPIO. Set the value of the override
-          and then the override enable to switch over to the override value.
+        description: (read-write) Overrides for the power signals in the event 
+          that the VBUS signals are not hooked up to GPIO. Set the value of the 
+          override and then the override enable to switch over to the override 
+          value.
         fields:
           - name: VBUS_EN
             index: 0
@@ -1793,13 +1815,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 124
-        description: (read-write) This register allows for direct control of the USB
-          phy. Use in conjunction with usbphy_direct_override register to enable each
-          override bit.
+        description: (read-write) This register allows for direct control of the
+          USB phy. Use in conjunction with usbphy_direct_override register to 
+          enable each override bit.
         fields:
           - name: DP_PULLUP_HISEL
-            description: Enable the second DP pull up resistor. 0 - Pull = Rpu2; 1
-              - Pull = Rpu1 + Rpu2
+            description: Enable the second DP pull up resistor. 0 - Pull = Rpu2;
+              1 - Pull = Rpu1 + Rpu2
             index: 0
             width: 1
             read: true
@@ -1817,8 +1839,8 @@ structs:
             read: true
             write: true
           - name: DM_PULLUP_HISEL
-            description: Enable the second DM pull up resistor. 0 - Pull = Rpu2; 1
-              - Pull = Rpu1 + Rpu2
+            description: Enable the second DM pull up resistor. 0 - Pull = Rpu2;
+              1 - Pull = Rpu1 + Rpu2
             index: 4
             width: 1
             read: true
@@ -1867,15 +1889,15 @@ structs:
             read: true
             write: true
           - name: RX_PD
-            description: RX power down override (if override enable is set). 1 = powered
-              down.
+            description: RX power down override (if override enable is set). 1 =
+              powered down.
             index: 12
             width: 1
             read: true
             write: true
           - name: TX_PD
-            description: TX power down override (if override enable is set). 1 = powered
-              down.
+            description: TX power down override (if override enable is set). 1 =
+              powered down.
             index: 13
             width: 1
             read: true
@@ -1940,7 +1962,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 128
-        description: (read-write) Override enable for each control in usbphy_direct
+        description: (read-write) Override enable for each control in 
+          usbphy_direct
         fields:
           - name: DP_PULLUP_HISEL_OVERRIDE_EN
             index: 0
@@ -2016,8 +2039,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 132
-        description: (read-write) Used to adjust trim values of USB phy pull down
-          resistors.
+        description: (read-write) Used to adjust trim values of USB phy pull 
+          down resistors.
         fields:
           - name: DP_PULLDN_TRIM
             description: "Value to drive to USB PHY\\n\n                DP pulldown
@@ -2066,15 +2089,15 @@ structs:
             read: true
             write: false
           - name: TRANS_COMPLETE
-            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
-              by writing to this bit.
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. 
+              Clear by writing to this bit.
             index: 3
             width: 1
             read: true
             write: false
           - name: BUFF_STATUS
-            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
-              all bits in BUFF_STATUS.
+            description: Raised when any bit in BUFF_STATUS is set. Clear by 
+              clearing all bits in BUFF_STATUS.
             index: 4
             width: 1
             read: true
@@ -2128,22 +2151,22 @@ structs:
             read: true
             write: false
           - name: DEV_CONN_DIS
-            description: Set when the device connection state changes. Cleared by
-              writing to SIE_STATUS.CONNECTED
+            description: Set when the device connection state changes. Cleared 
+              by writing to SIE_STATUS.CONNECTED
             index: 13
             width: 1
             read: true
             write: false
           - name: DEV_SUSPEND
-            description: Set when the device suspend state changes. Cleared by writing
-              to SIE_STATUS.SUSPENDED
+            description: Set when the device suspend state changes. Cleared by 
+              writing to SIE_STATUS.SUSPENDED
             index: 14
             width: 1
             read: true
             write: false
           - name: DEV_RESUME_FROM_HOST
-            description: Set when the device receives a resume from the host. Cleared
-              by writing to SIE_STATUS.RESUME
+            description: Set when the device receives a resume from the host. 
+              Cleared by writing to SIE_STATUS.RESUME
             index: 15
             width: 1
             read: true
@@ -2155,22 +2178,22 @@ structs:
             read: true
             write: false
           - name: DEV_SOF
-            description: Set every time the device receives a SOF (Start of Frame)
-              packet. Cleared by reading SOF_RD
+            description: Set every time the device receives a SOF (Start of 
+              Frame) packet. Cleared by reading SOF_RD
             index: 17
             width: 1
             read: true
             write: false
           - name: ABORT_DONE
-            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
-              all bits in ABORT_DONE.
+            description: Raised when any bit in ABORT_DONE is set. Clear by 
+              clearing all bits in ABORT_DONE.
             index: 18
             width: 1
             read: true
             write: false
           - name: EP_STALL_NAK
-            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
-              by clearing all bits in EP_STATUS_STALL_NAK.
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. 
+              Clear by clearing all bits in EP_STATUS_STALL_NAK.
             index: 19
             width: 1
             read: true
@@ -2203,15 +2226,15 @@ structs:
             read: true
             write: true
           - name: TRANS_COMPLETE
-            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
-              by writing to this bit.
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. 
+              Clear by writing to this bit.
             index: 3
             width: 1
             read: true
             write: true
           - name: BUFF_STATUS
-            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
-              all bits in BUFF_STATUS.
+            description: Raised when any bit in BUFF_STATUS is set. Clear by 
+              clearing all bits in BUFF_STATUS.
             index: 4
             width: 1
             read: true
@@ -2265,22 +2288,22 @@ structs:
             read: true
             write: true
           - name: DEV_CONN_DIS
-            description: Set when the device connection state changes. Cleared by
-              writing to SIE_STATUS.CONNECTED
+            description: Set when the device connection state changes. Cleared 
+              by writing to SIE_STATUS.CONNECTED
             index: 13
             width: 1
             read: true
             write: true
           - name: DEV_SUSPEND
-            description: Set when the device suspend state changes. Cleared by writing
-              to SIE_STATUS.SUSPENDED
+            description: Set when the device suspend state changes. Cleared by 
+              writing to SIE_STATUS.SUSPENDED
             index: 14
             width: 1
             read: true
             write: true
           - name: DEV_RESUME_FROM_HOST
-            description: Set when the device receives a resume from the host. Cleared
-              by writing to SIE_STATUS.RESUME
+            description: Set when the device receives a resume from the host. 
+              Cleared by writing to SIE_STATUS.RESUME
             index: 15
             width: 1
             read: true
@@ -2292,22 +2315,22 @@ structs:
             read: true
             write: true
           - name: DEV_SOF
-            description: Set every time the device receives a SOF (Start of Frame)
-              packet. Cleared by reading SOF_RD
+            description: Set every time the device receives a SOF (Start of 
+              Frame) packet. Cleared by reading SOF_RD
             index: 17
             width: 1
             read: true
             write: true
           - name: ABORT_DONE
-            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
-              all bits in ABORT_DONE.
+            description: Raised when any bit in ABORT_DONE is set. Clear by 
+              clearing all bits in ABORT_DONE.
             index: 18
             width: 1
             read: true
             write: true
           - name: EP_STALL_NAK
-            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
-              by clearing all bits in EP_STATUS_STALL_NAK.
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. 
+              Clear by clearing all bits in EP_STATUS_STALL_NAK.
             index: 19
             width: 1
             read: true
@@ -2340,15 +2363,15 @@ structs:
             read: true
             write: true
           - name: TRANS_COMPLETE
-            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
-              by writing to this bit.
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. 
+              Clear by writing to this bit.
             index: 3
             width: 1
             read: true
             write: true
           - name: BUFF_STATUS
-            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
-              all bits in BUFF_STATUS.
+            description: Raised when any bit in BUFF_STATUS is set. Clear by 
+              clearing all bits in BUFF_STATUS.
             index: 4
             width: 1
             read: true
@@ -2402,22 +2425,22 @@ structs:
             read: true
             write: true
           - name: DEV_CONN_DIS
-            description: Set when the device connection state changes. Cleared by
-              writing to SIE_STATUS.CONNECTED
+            description: Set when the device connection state changes. Cleared 
+              by writing to SIE_STATUS.CONNECTED
             index: 13
             width: 1
             read: true
             write: true
           - name: DEV_SUSPEND
-            description: Set when the device suspend state changes. Cleared by writing
-              to SIE_STATUS.SUSPENDED
+            description: Set when the device suspend state changes. Cleared by 
+              writing to SIE_STATUS.SUSPENDED
             index: 14
             width: 1
             read: true
             write: true
           - name: DEV_RESUME_FROM_HOST
-            description: Set when the device receives a resume from the host. Cleared
-              by writing to SIE_STATUS.RESUME
+            description: Set when the device receives a resume from the host. 
+              Cleared by writing to SIE_STATUS.RESUME
             index: 15
             width: 1
             read: true
@@ -2429,22 +2452,22 @@ structs:
             read: true
             write: true
           - name: DEV_SOF
-            description: Set every time the device receives a SOF (Start of Frame)
-              packet. Cleared by reading SOF_RD
+            description: Set every time the device receives a SOF (Start of 
+              Frame) packet. Cleared by reading SOF_RD
             index: 17
             width: 1
             read: true
             write: true
           - name: ABORT_DONE
-            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
-              all bits in ABORT_DONE.
+            description: Raised when any bit in ABORT_DONE is set. Clear by 
+              clearing all bits in ABORT_DONE.
             index: 18
             width: 1
             read: true
             write: true
           - name: EP_STALL_NAK
-            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
-              by clearing all bits in EP_STATUS_STALL_NAK.
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. 
+              Clear by clearing all bits in EP_STATUS_STALL_NAK.
             index: 19
             width: 1
             read: true
@@ -2478,15 +2501,15 @@ structs:
             read: true
             write: false
           - name: TRANS_COMPLETE
-            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. Clear
-              by writing to this bit.
+            description: Raised every time SIE_STATUS.TRANS_COMPLETE is set. 
+              Clear by writing to this bit.
             index: 3
             width: 1
             read: true
             write: false
           - name: BUFF_STATUS
-            description: Raised when any bit in BUFF_STATUS is set. Clear by clearing
-              all bits in BUFF_STATUS.
+            description: Raised when any bit in BUFF_STATUS is set. Clear by 
+              clearing all bits in BUFF_STATUS.
             index: 4
             width: 1
             read: true
@@ -2540,22 +2563,22 @@ structs:
             read: true
             write: false
           - name: DEV_CONN_DIS
-            description: Set when the device connection state changes. Cleared by
-              writing to SIE_STATUS.CONNECTED
+            description: Set when the device connection state changes. Cleared 
+              by writing to SIE_STATUS.CONNECTED
             index: 13
             width: 1
             read: true
             write: false
           - name: DEV_SUSPEND
-            description: Set when the device suspend state changes. Cleared by writing
-              to SIE_STATUS.SUSPENDED
+            description: Set when the device suspend state changes. Cleared by 
+              writing to SIE_STATUS.SUSPENDED
             index: 14
             width: 1
             read: true
             write: false
           - name: DEV_RESUME_FROM_HOST
-            description: Set when the device receives a resume from the host. Cleared
-              by writing to SIE_STATUS.RESUME
+            description: Set when the device receives a resume from the host. 
+              Cleared by writing to SIE_STATUS.RESUME
             index: 15
             width: 1
             read: true
@@ -2567,29 +2590,24 @@ structs:
             read: true
             write: false
           - name: DEV_SOF
-            description: Set every time the device receives a SOF (Start of Frame)
-              packet. Cleared by reading SOF_RD
+            description: Set every time the device receives a SOF (Start of 
+              Frame) packet. Cleared by reading SOF_RD
             index: 17
             width: 1
             read: true
             write: false
           - name: ABORT_DONE
-            description: Raised when any bit in ABORT_DONE is set. Clear by clearing
-              all bits in ABORT_DONE.
+            description: Raised when any bit in ABORT_DONE is set. Clear by 
+              clearing all bits in ABORT_DONE.
             index: 18
             width: 1
             read: true
             write: false
           - name: EP_STALL_NAK
-            description: Raised when any bit in EP_STATUS_STALL_NAK is set. Clear
-              by clearing all bits in EP_STATUS_STALL_NAK.
+            description: Raised when any bit in EP_STATUS_STALL_NAK is set. 
+              Clear by clearing all bits in EP_STATUS_STALL_NAK.
             index: 19
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

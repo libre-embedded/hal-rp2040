@@ -78,7 +78,8 @@ structs:
             read: true
             write: false
           - name: FIFO_EMPTY
-            description: When 1, indicates the XIP streaming FIFO is completely empty.
+            description: When 1, indicates the XIP streaming FIFO is completely 
+              empty.
             index: 1
             width: 1
             read: true
@@ -150,9 +151,4 @@ structs:
           is buffered here, for retrieval by the system DMA.\\n\n            This
           FIFO can also be accessed via the XIP_AUX slave, to avoid exposing\\n\n\
           \            the DMA to bus stalls caused by other XIP traffic."
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

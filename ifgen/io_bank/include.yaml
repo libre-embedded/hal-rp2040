@@ -1,6 +1,6 @@
 ---
 structs:
-  io_bank0:
+  io_bank:
     instances:
       - name: IO_BANK0
         address: '0x40014000'
@@ -13,8 +13,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -26,8 +26,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -66,7 +66,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -108,8 +109,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -121,8 +122,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -161,7 +162,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -203,8 +205,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -216,8 +218,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -256,7 +258,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -298,8 +301,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -311,8 +314,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -351,7 +354,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 28
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -393,8 +397,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -406,8 +410,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -446,7 +450,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -488,8 +493,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -501,8 +506,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -541,7 +546,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 44
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -583,8 +589,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -596,8 +602,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -636,7 +642,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 52
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -678,8 +685,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -691,8 +698,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -731,7 +738,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 60
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -773,8 +781,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -786,8 +794,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -826,7 +834,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 68
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -868,8 +877,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -881,8 +890,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -921,7 +930,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 76
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -963,8 +973,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -976,8 +986,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1016,7 +1026,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 84
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1058,8 +1069,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1071,8 +1082,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1111,7 +1122,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 92
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1153,8 +1165,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1166,8 +1178,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1206,7 +1218,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 100
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1248,8 +1261,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1261,8 +1274,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1301,7 +1314,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 108
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1343,8 +1357,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1356,8 +1370,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1396,7 +1410,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 116
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1438,8 +1453,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1451,8 +1466,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1491,7 +1506,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 124
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1533,8 +1549,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1546,8 +1562,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1586,7 +1602,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 132
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1628,8 +1645,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1641,8 +1658,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1681,7 +1698,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 140
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1723,8 +1741,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1736,8 +1754,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1776,7 +1794,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 148
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1818,8 +1837,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1831,8 +1850,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1871,7 +1890,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 156
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -1913,8 +1933,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -1926,8 +1946,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -1966,7 +1986,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 164
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2008,8 +2029,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2021,8 +2042,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2061,7 +2082,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 172
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2103,8 +2125,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2116,8 +2138,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2156,7 +2178,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 180
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2198,8 +2221,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2211,8 +2234,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2251,7 +2274,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 188
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2293,8 +2317,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2306,8 +2330,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2346,7 +2370,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 196
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2388,8 +2413,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2401,8 +2426,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2441,7 +2466,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 204
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2483,8 +2509,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2496,8 +2522,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2536,7 +2562,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 212
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2578,8 +2605,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2591,8 +2618,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2631,7 +2658,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 220
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2673,8 +2701,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2686,8 +2714,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2726,7 +2754,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 228
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -2768,8 +2797,8 @@ structs:
         description: (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register override
-              is applied
+            description: output signal from selected peripheral, before register
+              override is applied
             index: 8
             width: 1
             read: true
@@ -2781,8 +2810,8 @@ structs:
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register override
-              is applied
+            description: output enable from selected peripheral, before register
+              override is applied
             index: 12
             width: 1
             read: true
@@ -2821,7 +2850,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 236
-        description: (read-write) GPIO control including function select and overrides.
+        description: (read-write) GPIO control including function select and 
+          overrides.
         fields:
           - name: FUNCSEL
             description: "0-31 -> selects pin function according to the gpio table\\\
@@ -4732,7 +4762,8 @@ structs:
         expected_size: 4
         expected_offset: 288
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc0
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc0
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -4899,7 +4930,8 @@ structs:
         expected_size: 4
         expected_offset: 292
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc0
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc0
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -5066,7 +5098,8 @@ structs:
         expected_size: 4
         expected_offset: 296
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc0
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc0
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -5233,7 +5266,8 @@ structs:
         expected_size: 4
         expected_offset: 300
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc0
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc0
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -6608,7 +6642,8 @@ structs:
         expected_size: 4
         expected_offset: 336
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc1
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc1
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -6775,7 +6810,8 @@ structs:
         expected_size: 4
         expected_offset: 340
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc1
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc1
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -6942,7 +6978,8 @@ structs:
         expected_size: 4
         expected_offset: 344
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc1
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc1
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -7109,7 +7146,8 @@ structs:
         expected_size: 4
         expected_offset: 348
         const: true
-        description: (read-only) Interrupt status after masking & forcing for proc1
+        description: (read-only) Interrupt status after masking & forcing for 
+          proc1
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -8484,7 +8522,8 @@ structs:
         expected_size: 4
         expected_offset: 384
         const: true
-        description: (read-only) Interrupt status after masking & forcing for dormant_wake
+        description: (read-only) Interrupt status after masking & forcing for 
+          dormant_wake
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -8651,7 +8690,8 @@ structs:
         expected_size: 4
         expected_offset: 388
         const: true
-        description: (read-only) Interrupt status after masking & forcing for dormant_wake
+        description: (read-only) Interrupt status after masking & forcing for 
+          dormant_wake
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -8818,7 +8858,8 @@ structs:
         expected_size: 4
         expected_offset: 392
         const: true
-        description: (read-only) Interrupt status after masking & forcing for dormant_wake
+        description: (read-only) Interrupt status after masking & forcing for 
+          dormant_wake
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -8985,7 +9026,8 @@ structs:
         expected_size: 4
         expected_offset: 396
         const: true
-        description: (read-only) Interrupt status after masking & forcing for dormant_wake
+        description: (read-only) Interrupt status after masking & forcing for 
+          dormant_wake
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -9107,11 +9149,6 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   IO_BANK0_GPIO0_CTRL_FUNCSEL:
     enum:
@@ -9145,7 +9182,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9160,11 +9198,12 @@ enums:
   IO_BANK0_GPIO0_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9244,7 +9283,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9259,11 +9299,12 @@ enums:
   IO_BANK0_GPIO1_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9343,7 +9384,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9358,11 +9400,12 @@ enums:
   IO_BANK0_GPIO2_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9442,7 +9485,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9457,11 +9501,12 @@ enums:
   IO_BANK0_GPIO3_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9539,7 +9584,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9554,11 +9600,12 @@ enums:
   IO_BANK0_GPIO4_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9636,7 +9683,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9651,11 +9699,12 @@ enums:
   IO_BANK0_GPIO5_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9735,7 +9784,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9750,11 +9800,12 @@ enums:
   IO_BANK0_GPIO6_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9834,7 +9885,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9849,11 +9901,12 @@ enums:
   IO_BANK0_GPIO7_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -9933,7 +9986,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -9948,11 +10002,12 @@ enums:
   IO_BANK0_GPIO8_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10032,7 +10087,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10047,11 +10103,12 @@ enums:
   IO_BANK0_GPIO9_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10131,7 +10188,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10146,11 +10204,12 @@ enums:
   IO_BANK0_GPIO10_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10230,7 +10289,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10245,11 +10305,12 @@ enums:
   IO_BANK0_GPIO11_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10329,7 +10390,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10344,11 +10406,12 @@ enums:
   IO_BANK0_GPIO12_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10428,7 +10491,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10443,11 +10507,12 @@ enums:
   IO_BANK0_GPIO13_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10527,7 +10592,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10542,11 +10608,12 @@ enums:
   IO_BANK0_GPIO14_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10626,7 +10693,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10641,11 +10709,12 @@ enums:
   IO_BANK0_GPIO15_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10725,7 +10794,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10740,11 +10810,12 @@ enums:
   IO_BANK0_GPIO16_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10822,7 +10893,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10837,11 +10909,12 @@ enums:
   IO_BANK0_GPIO17_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -10919,7 +10992,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -10934,11 +11008,12 @@ enums:
   IO_BANK0_GPIO18_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11016,7 +11091,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11031,11 +11107,12 @@ enums:
   IO_BANK0_GPIO19_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11115,7 +11192,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11130,11 +11208,12 @@ enums:
   IO_BANK0_GPIO20_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11214,7 +11293,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11229,11 +11309,12 @@ enums:
   IO_BANK0_GPIO21_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11313,7 +11394,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11328,11 +11410,12 @@ enums:
   IO_BANK0_GPIO22_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11412,7 +11495,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11427,11 +11511,12 @@ enums:
   IO_BANK0_GPIO23_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11511,7 +11596,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11526,11 +11612,12 @@ enums:
   IO_BANK0_GPIO24_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11610,7 +11697,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11625,11 +11713,12 @@ enums:
   IO_BANK0_GPIO25_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11707,7 +11796,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11722,11 +11812,12 @@ enums:
   IO_BANK0_GPIO26_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11804,7 +11895,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11819,11 +11911,12 @@ enums:
   IO_BANK0_GPIO27_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11901,7 +11994,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -11916,11 +12010,12 @@ enums:
   IO_BANK0_GPIO28_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output
@@ -11998,7 +12093,8 @@ enums:
         description: drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by funcsel
+        description: drive output from inverse of peripheral signal selected by 
+          funcsel
         value: 1
       LOW:
         description: drive output low
@@ -12013,11 +12109,12 @@ enums:
   IO_BANK0_GPIO29_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by funcsel
+        description: drive output enable from peripheral signal selected by 
+          funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal selected
-          by funcsel
+        description: drive output enable from inverse of peripheral signal 
+          selected by funcsel
         value: 1
       DISABLE:
         description: disable output

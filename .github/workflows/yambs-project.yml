@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: [3.12]
+        python-version: [3.13]
 
     env:
       PYTHON_VERSION: ${{matrix.python-version}}
@@ -27,8 +27,6 @@ jobs:
           submodules: recursive
 
       - uses: seanmiddleditch/gha-setup-ninja@master
-        with:
-          version: 1.11.1
 
       - name: python${{matrix.python-version}} setup
         uses: actions/setup-python@main
@@ -36,25 +34,31 @@ jobs:
           python-version: ${{matrix.python-version}}
           cache: pip
 
-      - run: pip${{matrix.python-version}} install vmklib>=1.8.0 yambs
+      - run: pip${{matrix.python-version}} install vmklib>=2.0.8 yambs>=3.1.2 ifgen>=4.5.0
+
+      - run: mk --version
+      - run: mbs --version
+      - run: ig --version
 
       - run: mk dz-sync
 
-      - run: mk yaml python-lint python-sa
+      - run: mk yaml
+      - run: mk python-lint
+      - run: mk python-sa
 
-      # - name: setup clang 17
+      # - name: setup clang 19
       #   run: |
       #     wget https://apt.llvm.org/llvm.sh
       #     chmod +x ./llvm.sh
-      #     sudo ./llvm.sh 17
+      #     sudo ./llvm.sh 19
       #     rm llvm.sh
 
-      - run: sudo apt-get install gcc-13 g++-13 lcov doxygen clang-17 clang-format-17
+      - run: sudo apt-get install gcc-14 g++-14 lcov doxygen clang-19 clang-format-19
       # List versions.
-      - run: gcc-13 --version
-      - run: g++-13 --version
-      - run: clang-17 --version
-      - run: clang++-17 --version
+      - run: gcc-14 --version
+      - run: g++-14 --version
+      - run: clang-19 --version
+      - run: clang++-19 --version
 
       - run: mk t variant=clang coverage=false
       - run: ninja all format-check
@@ -65,12 +69,11 @@ jobs:
       - run: mk c keep=debug
       - run: mk t variant=debug
 
-      - uses: codecov/codecov-action@v3.1.5
+      - uses: codecov/codecov-action@v5
         with:
-          gcov: true
           gcov_include: build/debug
           gcov_ignore: .mypy_cache
-          gcov_executable: gcov-13
+          gcov_executable: gcov-14
           fail_ci_if_error: true
           verbose: true
           token: ${{secrets.CODECOV_TOKEN}}
