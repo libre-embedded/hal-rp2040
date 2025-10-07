@@ -19,14 +19,10 @@ struct [[gnu::packed]] psm
     static constexpr std::size_t size = 16; /*!< psm's size in bytes. */
 
     /* Fields. */
-    uint32_t FRCE_ON; /*!< (read-write) Force block out of reset (i.e. power it
-                         on) */
-    uint32_t
-        FRCE_OFF;   /*!< (read-write) Force into reset (i.e. power it off) */
-    uint32_t WDSEL; /*!< (read-write) Set to 1 if this peripheral should be
-                       reset when the watchdog fires. */
-    const uint32_t DONE = {}; /*!< (read-only) Indicates the peripheral's
-                                 registers are ready to access. */
+    uint32_t FRCE_ON;         /*!< (read-write) Force block out of reset (i.e. power it on) */
+    uint32_t FRCE_OFF;        /*!< (read-write) Force into reset (i.e. power it off) */
+    uint32_t WDSEL;           /*!< (read-write) Set to 1 if this peripheral should be reset when the watchdog fires. */
+    const uint32_t DONE = {}; /*!< (read-only) Indicates the peripheral's registers are ready to access. */
 
     /* Methods. */
 
@@ -579,11 +575,7 @@ struct [[gnu::packed]] psm
      *
      * (read-write) Force block out of reset (i.e. power it on)
      */
-    inline void get_FRCE_ON(bool &rosc, bool &xosc, bool &clocks, bool &resets,
-                            bool &busfabric, bool &rom, bool &sram0,
-                            bool &sram1, bool &sram2, bool &sram3, bool &sram4,
-                            bool &sram5, bool &xip, bool &vreg_and_chip_reset,
-                            bool &sio, bool &proc0, bool &proc1) volatile
+    inline void get_FRCE_ON(bool &rosc, bool &xosc, bool &clocks, bool &resets, bool &busfabric, bool &rom, bool &sram0, bool &sram1, bool &sram2, bool &sram3, bool &sram4, bool &sram5, bool &xip, bool &vreg_and_chip_reset, bool &sio, bool &proc0, bool &proc1) volatile
     {
         uint32_t curr = FRCE_ON;
 
@@ -611,11 +603,7 @@ struct [[gnu::packed]] psm
      *
      * (read-write) Force block out of reset (i.e. power it on)
      */
-    inline void set_FRCE_ON(bool rosc, bool xosc, bool clocks, bool resets,
-                            bool busfabric, bool rom, bool sram0, bool sram1,
-                            bool sram2, bool sram3, bool sram4, bool sram5,
-                            bool xip, bool vreg_and_chip_reset, bool sio,
-                            bool proc0, bool proc1) volatile
+    inline void set_FRCE_ON(bool rosc, bool xosc, bool clocks, bool resets, bool busfabric, bool rom, bool sram0, bool sram1, bool sram2, bool sram3, bool sram4, bool sram5, bool xip, bool vreg_and_chip_reset, bool sio, bool proc0, bool proc1) volatile
     {
         uint32_t curr = FRCE_ON;
 
@@ -1206,12 +1194,7 @@ struct [[gnu::packed]] psm
      *
      * (read-write) Force into reset (i.e. power it off)
      */
-    inline void get_FRCE_OFF(bool &rosc, bool &xosc, bool &clocks,
-                             bool &resets, bool &busfabric, bool &rom,
-                             bool &sram0, bool &sram1, bool &sram2,
-                             bool &sram3, bool &sram4, bool &sram5, bool &xip,
-                             bool &vreg_and_chip_reset, bool &sio, bool &proc0,
-                             bool &proc1) volatile
+    inline void get_FRCE_OFF(bool &rosc, bool &xosc, bool &clocks, bool &resets, bool &busfabric, bool &rom, bool &sram0, bool &sram1, bool &sram2, bool &sram3, bool &sram4, bool &sram5, bool &xip, bool &vreg_and_chip_reset, bool &sio, bool &proc0, bool &proc1) volatile
     {
         uint32_t curr = FRCE_OFF;
 
@@ -1239,11 +1222,7 @@ struct [[gnu::packed]] psm
      *
      * (read-write) Force into reset (i.e. power it off)
      */
-    inline void set_FRCE_OFF(bool rosc, bool xosc, bool clocks, bool resets,
-                             bool busfabric, bool rom, bool sram0, bool sram1,
-                             bool sram2, bool sram3, bool sram4, bool sram5,
-                             bool xip, bool vreg_and_chip_reset, bool sio,
-                             bool proc0, bool proc1) volatile
+    inline void set_FRCE_OFF(bool rosc, bool xosc, bool clocks, bool resets, bool busfabric, bool rom, bool sram0, bool sram1, bool sram2, bool sram3, bool sram4, bool sram5, bool xip, bool vreg_and_chip_reset, bool sio, bool proc0, bool proc1) volatile
     {
         uint32_t curr = FRCE_OFF;
 
@@ -1832,14 +1811,9 @@ struct [[gnu::packed]] psm
     /**
      * Get all of WDSEL's bit fields.
      *
-     * (read-write) Set to 1 if this peripheral should be reset when the
-     * watchdog fires.
+     * (read-write) Set to 1 if this peripheral should be reset when the watchdog fires.
      */
-    inline void get_WDSEL(bool &rosc, bool &xosc, bool &clocks, bool &resets,
-                          bool &busfabric, bool &rom, bool &sram0, bool &sram1,
-                          bool &sram2, bool &sram3, bool &sram4, bool &sram5,
-                          bool &xip, bool &vreg_and_chip_reset, bool &sio,
-                          bool &proc0, bool &proc1) volatile
+    inline void get_WDSEL(bool &rosc, bool &xosc, bool &clocks, bool &resets, bool &busfabric, bool &rom, bool &sram0, bool &sram1, bool &sram2, bool &sram3, bool &sram4, bool &sram5, bool &xip, bool &vreg_and_chip_reset, bool &sio, bool &proc0, bool &proc1) volatile
     {
         uint32_t curr = WDSEL;
 
@@ -1865,14 +1839,9 @@ struct [[gnu::packed]] psm
     /**
      * Set all of WDSEL's bit fields.
      *
-     * (read-write) Set to 1 if this peripheral should be reset when the
-     * watchdog fires.
+     * (read-write) Set to 1 if this peripheral should be reset when the watchdog fires.
      */
-    inline void set_WDSEL(bool rosc, bool xosc, bool clocks, bool resets,
-                          bool busfabric, bool rom, bool sram0, bool sram1,
-                          bool sram2, bool sram3, bool sram4, bool sram5,
-                          bool xip, bool vreg_and_chip_reset, bool sio,
-                          bool proc0, bool proc1) volatile
+    inline void set_WDSEL(bool rosc, bool xosc, bool clocks, bool resets, bool busfabric, bool rom, bool sram0, bool sram1, bool sram2, bool sram3, bool sram4, bool sram5, bool xip, bool vreg_and_chip_reset, bool sio, bool proc0, bool proc1) volatile
     {
         uint32_t curr = WDSEL;
 
@@ -2055,11 +2024,7 @@ struct [[gnu::packed]] psm
      *
      * (read-only) Indicates the peripheral's registers are ready to access.
      */
-    inline void get_DONE(bool &rosc, bool &xosc, bool &clocks, bool &resets,
-                         bool &busfabric, bool &rom, bool &sram0, bool &sram1,
-                         bool &sram2, bool &sram3, bool &sram4, bool &sram5,
-                         bool &xip, bool &vreg_and_chip_reset, bool &sio,
-                         bool &proc0, bool &proc1) volatile
+    inline void get_DONE(bool &rosc, bool &xosc, bool &clocks, bool &resets, bool &busfabric, bool &rom, bool &sram0, bool &sram1, bool &sram2, bool &sram3, bool &sram4, bool &sram5, bool &xip, bool &vreg_and_chip_reset, bool &sio, bool &proc0, bool &proc1) volatile
     {
         uint32_t curr = DONE;
 

@@ -24,32 +24,27 @@ struct [[gnu::packed]] rosc
     static constexpr std::size_t size = 36; /*!< rosc's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;    /*!< (read-write) Ring Oscillator control */
-    uint32_t FREQA;   /*!< (read-write) The FREQA & FREQB registers control the
-       frequency by controlling the drive strength of each stage\n        The
-   drive strength   has 4 levels determined by the number of bits set\n
-   Increasing   the number of   bits set increases the drive strength and
-   increases   the   oscillation frequency\n   0 bits set is the default drive
-   strength\n   1   bit set   doubles the drive strength\n   2 bits set triples
-   drive strength\n   3   bits set   quadruples drive strength */
-    uint32_t FREQB;   /*!< (read-write) For a detailed description see freqa
-                         register */
-    uint32_t DORMANT; /*!< (read-write) Ring Oscillator pause control\n
-   This is used to save power by pausing the ROSC\n
-   On power-up this field is initialised to WAKE\n
-   An invalid write will also select WAKE\n
-   Warning: setup the irq before selecting dormant mode */
-    uint32_t DIV;     /*!< (read-write) Controls the output divider */
-    uint32_t PHASE;   /*!< (read-write) Controls the phase shifted output */
-    uint32_t STATUS;  /*!< (read-write) Ring Oscillator Status */
-    const uint32_t RANDOMBIT =
-        {}; /*!< (read-only) This just reads the state of the oscillator output
-               so randomness is compromised if the ring oscillator is stopped
-               or run at a harmonic of the bus frequency */
-    uint32_t COUNT; /*!< (read-write) A down counter running at the ROSC
- frequency which counts to zero and stops.\n To start the counter write a
- non-zero value.\n Can be used for short software pauses when setting up time
- sensitive hardware. */
+    uint32_t CTRL;                 /*!< (read-write) Ring Oscillator control */
+    uint32_t FREQA;                /*!< (read-write) The FREQA & FREQB registers control the frequency by controlling the drive strength of each stage\n
+                The drive strength has 4 levels determined by the number of bits set\n
+                Increasing the number of bits set increases the drive strength and increases the oscillation frequency\n
+                0 bits set is the default drive strength\n
+                1 bit set doubles the drive strength\n
+                2 bits set triples drive strength\n
+                3 bits set quadruples drive strength */
+    uint32_t FREQB;                /*!< (read-write) For a detailed description see freqa register */
+    uint32_t DORMANT;              /*!< (read-write) Ring Oscillator pause control\n
+                This is used to save power by pausing the ROSC\n
+                On power-up this field is initialised to WAKE\n
+                An invalid write will also select WAKE\n
+                Warning: setup the irq before selecting dormant mode */
+    uint32_t DIV;                  /*!< (read-write) Controls the output divider */
+    uint32_t PHASE;                /*!< (read-write) Controls the phase shifted output */
+    uint32_t STATUS;               /*!< (read-write) Ring Oscillator Status */
+    const uint32_t RANDOMBIT = {}; /*!< (read-only) This just reads the state of the oscillator output so randomness is compromised if the ring oscillator is stopped or run at a harmonic of the bus frequency */
+    uint32_t COUNT;                /*!< (read-write) A down counter running at the ROSC frequency which counts to zero and stops.\n
+                To start the counter write a non-zero value.\n
+                Can be used for short software pauses when setting up time sensitive hardware. */
 
     /* Methods. */
 
@@ -60,11 +55,10 @@ struct [[gnu::packed]] rosc
      *                 LOW uses stages 0 to 7\n
      *                 MEDIUM uses stages 0 to 5\n
      *                 HIGH uses stages 0 to 3\n
-     *                 TOOHIGH uses stages 0 to 1 and should not be used
-     * because its frequency exceeds design specifications\n The clock output
-     * will not glitch when changing the range up one step at a time\n The
-     * clock output will glitch when changing the range down\n Note: the values
-     * here are gray coded which is why HIGH comes before TOOHIGH
+     *                 TOOHIGH uses stages 0 to 1 and should not be used because its frequency exceeds design specifications\n
+     *                 The clock output will not glitch when changing the range up one step at a time\n
+     *                 The clock output will glitch when changing the range down\n
+     *                 Note: the values here are gray coded which is why HIGH comes before TOOHIGH
      */
     inline ROSC_CTRL_FREQ_RANGE get_CTRL_FREQ_RANGE() volatile
     {
@@ -78,11 +72,10 @@ struct [[gnu::packed]] rosc
      *                 LOW uses stages 0 to 7\n
      *                 MEDIUM uses stages 0 to 5\n
      *                 HIGH uses stages 0 to 3\n
-     *                 TOOHIGH uses stages 0 to 1 and should not be used
-     * because its frequency exceeds design specifications\n The clock output
-     * will not glitch when changing the range up one step at a time\n The
-     * clock output will glitch when changing the range down\n Note: the values
-     * here are gray coded which is why HIGH comes before TOOHIGH
+     *                 TOOHIGH uses stages 0 to 1 and should not be used because its frequency exceeds design specifications\n
+     *                 The clock output will not glitch when changing the range up one step at a time\n
+     *                 The clock output will glitch when changing the range down\n
+     *                 Note: the values here are gray coded which is why HIGH comes before TOOHIGH
      */
     inline void set_CTRL_FREQ_RANGE(ROSC_CTRL_FREQ_RANGE value) volatile
     {
@@ -98,11 +91,8 @@ struct [[gnu::packed]] rosc
      * Get CTRL's ENABLE field.
      *
      * On power-up this field is initialised to ENABLE\n
-     *                 The system clock must be switched to another source
-     * before setting this field to DISABLE otherwise the chip will lock up\n
-     *                 The 12-bit code is intended to give some protection
-     * against accidental writes. An invalid setting will enable the
-     * oscillator.
+     *                 The system clock must be switched to another source before setting this field to DISABLE otherwise the chip will lock up\n
+     *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline ROSC_CTRL_ENABLE get_CTRL_ENABLE() volatile
     {
@@ -113,11 +103,8 @@ struct [[gnu::packed]] rosc
      * Set CTRL's ENABLE field.
      *
      * On power-up this field is initialised to ENABLE\n
-     *                 The system clock must be switched to another source
-     * before setting this field to DISABLE otherwise the chip will lock up\n
-     *                 The 12-bit code is intended to give some protection
-     * against accidental writes. An invalid setting will enable the
-     * oscillator.
+     *                 The system clock must be switched to another source before setting this field to DISABLE otherwise the chip will lock up\n
+     *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline void set_CTRL_ENABLE(ROSC_CTRL_ENABLE value) volatile
     {
@@ -134,8 +121,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) Ring Oscillator control
      */
-    inline void get_CTRL(ROSC_CTRL_FREQ_RANGE &FREQ_RANGE,
-                         ROSC_CTRL_ENABLE &ENABLE) volatile
+    inline void get_CTRL(ROSC_CTRL_FREQ_RANGE &FREQ_RANGE, ROSC_CTRL_ENABLE &ENABLE) volatile
     {
         uint32_t curr = CTRL;
 
@@ -148,8 +134,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) Ring Oscillator control
      */
-    inline void set_CTRL(ROSC_CTRL_FREQ_RANGE FREQ_RANGE,
-                         ROSC_CTRL_ENABLE ENABLE) volatile
+    inline void set_CTRL(ROSC_CTRL_FREQ_RANGE FREQ_RANGE, ROSC_CTRL_ENABLE ENABLE) volatile
     {
         uint32_t curr = CTRL;
 
@@ -265,8 +250,7 @@ struct [[gnu::packed]] rosc
      * Get FREQA's PASSWD field.
      *
      * Set to 0x9696 to apply the settings\n
-     *                 Any other value in this field will set all drive
-     * strengths to 0
+     *                 Any other value in this field will set all drive strengths to 0
      */
     inline ROSC_FREQA_PASSWD get_FREQA_PASSWD() volatile
     {
@@ -277,8 +261,7 @@ struct [[gnu::packed]] rosc
      * Set FREQA's PASSWD field.
      *
      * Set to 0x9696 to apply the settings\n
-     *                 Any other value in this field will set all drive
-     * strengths to 0
+     *                 Any other value in this field will set all drive strengths to 0
      */
     inline void set_FREQA_PASSWD(ROSC_FREQA_PASSWD value) volatile
     {
@@ -293,16 +276,15 @@ struct [[gnu::packed]] rosc
     /**
      * Get all of FREQA's bit fields.
      *
-     * (read-write) The FREQA & FREQB registers control the frequency by
-     * controlling the drive strength of each stage\n The drive strength has 4
-     * levels determined by the number of bits set\n Increasing the number of
-     * bits set increases the drive strength and increases the oscillation
-     * frequency\n 0 bits set is the default drive strength\n 1 bit set doubles
-     * the drive strength\n 2 bits set triples drive strength\n 3 bits set
-     * quadruples drive strength
+     * (read-write) The FREQA & FREQB registers control the frequency by controlling the drive strength of each stage\n
+     *             The drive strength has 4 levels determined by the number of bits set\n
+     *             Increasing the number of bits set increases the drive strength and increases the oscillation frequency\n
+     *             0 bits set is the default drive strength\n
+     *             1 bit set doubles the drive strength\n
+     *             2 bits set triples drive strength\n
+     *             3 bits set quadruples drive strength
      */
-    inline void get_FREQA(uint8_t &DS0, uint8_t &DS1, uint8_t &DS2,
-                          uint8_t &DS3, ROSC_FREQA_PASSWD &PASSWD) volatile
+    inline void get_FREQA(uint8_t &DS0, uint8_t &DS1, uint8_t &DS2, uint8_t &DS3, ROSC_FREQA_PASSWD &PASSWD) volatile
     {
         uint32_t curr = FREQA;
 
@@ -316,16 +298,15 @@ struct [[gnu::packed]] rosc
     /**
      * Set all of FREQA's bit fields.
      *
-     * (read-write) The FREQA & FREQB registers control the frequency by
-     * controlling the drive strength of each stage\n The drive strength has 4
-     * levels determined by the number of bits set\n Increasing the number of
-     * bits set increases the drive strength and increases the oscillation
-     * frequency\n 0 bits set is the default drive strength\n 1 bit set doubles
-     * the drive strength\n 2 bits set triples drive strength\n 3 bits set
-     * quadruples drive strength
+     * (read-write) The FREQA & FREQB registers control the frequency by controlling the drive strength of each stage\n
+     *             The drive strength has 4 levels determined by the number of bits set\n
+     *             Increasing the number of bits set increases the drive strength and increases the oscillation frequency\n
+     *             0 bits set is the default drive strength\n
+     *             1 bit set doubles the drive strength\n
+     *             2 bits set triples drive strength\n
+     *             3 bits set quadruples drive strength
      */
-    inline void set_FREQA(uint8_t DS0, uint8_t DS1, uint8_t DS2, uint8_t DS3,
-                          ROSC_FREQA_PASSWD PASSWD) volatile
+    inline void set_FREQA(uint8_t DS0, uint8_t DS1, uint8_t DS2, uint8_t DS3, ROSC_FREQA_PASSWD PASSWD) volatile
     {
         uint32_t curr = FREQA;
 
@@ -447,8 +428,7 @@ struct [[gnu::packed]] rosc
      * Get FREQB's PASSWD field.
      *
      * Set to 0x9696 to apply the settings\n
-     *                 Any other value in this field will set all drive
-     * strengths to 0
+     *                 Any other value in this field will set all drive strengths to 0
      */
     inline ROSC_FREQB_PASSWD get_FREQB_PASSWD() volatile
     {
@@ -459,8 +439,7 @@ struct [[gnu::packed]] rosc
      * Set FREQB's PASSWD field.
      *
      * Set to 0x9696 to apply the settings\n
-     *                 Any other value in this field will set all drive
-     * strengths to 0
+     *                 Any other value in this field will set all drive strengths to 0
      */
     inline void set_FREQB_PASSWD(ROSC_FREQB_PASSWD value) volatile
     {
@@ -477,8 +456,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) For a detailed description see freqa register
      */
-    inline void get_FREQB(uint8_t &DS4, uint8_t &DS5, uint8_t &DS6,
-                          uint8_t &DS7, ROSC_FREQB_PASSWD &PASSWD) volatile
+    inline void get_FREQB(uint8_t &DS4, uint8_t &DS5, uint8_t &DS6, uint8_t &DS7, ROSC_FREQB_PASSWD &PASSWD) volatile
     {
         uint32_t curr = FREQB;
 
@@ -494,8 +472,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) For a detailed description see freqa register
      */
-    inline void set_FREQB(uint8_t DS4, uint8_t DS5, uint8_t DS6, uint8_t DS7,
-                          ROSC_FREQB_PASSWD PASSWD) volatile
+    inline void set_FREQB(uint8_t DS4, uint8_t DS5, uint8_t DS6, uint8_t DS7, ROSC_FREQB_PASSWD PASSWD) volatile
     {
         uint32_t curr = FREQB;
 
@@ -695,8 +672,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) Controls the phase shifted output
      */
-    inline void get_PHASE(uint8_t &SHIFT, bool &FLIP, bool &ENABLE,
-                          uint8_t &PASSWD) volatile
+    inline void get_PHASE(uint8_t &SHIFT, bool &FLIP, bool &ENABLE, uint8_t &PASSWD) volatile
     {
         uint32_t curr = PHASE;
 
@@ -711,8 +687,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) Controls the phase shifted output
      */
-    inline void set_PHASE(uint8_t SHIFT, bool FLIP, bool ENABLE,
-                          uint8_t PASSWD) volatile
+    inline void set_PHASE(uint8_t SHIFT, bool FLIP, bool ENABLE, uint8_t PASSWD) volatile
     {
         uint32_t curr = PHASE;
 
@@ -732,8 +707,7 @@ struct [[gnu::packed]] rosc
      * Get STATUS's ENABLED bit.
      *
      * Oscillator is enabled but not necessarily running and stable\n
-     *                 this resets to 0 but transitions to 1 during chip
-     * startup
+     *                 this resets to 0 but transitions to 1 during chip startup
      */
     inline bool get_STATUS_ENABLED() volatile
     {
@@ -744,8 +718,7 @@ struct [[gnu::packed]] rosc
      * Get STATUS's DIV_RUNNING bit.
      *
      * post-divider is running\n
-     *                 this resets to 0 but transitions to 1 during chip
-     * startup
+     *                 this resets to 0 but transitions to 1 during chip startup
      */
     inline bool get_STATUS_DIV_RUNNING() volatile
     {
@@ -755,8 +728,7 @@ struct [[gnu::packed]] rosc
     /**
      * Get STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * FREQA or FREQB or DIV or PHASE or DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
      */
     inline bool get_STATUS_BADWRITE() volatile
     {
@@ -766,8 +738,7 @@ struct [[gnu::packed]] rosc
     /**
      * Set STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * FREQA or FREQB or DIV or PHASE or DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
      */
     inline void set_STATUS_BADWRITE() volatile
     {
@@ -777,8 +748,7 @@ struct [[gnu::packed]] rosc
     /**
      * Clear STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * FREQA or FREQB or DIV or PHASE or DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
      */
     inline void clear_STATUS_BADWRITE() volatile
     {
@@ -788,8 +758,7 @@ struct [[gnu::packed]] rosc
     /**
      * Toggle STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * FREQA or FREQB or DIV or PHASE or DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
      */
     inline void toggle_STATUS_BADWRITE() volatile
     {
@@ -811,8 +780,7 @@ struct [[gnu::packed]] rosc
      *
      * (read-write) Ring Oscillator Status
      */
-    inline void get_STATUS(bool &ENABLED, bool &DIV_RUNNING, bool &BADWRITE,
-                           bool &STABLE) volatile
+    inline void get_STATUS(bool &ENABLED, bool &DIV_RUNNING, bool &BADWRITE, bool &STABLE) volatile
     {
         uint32_t curr = STATUS;
 

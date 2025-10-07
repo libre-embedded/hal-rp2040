@@ -52,8 +52,7 @@ inline const char *to_string(IO_BANK0_GPIO1_CTRL_IRQOVER instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                IO_BANK0_GPIO1_CTRL_IRQOVER instance)
+inline std::ostream &operator<<(std::ostream &stream, IO_BANK0_GPIO1_CTRL_IRQOVER instance)
 {
     stream << to_string(instance);
     return stream;

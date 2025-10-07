@@ -80,15 +80,12 @@ namespace RP2040
 struct [[gnu::packed]] usbctrl_dpram
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 25; /*!< usbctrl_dpram's identifier. */
-    static constexpr std::size_t size =
-        256; /*!< usbctrl_dpram's size in bytes. */
+    static constexpr struct_id_t id = 25;    /*!< usbctrl_dpram's identifier. */
+    static constexpr std::size_t size = 256; /*!< usbctrl_dpram's size in bytes. */
 
     /* Fields. */
-    uint32_t SETUP_PACKET_LOW;  /*!< (read-write) Bytes 0-3 of the SETUP packet
-                                   from the host. */
-    uint32_t SETUP_PACKET_HIGH; /*!< (read-write) Bytes 4-7 of the setup packet
-                                   from the host. */
+    uint32_t SETUP_PACKET_LOW;        /*!< (read-write) Bytes 0-3 of the SETUP packet from the host. */
+    uint32_t SETUP_PACKET_HIGH;       /*!< (read-write) Bytes 4-7 of the setup packet from the host. */
     uint32_t EP1_IN_CONTROL;
     uint32_t EP1_OUT_CONTROL;
     uint32_t EP2_IN_CONTROL;
@@ -119,156 +116,70 @@ struct [[gnu::packed]] usbctrl_dpram
     uint32_t EP14_OUT_CONTROL;
     uint32_t EP15_IN_CONTROL;
     uint32_t EP15_OUT_CONTROL;
-    uint32_t EP0_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP0_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP1_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP1_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP2_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP2_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP3_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP3_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP4_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP4_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP5_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP5_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP6_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP6_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP7_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP7_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP8_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP8_OUT_BUFFER_CONTROL;     /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-              valid if the endpoint is in double buffered mode. */
-    uint32_t EP9_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-              buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-              Fields ending in a _0 are for buffer 0. Buffer 1 controls are
-              only valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP9_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP10_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP10_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP11_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP11_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP12_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP12_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP13_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP13_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP14_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP14_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP15_IN_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-          buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-          Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-          valid if the endpoint is in double buffered mode. */
-    uint32_t
-        EP15_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both
-           buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
-           Fields ending in a _0 are for buffer 0. Buffer 1 controls are only
-           valid if the endpoint is in double buffered mode. */
+    uint32_t EP0_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP0_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP1_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP1_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP2_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP2_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP3_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP3_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP4_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP4_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP5_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP5_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP6_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP6_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP7_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP7_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP8_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP8_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP9_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP9_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP10_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP10_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP11_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP11_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP12_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP12_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP13_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP13_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP14_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP14_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP15_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
+    uint32_t EP15_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+                Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
 
     /* Methods. */
 
@@ -340,8 +251,7 @@ struct [[gnu::packed]] usbctrl_dpram
      *
      * (read-write) Bytes 0-3 of the SETUP packet from the host.
      */
-    inline void get_SETUP_PACKET_LOW(uint8_t &BMREQUESTTYPE, uint8_t &BREQUEST,
-                                     uint16_t &WVALUE) volatile
+    inline void get_SETUP_PACKET_LOW(uint8_t &BMREQUESTTYPE, uint8_t &BREQUEST, uint16_t &WVALUE) volatile
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
@@ -355,8 +265,7 @@ struct [[gnu::packed]] usbctrl_dpram
      *
      * (read-write) Bytes 0-3 of the SETUP packet from the host.
      */
-    inline void set_SETUP_PACKET_LOW(uint8_t BMREQUESTTYPE, uint8_t BREQUEST,
-                                     uint16_t WVALUE) volatile
+    inline void set_SETUP_PACKET_LOW(uint8_t BMREQUESTTYPE, uint8_t BREQUEST, uint16_t WVALUE) volatile
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
@@ -417,8 +326,7 @@ struct [[gnu::packed]] usbctrl_dpram
      *
      * (read-write) Bytes 4-7 of the setup packet from the host.
      */
-    inline void get_SETUP_PACKET_HIGH(uint16_t &WINDEX,
-                                      uint16_t &WLENGTH) volatile
+    inline void get_SETUP_PACKET_HIGH(uint16_t &WINDEX, uint16_t &WLENGTH) volatile
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
@@ -431,8 +339,7 @@ struct [[gnu::packed]] usbctrl_dpram
      *
      * (read-write) Bytes 4-7 of the setup packet from the host.
      */
-    inline void set_SETUP_PACKET_HIGH(uint16_t WINDEX,
-                                      uint16_t WLENGTH) volatile
+    inline void set_SETUP_PACKET_HIGH(uint16_t WINDEX, uint16_t WLENGTH) volatile
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
@@ -447,8 +354,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP1_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -458,8 +364,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP1_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -554,18 +459,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE
-    get_EP1_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE get_EP1_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE(
-            (EP1_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE((EP1_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP1_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP1_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP1_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP1_IN_CONTROL;
 
@@ -578,8 +480,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP1_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -589,8 +490,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP1_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -600,8 +500,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP1_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -611,8 +510,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP1_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -702,8 +600,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP1_IN_CONTROL_ENABLE() volatile
     {
@@ -713,8 +610,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP1_IN_CONTROL_ENABLE() volatile
     {
@@ -724,8 +620,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP1_IN_CONTROL_ENABLE() volatile
     {
@@ -735,8 +630,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP1_IN_CONTROL_ENABLE() volatile
     {
@@ -746,20 +640,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_IN_CONTROL's bit fields.
      */
-    inline void get_EP1_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP1_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP1_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -769,12 +657,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_IN_CONTROL's bit fields.
      */
-    inline void set_EP1_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP1_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP1_IN_CONTROL;
 
@@ -801,8 +684,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP1_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -812,8 +694,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP1_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -908,18 +789,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP1_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE get_EP1_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP1_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE((EP1_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP1_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP1_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP1_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
@@ -932,8 +810,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP1_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -943,8 +820,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP1_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -954,8 +830,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP1_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -965,8 +840,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP1_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1056,8 +930,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP1_OUT_CONTROL_ENABLE() volatile
     {
@@ -1067,8 +940,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP1_OUT_CONTROL_ENABLE() volatile
     {
@@ -1078,8 +950,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP1_OUT_CONTROL_ENABLE() volatile
     {
@@ -1089,8 +960,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP1_OUT_CONTROL_ENABLE() volatile
     {
@@ -1100,20 +970,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_OUT_CONTROL's bit fields.
      */
-    inline void get_EP1_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP1_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -1123,12 +987,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_OUT_CONTROL's bit fields.
      */
-    inline void set_EP1_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP1_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
@@ -1155,8 +1014,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP2_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -1166,8 +1024,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP2_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -1262,18 +1119,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE
-    get_EP2_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE get_EP2_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE(
-            (EP2_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE((EP2_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP2_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP2_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP2_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP2_IN_CONTROL;
 
@@ -1286,8 +1140,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP2_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1297,8 +1150,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP2_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1308,8 +1160,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP2_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1319,8 +1170,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP2_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1410,8 +1260,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP2_IN_CONTROL_ENABLE() volatile
     {
@@ -1421,8 +1270,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP2_IN_CONTROL_ENABLE() volatile
     {
@@ -1432,8 +1280,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP2_IN_CONTROL_ENABLE() volatile
     {
@@ -1443,8 +1290,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP2_IN_CONTROL_ENABLE() volatile
     {
@@ -1454,20 +1300,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_IN_CONTROL's bit fields.
      */
-    inline void get_EP2_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP2_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP2_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -1477,12 +1317,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_IN_CONTROL's bit fields.
      */
-    inline void set_EP2_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP2_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP2_IN_CONTROL;
 
@@ -1509,8 +1344,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP2_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -1520,8 +1354,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP2_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -1616,18 +1449,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP2_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE get_EP2_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP2_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE((EP2_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP2_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP2_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP2_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
@@ -1640,8 +1470,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP2_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1651,8 +1480,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP2_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1662,8 +1490,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP2_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1673,8 +1500,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP2_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -1764,8 +1590,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP2_OUT_CONTROL_ENABLE() volatile
     {
@@ -1775,8 +1600,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP2_OUT_CONTROL_ENABLE() volatile
     {
@@ -1786,8 +1610,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP2_OUT_CONTROL_ENABLE() volatile
     {
@@ -1797,8 +1620,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP2_OUT_CONTROL_ENABLE() volatile
     {
@@ -1808,20 +1630,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_OUT_CONTROL's bit fields.
      */
-    inline void get_EP2_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP2_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -1831,12 +1647,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_OUT_CONTROL's bit fields.
      */
-    inline void set_EP2_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP2_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
@@ -1863,8 +1674,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP3_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -1874,8 +1684,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP3_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -1970,18 +1779,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE
-    get_EP3_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE get_EP3_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE(
-            (EP3_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE((EP3_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP3_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP3_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP3_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP3_IN_CONTROL;
 
@@ -1994,8 +1800,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP3_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2005,8 +1810,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP3_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2016,8 +1820,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP3_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2027,8 +1830,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP3_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2118,8 +1920,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP3_IN_CONTROL_ENABLE() volatile
     {
@@ -2129,8 +1930,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP3_IN_CONTROL_ENABLE() volatile
     {
@@ -2140,8 +1940,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP3_IN_CONTROL_ENABLE() volatile
     {
@@ -2151,8 +1950,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP3_IN_CONTROL_ENABLE() volatile
     {
@@ -2162,20 +1960,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_IN_CONTROL's bit fields.
      */
-    inline void get_EP3_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP3_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP3_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -2185,12 +1977,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_IN_CONTROL's bit fields.
      */
-    inline void set_EP3_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP3_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP3_IN_CONTROL;
 
@@ -2217,8 +2004,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP3_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -2228,8 +2014,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP3_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -2324,18 +2109,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP3_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE get_EP3_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP3_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE((EP3_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP3_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP3_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP3_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
@@ -2348,8 +2130,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP3_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2359,8 +2140,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP3_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2370,8 +2150,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP3_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2381,8 +2160,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP3_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2472,8 +2250,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP3_OUT_CONTROL_ENABLE() volatile
     {
@@ -2483,8 +2260,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP3_OUT_CONTROL_ENABLE() volatile
     {
@@ -2494,8 +2270,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP3_OUT_CONTROL_ENABLE() volatile
     {
@@ -2505,8 +2280,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP3_OUT_CONTROL_ENABLE() volatile
     {
@@ -2516,20 +2290,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_OUT_CONTROL's bit fields.
      */
-    inline void get_EP3_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP3_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -2539,12 +2307,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_OUT_CONTROL's bit fields.
      */
-    inline void set_EP3_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP3_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
@@ -2571,8 +2334,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP4_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -2582,8 +2344,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP4_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -2678,18 +2439,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE
-    get_EP4_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE get_EP4_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE(
-            (EP4_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE((EP4_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP4_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP4_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP4_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP4_IN_CONTROL;
 
@@ -2702,8 +2460,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP4_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2713,8 +2470,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP4_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2724,8 +2480,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP4_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2735,8 +2490,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP4_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -2826,8 +2580,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP4_IN_CONTROL_ENABLE() volatile
     {
@@ -2837,8 +2590,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP4_IN_CONTROL_ENABLE() volatile
     {
@@ -2848,8 +2600,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP4_IN_CONTROL_ENABLE() volatile
     {
@@ -2859,8 +2610,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP4_IN_CONTROL_ENABLE() volatile
     {
@@ -2870,20 +2620,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_IN_CONTROL's bit fields.
      */
-    inline void get_EP4_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP4_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP4_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -2893,12 +2637,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_IN_CONTROL's bit fields.
      */
-    inline void set_EP4_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP4_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP4_IN_CONTROL;
 
@@ -2925,8 +2664,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP4_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -2936,8 +2674,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP4_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -3032,18 +2769,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP4_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE get_EP4_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP4_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE((EP4_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP4_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP4_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP4_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
@@ -3056,8 +2790,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP4_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3067,8 +2800,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP4_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3078,8 +2810,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP4_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3089,8 +2820,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP4_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3180,8 +2910,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP4_OUT_CONTROL_ENABLE() volatile
     {
@@ -3191,8 +2920,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP4_OUT_CONTROL_ENABLE() volatile
     {
@@ -3202,8 +2930,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP4_OUT_CONTROL_ENABLE() volatile
     {
@@ -3213,8 +2940,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP4_OUT_CONTROL_ENABLE() volatile
     {
@@ -3224,20 +2950,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_OUT_CONTROL's bit fields.
      */
-    inline void get_EP4_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP4_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -3247,12 +2967,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_OUT_CONTROL's bit fields.
      */
-    inline void set_EP4_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP4_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
@@ -3279,8 +2994,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP5_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -3290,8 +3004,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP5_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -3386,18 +3099,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE
-    get_EP5_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE get_EP5_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE(
-            (EP5_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE((EP5_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP5_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP5_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP5_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP5_IN_CONTROL;
 
@@ -3410,8 +3120,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP5_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3421,8 +3130,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP5_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3432,8 +3140,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP5_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3443,8 +3150,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP5_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3534,8 +3240,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP5_IN_CONTROL_ENABLE() volatile
     {
@@ -3545,8 +3250,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP5_IN_CONTROL_ENABLE() volatile
     {
@@ -3556,8 +3260,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP5_IN_CONTROL_ENABLE() volatile
     {
@@ -3567,8 +3270,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP5_IN_CONTROL_ENABLE() volatile
     {
@@ -3578,20 +3280,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_IN_CONTROL's bit fields.
      */
-    inline void get_EP5_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP5_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP5_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -3601,12 +3297,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_IN_CONTROL's bit fields.
      */
-    inline void set_EP5_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP5_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP5_IN_CONTROL;
 
@@ -3633,8 +3324,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP5_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -3644,8 +3334,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP5_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -3740,18 +3429,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP5_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE get_EP5_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP5_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE((EP5_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP5_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP5_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP5_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
@@ -3764,8 +3450,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP5_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3775,8 +3460,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP5_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3786,8 +3470,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP5_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3797,8 +3480,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP5_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -3888,8 +3570,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP5_OUT_CONTROL_ENABLE() volatile
     {
@@ -3899,8 +3580,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP5_OUT_CONTROL_ENABLE() volatile
     {
@@ -3910,8 +3590,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP5_OUT_CONTROL_ENABLE() volatile
     {
@@ -3921,8 +3600,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP5_OUT_CONTROL_ENABLE() volatile
     {
@@ -3932,20 +3610,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_OUT_CONTROL's bit fields.
      */
-    inline void get_EP5_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP5_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -3955,12 +3627,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_OUT_CONTROL's bit fields.
      */
-    inline void set_EP5_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP5_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
@@ -3987,8 +3654,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP6_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -3998,8 +3664,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP6_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -4094,18 +3759,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE
-    get_EP6_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE get_EP6_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE(
-            (EP6_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE((EP6_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP6_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP6_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP6_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP6_IN_CONTROL;
 
@@ -4118,8 +3780,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP6_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4129,8 +3790,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP6_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4140,8 +3800,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP6_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4151,8 +3810,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP6_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4242,8 +3900,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP6_IN_CONTROL_ENABLE() volatile
     {
@@ -4253,8 +3910,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP6_IN_CONTROL_ENABLE() volatile
     {
@@ -4264,8 +3920,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP6_IN_CONTROL_ENABLE() volatile
     {
@@ -4275,8 +3930,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP6_IN_CONTROL_ENABLE() volatile
     {
@@ -4286,20 +3940,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_IN_CONTROL's bit fields.
      */
-    inline void get_EP6_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP6_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP6_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -4309,12 +3957,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_IN_CONTROL's bit fields.
      */
-    inline void set_EP6_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP6_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP6_IN_CONTROL;
 
@@ -4341,8 +3984,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP6_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -4352,8 +3994,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP6_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -4448,18 +4089,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP6_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE get_EP6_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP6_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE((EP6_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP6_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP6_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP6_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
@@ -4472,8 +4110,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP6_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4483,8 +4120,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP6_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4494,8 +4130,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP6_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4505,8 +4140,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP6_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4596,8 +4230,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP6_OUT_CONTROL_ENABLE() volatile
     {
@@ -4607,8 +4240,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP6_OUT_CONTROL_ENABLE() volatile
     {
@@ -4618,8 +4250,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP6_OUT_CONTROL_ENABLE() volatile
     {
@@ -4629,8 +4260,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP6_OUT_CONTROL_ENABLE() volatile
     {
@@ -4640,20 +4270,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_OUT_CONTROL's bit fields.
      */
-    inline void get_EP6_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP6_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -4663,12 +4287,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_OUT_CONTROL's bit fields.
      */
-    inline void set_EP6_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP6_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
@@ -4695,8 +4314,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP7_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -4706,8 +4324,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP7_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -4802,18 +4419,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE
-    get_EP7_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE get_EP7_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE(
-            (EP7_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE((EP7_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP7_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP7_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP7_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP7_IN_CONTROL;
 
@@ -4826,8 +4440,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP7_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4837,8 +4450,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP7_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4848,8 +4460,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP7_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4859,8 +4470,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP7_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -4950,8 +4560,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP7_IN_CONTROL_ENABLE() volatile
     {
@@ -4961,8 +4570,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP7_IN_CONTROL_ENABLE() volatile
     {
@@ -4972,8 +4580,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP7_IN_CONTROL_ENABLE() volatile
     {
@@ -4983,8 +4590,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP7_IN_CONTROL_ENABLE() volatile
     {
@@ -4994,20 +4600,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_IN_CONTROL's bit fields.
      */
-    inline void get_EP7_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP7_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP7_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -5017,12 +4617,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_IN_CONTROL's bit fields.
      */
-    inline void set_EP7_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP7_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP7_IN_CONTROL;
 
@@ -5049,8 +4644,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP7_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -5060,8 +4654,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP7_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -5156,18 +4749,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP7_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE get_EP7_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP7_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE((EP7_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP7_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP7_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP7_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
@@ -5180,8 +4770,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP7_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5191,8 +4780,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP7_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5202,8 +4790,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP7_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5213,8 +4800,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP7_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5304,8 +4890,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP7_OUT_CONTROL_ENABLE() volatile
     {
@@ -5315,8 +4900,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP7_OUT_CONTROL_ENABLE() volatile
     {
@@ -5326,8 +4910,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP7_OUT_CONTROL_ENABLE() volatile
     {
@@ -5337,8 +4920,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP7_OUT_CONTROL_ENABLE() volatile
     {
@@ -5348,20 +4930,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_OUT_CONTROL's bit fields.
      */
-    inline void get_EP7_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP7_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -5371,12 +4947,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_OUT_CONTROL's bit fields.
      */
-    inline void set_EP7_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP7_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
@@ -5403,8 +4974,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP8_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -5414,8 +4984,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP8_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -5510,18 +5079,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE
-    get_EP8_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE get_EP8_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE(
-            (EP8_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE((EP8_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP8_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP8_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP8_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP8_IN_CONTROL;
 
@@ -5534,8 +5100,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP8_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5545,8 +5110,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP8_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5556,8 +5120,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP8_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5567,8 +5130,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP8_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5658,8 +5220,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP8_IN_CONTROL_ENABLE() volatile
     {
@@ -5669,8 +5230,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP8_IN_CONTROL_ENABLE() volatile
     {
@@ -5680,8 +5240,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP8_IN_CONTROL_ENABLE() volatile
     {
@@ -5691,8 +5250,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP8_IN_CONTROL_ENABLE() volatile
     {
@@ -5702,20 +5260,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_IN_CONTROL's bit fields.
      */
-    inline void get_EP8_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP8_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP8_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -5725,12 +5277,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_IN_CONTROL's bit fields.
      */
-    inline void set_EP8_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP8_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP8_IN_CONTROL;
 
@@ -5757,8 +5304,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP8_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -5768,8 +5314,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP8_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -5864,18 +5409,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP8_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE get_EP8_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP8_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE((EP8_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP8_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP8_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP8_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
@@ -5888,8 +5430,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP8_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5899,8 +5440,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP8_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5910,8 +5450,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP8_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -5921,8 +5460,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP8_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6012,8 +5550,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP8_OUT_CONTROL_ENABLE() volatile
     {
@@ -6023,8 +5560,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP8_OUT_CONTROL_ENABLE() volatile
     {
@@ -6034,8 +5570,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP8_OUT_CONTROL_ENABLE() volatile
     {
@@ -6045,8 +5580,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP8_OUT_CONTROL_ENABLE() volatile
     {
@@ -6056,20 +5590,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_OUT_CONTROL's bit fields.
      */
-    inline void get_EP8_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP8_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -6079,12 +5607,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_OUT_CONTROL's bit fields.
      */
-    inline void set_EP8_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP8_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
@@ -6111,8 +5634,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP9_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -6122,8 +5644,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP9_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -6218,18 +5739,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE
-    get_EP9_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE get_EP9_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE(
-            (EP9_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE((EP9_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP9_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP9_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP9_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP9_IN_CONTROL;
 
@@ -6242,8 +5760,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP9_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6253,8 +5770,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP9_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6264,8 +5780,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP9_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6275,8 +5790,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP9_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6366,8 +5880,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP9_IN_CONTROL_ENABLE() volatile
     {
@@ -6377,8 +5890,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP9_IN_CONTROL_ENABLE() volatile
     {
@@ -6388,8 +5900,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP9_IN_CONTROL_ENABLE() volatile
     {
@@ -6399,8 +5910,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP9_IN_CONTROL_ENABLE() volatile
     {
@@ -6410,20 +5920,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_IN_CONTROL's bit fields.
      */
-    inline void get_EP9_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP9_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP9_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -6433,12 +5937,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_IN_CONTROL's bit fields.
      */
-    inline void set_EP9_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP9_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP9_IN_CONTROL;
 
@@ -6465,8 +5964,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP9_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -6476,8 +5974,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP9_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -6572,18 +6069,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP9_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE get_EP9_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP9_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE((EP9_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP9_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP9_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP9_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
@@ -6596,8 +6090,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP9_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6607,8 +6100,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP9_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6618,8 +6110,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP9_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6629,8 +6120,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP9_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6720,8 +6210,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP9_OUT_CONTROL_ENABLE() volatile
     {
@@ -6731,8 +6220,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP9_OUT_CONTROL_ENABLE() volatile
     {
@@ -6742,8 +6230,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP9_OUT_CONTROL_ENABLE() volatile
     {
@@ -6753,8 +6240,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP9_OUT_CONTROL_ENABLE() volatile
     {
@@ -6764,20 +6250,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_OUT_CONTROL's bit fields.
      */
-    inline void get_EP9_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP9_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -6787,12 +6267,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_OUT_CONTROL's bit fields.
      */
-    inline void set_EP9_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP9_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
@@ -6819,8 +6294,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP10_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -6830,8 +6304,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP10_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -6926,18 +6399,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE
-    get_EP10_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE get_EP10_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE(
-            (EP10_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE((EP10_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP10_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP10_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP10_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP10_IN_CONTROL;
 
@@ -6950,8 +6420,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP10_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6961,8 +6430,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP10_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6972,8 +6440,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP10_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -6983,8 +6450,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP10_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7074,8 +6540,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP10_IN_CONTROL_ENABLE() volatile
     {
@@ -7085,8 +6550,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP10_IN_CONTROL_ENABLE() volatile
     {
@@ -7096,8 +6560,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP10_IN_CONTROL_ENABLE() volatile
     {
@@ -7107,8 +6570,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP10_IN_CONTROL_ENABLE() volatile
     {
@@ -7118,20 +6580,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_IN_CONTROL's bit fields.
      */
-    inline void get_EP10_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP10_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP10_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -7141,12 +6597,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_IN_CONTROL's bit fields.
      */
-    inline void set_EP10_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP10_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP10_IN_CONTROL;
 
@@ -7173,8 +6624,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP10_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -7184,8 +6634,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP10_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -7280,18 +6729,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP10_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE get_EP10_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP10_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE((EP10_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP10_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP10_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP10_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
@@ -7304,8 +6750,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP10_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7315,8 +6760,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP10_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7326,8 +6770,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP10_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7337,8 +6780,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP10_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7428,8 +6870,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP10_OUT_CONTROL_ENABLE() volatile
     {
@@ -7439,8 +6880,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP10_OUT_CONTROL_ENABLE() volatile
     {
@@ -7450,8 +6890,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP10_OUT_CONTROL_ENABLE() volatile
     {
@@ -7461,8 +6900,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP10_OUT_CONTROL_ENABLE() volatile
     {
@@ -7472,20 +6910,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_OUT_CONTROL's bit fields.
      */
-    inline void get_EP10_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP10_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -7495,12 +6927,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_OUT_CONTROL's bit fields.
      */
-    inline void set_EP10_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP10_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
@@ -7527,8 +6954,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP11_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -7538,8 +6964,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP11_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -7634,18 +7059,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE
-    get_EP11_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE get_EP11_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE(
-            (EP11_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE((EP11_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP11_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP11_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP11_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP11_IN_CONTROL;
 
@@ -7658,8 +7080,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP11_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7669,8 +7090,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP11_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7680,8 +7100,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP11_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7691,8 +7110,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP11_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -7782,8 +7200,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP11_IN_CONTROL_ENABLE() volatile
     {
@@ -7793,8 +7210,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP11_IN_CONTROL_ENABLE() volatile
     {
@@ -7804,8 +7220,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP11_IN_CONTROL_ENABLE() volatile
     {
@@ -7815,8 +7230,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP11_IN_CONTROL_ENABLE() volatile
     {
@@ -7826,20 +7240,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_IN_CONTROL's bit fields.
      */
-    inline void get_EP11_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP11_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP11_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -7849,12 +7257,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_IN_CONTROL's bit fields.
      */
-    inline void set_EP11_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP11_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP11_IN_CONTROL;
 
@@ -7881,8 +7284,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP11_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -7892,8 +7294,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP11_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -7988,18 +7389,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP11_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE get_EP11_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP11_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE((EP11_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP11_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP11_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP11_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
@@ -8012,8 +7410,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP11_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8023,8 +7420,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP11_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8034,8 +7430,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP11_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8045,8 +7440,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP11_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8136,8 +7530,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP11_OUT_CONTROL_ENABLE() volatile
     {
@@ -8147,8 +7540,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP11_OUT_CONTROL_ENABLE() volatile
     {
@@ -8158,8 +7550,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP11_OUT_CONTROL_ENABLE() volatile
     {
@@ -8169,8 +7560,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP11_OUT_CONTROL_ENABLE() volatile
     {
@@ -8180,20 +7570,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_OUT_CONTROL's bit fields.
      */
-    inline void get_EP11_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP11_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -8203,12 +7587,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_OUT_CONTROL's bit fields.
      */
-    inline void set_EP11_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP11_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
@@ -8235,8 +7614,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP12_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -8246,8 +7624,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP12_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -8342,18 +7719,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE
-    get_EP12_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE get_EP12_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE(
-            (EP12_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE((EP12_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP12_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP12_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP12_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP12_IN_CONTROL;
 
@@ -8366,8 +7740,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP12_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8377,8 +7750,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP12_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8388,8 +7760,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP12_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8399,8 +7770,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP12_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8490,8 +7860,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP12_IN_CONTROL_ENABLE() volatile
     {
@@ -8501,8 +7870,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP12_IN_CONTROL_ENABLE() volatile
     {
@@ -8512,8 +7880,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP12_IN_CONTROL_ENABLE() volatile
     {
@@ -8523,8 +7890,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP12_IN_CONTROL_ENABLE() volatile
     {
@@ -8534,20 +7900,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_IN_CONTROL's bit fields.
      */
-    inline void get_EP12_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP12_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP12_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -8557,12 +7917,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_IN_CONTROL's bit fields.
      */
-    inline void set_EP12_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP12_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP12_IN_CONTROL;
 
@@ -8589,8 +7944,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP12_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -8600,8 +7954,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP12_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -8696,18 +8049,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP12_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE get_EP12_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP12_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE((EP12_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP12_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP12_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP12_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
@@ -8720,8 +8070,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP12_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8731,8 +8080,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP12_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8742,8 +8090,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP12_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8753,8 +8100,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP12_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -8844,8 +8190,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP12_OUT_CONTROL_ENABLE() volatile
     {
@@ -8855,8 +8200,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP12_OUT_CONTROL_ENABLE() volatile
     {
@@ -8866,8 +8210,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP12_OUT_CONTROL_ENABLE() volatile
     {
@@ -8877,8 +8220,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP12_OUT_CONTROL_ENABLE() volatile
     {
@@ -8888,20 +8230,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_OUT_CONTROL's bit fields.
      */
-    inline void get_EP12_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP12_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -8911,12 +8247,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_OUT_CONTROL's bit fields.
      */
-    inline void set_EP12_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP12_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
@@ -8943,8 +8274,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP13_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -8954,8 +8284,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP13_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -9050,18 +8379,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE
-    get_EP13_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE get_EP13_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE(
-            (EP13_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE((EP13_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP13_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP13_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP13_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP13_IN_CONTROL;
 
@@ -9074,8 +8400,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP13_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9085,8 +8410,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP13_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9096,8 +8420,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP13_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9107,8 +8430,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP13_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9198,8 +8520,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP13_IN_CONTROL_ENABLE() volatile
     {
@@ -9209,8 +8530,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP13_IN_CONTROL_ENABLE() volatile
     {
@@ -9220,8 +8540,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP13_IN_CONTROL_ENABLE() volatile
     {
@@ -9231,8 +8550,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP13_IN_CONTROL_ENABLE() volatile
     {
@@ -9242,20 +8560,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_IN_CONTROL's bit fields.
      */
-    inline void get_EP13_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP13_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP13_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -9265,12 +8577,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_IN_CONTROL's bit fields.
      */
-    inline void set_EP13_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP13_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP13_IN_CONTROL;
 
@@ -9297,8 +8604,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP13_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -9308,8 +8614,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP13_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -9404,18 +8709,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP13_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE get_EP13_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP13_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE((EP13_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP13_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP13_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP13_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
@@ -9428,8 +8730,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP13_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9439,8 +8740,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP13_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9450,8 +8750,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP13_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9461,8 +8760,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP13_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9552,8 +8850,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP13_OUT_CONTROL_ENABLE() volatile
     {
@@ -9563,8 +8860,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP13_OUT_CONTROL_ENABLE() volatile
     {
@@ -9574,8 +8870,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP13_OUT_CONTROL_ENABLE() volatile
     {
@@ -9585,8 +8880,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP13_OUT_CONTROL_ENABLE() volatile
     {
@@ -9596,20 +8890,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_OUT_CONTROL's bit fields.
      */
-    inline void get_EP13_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP13_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -9619,12 +8907,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_OUT_CONTROL's bit fields.
      */
-    inline void set_EP13_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP13_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
@@ -9651,8 +8934,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP14_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -9662,8 +8944,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP14_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -9758,18 +9039,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE
-    get_EP14_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE get_EP14_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE(
-            (EP14_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE((EP14_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP14_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP14_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP14_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP14_IN_CONTROL;
 
@@ -9782,8 +9060,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP14_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9793,8 +9070,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP14_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9804,8 +9080,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP14_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9815,8 +9090,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP14_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -9906,8 +9180,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP14_IN_CONTROL_ENABLE() volatile
     {
@@ -9917,8 +9190,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP14_IN_CONTROL_ENABLE() volatile
     {
@@ -9928,8 +9200,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP14_IN_CONTROL_ENABLE() volatile
     {
@@ -9939,8 +9210,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP14_IN_CONTROL_ENABLE() volatile
     {
@@ -9950,20 +9220,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_IN_CONTROL's bit fields.
      */
-    inline void get_EP14_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP14_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP14_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -9973,12 +9237,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_IN_CONTROL's bit fields.
      */
-    inline void set_EP14_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP14_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP14_IN_CONTROL;
 
@@ -10005,8 +9264,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP14_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -10016,8 +9274,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP14_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -10112,18 +9369,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP14_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE get_EP14_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP14_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE((EP14_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP14_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP14_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP14_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
@@ -10136,8 +9390,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP14_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10147,8 +9400,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP14_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10158,8 +9410,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP14_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10169,8 +9420,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP14_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10260,8 +9510,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP14_OUT_CONTROL_ENABLE() volatile
     {
@@ -10271,8 +9520,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP14_OUT_CONTROL_ENABLE() volatile
     {
@@ -10282,8 +9530,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP14_OUT_CONTROL_ENABLE() volatile
     {
@@ -10293,8 +9540,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP14_OUT_CONTROL_ENABLE() volatile
     {
@@ -10304,20 +9550,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_OUT_CONTROL's bit fields.
      */
-    inline void get_EP14_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP14_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -10327,12 +9567,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_OUT_CONTROL's bit fields.
      */
-    inline void set_EP14_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP14_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
@@ -10359,8 +9594,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP15_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -10370,8 +9604,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP15_IN_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -10466,18 +9699,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE
-    get_EP15_IN_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE get_EP15_IN_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE(
-            (EP15_IN_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE((EP15_IN_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP15_IN_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP15_IN_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP15_IN_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP15_IN_CONTROL;
 
@@ -10490,8 +9720,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP15_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10501,8 +9730,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP15_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10512,8 +9740,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP15_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10523,8 +9750,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP15_IN_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10614,8 +9840,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP15_IN_CONTROL_ENABLE() volatile
     {
@@ -10625,8 +9850,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP15_IN_CONTROL_ENABLE() volatile
     {
@@ -10636,8 +9860,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP15_IN_CONTROL_ENABLE() volatile
     {
@@ -10647,8 +9870,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP15_IN_CONTROL_ENABLE() volatile
     {
@@ -10658,20 +9880,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_IN_CONTROL's bit fields.
      */
-    inline void get_EP15_IN_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP15_IN_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP15_IN_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE =
-            USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -10681,12 +9897,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_IN_CONTROL's bit fields.
      */
-    inline void set_EP15_IN_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP15_IN_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP15_IN_CONTROL;
 
@@ -10713,8 +9924,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline uint16_t get_EP15_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
@@ -10724,8 +9934,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_CONTROL's BUFFER_ADDRESS field.
      *
-     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored).
-     * Relative to the start of the DPRAM.
+     * 64 byte aligned buffer address for this EP (bits 0-5 are ignored). Relative to the start of the DPRAM.
      */
     inline void set_EP15_OUT_CONTROL_BUFFER_ADDRESS(uint16_t value) volatile
     {
@@ -10820,18 +10029,15 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE
-    get_EP15_OUT_CONTROL_ENDPOINT_TYPE() volatile
+    inline USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE get_EP15_OUT_CONTROL_ENDPOINT_TYPE() volatile
     {
-        return USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE(
-            (EP15_OUT_CONTROL >> 26u) & 0b11u);
+        return USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE((EP15_OUT_CONTROL >> 26u) & 0b11u);
     }
 
     /**
      * Set EP15_OUT_CONTROL's ENDPOINT_TYPE field.
      */
-    inline void set_EP15_OUT_CONTROL_ENDPOINT_TYPE(
-        USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE value) volatile
+    inline void set_EP15_OUT_CONTROL_ENDPOINT_TYPE(USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE value) volatile
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
@@ -10844,8 +10050,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline bool get_EP15_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10855,8 +10060,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void set_EP15_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10866,8 +10070,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void clear_EP15_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10877,8 +10080,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_CONTROL's INTERRUPT_PER_DOUBLE_BUFF bit.
      *
-     * Trigger an interrupt each time both buffers are done. Only valid in
-     * double buffered mode.
+     * Trigger an interrupt each time both buffers are done. Only valid in double buffered mode.
      */
     inline void toggle_EP15_OUT_CONTROL_INTERRUPT_PER_DOUBLE_BUFF() volatile
     {
@@ -10968,8 +10170,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline bool get_EP15_OUT_CONTROL_ENABLE() volatile
     {
@@ -10979,8 +10180,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void set_EP15_OUT_CONTROL_ENABLE() volatile
     {
@@ -10990,8 +10190,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void clear_EP15_OUT_CONTROL_ENABLE() volatile
     {
@@ -11001,8 +10200,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_CONTROL's ENABLE bit.
      *
-     * Enable this endpoint. The device will not reply to any packets for this
-     * endpoint if this bit is not set.
+     * Enable this endpoint. The device will not reply to any packets for this endpoint if this bit is not set.
      */
     inline void toggle_EP15_OUT_CONTROL_ENABLE() volatile
     {
@@ -11012,20 +10210,14 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_OUT_CONTROL's bit fields.
      */
-    inline void get_EP15_OUT_CONTROL(
-        uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK,
-        bool &INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE,
-        bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF,
-        bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
+    inline void get_EP15_OUT_CONTROL(uint16_t &BUFFER_ADDRESS, bool &INTERRUPT_ON_NAK, bool &INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE &ENDPOINT_TYPE, bool &INTERRUPT_PER_DOUBLE_BUFF, bool &INTERRUPT_PER_BUFF, bool &DOUBLE_BUFFERED, bool &ENABLE) volatile
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
         BUFFER_ADDRESS = (curr >> 0u) & 0b1111111111111111u;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
-        ENDPOINT_TYPE = USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE(
-            (curr >> 26u) & 0b11u);
+        ENDPOINT_TYPE = USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
         INTERRUPT_PER_DOUBLE_BUFF = curr & (1u << 28u);
         INTERRUPT_PER_BUFF = curr & (1u << 29u);
         DOUBLE_BUFFERED = curr & (1u << 30u);
@@ -11035,12 +10227,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_OUT_CONTROL's bit fields.
      */
-    inline void set_EP15_OUT_CONTROL(
-        uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK,
-        bool INTERRUPT_ON_STALL,
-        USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE,
-        bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF,
-        bool DOUBLE_BUFFERED, bool ENABLE) volatile
+    inline void set_EP15_OUT_CONTROL(uint16_t BUFFER_ADDRESS, bool INTERRUPT_ON_NAK, bool INTERRUPT_ON_STALL, USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE ENDPOINT_TYPE, bool INTERRUPT_PER_DOUBLE_BUFF, bool INTERRUPT_PER_BUFF, bool DOUBLE_BUFFERED, bool ENABLE) volatile
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
@@ -11092,9 +10279,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP0_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11104,9 +10289,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP0_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11116,9 +10299,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP0_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11128,9 +10309,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP0_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11300,10 +10479,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP0_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11313,10 +10489,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP0_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11326,10 +10499,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP0_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11339,10 +10509,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP0_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11377,9 +10544,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP0_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -11389,9 +10554,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP0_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -11401,9 +10564,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP0_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -11413,9 +10574,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP0_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -11425,29 +10584,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP0_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP0_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP0_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP0_IN_BUFFER_CONTROL;
 
@@ -11540,10 +10691,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP0_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -11553,10 +10701,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP0_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -11566,10 +10711,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP0_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -11579,10 +10721,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP0_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -11592,18 +10731,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP0_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP0_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP0_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP0_IN_BUFFER_CONTROL;
 
@@ -11616,9 +10747,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -11627,18 +10756,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP0_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP0_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP0_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP0_IN_BUFFER_CONTROL;
 
@@ -11700,9 +10821,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP0_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11712,9 +10831,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11724,9 +10841,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP0_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11736,9 +10851,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP0_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -11908,10 +11021,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP0_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11921,10 +11031,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11934,10 +11041,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP0_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11947,10 +11051,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP0_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -11985,9 +11086,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP0_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -11997,9 +11096,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12009,9 +11106,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP0_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12021,9 +11116,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP0_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12033,29 +11126,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP0_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP0_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP0_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP0_OUT_BUFFER_CONTROL;
 
@@ -12148,10 +11233,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP0_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12161,10 +11243,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12174,10 +11253,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP0_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP0_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12187,10 +11263,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP0_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP0_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12200,18 +11273,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP0_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP0_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP0_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP0_OUT_BUFFER_CONTROL;
 
@@ -12224,9 +11289,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -12235,18 +11298,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP0_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP0_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP0_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP0_OUT_BUFFER_CONTROL;
 
@@ -12308,9 +11363,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP1_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12320,9 +11373,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP1_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12332,9 +11383,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP1_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12344,9 +11393,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP1_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12516,10 +11563,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP1_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -12529,10 +11573,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP1_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -12542,10 +11583,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP1_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -12555,10 +11593,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP1_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -12593,9 +11628,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP1_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12605,9 +11638,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP1_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12617,9 +11648,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP1_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12629,9 +11658,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP1_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -12641,29 +11668,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP1_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP1_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP1_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP1_IN_BUFFER_CONTROL;
 
@@ -12756,10 +11775,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP1_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12769,10 +11785,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP1_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12782,10 +11795,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP1_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12795,10 +11805,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP1_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -12808,18 +11815,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP1_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP1_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP1_IN_BUFFER_CONTROL;
 
@@ -12832,9 +11831,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -12843,18 +11840,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP1_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP1_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP1_IN_BUFFER_CONTROL;
 
@@ -12916,9 +11905,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP1_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12928,9 +11915,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12940,9 +11925,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP1_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -12952,9 +11935,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP1_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -13124,10 +12105,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP1_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13137,10 +12115,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13150,10 +12125,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP1_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13163,10 +12135,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP1_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13201,9 +12170,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP1_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13213,9 +12180,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13225,9 +12190,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP1_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13237,9 +12200,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP1_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13249,29 +12210,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP1_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP1_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP1_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP1_OUT_BUFFER_CONTROL;
 
@@ -13364,10 +12317,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP1_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13377,10 +12327,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13390,10 +12337,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP1_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP1_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13403,10 +12347,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP1_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP1_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13416,18 +12357,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP1_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP1_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP1_OUT_BUFFER_CONTROL;
 
@@ -13440,9 +12373,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -13451,18 +12382,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP1_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP1_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP1_OUT_BUFFER_CONTROL;
 
@@ -13524,9 +12447,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP2_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -13536,9 +12457,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP2_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -13548,9 +12467,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP2_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -13560,9 +12477,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP2_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -13732,10 +12647,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP2_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13745,10 +12657,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP2_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13758,10 +12667,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP2_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13771,10 +12677,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP2_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -13809,9 +12712,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP2_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13821,9 +12722,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP2_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13833,9 +12732,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP2_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13845,9 +12742,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP2_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -13857,29 +12752,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP2_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP2_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP2_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP2_IN_BUFFER_CONTROL;
 
@@ -13972,10 +12859,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP2_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13985,10 +12869,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP2_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -13998,10 +12879,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP2_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14011,10 +12889,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP2_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14024,18 +12899,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP2_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP2_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP2_IN_BUFFER_CONTROL;
 
@@ -14048,9 +12915,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -14059,18 +12924,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP2_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP2_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP2_IN_BUFFER_CONTROL;
 
@@ -14132,9 +12989,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP2_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14144,9 +12999,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14156,9 +13009,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP2_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14168,9 +13019,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP2_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14340,10 +13189,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP2_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14353,10 +13199,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14366,10 +13209,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP2_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14379,10 +13219,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP2_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14417,9 +13254,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP2_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -14429,9 +13264,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -14441,9 +13274,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP2_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -14453,9 +13284,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP2_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -14465,29 +13294,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP2_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP2_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP2_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP2_OUT_BUFFER_CONTROL;
 
@@ -14580,10 +13401,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP2_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14593,10 +13411,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14606,10 +13421,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP2_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP2_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14619,10 +13431,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP2_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP2_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -14632,18 +13441,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP2_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP2_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP2_OUT_BUFFER_CONTROL;
 
@@ -14656,9 +13457,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -14667,18 +13466,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP2_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP2_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP2_OUT_BUFFER_CONTROL;
 
@@ -14740,9 +13531,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP3_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14752,9 +13541,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP3_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14764,9 +13551,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP3_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14776,9 +13561,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP3_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -14948,10 +13731,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP3_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14961,10 +13741,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP3_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14974,10 +13751,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP3_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -14987,10 +13761,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP3_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -15025,9 +13796,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP3_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15037,9 +13806,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP3_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15049,9 +13816,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP3_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15061,9 +13826,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP3_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15073,29 +13836,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP3_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP3_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP3_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP3_IN_BUFFER_CONTROL;
 
@@ -15188,10 +13943,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP3_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15201,10 +13953,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP3_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15214,10 +13963,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP3_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15227,10 +13973,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP3_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15240,18 +13983,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP3_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP3_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP3_IN_BUFFER_CONTROL;
 
@@ -15264,9 +13999,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -15275,18 +14008,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP3_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP3_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP3_IN_BUFFER_CONTROL;
 
@@ -15348,9 +14073,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP3_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15360,9 +14083,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15372,9 +14093,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP3_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15384,9 +14103,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP3_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15556,10 +14273,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP3_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -15569,10 +14283,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -15582,10 +14293,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP3_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -15595,10 +14303,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP3_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -15633,9 +14338,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP3_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15645,9 +14348,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15657,9 +14358,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP3_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15669,9 +14368,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP3_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -15681,29 +14378,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP3_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP3_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP3_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP3_OUT_BUFFER_CONTROL;
 
@@ -15796,10 +14485,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP3_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15809,10 +14495,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15822,10 +14505,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP3_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP3_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15835,10 +14515,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP3_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP3_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -15848,18 +14525,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP3_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP3_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP3_OUT_BUFFER_CONTROL;
 
@@ -15872,9 +14541,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -15883,18 +14550,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP3_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP3_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP3_OUT_BUFFER_CONTROL;
 
@@ -15956,9 +14615,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP4_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15968,9 +14625,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP4_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15980,9 +14635,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP4_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -15992,9 +14645,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP4_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -16164,10 +14815,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP4_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16177,10 +14825,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP4_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16190,10 +14835,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP4_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16203,10 +14845,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP4_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16241,9 +14880,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP4_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16253,9 +14890,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP4_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16265,9 +14900,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP4_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16277,9 +14910,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP4_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16289,29 +14920,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP4_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP4_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP4_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP4_IN_BUFFER_CONTROL;
 
@@ -16404,10 +15027,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP4_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -16417,10 +15037,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP4_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -16430,10 +15047,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP4_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -16443,10 +15057,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP4_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -16456,18 +15067,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP4_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP4_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP4_IN_BUFFER_CONTROL;
 
@@ -16480,9 +15083,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -16491,18 +15092,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP4_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP4_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP4_IN_BUFFER_CONTROL;
 
@@ -16564,9 +15157,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP4_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -16576,9 +15167,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -16588,9 +15177,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP4_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -16600,9 +15187,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP4_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -16772,10 +15357,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP4_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16785,10 +15367,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16798,10 +15377,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP4_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16811,10 +15387,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP4_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -16849,9 +15422,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP4_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16861,9 +15432,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16873,9 +15442,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP4_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16885,9 +15452,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP4_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -16897,29 +15462,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP4_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP4_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP4_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP4_OUT_BUFFER_CONTROL;
 
@@ -17012,10 +15569,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP4_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17025,10 +15579,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17038,10 +15589,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP4_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP4_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17051,10 +15599,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP4_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP4_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17064,18 +15609,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP4_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP4_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP4_OUT_BUFFER_CONTROL;
 
@@ -17088,9 +15625,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -17099,18 +15634,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP4_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP4_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP4_OUT_BUFFER_CONTROL;
 
@@ -17172,9 +15699,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP5_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17184,9 +15709,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP5_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17196,9 +15719,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP5_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17208,9 +15729,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP5_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17380,10 +15899,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP5_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -17393,10 +15909,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP5_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -17406,10 +15919,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP5_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -17419,10 +15929,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP5_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -17457,9 +15964,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP5_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -17469,9 +15974,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP5_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -17481,9 +15984,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP5_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -17493,9 +15994,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP5_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -17505,29 +16004,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP5_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP5_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP5_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP5_IN_BUFFER_CONTROL;
 
@@ -17620,10 +16111,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP5_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17633,10 +16121,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP5_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17646,10 +16131,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP5_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17659,10 +16141,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP5_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -17672,18 +16151,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP5_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP5_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP5_IN_BUFFER_CONTROL;
 
@@ -17696,9 +16167,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -17707,18 +16176,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP5_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP5_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP5_IN_BUFFER_CONTROL;
 
@@ -17780,9 +16241,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP5_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17792,9 +16251,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17804,9 +16261,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP5_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17816,9 +16271,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP5_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -17988,10 +16441,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP5_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18001,10 +16451,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18014,10 +16461,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP5_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18027,10 +16471,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP5_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18065,9 +16506,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP5_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18077,9 +16516,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18089,9 +16526,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP5_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18101,9 +16536,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP5_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18113,29 +16546,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP5_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP5_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP5_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP5_OUT_BUFFER_CONTROL;
 
@@ -18228,10 +16653,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP5_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18241,10 +16663,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18254,10 +16673,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP5_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP5_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18267,10 +16683,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP5_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP5_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18280,18 +16693,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP5_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP5_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP5_OUT_BUFFER_CONTROL;
 
@@ -18304,9 +16709,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -18315,18 +16718,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP5_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP5_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP5_OUT_BUFFER_CONTROL;
 
@@ -18388,9 +16783,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP6_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -18400,9 +16793,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP6_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -18412,9 +16803,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP6_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -18424,9 +16813,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP6_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -18596,10 +16983,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP6_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18609,10 +16993,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP6_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18622,10 +17003,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP6_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18635,10 +17013,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP6_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -18673,9 +17048,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP6_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18685,9 +17058,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP6_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18697,9 +17068,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP6_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18709,9 +17078,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP6_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -18721,29 +17088,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP6_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP6_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP6_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP6_IN_BUFFER_CONTROL;
 
@@ -18836,10 +17195,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP6_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18849,10 +17205,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP6_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18862,10 +17215,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP6_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18875,10 +17225,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP6_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -18888,18 +17235,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP6_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP6_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP6_IN_BUFFER_CONTROL;
 
@@ -18912,9 +17251,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -18923,18 +17260,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP6_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP6_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP6_IN_BUFFER_CONTROL;
 
@@ -18996,9 +17325,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP6_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19008,9 +17335,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19020,9 +17345,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP6_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19032,9 +17355,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP6_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19204,10 +17525,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP6_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19217,10 +17535,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19230,10 +17545,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP6_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19243,10 +17555,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP6_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19281,9 +17590,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP6_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19293,9 +17600,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19305,9 +17610,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP6_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19317,9 +17620,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP6_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19329,29 +17630,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP6_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP6_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP6_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP6_OUT_BUFFER_CONTROL;
 
@@ -19444,10 +17737,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP6_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -19457,10 +17747,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -19470,10 +17757,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP6_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP6_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -19483,10 +17767,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP6_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP6_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -19496,18 +17777,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP6_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP6_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP6_OUT_BUFFER_CONTROL;
 
@@ -19520,9 +17793,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -19531,18 +17802,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP6_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP6_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP6_OUT_BUFFER_CONTROL;
 
@@ -19604,9 +17867,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP7_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19616,9 +17877,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP7_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19628,9 +17887,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP7_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19640,9 +17897,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP7_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -19812,10 +18067,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP7_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19825,10 +18077,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP7_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19838,10 +18087,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP7_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19851,10 +18097,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP7_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -19889,9 +18132,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP7_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19901,9 +18142,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP7_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19913,9 +18152,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP7_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19925,9 +18162,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP7_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -19937,29 +18172,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP7_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP7_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP7_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP7_IN_BUFFER_CONTROL;
 
@@ -20052,10 +18279,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP7_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20065,10 +18289,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP7_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20078,10 +18299,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP7_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20091,10 +18309,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP7_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20104,18 +18319,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP7_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP7_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP7_IN_BUFFER_CONTROL;
 
@@ -20128,9 +18335,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -20139,18 +18344,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP7_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP7_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP7_IN_BUFFER_CONTROL;
 
@@ -20212,9 +18409,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP7_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20224,9 +18419,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20236,9 +18429,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP7_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20248,9 +18439,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP7_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20420,10 +18609,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP7_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -20433,10 +18619,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -20446,10 +18629,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP7_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -20459,10 +18639,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP7_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -20497,9 +18674,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP7_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -20509,9 +18684,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -20521,9 +18694,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP7_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -20533,9 +18704,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP7_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -20545,29 +18714,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP7_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP7_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP7_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP7_OUT_BUFFER_CONTROL;
 
@@ -20660,10 +18821,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP7_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20673,10 +18831,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20686,10 +18841,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP7_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP7_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20699,10 +18851,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP7_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP7_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -20712,18 +18861,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP7_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP7_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP7_OUT_BUFFER_CONTROL;
 
@@ -20736,9 +18877,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -20747,18 +18886,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP7_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP7_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP7_OUT_BUFFER_CONTROL;
 
@@ -20820,9 +18951,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP8_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20832,9 +18961,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP8_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20844,9 +18971,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP8_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -20856,9 +18981,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP8_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -21028,10 +19151,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP8_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21041,10 +19161,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP8_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21054,10 +19171,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP8_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21067,10 +19181,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP8_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21105,9 +19216,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP8_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21117,9 +19226,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP8_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21129,9 +19236,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP8_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21141,9 +19246,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP8_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21153,29 +19256,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP8_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP8_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP8_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP8_IN_BUFFER_CONTROL;
 
@@ -21268,10 +19363,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP8_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21281,10 +19373,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP8_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21294,10 +19383,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP8_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21307,10 +19393,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP8_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21320,18 +19403,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP8_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP8_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP8_IN_BUFFER_CONTROL;
 
@@ -21344,9 +19419,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -21355,18 +19428,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP8_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP8_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP8_IN_BUFFER_CONTROL;
 
@@ -21428,9 +19493,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP8_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -21440,9 +19503,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -21452,9 +19513,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP8_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -21464,9 +19523,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP8_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -21636,10 +19693,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP8_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21649,10 +19703,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21662,10 +19713,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP8_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21675,10 +19723,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP8_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -21713,9 +19758,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP8_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21725,9 +19768,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21737,9 +19778,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP8_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21749,9 +19788,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP8_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -21761,29 +19798,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP8_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP8_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP8_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP8_OUT_BUFFER_CONTROL;
 
@@ -21876,10 +19905,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP8_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21889,10 +19915,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21902,10 +19925,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP8_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP8_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21915,10 +19935,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP8_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP8_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -21928,18 +19945,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP8_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP8_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP8_OUT_BUFFER_CONTROL;
 
@@ -21952,9 +19961,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -21963,18 +19970,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP8_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP8_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP8_OUT_BUFFER_CONTROL;
 
@@ -22036,9 +20035,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP9_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22048,9 +20045,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP9_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22060,9 +20055,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP9_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22072,9 +20065,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP9_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22244,10 +20235,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP9_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22257,10 +20245,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP9_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22270,10 +20255,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP9_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22283,10 +20265,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP9_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22321,9 +20300,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP9_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22333,9 +20310,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP9_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22345,9 +20320,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP9_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22357,9 +20330,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP9_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22369,29 +20340,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP9_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP9_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP9_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP9_IN_BUFFER_CONTROL;
 
@@ -22484,10 +20447,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP9_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -22497,10 +20457,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP9_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -22510,10 +20467,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP9_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -22523,10 +20477,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP9_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -22536,18 +20487,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP9_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP9_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP9_IN_BUFFER_CONTROL;
 
@@ -22560,9 +20503,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -22571,18 +20512,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP9_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP9_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP9_IN_BUFFER_CONTROL;
 
@@ -22644,9 +20577,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP9_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22656,9 +20587,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22668,9 +20597,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP9_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22680,9 +20607,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP9_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -22852,10 +20777,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP9_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22865,10 +20787,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22878,10 +20797,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP9_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22891,10 +20807,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP9_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -22929,9 +20842,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP9_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22941,9 +20852,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22953,9 +20862,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP9_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22965,9 +20872,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP9_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -22977,29 +20882,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP9_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP9_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP9_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP9_OUT_BUFFER_CONTROL;
 
@@ -23092,10 +20989,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP9_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23105,10 +20999,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23118,10 +21009,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP9_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP9_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23131,10 +21019,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP9_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP9_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23144,18 +21029,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP9_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP9_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP9_OUT_BUFFER_CONTROL;
 
@@ -23168,9 +21045,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -23179,18 +21054,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP9_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP9_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP9_OUT_BUFFER_CONTROL;
 
@@ -23252,9 +21119,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP10_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23264,9 +21129,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP10_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23276,9 +21139,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP10_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23288,9 +21149,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP10_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23460,10 +21319,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP10_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -23473,10 +21329,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP10_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -23486,10 +21339,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP10_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -23499,10 +21349,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP10_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -23537,9 +21384,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP10_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -23549,9 +21394,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP10_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -23561,9 +21404,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP10_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -23573,9 +21414,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP10_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -23585,29 +21424,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP10_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP10_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP10_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP10_IN_BUFFER_CONTROL;
 
@@ -23700,10 +21531,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP10_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23713,10 +21541,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP10_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23726,10 +21551,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP10_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23739,10 +21561,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP10_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -23752,18 +21571,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP10_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP10_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP10_IN_BUFFER_CONTROL;
 
@@ -23776,9 +21587,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -23787,18 +21596,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP10_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP10_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP10_IN_BUFFER_CONTROL;
 
@@ -23860,9 +21661,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP10_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23872,9 +21671,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23884,9 +21681,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP10_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -23896,9 +21691,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP10_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -24068,10 +21861,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP10_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24081,10 +21871,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24094,10 +21881,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP10_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24107,10 +21891,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP10_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24145,9 +21926,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP10_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24157,9 +21936,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24169,9 +21946,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP10_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24181,9 +21956,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP10_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24193,29 +21966,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP10_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP10_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP10_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP10_OUT_BUFFER_CONTROL;
 
@@ -24308,10 +22073,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP10_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24321,10 +22083,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24334,10 +22093,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP10_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP10_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24347,10 +22103,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP10_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP10_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24360,18 +22113,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP10_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP10_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP10_OUT_BUFFER_CONTROL;
 
@@ -24384,9 +22129,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -24395,18 +22138,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP10_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP10_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP10_OUT_BUFFER_CONTROL;
 
@@ -24468,9 +22203,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP11_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -24480,9 +22213,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP11_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -24492,9 +22223,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP11_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -24504,9 +22233,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP11_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -24676,10 +22403,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP11_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24689,10 +22413,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP11_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24702,10 +22423,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP11_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24715,10 +22433,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP11_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -24753,9 +22468,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP11_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24765,9 +22478,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP11_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24777,9 +22488,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP11_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24789,9 +22498,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP11_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -24801,29 +22508,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP11_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP11_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP11_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP11_IN_BUFFER_CONTROL;
 
@@ -24916,10 +22615,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP11_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24929,10 +22625,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP11_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24942,10 +22635,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP11_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24955,10 +22645,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP11_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -24968,18 +22655,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP11_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP11_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP11_IN_BUFFER_CONTROL;
 
@@ -24992,9 +22671,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -25003,18 +22680,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP11_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP11_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP11_IN_BUFFER_CONTROL;
 
@@ -25076,9 +22745,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP11_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25088,9 +22755,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25100,9 +22765,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP11_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25112,9 +22775,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP11_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25284,10 +22945,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP11_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25297,10 +22955,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25310,10 +22965,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP11_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25323,10 +22975,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP11_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25361,9 +23010,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP11_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25373,9 +23020,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25385,9 +23030,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP11_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25397,9 +23040,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP11_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25409,29 +23050,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP11_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP11_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP11_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP11_OUT_BUFFER_CONTROL;
 
@@ -25524,10 +23157,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP11_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -25537,10 +23167,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -25550,10 +23177,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP11_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP11_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -25563,10 +23187,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP11_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP11_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -25576,18 +23197,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP11_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP11_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP11_OUT_BUFFER_CONTROL;
 
@@ -25600,9 +23213,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -25611,18 +23222,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP11_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP11_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP11_OUT_BUFFER_CONTROL;
 
@@ -25684,9 +23287,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP12_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25696,9 +23297,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP12_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25708,9 +23307,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP12_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25720,9 +23317,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP12_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -25892,10 +23487,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP12_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25905,10 +23497,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP12_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25918,10 +23507,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP12_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25931,10 +23517,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP12_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -25969,9 +23552,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP12_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25981,9 +23562,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP12_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -25993,9 +23572,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP12_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26005,9 +23582,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP12_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26017,29 +23592,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP12_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP12_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP12_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP12_IN_BUFFER_CONTROL;
 
@@ -26132,10 +23699,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP12_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26145,10 +23709,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP12_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26158,10 +23719,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP12_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26171,10 +23729,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP12_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26184,18 +23739,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP12_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP12_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP12_IN_BUFFER_CONTROL;
 
@@ -26208,9 +23755,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -26219,18 +23764,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP12_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP12_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP12_IN_BUFFER_CONTROL;
 
@@ -26292,9 +23829,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP12_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26304,9 +23839,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26316,9 +23849,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP12_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26328,9 +23859,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP12_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26500,10 +24029,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP12_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -26513,10 +24039,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -26526,10 +24049,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP12_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -26539,10 +24059,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP12_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -26577,9 +24094,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP12_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26589,9 +24104,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26601,9 +24114,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP12_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26613,9 +24124,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP12_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -26625,29 +24134,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP12_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP12_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP12_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP12_OUT_BUFFER_CONTROL;
 
@@ -26740,10 +24241,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP12_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26753,10 +24251,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26766,10 +24261,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP12_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP12_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26779,10 +24271,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP12_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP12_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -26792,18 +24281,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP12_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP12_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP12_OUT_BUFFER_CONTROL;
 
@@ -26816,9 +24297,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -26827,18 +24306,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP12_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP12_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP12_OUT_BUFFER_CONTROL;
 
@@ -26900,9 +24371,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP13_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26912,9 +24381,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP13_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26924,9 +24391,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP13_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -26936,9 +24401,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP13_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -27108,10 +24571,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP13_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27121,10 +24581,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP13_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27134,10 +24591,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP13_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27147,10 +24601,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP13_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27185,9 +24636,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP13_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27197,9 +24646,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP13_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27209,9 +24656,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP13_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27221,9 +24666,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP13_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27233,29 +24676,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP13_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP13_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP13_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP13_IN_BUFFER_CONTROL;
 
@@ -27348,10 +24783,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP13_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27361,10 +24793,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP13_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27374,10 +24803,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP13_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27387,10 +24813,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP13_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27400,18 +24823,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP13_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP13_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP13_IN_BUFFER_CONTROL;
 
@@ -27424,9 +24839,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -27435,18 +24848,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP13_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP13_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP13_IN_BUFFER_CONTROL;
 
@@ -27508,9 +24913,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP13_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -27520,9 +24923,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -27532,9 +24933,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP13_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -27544,9 +24943,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP13_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -27716,10 +25113,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP13_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27729,10 +25123,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27742,10 +25133,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP13_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27755,10 +25143,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP13_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -27793,9 +25178,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP13_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27805,9 +25188,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27817,9 +25198,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP13_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27829,9 +25208,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP13_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -27841,29 +25218,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP13_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP13_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP13_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP13_OUT_BUFFER_CONTROL;
 
@@ -27956,10 +25325,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP13_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27969,10 +25335,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27982,10 +25345,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP13_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP13_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -27995,10 +25355,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP13_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP13_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -28008,18 +25365,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP13_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP13_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP13_OUT_BUFFER_CONTROL;
 
@@ -28032,9 +25381,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -28043,18 +25390,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP13_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP13_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP13_OUT_BUFFER_CONTROL;
 
@@ -28116,9 +25455,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP14_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28128,9 +25465,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP14_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28140,9 +25475,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP14_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28152,9 +25485,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP14_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28324,10 +25655,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP14_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28337,10 +25665,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP14_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28350,10 +25675,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP14_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28363,10 +25685,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP14_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28401,9 +25720,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP14_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -28413,9 +25730,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP14_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -28425,9 +25740,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP14_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -28437,9 +25750,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP14_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -28449,29 +25760,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP14_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP14_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP14_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP14_IN_BUFFER_CONTROL;
 
@@ -28564,10 +25867,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP14_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -28577,10 +25877,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP14_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -28590,10 +25887,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP14_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -28603,10 +25897,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP14_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -28616,18 +25907,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP14_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP14_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP14_IN_BUFFER_CONTROL;
 
@@ -28640,9 +25923,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -28651,18 +25932,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP14_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP14_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP14_IN_BUFFER_CONTROL;
 
@@ -28724,9 +25997,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP14_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28736,9 +26007,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28748,9 +26017,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP14_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28760,9 +26027,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP14_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -28932,10 +26197,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP14_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28945,10 +26207,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28958,10 +26217,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP14_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -28971,10 +26227,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP14_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -29009,9 +26262,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP14_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29021,9 +26272,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29033,9 +26282,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP14_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29045,9 +26292,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP14_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29057,29 +26302,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP14_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP14_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP14_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP14_OUT_BUFFER_CONTROL;
 
@@ -29172,10 +26409,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP14_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29185,10 +26419,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29198,10 +26429,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP14_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP14_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29211,10 +26439,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP14_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP14_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29224,18 +26449,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP14_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP14_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP14_OUT_BUFFER_CONTROL;
 
@@ -29248,9 +26465,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -29259,18 +26474,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP14_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP14_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP14_OUT_BUFFER_CONTROL;
 
@@ -29332,9 +26539,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP15_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29344,9 +26549,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP15_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29356,9 +26559,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP15_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29368,9 +26569,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP15_IN_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29540,10 +26739,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP15_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -29553,10 +26749,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP15_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -29566,10 +26759,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP15_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -29579,10 +26769,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP15_IN_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -29617,9 +26804,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP15_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29629,9 +26814,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP15_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29641,9 +26824,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP15_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29653,9 +26834,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP15_IN_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -29665,29 +26844,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP15_IN_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP15_IN_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP15_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP15_IN_BUFFER_CONTROL;
 
@@ -29780,10 +26951,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP15_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29793,10 +26961,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP15_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29806,10 +26971,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP15_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29819,10 +26981,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_IN_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP15_IN_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -29832,18 +26991,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP15_IN_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP15_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP15_IN_BUFFER_CONTROL;
 
@@ -29856,9 +27007,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -29867,18 +27016,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP15_IN_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP15_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP15_IN_BUFFER_CONTROL;
 
@@ -29940,9 +27081,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP15_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29952,9 +27091,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29964,9 +27101,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP15_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -29976,9 +27111,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_BUFFER_CONTROL's AVAILABLE_0 bit.
      *
-     * Buffer 0 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 0 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP15_OUT_BUFFER_CONTROL_AVAILABLE_0() volatile
     {
@@ -30148,10 +27281,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP15_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -30161,10 +27291,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -30174,10 +27301,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP15_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -30187,10 +27311,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_BUFFER_CONTROL's FULL_0 bit.
      *
-     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 0 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP15_OUT_BUFFER_CONTROL_FULL_0() volatile
     {
@@ -30225,9 +27346,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline bool get_EP15_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -30237,9 +27356,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -30249,9 +27366,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void clear_EP15_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -30261,9 +27376,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_BUFFER_CONTROL's AVAILABLE_1 bit.
      *
-     * Buffer 1 is available. This bit is set to indicate the buffer can be
-     * used by the controller. The controller clears the available bit when
-     * writing the status back.
+     * Buffer 1 is available. This bit is set to indicate the buffer can be used by the controller. The controller clears the available bit when writing the status back.
      */
     inline void toggle_EP15_OUT_BUFFER_CONTROL_AVAILABLE_1() volatile
     {
@@ -30273,29 +27386,21 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-    get_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
+    inline USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
     {
-        return USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-            (EP15_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
+        return USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((EP15_OUT_BUFFER_CONTROL >> 27u) & 0b11u);
     }
 
     /**
      * Set EP15_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous
-     * mode. Only valid in double buffered mode for an Isochronous endpoint.\n
-     *                 For a non Isochronous endpoint the offset is always 64
-     * bytes.
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
-    inline void set_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-        USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            value) volatile
+    inline void set_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
     {
         uint32_t curr = EP15_OUT_BUFFER_CONTROL;
 
@@ -30388,10 +27493,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline bool get_EP15_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -30401,10 +27503,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -30414,10 +27513,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Clear EP15_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void clear_EP15_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -30427,10 +27523,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Toggle EP15_OUT_BUFFER_CONTROL's FULL_1 bit.
      *
-     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to
-     * indicate the data is valid. For an OUT transfer (RX from the host) this
-     * bit should be left as a 0. The host will set it when it has filled the
-     * buffer with data.
+     * Buffer 1 is full. For an IN transfer (TX to the host) the bit is set to indicate the data is valid. For an OUT transfer (RX from the host) this bit should be left as a 0. The host will set it when it has filled the buffer with data.
      */
     inline void toggle_EP15_OUT_BUFFER_CONTROL_FULL_1() volatile
     {
@@ -30440,18 +27533,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void get_EP15_OUT_BUFFER_CONTROL(
-        uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET,
-        bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1,
-        bool &AVAILABLE_1,
-        USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            &DOUBLE_BUFFER_ISO_OFFSET,
-        bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
+    inline void get_EP15_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
     {
         uint32_t curr = EP15_OUT_BUFFER_CONTROL;
 
@@ -30464,9 +27549,7 @@ struct [[gnu::packed]] usbctrl_dpram
         FULL_0 = curr & (1u << 15u);
         LENGTH_1 = (curr >> 16u) & 0b1111111111u;
         AVAILABLE_1 = curr & (1u << 26u);
-        DOUBLE_BUFFER_ISO_OFFSET =
-            USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(
-                (curr >> 27u) & 0b11u);
+        DOUBLE_BUFFER_ISO_OFFSET = USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET((curr >> 27u) & 0b11u);
         PID_1 = curr & (1u << 29u);
         LAST_1 = curr & (1u << 30u);
         FULL_1 = curr & (1u << 31u);
@@ -30475,18 +27558,10 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields
-     * ending in a _1 are for buffer 1.\n Fields ending in a _0 are for buffer
-     * 0. Buffer 1 controls are only valid if the endpoint is in double
-     * buffered mode.
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
-    inline void set_EP15_OUT_BUFFER_CONTROL(
-        uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET,
-        bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1,
-        bool AVAILABLE_1,
-        USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET
-            DOUBLE_BUFFER_ISO_OFFSET,
-        bool PID_1, bool LAST_1, bool FULL_1) volatile
+    inline void set_EP15_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
     {
         uint32_t curr = EP15_OUT_BUFFER_CONTROL;
 
@@ -30524,8 +27599,7 @@ struct [[gnu::packed]] usbctrl_dpram
 static_assert(sizeof(usbctrl_dpram) == usbctrl_dpram::size);
 static_assert(ifgen_struct<usbctrl_dpram>);
 
-static volatile usbctrl_dpram *const USBCTRL_DPRAM =
-    reinterpret_cast<usbctrl_dpram *>(0x50100000);
+static volatile usbctrl_dpram *const USBCTRL_DPRAM = reinterpret_cast<usbctrl_dpram *>(0x50100000);
 
 }; // namespace RP2040
 

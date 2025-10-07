@@ -80,8 +80,7 @@ inline const char *to_string(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                CLOCKS_CLK_GPOUT1_CTRL_AUXSRC instance)
+inline std::ostream &operator<<(std::ostream &stream, CLOCKS_CLK_GPOUT1_CTRL_AUXSRC instance)
 {
     stream << to_string(instance);
     return stream;
@@ -94,8 +93,7 @@ inline std::ostream &operator<<(std::ostream &stream,
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data,
-                        CLOCKS_CLK_GPOUT1_CTRL_AUXSRC &output)
+inline bool from_string(const char *data, CLOCKS_CLK_GPOUT1_CTRL_AUXSRC &output)
 {
     bool result = false;
 

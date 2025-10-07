@@ -19,8 +19,7 @@ enum class XIP_SSI_CTRLR0_TMOD : uint8_t
     TX_AND_RX /*!< Both transmit and receive */,
     TX_ONLY = 1 /*!< Transmit only (not for FRF == 0, standard SPI mode) */,
     RX_ONLY = 2 /*!< Receive only (not for FRF == 0, standard SPI mode) */,
-    EEPROM_READ = 3 /*!< EEPROM read mode (TX then RX; RX starts after control
-                       data TX'd) */
+    EEPROM_READ = 3 /*!< EEPROM read mode (TX then RX; RX starts after control data TX'd) */
 };
 static_assert(sizeof(XIP_SSI_CTRLR0_TMOD) == 1);
 
@@ -53,8 +52,7 @@ inline const char *to_string(XIP_SSI_CTRLR0_TMOD instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                XIP_SSI_CTRLR0_TMOD instance)
+inline std::ostream &operator<<(std::ostream &stream, XIP_SSI_CTRLR0_TMOD instance)
 {
     stream << to_string(instance);
     return stream;

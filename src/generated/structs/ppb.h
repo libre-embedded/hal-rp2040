@@ -21,145 +21,55 @@ struct [[gnu::packed]] ppb
     /* Fields. */
     static constexpr std::size_t reserved_padding0_length = 14340;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t SYST_CSR; /*!< (read-write) Use the SysTick Control and Status
-                          Register to enable the SysTick features. */
-    uint32_t SYST_RVR; /*!< (read-write) Use the SysTick Reload Value Register
-to specify the start value to load into the current value register when the
-counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value
-of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG
-are activated when counting from 1 to 0. The reset value of this register is
-UNKNOWN.\n To generate a multi-shot timer with a period of N processor clock
-cycles, use a RELOAD value of N-1. For example, if the SysTick interrupt is
-required every 100 clock pulses, set RELOAD to 99. */
-    uint32_t SYST_CVR; /*!< (read-write) Use the SysTick Current Value Register
-                          to find the current value in the register. The reset
-                          value of this register is UNKNOWN. */
-    const uint32_t SYST_CALIB =
-        {}; /*!< (read-only) Use the SysTick Calibration Value Register to
-               enable software to scale to any required speed using divide and
-               multiply. */
+    uint32_t SYST_CSR;                                               /*!< (read-write) Use the SysTick Control and Status Register to enable the SysTick features. */
+    uint32_t SYST_RVR;                                               /*!< (read-write) Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN.\n
+                To generate a multi-shot timer with a period of N processor clock cycles, use a RELOAD value of N-1. For example, if the SysTick interrupt is required every 100 clock pulses, set RELOAD to 99. */
+    uint32_t SYST_CVR;                                               /*!< (read-write) Use the SysTick Current Value Register to find the current value in the register. The reset value of this register is UNKNOWN. */
+    const uint32_t SYST_CALIB = {};                                  /*!< (read-only) Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply. */
     static constexpr std::size_t reserved_padding1_length = 56;
     const uint32_t reserved_padding1[reserved_padding1_length] = {};
-    uint32_t NVIC_ISER; /*!< (read-write) Use the Interrupt Set-Enable Register
-to enable interrupts and determine which interrupts are currently enabled.\n If
-a pending interrupt is enabled, the NVIC activates the interrupt based on its
-priority. If an interrupt is not enabled, asserting its interrupt signal
-changes the interrupt state to pending, but the NVIC never activates the
-interrupt, regardless of its priority. */
+    uint32_t NVIC_ISER;                                              /*!< (read-write) Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled.\n
+                If a pending interrupt is enabled, the NVIC activates the interrupt based on its priority. If an interrupt is not enabled, asserting its interrupt signal changes the interrupt state to pending, but the NVIC never activates the interrupt, regardless of its priority. */
     static constexpr std::size_t reserved_padding2_length = 31;
     const uint32_t reserved_padding2[reserved_padding2_length] = {};
-    uint32_t NVIC_ICER; /*!< (read-write) Use the Interrupt Clear-Enable
-                           Registers to disable interrupts and determine which
-                           interrupts are currently enabled. */
+    uint32_t NVIC_ICER;                                              /*!< (read-write) Use the Interrupt Clear-Enable Registers to disable interrupts and determine which interrupts are currently enabled. */
     static constexpr std::size_t reserved_padding3_length = 31;
     const uint32_t reserved_padding3[reserved_padding3_length] = {};
-    uint32_t
-        NVIC_ISPR; /*!< (read-write) The NVIC_ISPR forces interrupts into the
-                      pending state, and shows which interrupts are pending. */
+    uint32_t NVIC_ISPR;                                              /*!< (read-write) The NVIC_ISPR forces interrupts into the pending state, and shows which interrupts are pending. */
     static constexpr std::size_t reserved_padding4_length = 31;
     const uint32_t reserved_padding4[reserved_padding4_length] = {};
-    uint32_t NVIC_ICPR; /*!< (read-write) Use the Interrupt Clear-Pending
-                           Register to clear pending interrupts and determine
-                           which interrupts are currently pending. */
+    uint32_t NVIC_ICPR;                                              /*!< (read-write) Use the Interrupt Clear-Pending Register to clear pending interrupts and determine which interrupts are currently pending. */
     static constexpr std::size_t reserved_padding5_length = 95;
     const uint32_t reserved_padding5[reserved_padding5_length] = {};
-    uint32_t NVIC_IPR0; /*!< (read-write) Use the Interrupt Priority Registers
-to assign a priority from 0 to 3 to each of the available interrupts. 0 is the
-highest priority, and 3 is the lowest.\n Note: Writing 1 to an NVIC_ICPR bit
-does not affect the active state of the corresponding interrupt.\n These
-registers are only word-accessible */
-    uint32_t NVIC_IPR1; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR2; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR3; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR4; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR5; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR6; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
-    uint32_t NVIC_IPR7; /*!< (read-write) Use the Interrupt Priority Registers
-                           to assign a priority from 0 to 3 to each of the
-                           available interrupts. 0 is the highest priority, and
-                           3 is the lowest. */
+    uint32_t NVIC_IPR0;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
+                Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+                These registers are only word-accessible */
+    uint32_t NVIC_IPR1;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR2;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR3;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR4;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR5;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR6;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
+    uint32_t NVIC_IPR7;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
     static constexpr std::size_t reserved_padding6_length = 568;
     const uint32_t reserved_padding6[reserved_padding6_length] = {};
-    const uint32_t CPUID =
-        {}; /*!< (read-only) Read the CPU ID Base Register to determine: the ID
-               number of the processor core, the version number of the
-               processor core, the implementation details of the processor
-               core. */
-    uint32_t ICSR;  /*!< (read-write) Use the Interrupt Control State Register
-                       to set a pending Non-Maskable Interrupt (NMI), set or
-                       clear a pending PendSV, set or clear a pending SysTick,
-                       check for pending exceptions, check the vector number of
-                       the highest priority pended exception, check the vector
-                       number of the active exception. */
-    uint32_t VTOR;  /*!< (read-write) The VTOR holds the vector table offset
-                       address. */
-    uint32_t AIRCR; /*!< (read-write) Use the Application Interrupt and Reset
-                       Control Register to: determine data endianness, clear
-                       all active state information from debug halt mode,
-                       request a system reset. */
-    uint32_t
-        SCR; /*!< (read-write) System Control Register. Use the System Control
-                Register for power-management functions: signal to the system
-                when the processor can enter a low power state, control how the
-                processor enters and exits low power states. */
-    const uint32_t CCR =
-        {}; /*!< (read-only) The Configuration and Control Register permanently
-               enables stack alignment and causes unaligned accesses to result
-               in a Hard Fault. */
+    const uint32_t CPUID = {};                                       /*!< (read-only) Read the CPU ID Base Register to determine: the ID number of the processor core, the version number of the processor core, the implementation details of the processor core. */
+    uint32_t ICSR;                                                   /*!< (read-write) Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception. */
+    uint32_t VTOR;                                                   /*!< (read-write) The VTOR holds the vector table offset address. */
+    uint32_t AIRCR;                                                  /*!< (read-write) Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset. */
+    uint32_t SCR;                                                    /*!< (read-write) System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states. */
+    const uint32_t CCR = {};                                         /*!< (read-only) The Configuration and Control Register permanently enables stack alignment and causes unaligned accesses to result in a Hard Fault. */
     const uint32_t reserved_padding7 = {};
-    uint32_t SHPR2; /*!< (read-write) System handlers are a special class of
-                       exception handler that can have their priority set to
-                       any of the priority levels. Use the System Handler
-                       Priority Register 2 to set the priority of SVCall. */
-    uint32_t
-        SHPR3;      /*!< (read-write) System handlers are a special class of
-                       exception handler that can have their priority set to any of
-                       the priority levels. Use the System Handler Priority Register
-                       3 to set the priority of PendSV and SysTick. */
-    uint32_t SHCSR; /*!< (read-write) Use the System Handler Control and State
-                       Register to determine or clear the pending status of
-                       SVCall. */
+    uint32_t SHPR2;                                                  /*!< (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 2 to set the priority of SVCall. */
+    uint32_t SHPR3;                                                  /*!< (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick. */
+    uint32_t SHCSR;                                                  /*!< (read-write) Use the System Handler Control and State Register to determine or clear the pending status of SVCall. */
     static constexpr std::size_t reserved_padding8_length = 26;
     const uint32_t reserved_padding8[reserved_padding8_length] = {};
-    const uint32_t MPU_TYPE =
-        {}; /*!< (read-only) Read the MPU Type Register to determine if the
-               processor implements an MPU, and how many regions the MPU
-               supports. */
-    uint32_t MPU_CTRL; /*!< (read-write) Use the MPU Control Register to enable
-                          and disable the MPU, and to control whether the
-                          default memory map is enabled as a background region
-                          for privileged accesses, and whether the MPU is
-                          enabled for HardFaults and NMIs. */
-    uint32_t
-        MPU_RNR; /*!< (read-write) Use the MPU Region Number Register to select
-                    the region currently accessed by MPU_RBAR and MPU_RASR. */
-    uint32_t MPU_RBAR; /*!< (read-write) Read the MPU Region Base Address
-                          Register to determine the base address of the region
-                          identified by MPU_RNR. Write to update the base
-                          address of said region or that of a specified region,
-                          with whose number MPU_RNR will also be updated. */
-    uint32_t MPU_RASR; /*!< (read-write) Use the MPU Region Attribute and Size
-                          Register to define the size, access behaviour and
-                          memory type of the region identified by MPU_RNR, and
-                          enable that region. */
+    const uint32_t MPU_TYPE = {};                                    /*!< (read-only) Read the MPU Type Register to determine if the processor implements an MPU, and how many regions the MPU supports. */
+    uint32_t MPU_CTRL;                                               /*!< (read-write) Use the MPU Control Register to enable and disable the MPU, and to control whether the default memory map is enabled as a background region for privileged accesses, and whether the MPU is enabled for HardFaults and NMIs. */
+    uint32_t MPU_RNR;                                                /*!< (read-write) Use the MPU Region Number Register to select the region currently accessed by MPU_RBAR and MPU_RASR. */
+    uint32_t MPU_RBAR;                                               /*!< (read-write) Read the MPU Region Base Address Register to determine the base address of the region identified by MPU_RNR. Write to update the base address of said region or that of a specified region, with whose number MPU_RNR will also be updated. */
+    uint32_t MPU_RASR;                                               /*!< (read-write) Use the MPU Region Attribute and Size Register to define the size, access behaviour and memory type of the region identified by MPU_RNR, and enable that region. */
 
     /* Methods. */
 
@@ -215,9 +125,8 @@ registers are only word-accessible */
      * Get SYST_CSR's TICKINT bit.
      *
      * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick
-     * exception request.\n 1 = Counting down to zero to asserts the SysTick
-     * exception request.
+     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline bool get_SYST_CSR_TICKINT() volatile
     {
@@ -228,9 +137,8 @@ registers are only word-accessible */
      * Set SYST_CSR's TICKINT bit.
      *
      * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick
-     * exception request.\n 1 = Counting down to zero to asserts the SysTick
-     * exception request.
+     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void set_SYST_CSR_TICKINT() volatile
     {
@@ -241,9 +149,8 @@ registers are only word-accessible */
      * Clear SYST_CSR's TICKINT bit.
      *
      * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick
-     * exception request.\n 1 = Counting down to zero to asserts the SysTick
-     * exception request.
+     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void clear_SYST_CSR_TICKINT() volatile
     {
@@ -254,9 +161,8 @@ registers are only word-accessible */
      * Toggle SYST_CSR's TICKINT bit.
      *
      * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick
-     * exception request.\n 1 = Counting down to zero to asserts the SysTick
-     * exception request.
+     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void toggle_SYST_CSR_TICKINT() volatile
     {
@@ -318,8 +224,7 @@ registers are only word-accessible */
     /**
      * Get SYST_CSR's COUNTFLAG bit.
      *
-     * Returns 1 if timer counted to 0 since last time this was read. Clears on
-     * read by application or debugger.
+     * Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger.
      */
     inline bool get_SYST_CSR_COUNTFLAG() volatile
     {
@@ -329,11 +234,9 @@ registers are only word-accessible */
     /**
      * Get all of SYST_CSR's bit fields.
      *
-     * (read-write) Use the SysTick Control and Status Register to enable the
-     * SysTick features.
+     * (read-write) Use the SysTick Control and Status Register to enable the SysTick features.
      */
-    inline void get_SYST_CSR(bool &ENABLE, bool &TICKINT, bool &CLKSOURCE,
-                             bool &COUNTFLAG) volatile
+    inline void get_SYST_CSR(bool &ENABLE, bool &TICKINT, bool &CLKSOURCE, bool &COUNTFLAG) volatile
     {
         uint32_t curr = SYST_CSR;
 
@@ -346,11 +249,9 @@ registers are only word-accessible */
     /**
      * Set all of SYST_CSR's bit fields.
      *
-     * (read-write) Use the SysTick Control and Status Register to enable the
-     * SysTick features.
+     * (read-write) Use the SysTick Control and Status Register to enable the SysTick features.
      */
-    inline void set_SYST_CSR(bool ENABLE, bool TICKINT,
-                             bool CLKSOURCE) volatile
+    inline void set_SYST_CSR(bool ENABLE, bool TICKINT, bool CLKSOURCE) volatile
     {
         uint32_t curr = SYST_CSR;
 
@@ -367,8 +268,7 @@ registers are only word-accessible */
     /**
      * Get SYST_RVR's RELOAD field.
      *
-     * Value to load into the SysTick Current Value Register when the counter
-     * reaches 0.
+     * Value to load into the SysTick Current Value Register when the counter reaches 0.
      */
     inline uint32_t get_SYST_RVR_RELOAD() volatile
     {
@@ -378,8 +278,7 @@ registers are only word-accessible */
     /**
      * Set SYST_RVR's RELOAD field.
      *
-     * Value to load into the SysTick Current Value Register when the counter
-     * reaches 0.
+     * Value to load into the SysTick Current Value Register when the counter reaches 0.
      */
     inline void set_SYST_RVR_RELOAD(uint32_t value) volatile
     {
@@ -394,10 +293,7 @@ registers are only word-accessible */
     /**
      * Get SYST_CVR's CURRENT field.
      *
-     * Reads return the current value of the SysTick counter. This register is
-     * write-clear. Writing to it with any value clears the register to 0.
-     * Clearing this register also clears the COUNTFLAG bit of the SysTick
-     * Control and Status Register.
+     * Reads return the current value of the SysTick counter. This register is write-clear. Writing to it with any value clears the register to 0. Clearing this register also clears the COUNTFLAG bit of the SysTick Control and Status Register.
      */
     inline uint32_t get_SYST_CVR_CURRENT() volatile
     {
@@ -407,10 +303,7 @@ registers are only word-accessible */
     /**
      * Set SYST_CVR's CURRENT field.
      *
-     * Reads return the current value of the SysTick counter. This register is
-     * write-clear. Writing to it with any value clears the register to 0.
-     * Clearing this register also clears the COUNTFLAG bit of the SysTick
-     * Control and Status Register.
+     * Reads return the current value of the SysTick counter. This register is write-clear. Writing to it with any value clears the register to 0. Clearing this register also clears the COUNTFLAG bit of the SysTick Control and Status Register.
      */
     inline void set_SYST_CVR_CURRENT(uint32_t value) volatile
     {
@@ -425,9 +318,7 @@ registers are only word-accessible */
     /**
      * Get SYST_CALIB's TENMS field.
      *
-     * An optional Reload value to be used for 10ms (100Hz) timing, subject to
-     * system clock skew errors. If the value reads as 0, the calibration value
-     * is not known.
+     * An optional Reload value to be used for 10ms (100Hz) timing, subject to system clock skew errors. If the value reads as 0, the calibration value is not known.
      */
     inline uint32_t get_SYST_CALIB_TENMS() volatile
     {
@@ -437,8 +328,7 @@ registers are only word-accessible */
     /**
      * Get SYST_CALIB's SKEW bit.
      *
-     * If reads as 1, the calibration value for 10ms is inexact (due to clock
-     * frequency).
+     * If reads as 1, the calibration value for 10ms is inexact (due to clock frequency).
      */
     inline bool get_SYST_CALIB_SKEW() volatile
     {
@@ -448,9 +338,7 @@ registers are only word-accessible */
     /**
      * Get SYST_CALIB's NOREF bit.
      *
-     * If reads as 1, the Reference clock is not provided - the CLKSOURCE bit
-     * of the SysTick Control and Status register will be forced to 1 and
-     * cannot be cleared to 0.
+     * If reads as 1, the Reference clock is not provided - the CLKSOURCE bit of the SysTick Control and Status register will be forced to 1 and cannot be cleared to 0.
      */
     inline bool get_SYST_CALIB_NOREF() volatile
     {
@@ -460,11 +348,9 @@ registers are only word-accessible */
     /**
      * Get all of SYST_CALIB's bit fields.
      *
-     * (read-only) Use the SysTick Calibration Value Register to enable
-     * software to scale to any required speed using divide and multiply.
+     * (read-only) Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply.
      */
-    inline void get_SYST_CALIB(uint32_t &TENMS, bool &SKEW,
-                               bool &NOREF) volatile
+    inline void get_SYST_CALIB(uint32_t &TENMS, bool &SKEW, bool &NOREF) volatile
     {
         uint32_t curr = SYST_CALIB;
 
@@ -559,8 +445,7 @@ registers are only word-accessible */
      *                 1 = Interrupt is pending.\n
      *                 Note: Writing 1 to the NVIC_ISPR bit corresponding to:\n
      *                 An interrupt that is pending has no effect.\n
-     *                 A disabled interrupt sets the state of that interrupt to
-     * pending.
+     *                 A disabled interrupt sets the state of that interrupt to pending.
      */
     inline uint32_t get_NVIC_ISPR_SETPEND() volatile
     {
@@ -579,8 +464,7 @@ registers are only word-accessible */
      *                 1 = Interrupt is pending.\n
      *                 Note: Writing 1 to the NVIC_ISPR bit corresponding to:\n
      *                 An interrupt that is pending has no effect.\n
-     *                 A disabled interrupt sets the state of that interrupt to
-     * pending.
+     *                 A disabled interrupt sets the state of that interrupt to pending.
      */
     inline void set_NVIC_ISPR_SETPEND(uint32_t value) volatile
     {
@@ -732,14 +616,11 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR0's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.\n Note: Writing 1 to an NVIC_ICPR bit
-     * does not affect the active state of the corresponding interrupt.\n These
-     * registers are only word-accessible
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
+     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+     *             These registers are only word-accessible
      */
-    inline void get_NVIC_IPR0(uint8_t &IP_0, uint8_t &IP_1, uint8_t &IP_2,
-                              uint8_t &IP_3) volatile
+    inline void get_NVIC_IPR0(uint8_t &IP_0, uint8_t &IP_1, uint8_t &IP_2, uint8_t &IP_3) volatile
     {
         uint32_t curr = NVIC_IPR0;
 
@@ -752,14 +633,11 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR0's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.\n Note: Writing 1 to an NVIC_ICPR bit
-     * does not affect the active state of the corresponding interrupt.\n These
-     * registers are only word-accessible
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
+     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+     *             These registers are only word-accessible
      */
-    inline void set_NVIC_IPR0(uint8_t IP_0, uint8_t IP_1, uint8_t IP_2,
-                              uint8_t IP_3) volatile
+    inline void set_NVIC_IPR0(uint8_t IP_0, uint8_t IP_1, uint8_t IP_2, uint8_t IP_3) volatile
     {
         uint32_t curr = NVIC_IPR0;
 
@@ -878,12 +756,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR1's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR1(uint8_t &IP_4, uint8_t &IP_5, uint8_t &IP_6,
-                              uint8_t &IP_7) volatile
+    inline void get_NVIC_IPR1(uint8_t &IP_4, uint8_t &IP_5, uint8_t &IP_6, uint8_t &IP_7) volatile
     {
         uint32_t curr = NVIC_IPR1;
 
@@ -896,12 +771,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR1's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR1(uint8_t IP_4, uint8_t IP_5, uint8_t IP_6,
-                              uint8_t IP_7) volatile
+    inline void set_NVIC_IPR1(uint8_t IP_4, uint8_t IP_5, uint8_t IP_6, uint8_t IP_7) volatile
     {
         uint32_t curr = NVIC_IPR1;
 
@@ -1020,12 +892,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR2's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR2(uint8_t &IP_8, uint8_t &IP_9, uint8_t &IP_10,
-                              uint8_t &IP_11) volatile
+    inline void get_NVIC_IPR2(uint8_t &IP_8, uint8_t &IP_9, uint8_t &IP_10, uint8_t &IP_11) volatile
     {
         uint32_t curr = NVIC_IPR2;
 
@@ -1038,12 +907,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR2's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR2(uint8_t IP_8, uint8_t IP_9, uint8_t IP_10,
-                              uint8_t IP_11) volatile
+    inline void set_NVIC_IPR2(uint8_t IP_8, uint8_t IP_9, uint8_t IP_10, uint8_t IP_11) volatile
     {
         uint32_t curr = NVIC_IPR2;
 
@@ -1162,12 +1028,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR3's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR3(uint8_t &IP_12, uint8_t &IP_13, uint8_t &IP_14,
-                              uint8_t &IP_15) volatile
+    inline void get_NVIC_IPR3(uint8_t &IP_12, uint8_t &IP_13, uint8_t &IP_14, uint8_t &IP_15) volatile
     {
         uint32_t curr = NVIC_IPR3;
 
@@ -1180,12 +1043,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR3's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR3(uint8_t IP_12, uint8_t IP_13, uint8_t IP_14,
-                              uint8_t IP_15) volatile
+    inline void set_NVIC_IPR3(uint8_t IP_12, uint8_t IP_13, uint8_t IP_14, uint8_t IP_15) volatile
     {
         uint32_t curr = NVIC_IPR3;
 
@@ -1304,12 +1164,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR4's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR4(uint8_t &IP_16, uint8_t &IP_17, uint8_t &IP_18,
-                              uint8_t &IP_19) volatile
+    inline void get_NVIC_IPR4(uint8_t &IP_16, uint8_t &IP_17, uint8_t &IP_18, uint8_t &IP_19) volatile
     {
         uint32_t curr = NVIC_IPR4;
 
@@ -1322,12 +1179,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR4's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR4(uint8_t IP_16, uint8_t IP_17, uint8_t IP_18,
-                              uint8_t IP_19) volatile
+    inline void set_NVIC_IPR4(uint8_t IP_16, uint8_t IP_17, uint8_t IP_18, uint8_t IP_19) volatile
     {
         uint32_t curr = NVIC_IPR4;
 
@@ -1446,12 +1300,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR5's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR5(uint8_t &IP_20, uint8_t &IP_21, uint8_t &IP_22,
-                              uint8_t &IP_23) volatile
+    inline void get_NVIC_IPR5(uint8_t &IP_20, uint8_t &IP_21, uint8_t &IP_22, uint8_t &IP_23) volatile
     {
         uint32_t curr = NVIC_IPR5;
 
@@ -1464,12 +1315,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR5's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR5(uint8_t IP_20, uint8_t IP_21, uint8_t IP_22,
-                              uint8_t IP_23) volatile
+    inline void set_NVIC_IPR5(uint8_t IP_20, uint8_t IP_21, uint8_t IP_22, uint8_t IP_23) volatile
     {
         uint32_t curr = NVIC_IPR5;
 
@@ -1588,12 +1436,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR6's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR6(uint8_t &IP_24, uint8_t &IP_25, uint8_t &IP_26,
-                              uint8_t &IP_27) volatile
+    inline void get_NVIC_IPR6(uint8_t &IP_24, uint8_t &IP_25, uint8_t &IP_26, uint8_t &IP_27) volatile
     {
         uint32_t curr = NVIC_IPR6;
 
@@ -1606,12 +1451,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR6's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR6(uint8_t IP_24, uint8_t IP_25, uint8_t IP_26,
-                              uint8_t IP_27) volatile
+    inline void set_NVIC_IPR6(uint8_t IP_24, uint8_t IP_25, uint8_t IP_26, uint8_t IP_27) volatile
     {
         uint32_t curr = NVIC_IPR6;
 
@@ -1730,12 +1572,9 @@ registers are only word-accessible */
     /**
      * Get all of NVIC_IPR7's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void get_NVIC_IPR7(uint8_t &IP_28, uint8_t &IP_29, uint8_t &IP_30,
-                              uint8_t &IP_31) volatile
+    inline void get_NVIC_IPR7(uint8_t &IP_28, uint8_t &IP_29, uint8_t &IP_30, uint8_t &IP_31) volatile
     {
         uint32_t curr = NVIC_IPR7;
 
@@ -1748,12 +1587,9 @@ registers are only word-accessible */
     /**
      * Set all of NVIC_IPR7's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority
-     * from 0 to 3 to each of the available interrupts. 0 is the highest
-     * priority, and 3 is the lowest.
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
      */
-    inline void set_NVIC_IPR7(uint8_t IP_28, uint8_t IP_29, uint8_t IP_30,
-                              uint8_t IP_31) volatile
+    inline void set_NVIC_IPR7(uint8_t IP_28, uint8_t IP_29, uint8_t IP_30, uint8_t IP_31) volatile
     {
         uint32_t curr = NVIC_IPR7;
 
@@ -1825,13 +1661,9 @@ registers are only word-accessible */
     /**
      * Get all of CPUID's bit fields.
      *
-     * (read-only) Read the CPU ID Base Register to determine: the ID number of
-     * the processor core, the version number of the processor core, the
-     * implementation details of the processor core.
+     * (read-only) Read the CPU ID Base Register to determine: the ID number of the processor core, the version number of the processor core, the implementation details of the processor core.
      */
-    inline void get_CPUID(uint8_t &REVISION, uint16_t &PARTNO,
-                          uint8_t &ARCHITECTURE, uint8_t &VARIANT,
-                          uint8_t &IMPLEMENTER) volatile
+    inline void get_CPUID(uint8_t &REVISION, uint16_t &PARTNO, uint8_t &ARCHITECTURE, uint8_t &VARIANT, uint8_t &IMPLEMENTER) volatile
     {
         uint32_t curr = CPUID;
 
@@ -1855,10 +1687,7 @@ registers are only word-accessible */
     /**
      * Get ICSR's VECTPENDING field.
      *
-     * Indicates the exception number for the highest priority pending
-     * exception: 0 = no pending exceptions. Non zero = The pending state
-     * includes the effect of memory-mapped enable and mask registers. It does
-     * not include the PRIMASK special-purpose register qualifier.
+     * Indicates the exception number for the highest priority pending exception: 0 = no pending exceptions. Non zero = The pending state includes the effect of memory-mapped enable and mask registers. It does not include the PRIMASK special-purpose register qualifier.
      */
     inline uint16_t get_ICSR_VECTPENDING() volatile
     {
@@ -1878,10 +1707,7 @@ registers are only word-accessible */
     /**
      * Get ICSR's ISRPREEMPT bit.
      *
-     * The system can only access this bit when the core is halted. It
-     * indicates that a pending interrupt is to be taken in the next running
-     * cycle. If C_MASKINTS is clear in the Debug Halting Control and Status
-     * Register, the interrupt is serviced.
+     * The system can only access this bit when the core is halted. It indicates that a pending interrupt is to be taken in the next running cycle. If C_MASKINTS is clear in the Debug Halting Control and Status Register, the interrupt is serviced.
      */
     inline bool get_ICSR_ISRPREEMPT() volatile
     {
@@ -1894,8 +1720,8 @@ registers are only word-accessible */
      * SysTick exception clear-pending bit.\n
      *                 Write:\n
      *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick
-     * exception.\n This bit is WO. On a register read its value is Unknown.
+     *                 1 = Removes the pending state from the SysTick exception.\n
+     *                 This bit is WO. On a register read its value is Unknown.
      */
     inline bool get_ICSR_PENDSTCLR() volatile
     {
@@ -1908,8 +1734,8 @@ registers are only word-accessible */
      * SysTick exception clear-pending bit.\n
      *                 Write:\n
      *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick
-     * exception.\n This bit is WO. On a register read its value is Unknown.
+     *                 1 = Removes the pending state from the SysTick exception.\n
+     *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void set_ICSR_PENDSTCLR() volatile
     {
@@ -1922,8 +1748,8 @@ registers are only word-accessible */
      * SysTick exception clear-pending bit.\n
      *                 Write:\n
      *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick
-     * exception.\n This bit is WO. On a register read its value is Unknown.
+     *                 1 = Removes the pending state from the SysTick exception.\n
+     *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void clear_ICSR_PENDSTCLR() volatile
     {
@@ -1936,8 +1762,8 @@ registers are only word-accessible */
      * SysTick exception clear-pending bit.\n
      *                 Write:\n
      *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick
-     * exception.\n This bit is WO. On a register read its value is Unknown.
+     *                 1 = Removes the pending state from the SysTick exception.\n
+     *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void toggle_ICSR_PENDSTCLR() volatile
     {
@@ -2070,8 +1896,7 @@ registers are only word-accessible */
      *                 Read:\n
      *                 0 = PendSV exception is not pending.\n
      *                 1 = PendSV exception is pending.\n
-     *                 Writing 1 to this bit is the only way to set the PendSV
-     * exception state to pending.
+     *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline bool get_ICSR_PENDSVSET() volatile
     {
@@ -2088,8 +1913,7 @@ registers are only word-accessible */
      *                 Read:\n
      *                 0 = PendSV exception is not pending.\n
      *                 1 = PendSV exception is pending.\n
-     *                 Writing 1 to this bit is the only way to set the PendSV
-     * exception state to pending.
+     *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void set_ICSR_PENDSVSET() volatile
     {
@@ -2106,8 +1930,7 @@ registers are only word-accessible */
      *                 Read:\n
      *                 0 = PendSV exception is not pending.\n
      *                 1 = PendSV exception is pending.\n
-     *                 Writing 1 to this bit is the only way to set the PendSV
-     * exception state to pending.
+     *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void clear_ICSR_PENDSVSET() volatile
     {
@@ -2124,8 +1947,7 @@ registers are only word-accessible */
      *                 Read:\n
      *                 0 = PendSV exception is not pending.\n
      *                 1 = PendSV exception is pending.\n
-     *                 Writing 1 to this bit is the only way to set the PendSV
-     * exception state to pending.
+     *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void toggle_ICSR_PENDSVSET() volatile
     {
@@ -2135,16 +1957,18 @@ registers are only word-accessible */
     /**
      * Get ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority
-     * exception, it will activate as soon as it is registered.\n NMI
-     * set-pending bit.\n Write:\n 0 = No effect.\n 1 = Changes NMI exception
-     * state to pending.\n Read:\n 0 = NMI exception is not pending.\n 1 = NMI
-     * exception is pending.\n Because NMI is the highest-priority exception,
-     * normally the processor enters the NMI\n exception handler as soon as it
-     * detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI
-     * exception handler returns 1 only if the\n NMI signal is reasserted while
-     * the processor is executing that handler.
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
+     *                 NMI set-pending bit.\n
+     *                 Write:\n
+     *                 0 = No effect.\n
+     *                 1 = Changes NMI exception state to pending.\n
+     *                 Read:\n
+     *                 0 = NMI exception is not pending.\n
+     *                 1 = NMI exception is pending.\n
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline bool get_ICSR_NMIPENDSET() volatile
     {
@@ -2154,16 +1978,18 @@ registers are only word-accessible */
     /**
      * Set ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority
-     * exception, it will activate as soon as it is registered.\n NMI
-     * set-pending bit.\n Write:\n 0 = No effect.\n 1 = Changes NMI exception
-     * state to pending.\n Read:\n 0 = NMI exception is not pending.\n 1 = NMI
-     * exception is pending.\n Because NMI is the highest-priority exception,
-     * normally the processor enters the NMI\n exception handler as soon as it
-     * detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI
-     * exception handler returns 1 only if the\n NMI signal is reasserted while
-     * the processor is executing that handler.
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
+     *                 NMI set-pending bit.\n
+     *                 Write:\n
+     *                 0 = No effect.\n
+     *                 1 = Changes NMI exception state to pending.\n
+     *                 Read:\n
+     *                 0 = NMI exception is not pending.\n
+     *                 1 = NMI exception is pending.\n
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void set_ICSR_NMIPENDSET() volatile
     {
@@ -2173,16 +1999,18 @@ registers are only word-accessible */
     /**
      * Clear ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority
-     * exception, it will activate as soon as it is registered.\n NMI
-     * set-pending bit.\n Write:\n 0 = No effect.\n 1 = Changes NMI exception
-     * state to pending.\n Read:\n 0 = NMI exception is not pending.\n 1 = NMI
-     * exception is pending.\n Because NMI is the highest-priority exception,
-     * normally the processor enters the NMI\n exception handler as soon as it
-     * detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI
-     * exception handler returns 1 only if the\n NMI signal is reasserted while
-     * the processor is executing that handler.
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
+     *                 NMI set-pending bit.\n
+     *                 Write:\n
+     *                 0 = No effect.\n
+     *                 1 = Changes NMI exception state to pending.\n
+     *                 Read:\n
+     *                 0 = NMI exception is not pending.\n
+     *                 1 = NMI exception is pending.\n
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void clear_ICSR_NMIPENDSET() volatile
     {
@@ -2192,16 +2020,18 @@ registers are only word-accessible */
     /**
      * Toggle ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority
-     * exception, it will activate as soon as it is registered.\n NMI
-     * set-pending bit.\n Write:\n 0 = No effect.\n 1 = Changes NMI exception
-     * state to pending.\n Read:\n 0 = NMI exception is not pending.\n 1 = NMI
-     * exception is pending.\n Because NMI is the highest-priority exception,
-     * normally the processor enters the NMI\n exception handler as soon as it
-     * detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI
-     * exception handler returns 1 only if the\n NMI signal is reasserted while
-     * the processor is executing that handler.
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
+     *                 NMI set-pending bit.\n
+     *                 Write:\n
+     *                 0 = No effect.\n
+     *                 1 = Changes NMI exception state to pending.\n
+     *                 Read:\n
+     *                 0 = NMI exception is not pending.\n
+     *                 1 = NMI exception is pending.\n
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void toggle_ICSR_NMIPENDSET() volatile
     {
@@ -2211,16 +2041,9 @@ registers are only word-accessible */
     /**
      * Get all of ICSR's bit fields.
      *
-     * (read-write) Use the Interrupt Control State Register to set a pending
-     * Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or
-     * clear a pending SysTick, check for pending exceptions, check the vector
-     * number of the highest priority pended exception, check the vector number
-     * of the active exception.
+     * (read-write) Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception.
      */
-    inline void get_ICSR(uint16_t &VECTACTIVE, uint16_t &VECTPENDING,
-                         bool &ISRPENDING, bool &ISRPREEMPT, bool &PENDSTCLR,
-                         bool &PENDSTSET, bool &PENDSVCLR, bool &PENDSVSET,
-                         bool &NMIPENDSET) volatile
+    inline void get_ICSR(uint16_t &VECTACTIVE, uint16_t &VECTPENDING, bool &ISRPENDING, bool &ISRPREEMPT, bool &PENDSTCLR, bool &PENDSTSET, bool &PENDSVCLR, bool &PENDSVSET, bool &NMIPENDSET) volatile
     {
         uint32_t curr = ICSR;
 
@@ -2238,14 +2061,9 @@ registers are only word-accessible */
     /**
      * Set all of ICSR's bit fields.
      *
-     * (read-write) Use the Interrupt Control State Register to set a pending
-     * Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or
-     * clear a pending SysTick, check for pending exceptions, check the vector
-     * number of the highest priority pended exception, check the vector number
-     * of the active exception.
+     * (read-write) Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception.
      */
-    inline void set_ICSR(bool PENDSTCLR, bool PENDSTSET, bool PENDSVCLR,
-                         bool PENDSVSET, bool NMIPENDSET) volatile
+    inline void set_ICSR(bool PENDSTCLR, bool PENDSTSET, bool PENDSVCLR, bool PENDSVSET, bool NMIPENDSET) volatile
     {
         uint32_t curr = ICSR;
 
@@ -2291,11 +2109,7 @@ registers are only word-accessible */
     /**
      * Get AIRCR's VECTCLRACTIVE bit.
      *
-     * Clears all active state information for fixed and configurable
-     * exceptions. This bit: is self-clearing, can only be set by the DAP when
-     * the core is halted.  When set: clears all active exception status of the
-     * processor, forces a return to Thread mode, forces an IPSR of 0. A
-     * debugger must re-initialize the stack.
+     * Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack.
      */
     inline bool get_AIRCR_VECTCLRACTIVE() volatile
     {
@@ -2305,11 +2119,7 @@ registers are only word-accessible */
     /**
      * Set AIRCR's VECTCLRACTIVE bit.
      *
-     * Clears all active state information for fixed and configurable
-     * exceptions. This bit: is self-clearing, can only be set by the DAP when
-     * the core is halted.  When set: clears all active exception status of the
-     * processor, forces a return to Thread mode, forces an IPSR of 0. A
-     * debugger must re-initialize the stack.
+     * Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack.
      */
     inline void set_AIRCR_VECTCLRACTIVE() volatile
     {
@@ -2319,11 +2129,7 @@ registers are only word-accessible */
     /**
      * Clear AIRCR's VECTCLRACTIVE bit.
      *
-     * Clears all active state information for fixed and configurable
-     * exceptions. This bit: is self-clearing, can only be set by the DAP when
-     * the core is halted.  When set: clears all active exception status of the
-     * processor, forces a return to Thread mode, forces an IPSR of 0. A
-     * debugger must re-initialize the stack.
+     * Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack.
      */
     inline void clear_AIRCR_VECTCLRACTIVE() volatile
     {
@@ -2333,11 +2139,7 @@ registers are only word-accessible */
     /**
      * Toggle AIRCR's VECTCLRACTIVE bit.
      *
-     * Clears all active state information for fixed and configurable
-     * exceptions. This bit: is self-clearing, can only be set by the DAP when
-     * the core is halted.  When set: clears all active exception status of the
-     * processor, forces a return to Thread mode, forces an IPSR of 0. A
-     * debugger must re-initialize the stack.
+     * Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack.
      */
     inline void toggle_AIRCR_VECTCLRACTIVE() volatile
     {
@@ -2347,11 +2149,7 @@ registers are only word-accessible */
     /**
      * Get AIRCR's SYSRESETREQ bit.
      *
-     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system
-     * to be asserted to request a reset. The intention is to force a large
-     * system reset of all major components except for debug. The C_HALT bit in
-     * the DHCSR is cleared as a result of the system reset requested. The
-     * debugger does not lose contact with the device.
+     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device.
      */
     inline bool get_AIRCR_SYSRESETREQ() volatile
     {
@@ -2361,11 +2159,7 @@ registers are only word-accessible */
     /**
      * Set AIRCR's SYSRESETREQ bit.
      *
-     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system
-     * to be asserted to request a reset. The intention is to force a large
-     * system reset of all major components except for debug. The C_HALT bit in
-     * the DHCSR is cleared as a result of the system reset requested. The
-     * debugger does not lose contact with the device.
+     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device.
      */
     inline void set_AIRCR_SYSRESETREQ() volatile
     {
@@ -2375,11 +2169,7 @@ registers are only word-accessible */
     /**
      * Clear AIRCR's SYSRESETREQ bit.
      *
-     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system
-     * to be asserted to request a reset. The intention is to force a large
-     * system reset of all major components except for debug. The C_HALT bit in
-     * the DHCSR is cleared as a result of the system reset requested. The
-     * debugger does not lose contact with the device.
+     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device.
      */
     inline void clear_AIRCR_SYSRESETREQ() volatile
     {
@@ -2389,11 +2179,7 @@ registers are only word-accessible */
     /**
      * Toggle AIRCR's SYSRESETREQ bit.
      *
-     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system
-     * to be asserted to request a reset. The intention is to force a large
-     * system reset of all major components except for debug. The C_HALT bit in
-     * the DHCSR is cleared as a result of the system reset requested. The
-     * debugger does not lose contact with the device.
+     * Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device.
      */
     inline void toggle_AIRCR_SYSRESETREQ() volatile
     {
@@ -2416,8 +2202,7 @@ registers are only word-accessible */
      *
      * Register key:\n
      *                 Reads as Unknown\n
-     *                 On writes, write 0x05FA to VECTKEY, otherwise the write
-     * is ignored.
+     *                 On writes, write 0x05FA to VECTKEY, otherwise the write is ignored.
      */
     inline uint16_t get_AIRCR_VECTKEY() volatile
     {
@@ -2429,8 +2214,7 @@ registers are only word-accessible */
      *
      * Register key:\n
      *                 Reads as Unknown\n
-     *                 On writes, write 0x05FA to VECTKEY, otherwise the write
-     * is ignored.
+     *                 On writes, write 0x05FA to VECTKEY, otherwise the write is ignored.
      */
     inline void set_AIRCR_VECTKEY(uint16_t value) volatile
     {
@@ -2445,12 +2229,9 @@ registers are only word-accessible */
     /**
      * Get all of AIRCR's bit fields.
      *
-     * (read-write) Use the Application Interrupt and Reset Control Register
-     * to: determine data endianness, clear all active state information from
-     * debug halt mode, request a system reset.
+     * (read-write) Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset.
      */
-    inline void get_AIRCR(bool &VECTCLRACTIVE, bool &SYSRESETREQ,
-                          bool &ENDIANESS, uint16_t &VECTKEY) volatile
+    inline void get_AIRCR(bool &VECTCLRACTIVE, bool &SYSRESETREQ, bool &ENDIANESS, uint16_t &VECTKEY) volatile
     {
         uint32_t curr = AIRCR;
 
@@ -2463,12 +2244,9 @@ registers are only word-accessible */
     /**
      * Set all of AIRCR's bit fields.
      *
-     * (read-write) Use the Application Interrupt and Reset Control Register
-     * to: determine data endianness, clear all active state information from
-     * debug halt mode, request a system reset.
+     * (read-write) Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset.
      */
-    inline void set_AIRCR(bool VECTCLRACTIVE, bool SYSRESETREQ,
-                          uint16_t VECTKEY) volatile
+    inline void set_AIRCR(bool VECTCLRACTIVE, bool SYSRESETREQ, uint16_t VECTKEY) volatile
     {
         uint32_t curr = AIRCR;
 
@@ -2485,11 +2263,10 @@ registers are only word-accessible */
     /**
      * Get SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread
-     * mode:\n 0 = Do not sleep when returning to Thread mode.\n 1 = Enter
-     * sleep, or deep sleep, on return from an ISR to Thread mode.\n Setting
-     * this bit to 1 enables an interrupt driven application to avoid returning
-     * to an empty main application.
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
+     *                 0 = Do not sleep when returning to Thread mode.\n
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline bool get_SCR_SLEEPONEXIT() volatile
     {
@@ -2499,11 +2276,10 @@ registers are only word-accessible */
     /**
      * Set SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread
-     * mode:\n 0 = Do not sleep when returning to Thread mode.\n 1 = Enter
-     * sleep, or deep sleep, on return from an ISR to Thread mode.\n Setting
-     * this bit to 1 enables an interrupt driven application to avoid returning
-     * to an empty main application.
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
+     *                 0 = Do not sleep when returning to Thread mode.\n
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void set_SCR_SLEEPONEXIT() volatile
     {
@@ -2513,11 +2289,10 @@ registers are only word-accessible */
     /**
      * Clear SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread
-     * mode:\n 0 = Do not sleep when returning to Thread mode.\n 1 = Enter
-     * sleep, or deep sleep, on return from an ISR to Thread mode.\n Setting
-     * this bit to 1 enables an interrupt driven application to avoid returning
-     * to an empty main application.
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
+     *                 0 = Do not sleep when returning to Thread mode.\n
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void clear_SCR_SLEEPONEXIT() volatile
     {
@@ -2527,11 +2302,10 @@ registers are only word-accessible */
     /**
      * Toggle SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread
-     * mode:\n 0 = Do not sleep when returning to Thread mode.\n 1 = Enter
-     * sleep, or deep sleep, on return from an ISR to Thread mode.\n Setting
-     * this bit to 1 enables an interrupt driven application to avoid returning
-     * to an empty main application.
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
+     *                 0 = Do not sleep when returning to Thread mode.\n
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void toggle_SCR_SLEEPONEXIT() volatile
     {
@@ -2541,8 +2315,9 @@ registers are only word-accessible */
     /**
      * Get SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power
-     * mode:\n 0 = Sleep.\n 1 = Deep sleep.
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
+     *                 0 = Sleep.\n
+     *                 1 = Deep sleep.
      */
     inline bool get_SCR_SLEEPDEEP() volatile
     {
@@ -2552,8 +2327,9 @@ registers are only word-accessible */
     /**
      * Set SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power
-     * mode:\n 0 = Sleep.\n 1 = Deep sleep.
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
+     *                 0 = Sleep.\n
+     *                 1 = Deep sleep.
      */
     inline void set_SCR_SLEEPDEEP() volatile
     {
@@ -2563,8 +2339,9 @@ registers are only word-accessible */
     /**
      * Clear SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power
-     * mode:\n 0 = Sleep.\n 1 = Deep sleep.
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
+     *                 0 = Sleep.\n
+     *                 1 = Deep sleep.
      */
     inline void clear_SCR_SLEEPDEEP() volatile
     {
@@ -2574,8 +2351,9 @@ registers are only word-accessible */
     /**
      * Toggle SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power
-     * mode:\n 0 = Sleep.\n 1 = Deep sleep.
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
+     *                 0 = Sleep.\n
+     *                 1 = Deep sleep.
      */
     inline void toggle_SCR_SLEEPDEEP() volatile
     {
@@ -2586,14 +2364,11 @@ registers are only word-accessible */
      * Get SCR's SEVONPEND bit.
      *
      * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the
-     * processor, disabled interrupts are excluded.\n 1 = Enabled events and
-     * all interrupts, including disabled interrupts, can wakeup the
-     * processor.\n When an event or interrupt becomes pending, the event
-     * signal wakes up the processor from WFE. If the\n processor is not
-     * waiting for an event, the event is registered and affects the next
-     * WFE.\n The processor also wakes up on execution of an SEV instruction or
-     * an external event.
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline bool get_SCR_SEVONPEND() volatile
     {
@@ -2604,14 +2379,11 @@ registers are only word-accessible */
      * Set SCR's SEVONPEND bit.
      *
      * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the
-     * processor, disabled interrupts are excluded.\n 1 = Enabled events and
-     * all interrupts, including disabled interrupts, can wakeup the
-     * processor.\n When an event or interrupt becomes pending, the event
-     * signal wakes up the processor from WFE. If the\n processor is not
-     * waiting for an event, the event is registered and affects the next
-     * WFE.\n The processor also wakes up on execution of an SEV instruction or
-     * an external event.
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void set_SCR_SEVONPEND() volatile
     {
@@ -2622,14 +2394,11 @@ registers are only word-accessible */
      * Clear SCR's SEVONPEND bit.
      *
      * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the
-     * processor, disabled interrupts are excluded.\n 1 = Enabled events and
-     * all interrupts, including disabled interrupts, can wakeup the
-     * processor.\n When an event or interrupt becomes pending, the event
-     * signal wakes up the processor from WFE. If the\n processor is not
-     * waiting for an event, the event is registered and affects the next
-     * WFE.\n The processor also wakes up on execution of an SEV instruction or
-     * an external event.
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void clear_SCR_SEVONPEND() volatile
     {
@@ -2640,14 +2409,11 @@ registers are only word-accessible */
      * Toggle SCR's SEVONPEND bit.
      *
      * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the
-     * processor, disabled interrupts are excluded.\n 1 = Enabled events and
-     * all interrupts, including disabled interrupts, can wakeup the
-     * processor.\n When an event or interrupt becomes pending, the event
-     * signal wakes up the processor from WFE. If the\n processor is not
-     * waiting for an event, the event is registered and affects the next
-     * WFE.\n The processor also wakes up on execution of an SEV instruction or
-     * an external event.
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void toggle_SCR_SEVONPEND() volatile
     {
@@ -2657,13 +2423,9 @@ registers are only word-accessible */
     /**
      * Get all of SCR's bit fields.
      *
-     * (read-write) System Control Register. Use the System Control Register
-     * for power-management functions: signal to the system when the processor
-     * can enter a low power state, control how the processor enters and exits
-     * low power states.
+     * (read-write) System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states.
      */
-    inline void get_SCR(bool &SLEEPONEXIT, bool &SLEEPDEEP,
-                        bool &SEVONPEND) volatile
+    inline void get_SCR(bool &SLEEPONEXIT, bool &SLEEPDEEP, bool &SEVONPEND) volatile
     {
         uint32_t curr = SCR;
 
@@ -2675,13 +2437,9 @@ registers are only word-accessible */
     /**
      * Set all of SCR's bit fields.
      *
-     * (read-write) System Control Register. Use the System Control Register
-     * for power-management functions: signal to the system when the processor
-     * can enter a low power state, control how the processor enters and exits
-     * low power states.
+     * (read-write) System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states.
      */
-    inline void set_SCR(bool SLEEPONEXIT, bool SLEEPDEEP,
-                        bool SEVONPEND) volatile
+    inline void set_SCR(bool SLEEPONEXIT, bool SLEEPDEEP, bool SEVONPEND) volatile
     {
         uint32_t curr = SCR;
 
@@ -2698,8 +2456,7 @@ registers are only word-accessible */
     /**
      * Get CCR's UNALIGN_TRP bit.
      *
-     * Always reads as one, indicates that all unaligned accesses generate a
-     * HardFault.
+     * Always reads as one, indicates that all unaligned accesses generate a HardFault.
      */
     inline bool get_CCR_UNALIGN_TRP() volatile
     {
@@ -2709,10 +2466,7 @@ registers are only word-accessible */
     /**
      * Get CCR's STKALIGN bit.
      *
-     * Always reads as one, indicates 8-byte stack alignment on exception
-     * entry. On exception entry, the processor uses bit[9] of the stacked PSR
-     * to indicate the stack alignment. On return from the exception it uses
-     * this stacked bit to restore the correct stack alignment.
+     * Always reads as one, indicates 8-byte stack alignment on exception entry. On exception entry, the processor uses bit[9] of the stacked PSR to indicate the stack alignment. On return from the exception it uses this stacked bit to restore the correct stack alignment.
      */
     inline bool get_CCR_STKALIGN() volatile
     {
@@ -2722,8 +2476,7 @@ registers are only word-accessible */
     /**
      * Get all of CCR's bit fields.
      *
-     * (read-only) The Configuration and Control Register permanently enables
-     * stack alignment and causes unaligned accesses to result in a Hard Fault.
+     * (read-only) The Configuration and Control Register permanently enables stack alignment and causes unaligned accesses to result in a Hard Fault.
      */
     inline void get_CCR(bool &UNALIGN_TRP, bool &STKALIGN) volatile
     {
@@ -2811,10 +2564,7 @@ registers are only word-accessible */
     /**
      * Get all of SHPR3's bit fields.
      *
-     * (read-write) System handlers are a special class of exception handler
-     * that can have their priority set to any of the priority levels. Use the
-     * System Handler Priority Register 3 to set the priority of PendSV and
-     * SysTick.
+     * (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick.
      */
     inline void get_SHPR3(uint8_t &PRI_14, uint8_t &PRI_15) volatile
     {
@@ -2827,10 +2577,7 @@ registers are only word-accessible */
     /**
      * Set all of SHPR3's bit fields.
      *
-     * (read-write) System handlers are a special class of exception handler
-     * that can have their priority set to any of the priority levels. Use the
-     * System Handler Priority Register 3 to set the priority of PendSV and
-     * SysTick.
+     * (read-write) System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick.
      */
     inline void set_SHPR3(uint8_t PRI_14, uint8_t PRI_15) volatile
     {
@@ -2847,8 +2594,7 @@ registers are only word-accessible */
     /**
      * Get SHCSR's SVCALLPENDED bit.
      *
-     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0
-     * to clear pending SVCall.
+     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall.
      */
     inline bool get_SHCSR_SVCALLPENDED() volatile
     {
@@ -2858,8 +2604,7 @@ registers are only word-accessible */
     /**
      * Set SHCSR's SVCALLPENDED bit.
      *
-     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0
-     * to clear pending SVCall.
+     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall.
      */
     inline void set_SHCSR_SVCALLPENDED() volatile
     {
@@ -2869,8 +2614,7 @@ registers are only word-accessible */
     /**
      * Clear SHCSR's SVCALLPENDED bit.
      *
-     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0
-     * to clear pending SVCall.
+     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall.
      */
     inline void clear_SHCSR_SVCALLPENDED() volatile
     {
@@ -2880,8 +2624,7 @@ registers are only word-accessible */
     /**
      * Toggle SHCSR's SVCALLPENDED bit.
      *
-     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0
-     * to clear pending SVCall.
+     * Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall.
      */
     inline void toggle_SHCSR_SVCALLPENDED() volatile
     {
@@ -2891,8 +2634,7 @@ registers are only word-accessible */
     /**
      * Get MPU_TYPE's SEPARATE bit.
      *
-     * Indicates support for separate instruction and data address maps. Reads
-     * as 0 as ARMv6-M only supports a unified MPU.
+     * Indicates support for separate instruction and data address maps. Reads as 0 as ARMv6-M only supports a unified MPU.
      */
     inline bool get_MPU_TYPE_SEPARATE() volatile
     {
@@ -2912,8 +2654,7 @@ registers are only word-accessible */
     /**
      * Get MPU_TYPE's IREGION field.
      *
-     * Instruction region. Reads as zero as ARMv6-M only supports a unified
-     * MPU.
+     * Instruction region. Reads as zero as ARMv6-M only supports a unified MPU.
      */
     inline uint8_t get_MPU_TYPE_IREGION() volatile
     {
@@ -2923,11 +2664,9 @@ registers are only word-accessible */
     /**
      * Get all of MPU_TYPE's bit fields.
      *
-     * (read-only) Read the MPU Type Register to determine if the processor
-     * implements an MPU, and how many regions the MPU supports.
+     * (read-only) Read the MPU Type Register to determine if the processor implements an MPU, and how many regions the MPU supports.
      */
-    inline void get_MPU_TYPE(bool &SEPARATE, uint8_t &DREGION,
-                             uint8_t &IREGION) volatile
+    inline void get_MPU_TYPE(bool &SEPARATE, uint8_t &DREGION, uint8_t &IREGION) volatile
     {
         uint32_t curr = MPU_TYPE;
 
@@ -2939,9 +2678,9 @@ registers are only word-accessible */
     /**
      * Get MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged
-     * accesses use the default memory map.\n 0 = MPU disabled.\n 1 = MPU
-     * enabled.
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
+     *                 0 = MPU disabled.\n
+     *                 1 = MPU enabled.
      */
     inline bool get_MPU_CTRL_ENABLE() volatile
     {
@@ -2951,9 +2690,9 @@ registers are only word-accessible */
     /**
      * Set MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged
-     * accesses use the default memory map.\n 0 = MPU disabled.\n 1 = MPU
-     * enabled.
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
+     *                 0 = MPU disabled.\n
+     *                 1 = MPU enabled.
      */
     inline void set_MPU_CTRL_ENABLE() volatile
     {
@@ -2963,9 +2702,9 @@ registers are only word-accessible */
     /**
      * Clear MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged
-     * accesses use the default memory map.\n 0 = MPU disabled.\n 1 = MPU
-     * enabled.
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
+     *                 0 = MPU disabled.\n
+     *                 1 = MPU enabled.
      */
     inline void clear_MPU_CTRL_ENABLE() volatile
     {
@@ -2975,9 +2714,9 @@ registers are only word-accessible */
     /**
      * Toggle MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged
-     * accesses use the default memory map.\n 0 = MPU disabled.\n 1 = MPU
-     * enabled.
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
+     *                 0 = MPU disabled.\n
+     *                 1 = MPU enabled.
      */
     inline void toggle_MPU_CTRL_ENABLE() volatile
     {
@@ -2987,11 +2726,10 @@ registers are only word-accessible */
     /**
      * Get MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit
-     * when ENABLE is clear results in UNPREDICTABLE behaviour.\n When the MPU
-     * is enabled:\n 0 = MPU is disabled during HardFault and NMI handlers,
-     * regardless of the value of the ENABLE bit.\n 1 = the MPU is enabled
-     * during HardFault and NMI handlers.
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
+     *                 When the MPU is enabled:\n
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline bool get_MPU_CTRL_HFNMIENA() volatile
     {
@@ -3001,11 +2739,10 @@ registers are only word-accessible */
     /**
      * Set MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit
-     * when ENABLE is clear results in UNPREDICTABLE behaviour.\n When the MPU
-     * is enabled:\n 0 = MPU is disabled during HardFault and NMI handlers,
-     * regardless of the value of the ENABLE bit.\n 1 = the MPU is enabled
-     * during HardFault and NMI handlers.
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
+     *                 When the MPU is enabled:\n
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void set_MPU_CTRL_HFNMIENA() volatile
     {
@@ -3015,11 +2752,10 @@ registers are only word-accessible */
     /**
      * Clear MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit
-     * when ENABLE is clear results in UNPREDICTABLE behaviour.\n When the MPU
-     * is enabled:\n 0 = MPU is disabled during HardFault and NMI handlers,
-     * regardless of the value of the ENABLE bit.\n 1 = the MPU is enabled
-     * during HardFault and NMI handlers.
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
+     *                 When the MPU is enabled:\n
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void clear_MPU_CTRL_HFNMIENA() volatile
     {
@@ -3029,11 +2765,10 @@ registers are only word-accessible */
     /**
      * Toggle MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit
-     * when ENABLE is clear results in UNPREDICTABLE behaviour.\n When the MPU
-     * is enabled:\n 0 = MPU is disabled during HardFault and NMI handlers,
-     * regardless of the value of the ENABLE bit.\n 1 = the MPU is enabled
-     * during HardFault and NMI handlers.
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
+     *                 When the MPU is enabled:\n
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void toggle_MPU_CTRL_HFNMIENA() volatile
     {
@@ -3043,15 +2778,11 @@ registers are only word-accessible */
     /**
      * Get MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background
-     * region for privileged accesses. This bit is ignored when ENABLE is
-     * clear.\n 0 = If the MPU is enabled, disables use of the default memory
-     * map. Any memory access to a location not\n covered by any enabled region
-     * causes a fault.\n 1 = If the MPU is enabled, enables use of the default
-     * memory map as a background region for privileged software accesses.\n
-     *                 When enabled, the background region acts as if it is
-     * region number -1. Any region that is defined and enabled has priority
-     * over this default map.
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
+     *                 covered by any enabled region causes a fault.\n
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline bool get_MPU_CTRL_PRIVDEFENA() volatile
     {
@@ -3061,15 +2792,11 @@ registers are only word-accessible */
     /**
      * Set MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background
-     * region for privileged accesses. This bit is ignored when ENABLE is
-     * clear.\n 0 = If the MPU is enabled, disables use of the default memory
-     * map. Any memory access to a location not\n covered by any enabled region
-     * causes a fault.\n 1 = If the MPU is enabled, enables use of the default
-     * memory map as a background region for privileged software accesses.\n
-     *                 When enabled, the background region acts as if it is
-     * region number -1. Any region that is defined and enabled has priority
-     * over this default map.
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
+     *                 covered by any enabled region causes a fault.\n
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void set_MPU_CTRL_PRIVDEFENA() volatile
     {
@@ -3079,15 +2806,11 @@ registers are only word-accessible */
     /**
      * Clear MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background
-     * region for privileged accesses. This bit is ignored when ENABLE is
-     * clear.\n 0 = If the MPU is enabled, disables use of the default memory
-     * map. Any memory access to a location not\n covered by any enabled region
-     * causes a fault.\n 1 = If the MPU is enabled, enables use of the default
-     * memory map as a background region for privileged software accesses.\n
-     *                 When enabled, the background region acts as if it is
-     * region number -1. Any region that is defined and enabled has priority
-     * over this default map.
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
+     *                 covered by any enabled region causes a fault.\n
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void clear_MPU_CTRL_PRIVDEFENA() volatile
     {
@@ -3097,15 +2820,11 @@ registers are only word-accessible */
     /**
      * Toggle MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background
-     * region for privileged accesses. This bit is ignored when ENABLE is
-     * clear.\n 0 = If the MPU is enabled, disables use of the default memory
-     * map. Any memory access to a location not\n covered by any enabled region
-     * causes a fault.\n 1 = If the MPU is enabled, enables use of the default
-     * memory map as a background region for privileged software accesses.\n
-     *                 When enabled, the background region acts as if it is
-     * region number -1. Any region that is defined and enabled has priority
-     * over this default map.
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
+     *                 covered by any enabled region causes a fault.\n
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void toggle_MPU_CTRL_PRIVDEFENA() volatile
     {
@@ -3115,13 +2834,9 @@ registers are only word-accessible */
     /**
      * Get all of MPU_CTRL's bit fields.
      *
-     * (read-write) Use the MPU Control Register to enable and disable the MPU,
-     * and to control whether the default memory map is enabled as a background
-     * region for privileged accesses, and whether the MPU is enabled for
-     * HardFaults and NMIs.
+     * (read-write) Use the MPU Control Register to enable and disable the MPU, and to control whether the default memory map is enabled as a background region for privileged accesses, and whether the MPU is enabled for HardFaults and NMIs.
      */
-    inline void get_MPU_CTRL(bool &ENABLE, bool &HFNMIENA,
-                             bool &PRIVDEFENA) volatile
+    inline void get_MPU_CTRL(bool &ENABLE, bool &HFNMIENA, bool &PRIVDEFENA) volatile
     {
         uint32_t curr = MPU_CTRL;
 
@@ -3133,13 +2848,9 @@ registers are only word-accessible */
     /**
      * Set all of MPU_CTRL's bit fields.
      *
-     * (read-write) Use the MPU Control Register to enable and disable the MPU,
-     * and to control whether the default memory map is enabled as a background
-     * region for privileged accesses, and whether the MPU is enabled for
-     * HardFaults and NMIs.
+     * (read-write) Use the MPU Control Register to enable and disable the MPU, and to control whether the default memory map is enabled as a background region for privileged accesses, and whether the MPU is enabled for HardFaults and NMIs.
      */
-    inline void set_MPU_CTRL(bool ENABLE, bool HFNMIENA,
-                             bool PRIVDEFENA) volatile
+    inline void set_MPU_CTRL(bool ENABLE, bool HFNMIENA, bool PRIVDEFENA) volatile
     {
         uint32_t curr = MPU_CTRL;
 
@@ -3156,9 +2867,8 @@ registers are only word-accessible */
     /**
      * Get MPU_RNR's REGION field.
      *
-     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR
-     * registers.\n The MPU supports 8 memory regions, so the permitted values
-     * of this field are 0-7.
+     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.\n
+     *                 The MPU supports 8 memory regions, so the permitted values of this field are 0-7.
      */
     inline uint8_t get_MPU_RNR_REGION() volatile
     {
@@ -3168,9 +2878,8 @@ registers are only word-accessible */
     /**
      * Set MPU_RNR's REGION field.
      *
-     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR
-     * registers.\n The MPU supports 8 memory regions, so the permitted values
-     * of this field are 0-7.
+     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.\n
+     *                 The MPU supports 8 memory regions, so the permitted values of this field are 0-7.
      */
     inline void set_MPU_RNR_REGION(uint8_t value) volatile
     {
@@ -3185,9 +2894,7 @@ registers are only word-accessible */
     /**
      * Get MPU_RBAR's REGION field.
      *
-     * On writes, specifies the number of the region whose base address to
-     * update provided VALID is set written as 1. On reads, returns bits [3:0]
-     * of MPU_RNR.
+     * On writes, specifies the number of the region whose base address to update provided VALID is set written as 1. On reads, returns bits [3:0] of MPU_RNR.
      */
     inline uint8_t get_MPU_RBAR_REGION() volatile
     {
@@ -3197,9 +2904,7 @@ registers are only word-accessible */
     /**
      * Set MPU_RBAR's REGION field.
      *
-     * On writes, specifies the number of the region whose base address to
-     * update provided VALID is set written as 1. On reads, returns bits [3:0]
-     * of MPU_RNR.
+     * On writes, specifies the number of the region whose base address to update provided VALID is set written as 1. On reads, returns bits [3:0] of MPU_RNR.
      */
     inline void set_MPU_RBAR_REGION(uint8_t value) volatile
     {
@@ -3214,14 +2919,15 @@ registers are only word-accessible */
     /**
      * Get MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of
-     * the region identified by the REGION field, updating the MPU_RNR to
-     * indicate this new region.\n Write:\n 0 = MPU_RNR not changed, and the
-     * processor:\n Updates the base address for the region specified in the
-     * MPU_RNR.\n Ignores the value of the REGION field.\n 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the
-     * REGION field.\n Updates the base address for the region specified in the
-     * REGION field.\n Always reads as zero.
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
+     *                 Write:\n
+     *                 0 = MPU_RNR not changed, and the processor:\n
+     *                 Updates the base address for the region specified in the MPU_RNR.\n
+     *                 Ignores the value of the REGION field.\n
+     *                 1 = The processor:\n
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
+     *                 Updates the base address for the region specified in the REGION field.\n
+     *                 Always reads as zero.
      */
     inline bool get_MPU_RBAR_VALID() volatile
     {
@@ -3231,14 +2937,15 @@ registers are only word-accessible */
     /**
      * Set MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of
-     * the region identified by the REGION field, updating the MPU_RNR to
-     * indicate this new region.\n Write:\n 0 = MPU_RNR not changed, and the
-     * processor:\n Updates the base address for the region specified in the
-     * MPU_RNR.\n Ignores the value of the REGION field.\n 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the
-     * REGION field.\n Updates the base address for the region specified in the
-     * REGION field.\n Always reads as zero.
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
+     *                 Write:\n
+     *                 0 = MPU_RNR not changed, and the processor:\n
+     *                 Updates the base address for the region specified in the MPU_RNR.\n
+     *                 Ignores the value of the REGION field.\n
+     *                 1 = The processor:\n
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
+     *                 Updates the base address for the region specified in the REGION field.\n
+     *                 Always reads as zero.
      */
     inline void set_MPU_RBAR_VALID() volatile
     {
@@ -3248,14 +2955,15 @@ registers are only word-accessible */
     /**
      * Clear MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of
-     * the region identified by the REGION field, updating the MPU_RNR to
-     * indicate this new region.\n Write:\n 0 = MPU_RNR not changed, and the
-     * processor:\n Updates the base address for the region specified in the
-     * MPU_RNR.\n Ignores the value of the REGION field.\n 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the
-     * REGION field.\n Updates the base address for the region specified in the
-     * REGION field.\n Always reads as zero.
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
+     *                 Write:\n
+     *                 0 = MPU_RNR not changed, and the processor:\n
+     *                 Updates the base address for the region specified in the MPU_RNR.\n
+     *                 Ignores the value of the REGION field.\n
+     *                 1 = The processor:\n
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
+     *                 Updates the base address for the region specified in the REGION field.\n
+     *                 Always reads as zero.
      */
     inline void clear_MPU_RBAR_VALID() volatile
     {
@@ -3265,14 +2973,15 @@ registers are only word-accessible */
     /**
      * Toggle MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of
-     * the region identified by the REGION field, updating the MPU_RNR to
-     * indicate this new region.\n Write:\n 0 = MPU_RNR not changed, and the
-     * processor:\n Updates the base address for the region specified in the
-     * MPU_RNR.\n Ignores the value of the REGION field.\n 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the
-     * REGION field.\n Updates the base address for the region specified in the
-     * REGION field.\n Always reads as zero.
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
+     *                 Write:\n
+     *                 0 = MPU_RNR not changed, and the processor:\n
+     *                 Updates the base address for the region specified in the MPU_RNR.\n
+     *                 Ignores the value of the REGION field.\n
+     *                 1 = The processor:\n
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
+     *                 Updates the base address for the region specified in the REGION field.\n
+     *                 Always reads as zero.
      */
     inline void toggle_MPU_RBAR_VALID() volatile
     {
@@ -3307,13 +3016,9 @@ registers are only word-accessible */
     /**
      * Get all of MPU_RBAR's bit fields.
      *
-     * (read-write) Read the MPU Region Base Address Register to determine the
-     * base address of the region identified by MPU_RNR. Write to update the
-     * base address of said region or that of a specified region, with whose
-     * number MPU_RNR will also be updated.
+     * (read-write) Read the MPU Region Base Address Register to determine the base address of the region identified by MPU_RNR. Write to update the base address of said region or that of a specified region, with whose number MPU_RNR will also be updated.
      */
-    inline void get_MPU_RBAR(uint8_t &REGION, bool &VALID,
-                             uint32_t &ADDR) volatile
+    inline void get_MPU_RBAR(uint8_t &REGION, bool &VALID, uint32_t &ADDR) volatile
     {
         uint32_t curr = MPU_RBAR;
 
@@ -3325,13 +3030,9 @@ registers are only word-accessible */
     /**
      * Set all of MPU_RBAR's bit fields.
      *
-     * (read-write) Read the MPU Region Base Address Register to determine the
-     * base address of the region identified by MPU_RNR. Write to update the
-     * base address of said region or that of a specified region, with whose
-     * number MPU_RNR will also be updated.
+     * (read-write) Read the MPU Region Base Address Register to determine the base address of the region identified by MPU_RNR. Write to update the base address of said region or that of a specified region, with whose number MPU_RNR will also be updated.
      */
-    inline void set_MPU_RBAR(uint8_t REGION, bool VALID,
-                             uint32_t ADDR) volatile
+    inline void set_MPU_RBAR(uint8_t REGION, bool VALID, uint32_t ADDR) volatile
     {
         uint32_t curr = MPU_RBAR;
 
@@ -3388,8 +3089,7 @@ registers are only word-accessible */
     /**
      * Get MPU_RASR's SIZE field.
      *
-     * Indicates the region size. Region size in bytes = 2^(SIZE+1). The
-     * minimum permitted value is 7 (b00111) = 256Bytes
+     * Indicates the region size. Region size in bytes = 2^(SIZE+1). The minimum permitted value is 7 (b00111) = 256Bytes
      */
     inline uint8_t get_MPU_RASR_SIZE() volatile
     {
@@ -3399,8 +3099,7 @@ registers are only word-accessible */
     /**
      * Set MPU_RASR's SIZE field.
      *
-     * Indicates the region size. Region size in bytes = 2^(SIZE+1). The
-     * minimum permitted value is 7 (b00111) = 256Bytes
+     * Indicates the region size. Region size in bytes = 2^(SIZE+1). The minimum permitted value is 7 (b00111) = 256Bytes
      */
     inline void set_MPU_RASR_SIZE(uint8_t value) volatile
     {
@@ -3415,8 +3114,7 @@ registers are only word-accessible */
     /**
      * Get MPU_RASR's SRD field.
      *
-     * Subregion Disable. For regions of 256 bytes or larger, each bit of this
-     * field controls whether one of the eight equal subregions is enabled.
+     * Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled.
      */
     inline uint8_t get_MPU_RASR_SRD() volatile
     {
@@ -3426,8 +3124,7 @@ registers are only word-accessible */
     /**
      * Set MPU_RASR's SRD field.
      *
-     * Subregion Disable. For regions of 256 bytes or larger, each bit of this
-     * field controls whether one of the eight equal subregions is enabled.
+     * Subregion Disable. For regions of 256 bytes or larger, each bit of this field controls whether one of the eight equal subregions is enabled.
      */
     inline void set_MPU_RASR_SRD(uint8_t value) volatile
     {
@@ -3442,11 +3139,14 @@ registers are only word-accessible */
     /**
      * Get MPU_RASR's ATTRS field.
      *
-     * The MPU Region Attribute field. Use to define the region attribute
-     * control.\n 28 = XN: Instruction access disable bit:\n 0 = Instruction
-     * fetches enabled.\n 1 = Instruction fetches disabled.\n 26:24 = AP:
-     * Access permission field\n 18 = S: Shareable bit\n 17 = C: Cacheable
-     * bit\n 16 = B: Bufferable bit
+     * The MPU Region Attribute field. Use to define the region attribute control.\n
+     *                 28 = XN: Instruction access disable bit:\n
+     *                 0 = Instruction fetches enabled.\n
+     *                 1 = Instruction fetches disabled.\n
+     *                 26:24 = AP: Access permission field\n
+     *                 18 = S: Shareable bit\n
+     *                 17 = C: Cacheable bit\n
+     *                 16 = B: Bufferable bit
      */
     inline uint16_t get_MPU_RASR_ATTRS() volatile
     {
@@ -3456,11 +3156,14 @@ registers are only word-accessible */
     /**
      * Set MPU_RASR's ATTRS field.
      *
-     * The MPU Region Attribute field. Use to define the region attribute
-     * control.\n 28 = XN: Instruction access disable bit:\n 0 = Instruction
-     * fetches enabled.\n 1 = Instruction fetches disabled.\n 26:24 = AP:
-     * Access permission field\n 18 = S: Shareable bit\n 17 = C: Cacheable
-     * bit\n 16 = B: Bufferable bit
+     * The MPU Region Attribute field. Use to define the region attribute control.\n
+     *                 28 = XN: Instruction access disable bit:\n
+     *                 0 = Instruction fetches enabled.\n
+     *                 1 = Instruction fetches disabled.\n
+     *                 26:24 = AP: Access permission field\n
+     *                 18 = S: Shareable bit\n
+     *                 17 = C: Cacheable bit\n
+     *                 16 = B: Bufferable bit
      */
     inline void set_MPU_RASR_ATTRS(uint16_t value) volatile
     {
@@ -3475,12 +3178,9 @@ registers are only word-accessible */
     /**
      * Get all of MPU_RASR's bit fields.
      *
-     * (read-write) Use the MPU Region Attribute and Size Register to define
-     * the size, access behaviour and memory type of the region identified by
-     * MPU_RNR, and enable that region.
+     * (read-write) Use the MPU Region Attribute and Size Register to define the size, access behaviour and memory type of the region identified by MPU_RNR, and enable that region.
      */
-    inline void get_MPU_RASR(bool &ENABLE, uint8_t &SIZE, uint8_t &SRD,
-                             uint16_t &ATTRS) volatile
+    inline void get_MPU_RASR(bool &ENABLE, uint8_t &SIZE, uint8_t &SRD, uint16_t &ATTRS) volatile
     {
         uint32_t curr = MPU_RASR;
 
@@ -3493,12 +3193,9 @@ registers are only word-accessible */
     /**
      * Set all of MPU_RASR's bit fields.
      *
-     * (read-write) Use the MPU Region Attribute and Size Register to define
-     * the size, access behaviour and memory type of the region identified by
-     * MPU_RNR, and enable that region.
+     * (read-write) Use the MPU Region Attribute and Size Register to define the size, access behaviour and memory type of the region identified by MPU_RNR, and enable that region.
      */
-    inline void set_MPU_RASR(bool ENABLE, uint8_t SIZE, uint8_t SRD,
-                             uint16_t ATTRS) volatile
+    inline void set_MPU_RASR(bool ENABLE, uint8_t SIZE, uint8_t SRD, uint16_t ATTRS) volatile
     {
         uint32_t curr = MPU_RASR;
 

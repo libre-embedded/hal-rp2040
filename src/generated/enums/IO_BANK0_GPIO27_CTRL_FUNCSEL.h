@@ -72,8 +72,7 @@ inline const char *to_string(IO_BANK0_GPIO27_CTRL_FUNCSEL instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                IO_BANK0_GPIO27_CTRL_FUNCSEL instance)
+inline std::ostream &operator<<(std::ostream &stream, IO_BANK0_GPIO27_CTRL_FUNCSEL instance)
 {
     stream << to_string(instance);
     return stream;

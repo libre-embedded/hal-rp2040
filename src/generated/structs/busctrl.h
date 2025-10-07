@@ -26,22 +26,16 @@ struct [[gnu::packed]] busctrl
     static constexpr std::size_t size = 40; /*!< busctrl's size in bytes. */
 
     /* Fields. */
-    uint32_t BUS_PRIORITY; /*!< (read-write) Set the priority of each master
-                              for bus arbitration. */
-    const uint32_t BUS_PRIORITY_ACK =
-        {};            /*!< (read-only) Bus priority acknowledge */
-    uint32_t PERFCTR0; /*!< (read-write) Bus fabric performance counter 0 */
-    uint32_t PERFSEL0; /*!< (read-write) Bus fabric performance event select
-                          for PERFCTR0 */
-    uint32_t PERFCTR1; /*!< (read-write) Bus fabric performance counter 1 */
-    uint32_t PERFSEL1; /*!< (read-write) Bus fabric performance event select
-                          for PERFCTR1 */
-    uint32_t PERFCTR2; /*!< (read-write) Bus fabric performance counter 2 */
-    uint32_t PERFSEL2; /*!< (read-write) Bus fabric performance event select
-                          for PERFCTR2 */
-    uint32_t PERFCTR3; /*!< (read-write) Bus fabric performance counter 3 */
-    uint32_t PERFSEL3; /*!< (read-write) Bus fabric performance event select
-                          for PERFCTR3 */
+    uint32_t BUS_PRIORITY;                /*!< (read-write) Set the priority of each master for bus arbitration. */
+    const uint32_t BUS_PRIORITY_ACK = {}; /*!< (read-only) Bus priority acknowledge */
+    uint32_t PERFCTR0;                    /*!< (read-write) Bus fabric performance counter 0 */
+    uint32_t PERFSEL0;                    /*!< (read-write) Bus fabric performance event select for PERFCTR0 */
+    uint32_t PERFCTR1;                    /*!< (read-write) Bus fabric performance counter 1 */
+    uint32_t PERFSEL1;                    /*!< (read-write) Bus fabric performance event select for PERFCTR1 */
+    uint32_t PERFCTR2;                    /*!< (read-write) Bus fabric performance counter 2 */
+    uint32_t PERFSEL2;                    /*!< (read-write) Bus fabric performance event select for PERFCTR2 */
+    uint32_t PERFCTR3;                    /*!< (read-write) Bus fabric performance counter 3 */
+    uint32_t PERFSEL3;                    /*!< (read-write) Bus fabric performance event select for PERFCTR3 */
 
     /* Methods. */
 
@@ -210,8 +204,7 @@ struct [[gnu::packed]] busctrl
      *
      * (read-write) Set the priority of each master for bus arbitration.
      */
-    inline void get_BUS_PRIORITY(bool &PROC0, bool &PROC1, bool &DMA_R,
-                                 bool &DMA_W) volatile
+    inline void get_BUS_PRIORITY(bool &PROC0, bool &PROC1, bool &DMA_R, bool &DMA_W) volatile
     {
         uint32_t curr = BUS_PRIORITY;
 
@@ -226,8 +219,7 @@ struct [[gnu::packed]] busctrl
      *
      * (read-write) Set the priority of each master for bus arbitration.
      */
-    inline void set_BUS_PRIORITY(bool PROC0, bool PROC1, bool DMA_R,
-                                 bool DMA_W) volatile
+    inline void set_BUS_PRIORITY(bool PROC0, bool PROC1, bool DMA_R, bool DMA_W) volatile
     {
         uint32_t curr = BUS_PRIORITY;
 
@@ -246,10 +238,9 @@ struct [[gnu::packed]] busctrl
     /**
      * Get BUS_PRIORITY_ACK's BUS_PRIORITY_ACK bit.
      *
-     * Goes to 1 once all arbiters have registered the new global priority
-     * levels.\n Arbiters update their local priority when servicing a new
-     * nonsequential access.\n In normal circumstances this will happen almost
-     * immediately.
+     * Goes to 1 once all arbiters have registered the new global priority levels.\n
+     *                 Arbiters update their local priority when servicing a new nonsequential access.\n
+     *                 In normal circumstances this will happen almost immediately.
      */
     inline bool get_BUS_PRIORITY_ACK_BUS_PRIORITY_ACK() volatile
     {
@@ -261,8 +252,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 0\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL0
+     *                 Write any value to clear. Select an event to count using PERFSEL0
      */
     inline uint32_t get_PERFCTR0_PERFCTR0() volatile
     {
@@ -274,8 +264,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 0\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL0
+     *                 Write any value to clear. Select an event to count using PERFSEL0
      */
     inline void set_PERFCTR0_PERFCTR0(uint32_t value) volatile
     {
@@ -290,8 +279,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFSEL0's PERFSEL0 field.
      *
-     * Select an event for PERFCTR0. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR0. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline BUSCTRL_PERFSEL0_PERFSEL0 get_PERFSEL0_PERFSEL0() volatile
     {
@@ -301,8 +289,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Set PERFSEL0's PERFSEL0 field.
      *
-     * Select an event for PERFCTR0. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR0. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline void set_PERFSEL0_PERFSEL0(BUSCTRL_PERFSEL0_PERFSEL0 value) volatile
     {
@@ -319,8 +306,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 1\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL1
+     *                 Write any value to clear. Select an event to count using PERFSEL1
      */
     inline uint32_t get_PERFCTR1_PERFCTR1() volatile
     {
@@ -332,8 +318,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 1\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL1
+     *                 Write any value to clear. Select an event to count using PERFSEL1
      */
     inline void set_PERFCTR1_PERFCTR1(uint32_t value) volatile
     {
@@ -348,8 +333,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFSEL1's PERFSEL1 field.
      *
-     * Select an event for PERFCTR1. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR1. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline BUSCTRL_PERFSEL1_PERFSEL1 get_PERFSEL1_PERFSEL1() volatile
     {
@@ -359,8 +343,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Set PERFSEL1's PERFSEL1 field.
      *
-     * Select an event for PERFCTR1. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR1. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline void set_PERFSEL1_PERFSEL1(BUSCTRL_PERFSEL1_PERFSEL1 value) volatile
     {
@@ -377,8 +360,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 2\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL2
+     *                 Write any value to clear. Select an event to count using PERFSEL2
      */
     inline uint32_t get_PERFCTR2_PERFCTR2() volatile
     {
@@ -390,8 +372,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 2\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL2
+     *                 Write any value to clear. Select an event to count using PERFSEL2
      */
     inline void set_PERFCTR2_PERFCTR2(uint32_t value) volatile
     {
@@ -406,8 +387,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFSEL2's PERFSEL2 field.
      *
-     * Select an event for PERFCTR2. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR2. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline BUSCTRL_PERFSEL2_PERFSEL2 get_PERFSEL2_PERFSEL2() volatile
     {
@@ -417,8 +397,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Set PERFSEL2's PERFSEL2 field.
      *
-     * Select an event for PERFCTR2. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR2. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline void set_PERFSEL2_PERFSEL2(BUSCTRL_PERFSEL2_PERFSEL2 value) volatile
     {
@@ -435,8 +414,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 3\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL3
+     *                 Write any value to clear. Select an event to count using PERFSEL3
      */
     inline uint32_t get_PERFCTR3_PERFCTR3() volatile
     {
@@ -448,8 +426,7 @@ struct [[gnu::packed]] busctrl
      *
      * Busfabric saturating performance counter 3\n
      *                 Count some event signal from the busfabric arbiters.\n
-     *                 Write any value to clear. Select an event to count using
-     * PERFSEL3
+     *                 Write any value to clear. Select an event to count using PERFSEL3
      */
     inline void set_PERFCTR3_PERFCTR3(uint32_t value) volatile
     {
@@ -464,8 +441,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFSEL3's PERFSEL3 field.
      *
-     * Select an event for PERFCTR3. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR3. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline BUSCTRL_PERFSEL3_PERFSEL3 get_PERFSEL3_PERFSEL3() volatile
     {
@@ -475,8 +451,7 @@ struct [[gnu::packed]] busctrl
     /**
      * Set PERFSEL3's PERFSEL3 field.
      *
-     * Select an event for PERFCTR3. Count either contested accesses, or all
-     * accesses, on a downstream port of the main crossbar.
+     * Select an event for PERFCTR3. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
      */
     inline void set_PERFSEL3_PERFSEL3(BUSCTRL_PERFSEL3_PERFSEL3 value) volatile
     {
@@ -492,8 +467,7 @@ struct [[gnu::packed]] busctrl
 static_assert(sizeof(busctrl) == busctrl::size);
 static_assert(ifgen_struct<busctrl>);
 
-static volatile busctrl *const BUSCTRL =
-    reinterpret_cast<busctrl *>(0x40030000);
+static volatile busctrl *const BUSCTRL = reinterpret_cast<busctrl *>(0x40030000);
 
 }; // namespace RP2040
 

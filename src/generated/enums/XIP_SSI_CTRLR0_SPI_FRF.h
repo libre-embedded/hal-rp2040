@@ -48,8 +48,7 @@ inline const char *to_string(XIP_SSI_CTRLR0_SPI_FRF instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                XIP_SSI_CTRLR0_SPI_FRF instance)
+inline std::ostream &operator<<(std::ostream &stream, XIP_SSI_CTRLR0_SPI_FRF instance)
 {
     stream << to_string(instance);
     return stream;

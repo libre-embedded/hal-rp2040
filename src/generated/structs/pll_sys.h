@@ -27,10 +27,9 @@ struct [[gnu::packed]] pll_sys
     uint32_t PWR;       /*!< (read-write) Controls the PLL power modes. */
     uint32_t FBDIV_INT; /*!< (read-write) Feedback divisor\n
                 (note: this PLL does not support fractional division) */
-    uint32_t PRIM; /*!< (read-write) Controls the PLL post dividers for the
-           primary output\n (note: this PLL does not have a secondary output)\n
-           the primary output is driven from VCO divided by postdiv1*postdiv2
-         */
+    uint32_t PRIM;      /*!< (read-write) Controls the PLL post dividers for the primary output\n
+                (note: this PLL does not have a secondary output)\n
+                the primary output is driven from VCO divided by postdiv1*postdiv2 */
 
     /* Methods. */
 
@@ -39,8 +38,7 @@ struct [[gnu::packed]] pll_sys
      *
      * Divides the PLL input reference clock.\n
      *                 Behaviour is undefined for div=0.\n
-     *                 PLL output will be unpredictable during refdiv changes,
-     * wait for lock=1 before using it.
+     *                 PLL output will be unpredictable during refdiv changes, wait for lock=1 before using it.
      */
     inline uint8_t get_CS_REFDIV() volatile
     {
@@ -52,8 +50,7 @@ struct [[gnu::packed]] pll_sys
      *
      * Divides the PLL input reference clock.\n
      *                 Behaviour is undefined for div=0.\n
-     *                 PLL output will be unpredictable during refdiv changes,
-     * wait for lock=1 before using it.
+     *                 PLL output will be unpredictable during refdiv changes, wait for lock=1 before using it.
      */
     inline void set_CS_REFDIV(uint8_t value) volatile
     {
@@ -68,9 +65,7 @@ struct [[gnu::packed]] pll_sys
     /**
      * Get CS's BYPASS bit.
      *
-     * Passes the reference clock to the output instead of the divided VCO. The
-     * VCO continues to run so the user can switch between the reference clock
-     * and the divided VCO but the output will glitch when doing so.
+     * Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so.
      */
     inline bool get_CS_BYPASS() volatile
     {
@@ -80,9 +75,7 @@ struct [[gnu::packed]] pll_sys
     /**
      * Set CS's BYPASS bit.
      *
-     * Passes the reference clock to the output instead of the divided VCO. The
-     * VCO continues to run so the user can switch between the reference clock
-     * and the divided VCO but the output will glitch when doing so.
+     * Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so.
      */
     inline void set_CS_BYPASS() volatile
     {
@@ -92,9 +85,7 @@ struct [[gnu::packed]] pll_sys
     /**
      * Clear CS's BYPASS bit.
      *
-     * Passes the reference clock to the output instead of the divided VCO. The
-     * VCO continues to run so the user can switch between the reference clock
-     * and the divided VCO but the output will glitch when doing so.
+     * Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so.
      */
     inline void clear_CS_BYPASS() volatile
     {
@@ -104,9 +95,7 @@ struct [[gnu::packed]] pll_sys
     /**
      * Toggle CS's BYPASS bit.
      *
-     * Passes the reference clock to the output instead of the divided VCO. The
-     * VCO continues to run so the user can switch between the reference clock
-     * and the divided VCO but the output will glitch when doing so.
+     * Passes the reference clock to the output instead of the divided VCO. The VCO continues to run so the user can switch between the reference clock and the divided VCO but the output will glitch when doing so.
      */
     inline void toggle_CS_BYPASS() volatile
     {
@@ -254,8 +243,7 @@ struct [[gnu::packed]] pll_sys
      * Get PWR's POSTDIVPD bit.
      *
      * PLL post divider powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline bool get_PWR_POSTDIVPD() volatile
     {
@@ -266,8 +254,7 @@ struct [[gnu::packed]] pll_sys
      * Set PWR's POSTDIVPD bit.
      *
      * PLL post divider powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void set_PWR_POSTDIVPD() volatile
     {
@@ -278,8 +265,7 @@ struct [[gnu::packed]] pll_sys
      * Clear PWR's POSTDIVPD bit.
      *
      * PLL post divider powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void clear_PWR_POSTDIVPD() volatile
     {
@@ -290,8 +276,7 @@ struct [[gnu::packed]] pll_sys
      * Toggle PWR's POSTDIVPD bit.
      *
      * PLL post divider powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void toggle_PWR_POSTDIVPD() volatile
     {
@@ -302,8 +287,7 @@ struct [[gnu::packed]] pll_sys
      * Get PWR's VCOPD bit.
      *
      * PLL VCO powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline bool get_PWR_VCOPD() volatile
     {
@@ -314,8 +298,7 @@ struct [[gnu::packed]] pll_sys
      * Set PWR's VCOPD bit.
      *
      * PLL VCO powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void set_PWR_VCOPD() volatile
     {
@@ -326,8 +309,7 @@ struct [[gnu::packed]] pll_sys
      * Clear PWR's VCOPD bit.
      *
      * PLL VCO powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void clear_PWR_VCOPD() volatile
     {
@@ -338,8 +320,7 @@ struct [[gnu::packed]] pll_sys
      * Toggle PWR's VCOPD bit.
      *
      * PLL VCO powerdown\n
-     *                 To save power set high when PLL output not required or
-     * bypass=1.
+     *                 To save power set high when PLL output not required or bypass=1.
      */
     inline void toggle_PWR_VCOPD() volatile
     {
@@ -351,8 +332,7 @@ struct [[gnu::packed]] pll_sys
      *
      * (read-write) Controls the PLL power modes.
      */
-    inline void get_PWR(bool &PD, bool &DSMPD, bool &POSTDIVPD,
-                        bool &VCOPD) volatile
+    inline void get_PWR(bool &PD, bool &DSMPD, bool &POSTDIVPD, bool &VCOPD) volatile
     {
         uint32_t curr = PWR;
 
@@ -367,8 +347,7 @@ struct [[gnu::packed]] pll_sys
      *
      * (read-write) Controls the PLL power modes.
      */
-    inline void set_PWR(bool PD, bool DSMPD, bool POSTDIVPD,
-                        bool VCOPD) volatile
+    inline void set_PWR(bool PD, bool DSMPD, bool POSTDIVPD, bool VCOPD) volatile
     {
         uint32_t curr = PWR;
 
@@ -464,8 +443,7 @@ struct [[gnu::packed]] pll_sys
      *
      * (read-write) Controls the PLL post dividers for the primary output\n
      *             (note: this PLL does not have a secondary output)\n
-     *             the primary output is driven from VCO divided by
-     * postdiv1*postdiv2
+     *             the primary output is driven from VCO divided by postdiv1*postdiv2
      */
     inline void get_PRIM(uint8_t &POSTDIV2, uint8_t &POSTDIV1) volatile
     {
@@ -480,8 +458,7 @@ struct [[gnu::packed]] pll_sys
      *
      * (read-write) Controls the PLL post dividers for the primary output\n
      *             (note: this PLL does not have a secondary output)\n
-     *             the primary output is driven from VCO divided by
-     * postdiv1*postdiv2
+     *             the primary output is driven from VCO divided by postdiv1*postdiv2
      */
     inline void set_PRIM(uint8_t POSTDIV2, uint8_t POSTDIV1) volatile
     {
@@ -499,11 +476,9 @@ struct [[gnu::packed]] pll_sys
 static_assert(sizeof(pll_sys) == pll_sys::size);
 static_assert(ifgen_struct<pll_sys>);
 
-static volatile pll_sys *const PLL_SYS =
-    reinterpret_cast<pll_sys *>(0x40028000);
+static volatile pll_sys *const PLL_SYS = reinterpret_cast<pll_sys *>(0x40028000);
 
-static volatile pll_sys *const PLL_USB =
-    reinterpret_cast<pll_sys *>(0x4002c000);
+static volatile pll_sys *const PLL_USB = reinterpret_cast<pll_sys *>(0x4002c000);
 
 }; // namespace RP2040
 

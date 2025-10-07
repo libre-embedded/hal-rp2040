@@ -44,8 +44,7 @@ inline const char *to_string(XOSC_CTRL_ENABLE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                XOSC_CTRL_ENABLE instance)
+inline std::ostream &operator<<(std::ostream &stream, XOSC_CTRL_ENABLE instance)
 {
     stream << to_string(instance);
     return stream;

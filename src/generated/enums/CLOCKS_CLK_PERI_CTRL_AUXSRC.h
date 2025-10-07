@@ -64,8 +64,7 @@ inline const char *to_string(CLOCKS_CLK_PERI_CTRL_AUXSRC instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                CLOCKS_CLK_PERI_CTRL_AUXSRC instance)
+inline std::ostream &operator<<(std::ostream &stream, CLOCKS_CLK_PERI_CTRL_AUXSRC instance)
 {
     stream << to_string(instance);
     return stream;

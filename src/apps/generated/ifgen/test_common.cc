@@ -14,7 +14,7 @@
 
 namespace RP2040
 {
-/* Declared to ensure this namespace has been declared in general. */
+    /* Declared to ensure this namespace has been declared in general. */
 };
 
 /**

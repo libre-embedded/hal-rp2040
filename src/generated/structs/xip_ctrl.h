@@ -35,11 +35,10 @@ struct [[gnu::packed]] xip_ctrl
                 Write any value to clear. */
     uint32_t STREAM_ADDR;     /*!< (read-write) FIFO stream address */
     uint32_t STREAM_CTR;      /*!< (read-write) FIFO stream control */
-    uint32_t
-        STREAM_FIFO; /*!< (read-write) FIFO stream data\n
-       Streamed data is buffered here, for retrieval by the system DMA.\n
-       This FIFO can also be accessed via the XIP_AUX slave, to avoid
-       exposing\n     the DMA to bus stalls caused by other XIP traffic. */
+    uint32_t STREAM_FIFO;     /*!< (read-write) FIFO stream data\n
+                Streamed data is buffered here, for retrieval by the system DMA.\n
+                This FIFO can also be accessed via the XIP_AUX slave, to avoid exposing\n
+                the DMA to bus stalls caused by other XIP traffic. */
 
     /* Methods. */
 
@@ -47,11 +46,11 @@ struct [[gnu::packed]] xip_ctrl
      * Get CTRL's EN bit.
      *
      * When 1, enable the cache. When the cache is disabled, all XIP accesses\n
-     *                 will go straight to the flash, without querying the
-     * cache. When enabled,\n cacheable XIP accesses will query the cache, and
-     * the flash will\n not be accessed if the tag matches and the valid bit is
-     * set.\n\n If the cache is enabled, cache-as-SRAM accesses have no effect
-     * on the\n cache data RAM, and will produce a bus error response.
+     *                 will go straight to the flash, without querying the cache. When enabled,\n
+     *                 cacheable XIP accesses will query the cache, and the flash will\n
+     *                 not be accessed if the tag matches and the valid bit is set.\n\n
+     *                 If the cache is enabled, cache-as-SRAM accesses have no effect on the\n
+     *                 cache data RAM, and will produce a bus error response.
      */
     inline bool get_CTRL_EN() volatile
     {
@@ -62,11 +61,11 @@ struct [[gnu::packed]] xip_ctrl
      * Set CTRL's EN bit.
      *
      * When 1, enable the cache. When the cache is disabled, all XIP accesses\n
-     *                 will go straight to the flash, without querying the
-     * cache. When enabled,\n cacheable XIP accesses will query the cache, and
-     * the flash will\n not be accessed if the tag matches and the valid bit is
-     * set.\n\n If the cache is enabled, cache-as-SRAM accesses have no effect
-     * on the\n cache data RAM, and will produce a bus error response.
+     *                 will go straight to the flash, without querying the cache. When enabled,\n
+     *                 cacheable XIP accesses will query the cache, and the flash will\n
+     *                 not be accessed if the tag matches and the valid bit is set.\n\n
+     *                 If the cache is enabled, cache-as-SRAM accesses have no effect on the\n
+     *                 cache data RAM, and will produce a bus error response.
      */
     inline void set_CTRL_EN() volatile
     {
@@ -77,11 +76,11 @@ struct [[gnu::packed]] xip_ctrl
      * Clear CTRL's EN bit.
      *
      * When 1, enable the cache. When the cache is disabled, all XIP accesses\n
-     *                 will go straight to the flash, without querying the
-     * cache. When enabled,\n cacheable XIP accesses will query the cache, and
-     * the flash will\n not be accessed if the tag matches and the valid bit is
-     * set.\n\n If the cache is enabled, cache-as-SRAM accesses have no effect
-     * on the\n cache data RAM, and will produce a bus error response.
+     *                 will go straight to the flash, without querying the cache. When enabled,\n
+     *                 cacheable XIP accesses will query the cache, and the flash will\n
+     *                 not be accessed if the tag matches and the valid bit is set.\n\n
+     *                 If the cache is enabled, cache-as-SRAM accesses have no effect on the\n
+     *                 cache data RAM, and will produce a bus error response.
      */
     inline void clear_CTRL_EN() volatile
     {
@@ -92,11 +91,11 @@ struct [[gnu::packed]] xip_ctrl
      * Toggle CTRL's EN bit.
      *
      * When 1, enable the cache. When the cache is disabled, all XIP accesses\n
-     *                 will go straight to the flash, without querying the
-     * cache. When enabled,\n cacheable XIP accesses will query the cache, and
-     * the flash will\n not be accessed if the tag matches and the valid bit is
-     * set.\n\n If the cache is enabled, cache-as-SRAM accesses have no effect
-     * on the\n cache data RAM, and will produce a bus error response.
+     *                 will go straight to the flash, without querying the cache. When enabled,\n
+     *                 cacheable XIP accesses will query the cache, and the flash will\n
+     *                 not be accessed if the tag matches and the valid bit is set.\n\n
+     *                 If the cache is enabled, cache-as-SRAM accesses have no effect on the\n
+     *                 cache data RAM, and will produce a bus error response.
      */
     inline void toggle_CTRL_EN() volatile
     {
@@ -107,9 +106,9 @@ struct [[gnu::packed]] xip_ctrl
      * Get CTRL's ERR_BADWRITE bit.
      *
      * When 1, writes to any alias other than 0x0 (caching, allocating)\n
-     *                 will produce a bus fault. When 0, these writes are
-     * silently ignored.\n In either case, writes to the 0x0 alias will
-     * deallocate on tag match,\n as usual.
+     *                 will produce a bus fault. When 0, these writes are silently ignored.\n
+     *                 In either case, writes to the 0x0 alias will deallocate on tag match,\n
+     *                 as usual.
      */
     inline bool get_CTRL_ERR_BADWRITE() volatile
     {
@@ -120,9 +119,9 @@ struct [[gnu::packed]] xip_ctrl
      * Set CTRL's ERR_BADWRITE bit.
      *
      * When 1, writes to any alias other than 0x0 (caching, allocating)\n
-     *                 will produce a bus fault. When 0, these writes are
-     * silently ignored.\n In either case, writes to the 0x0 alias will
-     * deallocate on tag match,\n as usual.
+     *                 will produce a bus fault. When 0, these writes are silently ignored.\n
+     *                 In either case, writes to the 0x0 alias will deallocate on tag match,\n
+     *                 as usual.
      */
     inline void set_CTRL_ERR_BADWRITE() volatile
     {
@@ -133,9 +132,9 @@ struct [[gnu::packed]] xip_ctrl
      * Clear CTRL's ERR_BADWRITE bit.
      *
      * When 1, writes to any alias other than 0x0 (caching, allocating)\n
-     *                 will produce a bus fault. When 0, these writes are
-     * silently ignored.\n In either case, writes to the 0x0 alias will
-     * deallocate on tag match,\n as usual.
+     *                 will produce a bus fault. When 0, these writes are silently ignored.\n
+     *                 In either case, writes to the 0x0 alias will deallocate on tag match,\n
+     *                 as usual.
      */
     inline void clear_CTRL_ERR_BADWRITE() volatile
     {
@@ -146,9 +145,9 @@ struct [[gnu::packed]] xip_ctrl
      * Toggle CTRL's ERR_BADWRITE bit.
      *
      * When 1, writes to any alias other than 0x0 (caching, allocating)\n
-     *                 will produce a bus fault. When 0, these writes are
-     * silently ignored.\n In either case, writes to the 0x0 alias will
-     * deallocate on tag match,\n as usual.
+     *                 will produce a bus fault. When 0, these writes are silently ignored.\n
+     *                 In either case, writes to the 0x0 alias will deallocate on tag match,\n
+     *                 as usual.
      */
     inline void toggle_CTRL_ERR_BADWRITE() volatile
     {
@@ -159,10 +158,11 @@ struct [[gnu::packed]] xip_ctrl
      * Get CTRL's POWER_DOWN bit.
      *
      * When 1, the cache memories are powered down. They retain state,\n
-     *                 but can not be accessed. This reduces static power
-     * dissipation.\n Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache
-     * cannot\n be enabled when powered down.\n Cache-as-SRAM accesses will
-     * produce a bus error response when\n the cache is powered down.
+     *                 but can not be accessed. This reduces static power dissipation.\n
+     *                 Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache cannot\n
+     *                 be enabled when powered down.\n
+     *                 Cache-as-SRAM accesses will produce a bus error response when\n
+     *                 the cache is powered down.
      */
     inline bool get_CTRL_POWER_DOWN() volatile
     {
@@ -173,10 +173,11 @@ struct [[gnu::packed]] xip_ctrl
      * Set CTRL's POWER_DOWN bit.
      *
      * When 1, the cache memories are powered down. They retain state,\n
-     *                 but can not be accessed. This reduces static power
-     * dissipation.\n Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache
-     * cannot\n be enabled when powered down.\n Cache-as-SRAM accesses will
-     * produce a bus error response when\n the cache is powered down.
+     *                 but can not be accessed. This reduces static power dissipation.\n
+     *                 Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache cannot\n
+     *                 be enabled when powered down.\n
+     *                 Cache-as-SRAM accesses will produce a bus error response when\n
+     *                 the cache is powered down.
      */
     inline void set_CTRL_POWER_DOWN() volatile
     {
@@ -187,10 +188,11 @@ struct [[gnu::packed]] xip_ctrl
      * Clear CTRL's POWER_DOWN bit.
      *
      * When 1, the cache memories are powered down. They retain state,\n
-     *                 but can not be accessed. This reduces static power
-     * dissipation.\n Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache
-     * cannot\n be enabled when powered down.\n Cache-as-SRAM accesses will
-     * produce a bus error response when\n the cache is powered down.
+     *                 but can not be accessed. This reduces static power dissipation.\n
+     *                 Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache cannot\n
+     *                 be enabled when powered down.\n
+     *                 Cache-as-SRAM accesses will produce a bus error response when\n
+     *                 the cache is powered down.
      */
     inline void clear_CTRL_POWER_DOWN() volatile
     {
@@ -201,10 +203,11 @@ struct [[gnu::packed]] xip_ctrl
      * Toggle CTRL's POWER_DOWN bit.
      *
      * When 1, the cache memories are powered down. They retain state,\n
-     *                 but can not be accessed. This reduces static power
-     * dissipation.\n Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache
-     * cannot\n be enabled when powered down.\n Cache-as-SRAM accesses will
-     * produce a bus error response when\n the cache is powered down.
+     *                 but can not be accessed. This reduces static power dissipation.\n
+     *                 Writing 1 to this bit forces CTRL_EN to 0, i.e. the cache cannot\n
+     *                 be enabled when powered down.\n
+     *                 Cache-as-SRAM accesses will produce a bus error response when\n
+     *                 the cache is powered down.
      */
     inline void toggle_CTRL_POWER_DOWN() volatile
     {
@@ -216,8 +219,7 @@ struct [[gnu::packed]] xip_ctrl
      *
      * (read-write) Cache control
      */
-    inline void get_CTRL(bool &EN, bool &ERR_BADWRITE,
-                         bool &POWER_DOWN) volatile
+    inline void get_CTRL(bool &EN, bool &ERR_BADWRITE, bool &POWER_DOWN) volatile
     {
         uint32_t curr = CTRL;
 
@@ -249,10 +251,10 @@ struct [[gnu::packed]] xip_ctrl
      * Get FLUSH's FLUSH bit.
      *
      * Write 1 to flush the cache. This clears the tag memory, but\n
-     *                 the data memory retains its contents. (This means
-     * cache-as-SRAM\n contents is not affected by flush or reset.)\n Reading
-     * will hold the bus (stall the processor) until the flush\n completes.
-     * Alternatively STAT can be polled until completion.
+     *                 the data memory retains its contents. (This means cache-as-SRAM\n
+     *                 contents is not affected by flush or reset.)\n
+     *                 Reading will hold the bus (stall the processor) until the flush\n
+     *                 completes. Alternatively STAT can be polled until completion.
      */
     inline bool get_FLUSH_FLUSH() volatile
     {
@@ -263,10 +265,10 @@ struct [[gnu::packed]] xip_ctrl
      * Set FLUSH's FLUSH bit.
      *
      * Write 1 to flush the cache. This clears the tag memory, but\n
-     *                 the data memory retains its contents. (This means
-     * cache-as-SRAM\n contents is not affected by flush or reset.)\n Reading
-     * will hold the bus (stall the processor) until the flush\n completes.
-     * Alternatively STAT can be polled until completion.
+     *                 the data memory retains its contents. (This means cache-as-SRAM\n
+     *                 contents is not affected by flush or reset.)\n
+     *                 Reading will hold the bus (stall the processor) until the flush\n
+     *                 completes. Alternatively STAT can be polled until completion.
      */
     inline void set_FLUSH_FLUSH() volatile
     {
@@ -277,10 +279,10 @@ struct [[gnu::packed]] xip_ctrl
      * Clear FLUSH's FLUSH bit.
      *
      * Write 1 to flush the cache. This clears the tag memory, but\n
-     *                 the data memory retains its contents. (This means
-     * cache-as-SRAM\n contents is not affected by flush or reset.)\n Reading
-     * will hold the bus (stall the processor) until the flush\n completes.
-     * Alternatively STAT can be polled until completion.
+     *                 the data memory retains its contents. (This means cache-as-SRAM\n
+     *                 contents is not affected by flush or reset.)\n
+     *                 Reading will hold the bus (stall the processor) until the flush\n
+     *                 completes. Alternatively STAT can be polled until completion.
      */
     inline void clear_FLUSH_FLUSH() volatile
     {
@@ -291,10 +293,10 @@ struct [[gnu::packed]] xip_ctrl
      * Toggle FLUSH's FLUSH bit.
      *
      * Write 1 to flush the cache. This clears the tag memory, but\n
-     *                 the data memory retains its contents. (This means
-     * cache-as-SRAM\n contents is not affected by flush or reset.)\n Reading
-     * will hold the bus (stall the processor) until the flush\n completes.
-     * Alternatively STAT can be polled until completion.
+     *                 the data memory retains its contents. (This means cache-as-SRAM\n
+     *                 contents is not affected by flush or reset.)\n
+     *                 Reading will hold the bus (stall the processor) until the flush\n
+     *                 completes. Alternatively STAT can be polled until completion.
      */
     inline void toggle_FLUSH_FLUSH() volatile
     {
@@ -305,8 +307,8 @@ struct [[gnu::packed]] xip_ctrl
      * Get STAT's FLUSH_READY bit.
      *
      * Reads as 0 while a cache flush is in progress, and 1 otherwise.\n
-     *                 The cache is flushed whenever the XIP block is reset,
-     * and also\n when requested via the FLUSH register.
+     *                 The cache is flushed whenever the XIP block is reset, and also\n
+     *                 when requested via the FLUSH register.
      */
     inline bool get_STAT_FLUSH_READY() volatile
     {
@@ -327,8 +329,8 @@ struct [[gnu::packed]] xip_ctrl
      * Get STAT's FIFO_FULL bit.
      *
      * When 1, indicates the XIP streaming FIFO is completely full.\n
-     *                 The streaming FIFO is 2 entries deep, so the full and
-     * empty\n flag allow its level to be ascertained.
+     *                 The streaming FIFO is 2 entries deep, so the full and empty\n
+     *                 flag allow its level to be ascertained.
      */
     inline bool get_STAT_FIFO_FULL() volatile
     {
@@ -340,8 +342,7 @@ struct [[gnu::packed]] xip_ctrl
      *
      * (read-only) Cache Status
      */
-    inline void get_STAT(bool &FLUSH_READY, bool &FIFO_EMPTY,
-                         bool &FIFO_FULL) volatile
+    inline void get_STAT(bool &FLUSH_READY, bool &FIFO_EMPTY, bool &FIFO_FULL) volatile
     {
         uint32_t curr = STAT;
 
@@ -353,9 +354,9 @@ struct [[gnu::packed]] xip_ctrl
     /**
      * Get STREAM_ADDR's STREAM_ADDR field.
      *
-     * The address of the next word to be streamed from flash to the streaming
-     * FIFO.\n Increments automatically after each flash access.\n Write the
-     * initial access address here before starting a streaming read.
+     * The address of the next word to be streamed from flash to the streaming FIFO.\n
+     *                 Increments automatically after each flash access.\n
+     *                 Write the initial access address here before starting a streaming read.
      */
     inline uint32_t get_STREAM_ADDR_STREAM_ADDR() volatile
     {
@@ -365,9 +366,9 @@ struct [[gnu::packed]] xip_ctrl
     /**
      * Set STREAM_ADDR's STREAM_ADDR field.
      *
-     * The address of the next word to be streamed from flash to the streaming
-     * FIFO.\n Increments automatically after each flash access.\n Write the
-     * initial access address here before starting a streaming read.
+     * The address of the next word to be streamed from flash to the streaming FIFO.\n
+     *                 Increments automatically after each flash access.\n
+     *                 Write the initial access address here before starting a streaming read.
      */
     inline void set_STREAM_ADDR_STREAM_ADDR(uint32_t value) volatile
     {
@@ -383,13 +384,13 @@ struct [[gnu::packed]] xip_ctrl
      * Get STREAM_CTR's STREAM_CTR field.
      *
      * Write a nonzero value to start a streaming read. This will then\n
-     *                 progress in the background, using flash idle cycles to
-     * transfer\n a linear data block from flash to the streaming FIFO.\n
+     *                 progress in the background, using flash idle cycles to transfer\n
+     *                 a linear data block from flash to the streaming FIFO.\n
      *                 Decrements automatically (1 at a time) as the stream\n
      *                 progresses, and halts on reaching 0.\n
-     *                 Write 0 to halt an in-progress stream, and discard any
-     * in-flight\n read, so that a new stream can immediately be started
-     * (after\n draining the FIFO and reinitialising STREAM_ADDR)
+     *                 Write 0 to halt an in-progress stream, and discard any in-flight\n
+     *                 read, so that a new stream can immediately be started (after\n
+     *                 draining the FIFO and reinitialising STREAM_ADDR)
      */
     inline uint32_t get_STREAM_CTR_STREAM_CTR() volatile
     {
@@ -400,13 +401,13 @@ struct [[gnu::packed]] xip_ctrl
      * Set STREAM_CTR's STREAM_CTR field.
      *
      * Write a nonzero value to start a streaming read. This will then\n
-     *                 progress in the background, using flash idle cycles to
-     * transfer\n a linear data block from flash to the streaming FIFO.\n
+     *                 progress in the background, using flash idle cycles to transfer\n
+     *                 a linear data block from flash to the streaming FIFO.\n
      *                 Decrements automatically (1 at a time) as the stream\n
      *                 progresses, and halts on reaching 0.\n
-     *                 Write 0 to halt an in-progress stream, and discard any
-     * in-flight\n read, so that a new stream can immediately be started
-     * (after\n draining the FIFO and reinitialising STREAM_ADDR)
+     *                 Write 0 to halt an in-progress stream, and discard any in-flight\n
+     *                 read, so that a new stream can immediately be started (after\n
+     *                 draining the FIFO and reinitialising STREAM_ADDR)
      */
     inline void set_STREAM_CTR_STREAM_CTR(uint32_t value) volatile
     {
@@ -422,8 +423,7 @@ struct [[gnu::packed]] xip_ctrl
 static_assert(sizeof(xip_ctrl) == xip_ctrl::size);
 static_assert(ifgen_struct<xip_ctrl>);
 
-static volatile xip_ctrl *const XIP_CTRL =
-    reinterpret_cast<xip_ctrl *>(0x14000000);
+static volatile xip_ctrl *const XIP_CTRL = reinterpret_cast<xip_ctrl *>(0x14000000);
 
 }; // namespace RP2040
 

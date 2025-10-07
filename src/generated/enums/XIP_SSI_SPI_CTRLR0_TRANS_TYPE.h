@@ -17,11 +17,8 @@ namespace RP2040
 enum class XIP_SSI_SPI_CTRLR0_TRANS_TYPE : uint8_t
 {
     _1C1A /*!< Command and address both in standard SPI frame format */,
-    _1C2A = 1 /*!< Command in standard SPI format, address in format specified
-                 by FRF */
-        ,
-    _2C2A = 2 /*!< Command and address both in format specified by FRF (e.g.
-                 Dual-SPI) */
+    _1C2A = 1 /*!< Command in standard SPI format, address in format specified by FRF */,
+    _2C2A = 2 /*!< Command and address both in format specified by FRF (e.g. Dual-SPI) */
 };
 static_assert(sizeof(XIP_SSI_SPI_CTRLR0_TRANS_TYPE) == 1);
 
@@ -51,8 +48,7 @@ inline const char *to_string(XIP_SSI_SPI_CTRLR0_TRANS_TYPE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                XIP_SSI_SPI_CTRLR0_TRANS_TYPE instance)
+inline std::ostream &operator<<(std::ostream &stream, XIP_SSI_SPI_CTRLR0_TRANS_TYPE instance)
 {
     stream << to_string(instance);
     return stream;
@@ -65,8 +61,7 @@ inline std::ostream &operator<<(std::ostream &stream,
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data,
-                        XIP_SSI_SPI_CTRLR0_TRANS_TYPE &output)
+inline bool from_string(const char *data, XIP_SSI_SPI_CTRLR0_TRANS_TYPE &output)
 {
     bool result = false;
 

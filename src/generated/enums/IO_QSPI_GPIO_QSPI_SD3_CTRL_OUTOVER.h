@@ -17,9 +17,7 @@ namespace RP2040
 enum class IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER : uint8_t
 {
     NORMAL /*!< drive output from peripheral signal selected by funcsel */,
-    INVERT = 1 /*!< drive output from inverse of peripheral signal selected by
-                  funcsel */
-        ,
+    INVERT = 1 /*!< drive output from inverse of peripheral signal selected by funcsel */,
     LOW = 2 /*!< drive output low */,
     HIGH = 3 /*!< drive output high */
 };
@@ -54,8 +52,7 @@ inline const char *to_string(IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER instance)
+inline std::ostream &operator<<(std::ostream &stream, IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER instance)
 {
     stream << to_string(instance);
     return stream;
@@ -68,8 +65,7 @@ inline std::ostream &operator<<(std::ostream &stream,
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data,
-                        IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER &output)
+inline bool from_string(const char *data, IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER &output)
 {
     bool result = false;
 

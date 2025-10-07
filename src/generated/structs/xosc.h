@@ -25,21 +25,20 @@ struct [[gnu::packed]] xosc
     static constexpr std::size_t size = 32; /*!< xosc's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;    /*!< (read-write) Crystal Oscillator Control */
-    uint32_t STATUS;  /*!< (read-write) Crystal Oscillator Status */
-    uint32_t DORMANT; /*!< (read-write) Crystal Oscillator pause control\n
-This is used to save power by pausing the XOSC\n
-On power-up this field is initialised to WAKE\n
-An invalid write will also select WAKE\n
-WARNING: stop the PLLs before selecting dormant mode\n
-WARNING: setup the irq before selecting dormant mode */
-    uint32_t STARTUP; /*!< (read-write) Controls the startup delay */
+    uint32_t CTRL;                                                   /*!< (read-write) Crystal Oscillator Control */
+    uint32_t STATUS;                                                 /*!< (read-write) Crystal Oscillator Status */
+    uint32_t DORMANT;                                                /*!< (read-write) Crystal Oscillator pause control\n
+                This is used to save power by pausing the XOSC\n
+                On power-up this field is initialised to WAKE\n
+                An invalid write will also select WAKE\n
+                WARNING: stop the PLLs before selecting dormant mode\n
+                WARNING: setup the irq before selecting dormant mode */
+    uint32_t STARTUP;                                                /*!< (read-write) Controls the startup delay */
     static constexpr std::size_t reserved_padding0_length = 3;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t COUNT; /*!< (read-write) A down counter running at the xosc
-frequency which counts to zero and stops.\n To start the counter write a
-non-zero value.\n Can be used for short software pauses when setting up time
-sensitive hardware. */
+    uint32_t COUNT;                                                  /*!< (read-write) A down counter running at the xosc frequency which counts to zero and stops.\n
+                To start the counter write a non-zero value.\n
+                Can be used for short software pauses when setting up time sensitive hardware. */
 
     /* Methods. */
 
@@ -71,13 +70,9 @@ sensitive hardware. */
     /**
      * Get CTRL's ENABLE field.
      *
-     * On power-up this field is initialised to DISABLE and the chip runs from
-     * the ROSC.\n If the chip has subsequently been programmed to run from the
-     * XOSC then setting this field to DISABLE may lock-up the chip. If this is
-     * a concern then run the clk_ref from the ROSC and enable the clk_sys
-     * RESUS feature.\n The 12-bit code is intended to give some protection
-     * against accidental writes. An invalid setting will enable the
-     * oscillator.
+     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\n
+     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\n
+     *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline XOSC_CTRL_ENABLE get_CTRL_ENABLE() volatile
     {
@@ -87,13 +82,9 @@ sensitive hardware. */
     /**
      * Set CTRL's ENABLE field.
      *
-     * On power-up this field is initialised to DISABLE and the chip runs from
-     * the ROSC.\n If the chip has subsequently been programmed to run from the
-     * XOSC then setting this field to DISABLE may lock-up the chip. If this is
-     * a concern then run the clk_ref from the ROSC and enable the clk_sys
-     * RESUS feature.\n The 12-bit code is intended to give some protection
-     * against accidental writes. An invalid setting will enable the
-     * oscillator.
+     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\n
+     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\n
+     *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline void set_CTRL_ENABLE(XOSC_CTRL_ENABLE value) volatile
     {
@@ -110,8 +101,7 @@ sensitive hardware. */
      *
      * (read-write) Crystal Oscillator Control
      */
-    inline void get_CTRL(XOSC_CTRL_FREQ_RANGE &FREQ_RANGE,
-                         XOSC_CTRL_ENABLE &ENABLE) volatile
+    inline void get_CTRL(XOSC_CTRL_FREQ_RANGE &FREQ_RANGE, XOSC_CTRL_ENABLE &ENABLE) volatile
     {
         uint32_t curr = CTRL;
 
@@ -124,8 +114,7 @@ sensitive hardware. */
      *
      * (read-write) Crystal Oscillator Control
      */
-    inline void set_CTRL(XOSC_CTRL_FREQ_RANGE FREQ_RANGE,
-                         XOSC_CTRL_ENABLE ENABLE) volatile
+    inline void set_CTRL(XOSC_CTRL_FREQ_RANGE FREQ_RANGE, XOSC_CTRL_ENABLE ENABLE) volatile
     {
         uint32_t curr = CTRL;
 
@@ -150,8 +139,7 @@ sensitive hardware. */
     /**
      * Get STATUS's ENABLED bit.
      *
-     * Oscillator is enabled but not necessarily running and stable, resets to
-     * 0
+     * Oscillator is enabled but not necessarily running and stable, resets to 0
      */
     inline bool get_STATUS_ENABLED() volatile
     {
@@ -161,8 +149,7 @@ sensitive hardware. */
     /**
      * Get STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or DORMANT
      */
     inline bool get_STATUS_BADWRITE() volatile
     {
@@ -172,8 +159,7 @@ sensitive hardware. */
     /**
      * Set STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or DORMANT
      */
     inline void set_STATUS_BADWRITE() volatile
     {
@@ -183,8 +169,7 @@ sensitive hardware. */
     /**
      * Clear STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or DORMANT
      */
     inline void clear_STATUS_BADWRITE() volatile
     {
@@ -194,8 +179,7 @@ sensitive hardware. */
     /**
      * Toggle STATUS's BADWRITE bit.
      *
-     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or
-     * DORMANT
+     * An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or DORMANT
      */
     inline void toggle_STATUS_BADWRITE() volatile
     {
@@ -217,8 +201,7 @@ sensitive hardware. */
      *
      * (read-write) Crystal Oscillator Status
      */
-    inline void get_STATUS(XOSC_STATUS_FREQ_RANGE &FREQ_RANGE, bool &ENABLED,
-                           bool &BADWRITE, bool &STABLE) volatile
+    inline void get_STATUS(XOSC_STATUS_FREQ_RANGE &FREQ_RANGE, bool &ENABLED, bool &BADWRITE, bool &STABLE) volatile
     {
         uint32_t curr = STATUS;
 
@@ -231,8 +214,7 @@ sensitive hardware. */
     /**
      * Get STARTUP's DELAY field.
      *
-     * in multiples of 256*xtal_period. The reset value of 0xc4 corresponds to
-     * approx 50 000 cycles.
+     * in multiples of 256*xtal_period. The reset value of 0xc4 corresponds to approx 50 000 cycles.
      */
     inline uint16_t get_STARTUP_DELAY() volatile
     {
@@ -242,8 +224,7 @@ sensitive hardware. */
     /**
      * Set STARTUP's DELAY field.
      *
-     * in multiples of 256*xtal_period. The reset value of 0xc4 corresponds to
-     * approx 50 000 cycles.
+     * in multiples of 256*xtal_period. The reset value of 0xc4 corresponds to approx 50 000 cycles.
      */
     inline void set_STARTUP_DELAY(uint16_t value) volatile
     {
@@ -258,8 +239,7 @@ sensitive hardware. */
     /**
      * Get STARTUP's X4 bit.
      *
-     * Multiplies the startup_delay by 4. This is of little value to the user
-     * given that the delay can be programmed directly.
+     * Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly.
      */
     inline bool get_STARTUP_X4() volatile
     {
@@ -269,8 +249,7 @@ sensitive hardware. */
     /**
      * Set STARTUP's X4 bit.
      *
-     * Multiplies the startup_delay by 4. This is of little value to the user
-     * given that the delay can be programmed directly.
+     * Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly.
      */
     inline void set_STARTUP_X4() volatile
     {
@@ -280,8 +259,7 @@ sensitive hardware. */
     /**
      * Clear STARTUP's X4 bit.
      *
-     * Multiplies the startup_delay by 4. This is of little value to the user
-     * given that the delay can be programmed directly.
+     * Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly.
      */
     inline void clear_STARTUP_X4() volatile
     {
@@ -291,8 +269,7 @@ sensitive hardware. */
     /**
      * Toggle STARTUP's X4 bit.
      *
-     * Multiplies the startup_delay by 4. This is of little value to the user
-     * given that the delay can be programmed directly.
+     * Multiplies the startup_delay by 4. This is of little value to the user given that the delay can be programmed directly.
      */
     inline void toggle_STARTUP_X4() volatile
     {

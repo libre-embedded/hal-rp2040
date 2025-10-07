@@ -116,8 +116,7 @@ inline const char *to_string(BUSCTRL_PERFSEL1_PERFSEL1 instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                BUSCTRL_PERFSEL1_PERFSEL1 instance)
+inline std::ostream &operator<<(std::ostream &stream, BUSCTRL_PERFSEL1_PERFSEL1 instance)
 {
     stream << to_string(instance);
     return stream;

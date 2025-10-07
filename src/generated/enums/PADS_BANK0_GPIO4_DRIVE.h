@@ -52,8 +52,7 @@ inline const char *to_string(PADS_BANK0_GPIO4_DRIVE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                PADS_BANK0_GPIO4_DRIVE instance)
+inline std::ostream &operator<<(std::ostream &stream, PADS_BANK0_GPIO4_DRIVE instance)
 {
     stream << to_string(instance);
     return stream;

@@ -52,8 +52,7 @@ inline const char *to_string(PWM_CH6_CSR_DIVMODE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                PWM_CH6_CSR_DIVMODE instance)
+inline std::ostream &operator<<(std::ostream &stream, PWM_CH6_CSR_DIVMODE instance)
 {
     stream << to_string(instance);
     return stream;

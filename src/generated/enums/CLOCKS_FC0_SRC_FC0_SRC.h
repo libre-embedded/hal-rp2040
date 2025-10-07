@@ -92,8 +92,7 @@ inline const char *to_string(CLOCKS_FC0_SRC_FC0_SRC instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream,
-                                CLOCKS_FC0_SRC_FC0_SRC instance)
+inline std::ostream &operator<<(std::ostream &stream, CLOCKS_FC0_SRC_FC0_SRC instance)
 {
     stream << to_string(instance);
     return stream;
