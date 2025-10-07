@@ -40,7 +40,8 @@ inline const char *to_string(ROSC_FREQB_PASSWD instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, ROSC_FREQB_PASSWD instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                ROSC_FREQB_PASSWD instance)
 {
     stream << to_string(instance);
     return stream;

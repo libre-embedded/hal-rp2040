@@ -48,7 +48,8 @@ inline const char *to_string(DMA_CH3_CTRL_TRIG_DATA_SIZE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, DMA_CH3_CTRL_TRIG_DATA_SIZE instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                DMA_CH3_CTRL_TRIG_DATA_SIZE instance)
 {
     stream << to_string(instance);
     return stream;

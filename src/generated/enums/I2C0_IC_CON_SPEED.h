@@ -48,7 +48,8 @@ inline const char *to_string(I2C0_IC_CON_SPEED instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, I2C0_IC_CON_SPEED instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                I2C0_IC_CON_SPEED instance)
 {
     stream << to_string(instance);
     return stream;

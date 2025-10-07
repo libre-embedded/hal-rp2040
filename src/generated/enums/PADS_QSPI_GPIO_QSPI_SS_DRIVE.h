@@ -52,7 +52,8 @@ inline const char *to_string(PADS_QSPI_GPIO_QSPI_SS_DRIVE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, PADS_QSPI_GPIO_QSPI_SS_DRIVE instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                PADS_QSPI_GPIO_QSPI_SS_DRIVE instance)
 {
     stream << to_string(instance);
     return stream;

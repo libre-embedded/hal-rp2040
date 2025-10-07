@@ -102,15 +102,13 @@ inline void handle_endian_p(T *elem)
     requires(std::is_enum_v<T>)
 {
     using underlying = std::underlying_type_t<T>;
-    handle_endian_p<endianness>(
-        reinterpret_cast<underlying *>(elem));
+    handle_endian_p<endianness>(reinterpret_cast<underlying *>(elem));
 }
 template <std::endian endianness, typename T>
 inline T handle_endian(T elem)
     requires(std::is_enum_v<T>)
 {
-    return static_cast<T>(handle_endian<endianness>(
-        std::to_underlying(elem)));
+    return static_cast<T>(handle_endian<endianness>(std::to_underlying(elem)));
 }
 
 /* Configured primitives for identifiers. */
@@ -132,8 +130,7 @@ using byte_spanstream = std::basic_spanstream<std::byte>;
 
 /* Constraint for generated structs. */
 template <typename T>
-concept ifgen_struct = requires
-{
+concept ifgen_struct = requires {
     std::is_integral_v<decltype(T::id)>;
     std::is_same_v<decltype(T::size), std::size_t>;
 };

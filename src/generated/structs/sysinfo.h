@@ -19,11 +19,15 @@ struct [[gnu::packed]] sysinfo
     static constexpr std::size_t size = 68; /*!< sysinfo's size in bytes. */
 
     /* Fields. */
-    const uint32_t CHIP_ID = {};                                     /*!< (read-only) JEDEC JEP-106 compliant chip identifier. */
-    const uint32_t PLATFORM = {};                                    /*!< (read-only) Platform register. Allows software to know what environment it is running in. */
+    const uint32_t CHIP_ID =
+        {}; /*!< (read-only) JEDEC JEP-106 compliant chip identifier. */
+    const uint32_t PLATFORM =
+        {}; /*!< (read-only) Platform register. Allows software to know what
+               environment it is running in. */
     static constexpr std::size_t reserved_padding0_length = 14;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t GITREF_RP2040;                                          /*!< (read-write) Git hash of the chip source. Used to identify chip version. */
+    uint32_t GITREF_RP2040; /*!< (read-write) Git hash of the chip source. Used
+                               to identify chip version. */
 
     /* Methods. */
 
@@ -56,7 +60,8 @@ struct [[gnu::packed]] sysinfo
      *
      * (read-only) JEDEC JEP-106 compliant chip identifier.
      */
-    inline void get_CHIP_ID(uint16_t &MANUFACTURER, uint16_t &PART, uint8_t &REVISION) volatile
+    inline void get_CHIP_ID(uint16_t &MANUFACTURER, uint16_t &PART,
+                            uint8_t &REVISION) volatile
     {
         uint32_t curr = CHIP_ID;
 
@@ -84,7 +89,8 @@ struct [[gnu::packed]] sysinfo
     /**
      * Get all of PLATFORM's bit fields.
      *
-     * (read-only) Platform register. Allows software to know what environment it is running in.
+     * (read-only) Platform register. Allows software to know what environment
+     * it is running in.
      */
     inline void get_PLATFORM(bool &FPGA, bool &ASIC) volatile
     {
@@ -98,7 +104,8 @@ struct [[gnu::packed]] sysinfo
 static_assert(sizeof(sysinfo) == sysinfo::size);
 static_assert(ifgen_struct<sysinfo>);
 
-static volatile sysinfo *const SYSINFO = reinterpret_cast<sysinfo *>(0x40000000);
+static volatile sysinfo *const SYSINFO =
+    reinterpret_cast<sysinfo *>(0x40000000);
 
 }; // namespace RP2040
 

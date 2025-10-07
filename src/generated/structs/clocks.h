@@ -32,69 +32,128 @@ struct [[gnu::packed]] clocks
     static constexpr std::size_t size = 200; /*!< clocks's size in bytes. */
 
     /* Fields. */
-    uint32_t CLK_GPOUT0_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT0_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT0_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT1_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT1_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT1_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT2_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT2_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT2_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_GPOUT3_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_GPOUT3_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT3_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_REF_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_REF_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_REF_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
-    uint32_t CLK_SYS_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_SYS_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_SYS_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
-    uint32_t CLK_PERI_CTRL;                   /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT0_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT0_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT0_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT1_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT1_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT1_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT2_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT2_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT2_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_GPOUT3_CTRL; /*!< (read-write) Clock control, can be changed
+                                 on-the-fly (except for auxsrc) */
+    uint32_t CLK_GPOUT3_DIV;  /*!< (read-write) Clock divisor, can be changed
+                                 on-the-fly */
+    uint32_t CLK_GPOUT3_SELECTED; /*!< (read-write) Indicates which SRC is
+    currently selected by the glitchless mux (one-hot).\n This slice does not
+    have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+    register is hardwired to 0x1. */
+    uint32_t CLK_REF_CTRL;     /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
+    uint32_t CLK_REF_DIV;      /*!< (read-write) Clock divisor, can be changed
+                                  on-the-fly */
+    uint32_t CLK_REF_SELECTED; /*!< (read-write) Indicates which SRC is
+ currently selected by the glitchless mux (one-hot).\n The glitchless
+ multiplexer does not switch instantaneously (to avoid glitches), so software
+ should poll this register to wait for the switch to complete. This register
+ contains one decoded bit for each of the clock sources enumerated in the CTRL
+ SRC field. At most one of these bits will be set at any time, indicating that
+ clock is currently present at the output of the glitchless mux. Whilst
+ switching is in progress, this register may briefly show all-0s. */
+    uint32_t CLK_SYS_CTRL;     /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
+    uint32_t CLK_SYS_DIV;      /*!< (read-write) Clock divisor, can be changed
+                                  on-the-fly */
+    uint32_t CLK_SYS_SELECTED; /*!< (read-write) Indicates which SRC is
+ currently selected by the glitchless mux (one-hot).\n The glitchless
+ multiplexer does not switch instantaneously (to avoid glitches), so software
+ should poll this register to wait for the switch to complete. This register
+ contains one decoded bit for each of the clock sources enumerated in the CTRL
+ SRC field. At most one of these bits will be set at any time, indicating that
+ clock is currently present at the output of the glitchless mux. Whilst
+ switching is in progress, this register may briefly show all-0s. */
+    uint32_t CLK_PERI_CTRL;    /*!< (read-write) Clock control, can be changed
+                                  on-the-fly (except for auxsrc) */
     const uint32_t reserved_padding0 = {};
-    uint32_t CLK_PERI_SELECTED;               /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_USB_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_USB_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_USB_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_ADC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_ADC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_ADC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
-    uint32_t CLK_RTC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
-    uint32_t CLK_RTC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_RTC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
-                This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
+    uint32_t CLK_PERI_SELECTED; /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n This slice does not
+  have a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register is hardwired to 0x1. */
+    uint32_t CLK_USB_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_USB_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_USB_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
+    uint32_t CLK_ADC_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_ADC_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_ADC_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
+    uint32_t CLK_RTC_CTRL;      /*!< (read-write) Clock control, can be changed
+                                   on-the-fly (except for auxsrc) */
+    uint32_t CLK_RTC_DIV;       /*!< (read-write) Clock divisor, can be changed
+                                   on-the-fly */
+    uint32_t CLK_RTC_SELECTED;  /*!< (read-write) Indicates which SRC is
+  currently selected by the glitchless mux (one-hot).\n  This slice does not
+  have  a glitchless mux (only the AUX_SRC field is present, not SRC) so this
+  register  is hardwired to 0x1. */
     uint32_t CLK_SYS_RESUS_CTRL;
     const uint32_t CLK_SYS_RESUS_STATUS = {};
-    uint32_t FC0_REF_KHZ;                     /*!< (read-write) Reference clock frequency in kHz */
-    uint32_t FC0_MIN_KHZ;                     /*!< (read-write) Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags */
-    uint32_t FC0_MAX_KHZ;                     /*!< (read-write) Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags */
-    uint32_t FC0_DELAY;                       /*!< (read-write) Delays the start of frequency counting to allow the mux to settle\n
-                Delay is measured in multiples of the reference clock period */
-    uint32_t FC0_INTERVAL;                    /*!< (read-write) The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval\n
-                The default gives a test interval of 250us */
-    uint32_t FC0_SRC;                         /*!< (read-write) Clock sent to frequency counter, set to 0 when not required\n
-                Writing to this register initiates the frequency count */
-    const uint32_t FC0_STATUS = {};           /*!< (read-only) Frequency counter status */
-    const uint32_t FC0_RESULT = {};           /*!< (read-only) Result of frequency measurement, only valid when status_done=1 */
-    uint32_t WAKE_EN0;                        /*!< (read-write) enable clock in wake mode */
-    uint32_t WAKE_EN1;                        /*!< (read-write) enable clock in wake mode */
-    uint32_t SLEEP_EN0;                       /*!< (read-write) enable clock in sleep mode */
-    uint32_t SLEEP_EN1;                       /*!< (read-write) enable clock in sleep mode */
-    const uint32_t ENABLED0 = {};             /*!< (read-only) indicates the state of the clock enable */
-    const uint32_t ENABLED1 = {};             /*!< (read-only) indicates the state of the clock enable */
-    const uint32_t INTR = {};                 /*!< (read-only) Raw Interrupts */
-    uint32_t INTE;                            /*!< (read-write) Interrupt Enable */
-    uint32_t INTF;                            /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};                 /*!< (read-only) Interrupt status after masking & forcing */
+    uint32_t FC0_REF_KHZ; /*!< (read-write) Reference clock frequency in kHz */
+    uint32_t FC0_MIN_KHZ; /*!< (read-write) Minimum pass frequency in kHz. This
+                             is optional. Set to 0 if you are not using the
+                             pass/fail flags */
+    uint32_t FC0_MAX_KHZ; /*!< (read-write) Maximum pass frequency in kHz. This
+                             is optional. Set to 0x1ffffff if you are not using
+                             the pass/fail flags */
+    uint32_t FC0_DELAY;   /*!< (read-write) Delays the start of frequency
+  counting to allow the mux to settle\n   Delay is measured in multiples of the
+  reference clock period */
+    uint32_t FC0_INTERVAL; /*!< (read-write) The test interval is 0.98us *
+2**interval, but let's call it 1us * 2**interval\n The default gives a test
+interval of 250us */
+    uint32_t FC0_SRC; /*!< (read-write) Clock sent to frequency counter, set to
+0 when not required\n Writing to this register initiates the frequency count */
+    const uint32_t FC0_STATUS =
+        {}; /*!< (read-only) Frequency counter status */
+    const uint32_t FC0_RESULT =
+        {}; /*!< (read-only) Result of frequency measurement, only valid when
+               status_done=1 */
+    uint32_t WAKE_EN0;  /*!< (read-write) enable clock in wake mode */
+    uint32_t WAKE_EN1;  /*!< (read-write) enable clock in wake mode */
+    uint32_t SLEEP_EN0; /*!< (read-write) enable clock in sleep mode */
+    uint32_t SLEEP_EN1; /*!< (read-write) enable clock in sleep mode */
+    const uint32_t ENABLED0 =
+        {}; /*!< (read-only) indicates the state of the clock enable */
+    const uint32_t ENABLED1 =
+        {}; /*!< (read-only) indicates the state of the clock enable */
+    const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
+    uint32_t INTE;            /*!< (read-write) Interrupt Enable */
+    uint32_t INTF;            /*!< (read-write) Interrupt Force */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 
@@ -105,7 +164,8 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT0_CTRL_AUXSRC get_CLK_GPOUT0_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -113,7 +173,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_GPOUT0_CTRL_AUXSRC(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC value) volatile
+    inline void set_CLK_GPOUT0_CTRL_AUXSRC(
+        CLOCKS_CLK_GPOUT0_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
@@ -247,7 +308,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_GPOUT0_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_GPOUT0_CTRL_PHASE() volatile
     {
@@ -258,7 +320,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_GPOUT0_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_GPOUT0_CTRL_PHASE(uint8_t value) volatile
     {
@@ -273,8 +336,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_GPOUT0_CTRL_NUDGE() volatile
     {
@@ -284,8 +347,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_GPOUT0_CTRL_NUDGE() volatile
     {
@@ -295,8 +358,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_GPOUT0_CTRL_NUDGE() volatile
     {
@@ -306,8 +369,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_GPOUT0_CTRL_NUDGE() volatile
     {
@@ -317,9 +380,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_GPOUT0_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_GPOUT0_CTRL(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, bool &DC50, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_GPOUT0_CTRL(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC &AUXSRC,
+                                    bool &KILL, bool &ENABLE, bool &DC50,
+                                    uint8_t &PHASE, bool &NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
@@ -334,9 +400,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_GPOUT0_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_GPOUT0_CTRL(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, bool DC50, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_GPOUT0_CTRL(CLOCKS_CLK_GPOUT0_CTRL_AUXSRC AUXSRC,
+                                    bool KILL, bool ENABLE, bool DC50,
+                                    uint8_t PHASE, bool NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
@@ -443,7 +512,8 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT1_CTRL_AUXSRC get_CLK_GPOUT1_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -451,7 +521,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_GPOUT1_CTRL_AUXSRC(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC value) volatile
+    inline void set_CLK_GPOUT1_CTRL_AUXSRC(
+        CLOCKS_CLK_GPOUT1_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
@@ -585,7 +656,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_GPOUT1_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_GPOUT1_CTRL_PHASE() volatile
     {
@@ -596,7 +668,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_GPOUT1_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_GPOUT1_CTRL_PHASE(uint8_t value) volatile
     {
@@ -611,8 +684,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_GPOUT1_CTRL_NUDGE() volatile
     {
@@ -622,8 +695,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_GPOUT1_CTRL_NUDGE() volatile
     {
@@ -633,8 +706,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_GPOUT1_CTRL_NUDGE() volatile
     {
@@ -644,8 +717,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_GPOUT1_CTRL_NUDGE() volatile
     {
@@ -655,9 +728,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_GPOUT1_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_GPOUT1_CTRL(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, bool &DC50, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_GPOUT1_CTRL(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC &AUXSRC,
+                                    bool &KILL, bool &ENABLE, bool &DC50,
+                                    uint8_t &PHASE, bool &NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
@@ -672,9 +748,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_GPOUT1_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_GPOUT1_CTRL(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, bool DC50, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_GPOUT1_CTRL(CLOCKS_CLK_GPOUT1_CTRL_AUXSRC AUXSRC,
+                                    bool KILL, bool ENABLE, bool DC50,
+                                    uint8_t PHASE, bool NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
@@ -781,7 +860,8 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT2_CTRL_AUXSRC get_CLK_GPOUT2_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -789,7 +869,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_GPOUT2_CTRL_AUXSRC(CLOCKS_CLK_GPOUT2_CTRL_AUXSRC value) volatile
+    inline void set_CLK_GPOUT2_CTRL_AUXSRC(
+        CLOCKS_CLK_GPOUT2_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
@@ -923,7 +1004,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_GPOUT2_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_GPOUT2_CTRL_PHASE() volatile
     {
@@ -934,7 +1016,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_GPOUT2_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_GPOUT2_CTRL_PHASE(uint8_t value) volatile
     {
@@ -949,8 +1032,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_GPOUT2_CTRL_NUDGE() volatile
     {
@@ -960,8 +1043,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_GPOUT2_CTRL_NUDGE() volatile
     {
@@ -971,8 +1054,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_GPOUT2_CTRL_NUDGE() volatile
     {
@@ -982,8 +1065,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_GPOUT2_CTRL_NUDGE() volatile
     {
@@ -993,9 +1076,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_GPOUT2_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_GPOUT2_CTRL(CLOCKS_CLK_GPOUT2_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, bool &DC50, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_GPOUT2_CTRL(CLOCKS_CLK_GPOUT2_CTRL_AUXSRC &AUXSRC,
+                                    bool &KILL, bool &ENABLE, bool &DC50,
+                                    uint8_t &PHASE, bool &NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
@@ -1010,9 +1096,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_GPOUT2_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_GPOUT2_CTRL(CLOCKS_CLK_GPOUT2_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, bool DC50, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_GPOUT2_CTRL(CLOCKS_CLK_GPOUT2_CTRL_AUXSRC AUXSRC,
+                                    bool KILL, bool ENABLE, bool DC50,
+                                    uint8_t PHASE, bool NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
@@ -1119,7 +1208,8 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT3_CTRL_AUXSRC get_CLK_GPOUT3_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) &
+                                             0b1111u);
     }
 
     /**
@@ -1127,7 +1217,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_GPOUT3_CTRL_AUXSRC(CLOCKS_CLK_GPOUT3_CTRL_AUXSRC value) volatile
+    inline void set_CLK_GPOUT3_CTRL_AUXSRC(
+        CLOCKS_CLK_GPOUT3_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
@@ -1261,7 +1352,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_GPOUT3_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_GPOUT3_CTRL_PHASE() volatile
     {
@@ -1272,7 +1364,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_GPOUT3_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_GPOUT3_CTRL_PHASE(uint8_t value) volatile
     {
@@ -1287,8 +1380,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_GPOUT3_CTRL_NUDGE() volatile
     {
@@ -1298,8 +1391,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_GPOUT3_CTRL_NUDGE() volatile
     {
@@ -1309,8 +1402,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_GPOUT3_CTRL_NUDGE() volatile
     {
@@ -1320,8 +1413,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_GPOUT3_CTRL_NUDGE() volatile
     {
@@ -1331,9 +1424,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_GPOUT3_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_GPOUT3_CTRL(CLOCKS_CLK_GPOUT3_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, bool &DC50, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_GPOUT3_CTRL(CLOCKS_CLK_GPOUT3_CTRL_AUXSRC &AUXSRC,
+                                    bool &KILL, bool &ENABLE, bool &DC50,
+                                    uint8_t &PHASE, bool &NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
@@ -1348,9 +1444,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_GPOUT3_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_GPOUT3_CTRL(CLOCKS_CLK_GPOUT3_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, bool DC50, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_GPOUT3_CTRL(CLOCKS_CLK_GPOUT3_CTRL_AUXSRC AUXSRC,
+                                    bool KILL, bool ENABLE, bool DC50,
+                                    uint8_t PHASE, bool NUDGE) volatile
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
@@ -1490,7 +1589,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_REF_CTRL_AUXSRC(CLOCKS_CLK_REF_CTRL_AUXSRC value) volatile
+    inline void set_CLK_REF_CTRL_AUXSRC(
+        CLOCKS_CLK_REF_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_REF_CTRL;
 
@@ -1503,9 +1603,11 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_REF_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_REF_CTRL(CLOCKS_CLK_REF_CTRL_SRC &SRC, CLOCKS_CLK_REF_CTRL_AUXSRC &AUXSRC) volatile
+    inline void get_CLK_REF_CTRL(CLOCKS_CLK_REF_CTRL_SRC &SRC,
+                                 CLOCKS_CLK_REF_CTRL_AUXSRC &AUXSRC) volatile
     {
         uint32_t curr = CLK_REF_CTRL;
 
@@ -1516,9 +1618,11 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_REF_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_REF_CTRL(CLOCKS_CLK_REF_CTRL_SRC SRC, CLOCKS_CLK_REF_CTRL_AUXSRC AUXSRC) volatile
+    inline void set_CLK_REF_CTRL(CLOCKS_CLK_REF_CTRL_SRC SRC,
+                                 CLOCKS_CLK_REF_CTRL_AUXSRC AUXSRC) volatile
     {
         uint32_t curr = CLK_REF_CTRL;
 
@@ -1610,7 +1714,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_SYS_CTRL_AUXSRC(CLOCKS_CLK_SYS_CTRL_AUXSRC value) volatile
+    inline void set_CLK_SYS_CTRL_AUXSRC(
+        CLOCKS_CLK_SYS_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_SYS_CTRL;
 
@@ -1623,9 +1728,11 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_SYS_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC &SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC &AUXSRC) volatile
+    inline void get_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC &SRC,
+                                 CLOCKS_CLK_SYS_CTRL_AUXSRC &AUXSRC) volatile
     {
         uint32_t curr = CLK_SYS_CTRL;
 
@@ -1636,9 +1743,11 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_SYS_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC AUXSRC) volatile
+    inline void set_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC SRC,
+                                 CLOCKS_CLK_SYS_CTRL_AUXSRC AUXSRC) volatile
     {
         uint32_t curr = CLK_SYS_CTRL;
 
@@ -1745,7 +1854,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_PERI_CTRL_AUXSRC(CLOCKS_CLK_PERI_CTRL_AUXSRC value) volatile
+    inline void set_CLK_PERI_CTRL_AUXSRC(
+        CLOCKS_CLK_PERI_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_PERI_CTRL;
 
@@ -1838,9 +1948,11 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_PERI_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_PERI_CTRL(CLOCKS_CLK_PERI_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE) volatile
+    inline void get_CLK_PERI_CTRL(CLOCKS_CLK_PERI_CTRL_AUXSRC &AUXSRC,
+                                  bool &KILL, bool &ENABLE) volatile
     {
         uint32_t curr = CLK_PERI_CTRL;
 
@@ -1852,9 +1964,11 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_PERI_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_PERI_CTRL(CLOCKS_CLK_PERI_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE) volatile
+    inline void set_CLK_PERI_CTRL(CLOCKS_CLK_PERI_CTRL_AUXSRC AUXSRC,
+                                  bool KILL, bool ENABLE) volatile
     {
         uint32_t curr = CLK_PERI_CTRL;
 
@@ -1883,7 +1997,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_USB_CTRL_AUXSRC(CLOCKS_CLK_USB_CTRL_AUXSRC value) volatile
+    inline void set_CLK_USB_CTRL_AUXSRC(
+        CLOCKS_CLK_USB_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_USB_CTRL;
 
@@ -1977,7 +2092,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_USB_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_USB_CTRL_PHASE() volatile
     {
@@ -1988,7 +2104,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_USB_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_USB_CTRL_PHASE(uint8_t value) volatile
     {
@@ -2003,8 +2120,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_USB_CTRL_NUDGE() volatile
     {
@@ -2014,8 +2131,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_USB_CTRL_NUDGE() volatile
     {
@@ -2025,8 +2142,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_USB_CTRL_NUDGE() volatile
     {
@@ -2036,8 +2153,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_USB_CTRL_NUDGE() volatile
     {
@@ -2047,9 +2164,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_USB_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_USB_CTRL(CLOCKS_CLK_USB_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_USB_CTRL(CLOCKS_CLK_USB_CTRL_AUXSRC &AUXSRC,
+                                 bool &KILL, bool &ENABLE, uint8_t &PHASE,
+                                 bool &NUDGE) volatile
     {
         uint32_t curr = CLK_USB_CTRL;
 
@@ -2063,9 +2183,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_USB_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_USB_CTRL(CLOCKS_CLK_USB_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_USB_CTRL(CLOCKS_CLK_USB_CTRL_AUXSRC AUXSRC, bool KILL,
+                                 bool ENABLE, uint8_t PHASE,
+                                 bool NUDGE) volatile
     {
         uint32_t curr = CLK_USB_CTRL;
 
@@ -2123,7 +2246,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_ADC_CTRL_AUXSRC(CLOCKS_CLK_ADC_CTRL_AUXSRC value) volatile
+    inline void set_CLK_ADC_CTRL_AUXSRC(
+        CLOCKS_CLK_ADC_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_ADC_CTRL;
 
@@ -2217,7 +2341,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_ADC_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_ADC_CTRL_PHASE() volatile
     {
@@ -2228,7 +2353,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_ADC_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_ADC_CTRL_PHASE(uint8_t value) volatile
     {
@@ -2243,8 +2369,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_ADC_CTRL_NUDGE() volatile
     {
@@ -2254,8 +2380,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_ADC_CTRL_NUDGE() volatile
     {
@@ -2265,8 +2391,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_ADC_CTRL_NUDGE() volatile
     {
@@ -2276,8 +2402,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_ADC_CTRL_NUDGE() volatile
     {
@@ -2287,9 +2413,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_ADC_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_ADC_CTRL(CLOCKS_CLK_ADC_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_ADC_CTRL(CLOCKS_CLK_ADC_CTRL_AUXSRC &AUXSRC,
+                                 bool &KILL, bool &ENABLE, uint8_t &PHASE,
+                                 bool &NUDGE) volatile
     {
         uint32_t curr = CLK_ADC_CTRL;
 
@@ -2303,9 +2432,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_ADC_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_ADC_CTRL(CLOCKS_CLK_ADC_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_ADC_CTRL(CLOCKS_CLK_ADC_CTRL_AUXSRC AUXSRC, bool KILL,
+                                 bool ENABLE, uint8_t PHASE,
+                                 bool NUDGE) volatile
     {
         uint32_t curr = CLK_ADC_CTRL;
 
@@ -2363,7 +2495,8 @@ struct [[gnu::packed]] clocks
      *
      * Selects the auxiliary clock source, will glitch when switching
      */
-    inline void set_CLK_RTC_CTRL_AUXSRC(CLOCKS_CLK_RTC_CTRL_AUXSRC value) volatile
+    inline void set_CLK_RTC_CTRL_AUXSRC(
+        CLOCKS_CLK_RTC_CTRL_AUXSRC value) volatile
     {
         uint32_t curr = CLK_RTC_CTRL;
 
@@ -2457,7 +2590,8 @@ struct [[gnu::packed]] clocks
      * Get CLK_RTC_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline uint8_t get_CLK_RTC_CTRL_PHASE() volatile
     {
@@ -2468,7 +2602,8 @@ struct [[gnu::packed]] clocks
      * Set CLK_RTC_CTRL's PHASE field.
      *
      * This delays the enable signal by up to 3 cycles of the input clock\n
-     *                 This must be set before the clock is enabled to have any effect
+     *                 This must be set before the clock is enabled to have any
+     * effect
      */
     inline void set_CLK_RTC_CTRL_PHASE(uint8_t value) volatile
     {
@@ -2483,8 +2618,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline bool get_CLK_RTC_CTRL_NUDGE() volatile
     {
@@ -2494,8 +2629,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void set_CLK_RTC_CTRL_NUDGE() volatile
     {
@@ -2505,8 +2640,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void clear_CLK_RTC_CTRL_NUDGE() volatile
     {
@@ -2516,8 +2651,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
-     *                 This can be done at any time
+     * An edge on this signal shifts the phase of the output by 1 cycle of the
+     * input clock\n This can be done at any time
      */
     inline void toggle_CLK_RTC_CTRL_NUDGE() volatile
     {
@@ -2527,9 +2662,12 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_RTC_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void get_CLK_RTC_CTRL(CLOCKS_CLK_RTC_CTRL_AUXSRC &AUXSRC, bool &KILL, bool &ENABLE, uint8_t &PHASE, bool &NUDGE) volatile
+    inline void get_CLK_RTC_CTRL(CLOCKS_CLK_RTC_CTRL_AUXSRC &AUXSRC,
+                                 bool &KILL, bool &ENABLE, uint8_t &PHASE,
+                                 bool &NUDGE) volatile
     {
         uint32_t curr = CLK_RTC_CTRL;
 
@@ -2543,9 +2681,12 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_RTC_CTRL's bit fields.
      *
-     * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
+     * (read-write) Clock control, can be changed on-the-fly (except for
+     * auxsrc)
      */
-    inline void set_CLK_RTC_CTRL(CLOCKS_CLK_RTC_CTRL_AUXSRC AUXSRC, bool KILL, bool ENABLE, uint8_t PHASE, bool NUDGE) volatile
+    inline void set_CLK_RTC_CTRL(CLOCKS_CLK_RTC_CTRL_AUXSRC AUXSRC, bool KILL,
+                                 bool ENABLE, uint8_t PHASE,
+                                 bool NUDGE) volatile
     {
         uint32_t curr = CLK_RTC_CTRL;
 
@@ -2753,7 +2894,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_SYS_RESUS_CTRL's CLEAR bit.
      *
-     * For clearing the resus after the fault that triggered it has been corrected
+     * For clearing the resus after the fault that triggered it has been
+     * corrected
      */
     inline bool get_CLK_SYS_RESUS_CTRL_CLEAR() volatile
     {
@@ -2763,7 +2905,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_SYS_RESUS_CTRL's CLEAR bit.
      *
-     * For clearing the resus after the fault that triggered it has been corrected
+     * For clearing the resus after the fault that triggered it has been
+     * corrected
      */
     inline void set_CLK_SYS_RESUS_CTRL_CLEAR() volatile
     {
@@ -2773,7 +2916,8 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_SYS_RESUS_CTRL's CLEAR bit.
      *
-     * For clearing the resus after the fault that triggered it has been corrected
+     * For clearing the resus after the fault that triggered it has been
+     * corrected
      */
     inline void clear_CLK_SYS_RESUS_CTRL_CLEAR() volatile
     {
@@ -2783,7 +2927,8 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_SYS_RESUS_CTRL's CLEAR bit.
      *
-     * For clearing the resus after the fault that triggered it has been corrected
+     * For clearing the resus after the fault that triggered it has been
+     * corrected
      */
     inline void toggle_CLK_SYS_RESUS_CTRL_CLEAR() volatile
     {
@@ -2793,7 +2938,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of CLK_SYS_RESUS_CTRL's bit fields.
      */
-    inline void get_CLK_SYS_RESUS_CTRL(uint8_t &TIMEOUT, bool &ENABLE, bool &FRCE, bool &CLEAR) volatile
+    inline void get_CLK_SYS_RESUS_CTRL(uint8_t &TIMEOUT, bool &ENABLE,
+                                       bool &FRCE, bool &CLEAR) volatile
     {
         uint32_t curr = CLK_SYS_RESUS_CTRL;
 
@@ -2806,7 +2952,8 @@ struct [[gnu::packed]] clocks
     /**
      * Set all of CLK_SYS_RESUS_CTRL's bit fields.
      */
-    inline void set_CLK_SYS_RESUS_CTRL(uint8_t TIMEOUT, bool ENABLE, bool FRCE, bool CLEAR) volatile
+    inline void set_CLK_SYS_RESUS_CTRL(uint8_t TIMEOUT, bool ENABLE, bool FRCE,
+                                       bool CLEAR) volatile
     {
         uint32_t curr = CLK_SYS_RESUS_CTRL;
 
@@ -3043,7 +3190,9 @@ struct [[gnu::packed]] clocks
      *
      * (read-only) Frequency counter status
      */
-    inline void get_FC0_STATUS(bool &PASS, bool &DONE, bool &RUNNING, bool &WAITING, bool &FAIL, bool &SLOW, bool &FAST, bool &DIED) volatile
+    inline void get_FC0_STATUS(bool &PASS, bool &DONE, bool &RUNNING,
+                               bool &WAITING, bool &FAIL, bool &SLOW,
+                               bool &FAST, bool &DIED) volatile
     {
         uint32_t curr = FC0_STATUS;
 
@@ -3076,7 +3225,8 @@ struct [[gnu::packed]] clocks
     /**
      * Get all of FC0_RESULT's bit fields.
      *
-     * (read-only) Result of frequency measurement, only valid when status_done=1
+     * (read-only) Result of frequency measurement, only valid when
+     * status_done=1
      */
     inline void get_FC0_RESULT(uint8_t &FRAC, uint32_t &KHZ) volatile
     {
@@ -4115,7 +4265,18 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in wake mode
      */
-    inline void get_WAKE_EN0(bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc, bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma, bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io, bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset, bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1, bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm, bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom, bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc, bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0, bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0, bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
+    inline void get_WAKE_EN0(
+        bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc,
+        bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma,
+        bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io,
+        bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset,
+        bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1,
+        bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm,
+        bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom,
+        bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc,
+        bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0,
+        bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0,
+        bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
     {
         uint32_t curr = WAKE_EN0;
 
@@ -4158,7 +4319,18 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in wake mode
      */
-    inline void set_WAKE_EN0(bool clk_sys_clocks, bool clk_adc_adc, bool clk_sys_adc, bool clk_sys_busctrl, bool clk_sys_busfabric, bool clk_sys_dma, bool clk_sys_i2c0, bool clk_sys_i2c1, bool clk_sys_io, bool clk_sys_jtag, bool clk_sys_vreg_and_chip_reset, bool clk_sys_pads, bool clk_sys_pio0, bool clk_sys_pio1, bool clk_sys_pll_sys, bool clk_sys_pll_usb, bool clk_sys_psm, bool clk_sys_pwm, bool clk_sys_resets, bool clk_sys_rom, bool clk_sys_rosc, bool clk_rtc_rtc, bool clk_sys_rtc, bool clk_sys_sio, bool clk_peri_spi0, bool clk_sys_spi0, bool clk_peri_spi1, bool clk_sys_spi1, bool clk_sys_sram0, bool clk_sys_sram1, bool clk_sys_sram2, bool clk_sys_sram3) volatile
+    inline void set_WAKE_EN0(
+        bool clk_sys_clocks, bool clk_adc_adc, bool clk_sys_adc,
+        bool clk_sys_busctrl, bool clk_sys_busfabric, bool clk_sys_dma,
+        bool clk_sys_i2c0, bool clk_sys_i2c1, bool clk_sys_io,
+        bool clk_sys_jtag, bool clk_sys_vreg_and_chip_reset, bool clk_sys_pads,
+        bool clk_sys_pio0, bool clk_sys_pio1, bool clk_sys_pll_sys,
+        bool clk_sys_pll_usb, bool clk_sys_psm, bool clk_sys_pwm,
+        bool clk_sys_resets, bool clk_sys_rom, bool clk_sys_rosc,
+        bool clk_rtc_rtc, bool clk_sys_rtc, bool clk_sys_sio,
+        bool clk_peri_spi0, bool clk_sys_spi0, bool clk_peri_spi1,
+        bool clk_sys_spi1, bool clk_sys_sram0, bool clk_sys_sram1,
+        bool clk_sys_sram2, bool clk_sys_sram3) volatile
     {
         uint32_t curr = WAKE_EN0;
 
@@ -4715,7 +4887,14 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in wake mode
      */
-    inline void get_WAKE_EN1(bool &clk_sys_sram4, bool &clk_sys_sram5, bool &clk_sys_syscfg, bool &clk_sys_sysinfo, bool &clk_sys_tbman, bool &clk_sys_timer, bool &clk_peri_uart0, bool &clk_sys_uart0, bool &clk_peri_uart1, bool &clk_sys_uart1, bool &clk_sys_usbctrl, bool &clk_usb_usbctrl, bool &clk_sys_watchdog, bool &clk_sys_xip, bool &clk_sys_xosc) volatile
+    inline void get_WAKE_EN1(bool &clk_sys_sram4, bool &clk_sys_sram5,
+                             bool &clk_sys_syscfg, bool &clk_sys_sysinfo,
+                             bool &clk_sys_tbman, bool &clk_sys_timer,
+                             bool &clk_peri_uart0, bool &clk_sys_uart0,
+                             bool &clk_peri_uart1, bool &clk_sys_uart1,
+                             bool &clk_sys_usbctrl, bool &clk_usb_usbctrl,
+                             bool &clk_sys_watchdog, bool &clk_sys_xip,
+                             bool &clk_sys_xosc) volatile
     {
         uint32_t curr = WAKE_EN1;
 
@@ -4741,7 +4920,14 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in wake mode
      */
-    inline void set_WAKE_EN1(bool clk_sys_sram4, bool clk_sys_sram5, bool clk_sys_syscfg, bool clk_sys_sysinfo, bool clk_sys_tbman, bool clk_sys_timer, bool clk_peri_uart0, bool clk_sys_uart0, bool clk_peri_uart1, bool clk_sys_uart1, bool clk_sys_usbctrl, bool clk_usb_usbctrl, bool clk_sys_watchdog, bool clk_sys_xip, bool clk_sys_xosc) volatile
+    inline void set_WAKE_EN1(bool clk_sys_sram4, bool clk_sys_sram5,
+                             bool clk_sys_syscfg, bool clk_sys_sysinfo,
+                             bool clk_sys_tbman, bool clk_sys_timer,
+                             bool clk_peri_uart0, bool clk_sys_uart0,
+                             bool clk_peri_uart1, bool clk_sys_uart1,
+                             bool clk_sys_usbctrl, bool clk_usb_usbctrl,
+                             bool clk_sys_watchdog, bool clk_sys_xip,
+                             bool clk_sys_xosc) volatile
     {
         uint32_t curr = WAKE_EN1;
 
@@ -5808,7 +5994,18 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in sleep mode
      */
-    inline void get_SLEEP_EN0(bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc, bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma, bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io, bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset, bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1, bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm, bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom, bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc, bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0, bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0, bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
+    inline void get_SLEEP_EN0(
+        bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc,
+        bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma,
+        bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io,
+        bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset,
+        bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1,
+        bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm,
+        bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom,
+        bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc,
+        bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0,
+        bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0,
+        bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
     {
         uint32_t curr = SLEEP_EN0;
 
@@ -5851,7 +6048,18 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in sleep mode
      */
-    inline void set_SLEEP_EN0(bool clk_sys_clocks, bool clk_adc_adc, bool clk_sys_adc, bool clk_sys_busctrl, bool clk_sys_busfabric, bool clk_sys_dma, bool clk_sys_i2c0, bool clk_sys_i2c1, bool clk_sys_io, bool clk_sys_jtag, bool clk_sys_vreg_and_chip_reset, bool clk_sys_pads, bool clk_sys_pio0, bool clk_sys_pio1, bool clk_sys_pll_sys, bool clk_sys_pll_usb, bool clk_sys_psm, bool clk_sys_pwm, bool clk_sys_resets, bool clk_sys_rom, bool clk_sys_rosc, bool clk_rtc_rtc, bool clk_sys_rtc, bool clk_sys_sio, bool clk_peri_spi0, bool clk_sys_spi0, bool clk_peri_spi1, bool clk_sys_spi1, bool clk_sys_sram0, bool clk_sys_sram1, bool clk_sys_sram2, bool clk_sys_sram3) volatile
+    inline void set_SLEEP_EN0(
+        bool clk_sys_clocks, bool clk_adc_adc, bool clk_sys_adc,
+        bool clk_sys_busctrl, bool clk_sys_busfabric, bool clk_sys_dma,
+        bool clk_sys_i2c0, bool clk_sys_i2c1, bool clk_sys_io,
+        bool clk_sys_jtag, bool clk_sys_vreg_and_chip_reset, bool clk_sys_pads,
+        bool clk_sys_pio0, bool clk_sys_pio1, bool clk_sys_pll_sys,
+        bool clk_sys_pll_usb, bool clk_sys_psm, bool clk_sys_pwm,
+        bool clk_sys_resets, bool clk_sys_rom, bool clk_sys_rosc,
+        bool clk_rtc_rtc, bool clk_sys_rtc, bool clk_sys_sio,
+        bool clk_peri_spi0, bool clk_sys_spi0, bool clk_peri_spi1,
+        bool clk_sys_spi1, bool clk_sys_sram0, bool clk_sys_sram1,
+        bool clk_sys_sram2, bool clk_sys_sram3) volatile
     {
         uint32_t curr = SLEEP_EN0;
 
@@ -6408,7 +6616,14 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in sleep mode
      */
-    inline void get_SLEEP_EN1(bool &clk_sys_sram4, bool &clk_sys_sram5, bool &clk_sys_syscfg, bool &clk_sys_sysinfo, bool &clk_sys_tbman, bool &clk_sys_timer, bool &clk_peri_uart0, bool &clk_sys_uart0, bool &clk_peri_uart1, bool &clk_sys_uart1, bool &clk_sys_usbctrl, bool &clk_usb_usbctrl, bool &clk_sys_watchdog, bool &clk_sys_xip, bool &clk_sys_xosc) volatile
+    inline void get_SLEEP_EN1(bool &clk_sys_sram4, bool &clk_sys_sram5,
+                              bool &clk_sys_syscfg, bool &clk_sys_sysinfo,
+                              bool &clk_sys_tbman, bool &clk_sys_timer,
+                              bool &clk_peri_uart0, bool &clk_sys_uart0,
+                              bool &clk_peri_uart1, bool &clk_sys_uart1,
+                              bool &clk_sys_usbctrl, bool &clk_usb_usbctrl,
+                              bool &clk_sys_watchdog, bool &clk_sys_xip,
+                              bool &clk_sys_xosc) volatile
     {
         uint32_t curr = SLEEP_EN1;
 
@@ -6434,7 +6649,14 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) enable clock in sleep mode
      */
-    inline void set_SLEEP_EN1(bool clk_sys_sram4, bool clk_sys_sram5, bool clk_sys_syscfg, bool clk_sys_sysinfo, bool clk_sys_tbman, bool clk_sys_timer, bool clk_peri_uart0, bool clk_sys_uart0, bool clk_peri_uart1, bool clk_sys_uart1, bool clk_sys_usbctrl, bool clk_usb_usbctrl, bool clk_sys_watchdog, bool clk_sys_xip, bool clk_sys_xosc) volatile
+    inline void set_SLEEP_EN1(bool clk_sys_sram4, bool clk_sys_sram5,
+                              bool clk_sys_syscfg, bool clk_sys_sysinfo,
+                              bool clk_sys_tbman, bool clk_sys_timer,
+                              bool clk_peri_uart0, bool clk_sys_uart0,
+                              bool clk_peri_uart1, bool clk_sys_uart1,
+                              bool clk_sys_usbctrl, bool clk_usb_usbctrl,
+                              bool clk_sys_watchdog, bool clk_sys_xip,
+                              bool clk_sys_xosc) volatile
     {
         uint32_t curr = SLEEP_EN1;
 
@@ -6733,7 +6955,18 @@ struct [[gnu::packed]] clocks
      *
      * (read-only) indicates the state of the clock enable
      */
-    inline void get_ENABLED0(bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc, bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma, bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io, bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset, bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1, bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm, bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom, bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc, bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0, bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0, bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
+    inline void get_ENABLED0(
+        bool &clk_sys_clocks, bool &clk_adc_adc, bool &clk_sys_adc,
+        bool &clk_sys_busctrl, bool &clk_sys_busfabric, bool &clk_sys_dma,
+        bool &clk_sys_i2c0, bool &clk_sys_i2c1, bool &clk_sys_io,
+        bool &clk_sys_jtag, bool &clk_sys_vreg_and_chip_reset,
+        bool &clk_sys_pads, bool &clk_sys_pio0, bool &clk_sys_pio1,
+        bool &clk_sys_pll_sys, bool &clk_sys_pll_usb, bool &clk_sys_psm,
+        bool &clk_sys_pwm, bool &clk_sys_resets, bool &clk_sys_rom,
+        bool &clk_sys_rosc, bool &clk_rtc_rtc, bool &clk_sys_rtc,
+        bool &clk_sys_sio, bool &clk_peri_spi0, bool &clk_sys_spi0,
+        bool &clk_peri_spi1, bool &clk_sys_spi1, bool &clk_sys_sram0,
+        bool &clk_sys_sram1, bool &clk_sys_sram2, bool &clk_sys_sram3) volatile
     {
         uint32_t curr = ENABLED0;
 
@@ -6896,7 +7129,14 @@ struct [[gnu::packed]] clocks
      *
      * (read-only) indicates the state of the clock enable
      */
-    inline void get_ENABLED1(bool &clk_sys_sram4, bool &clk_sys_sram5, bool &clk_sys_syscfg, bool &clk_sys_sysinfo, bool &clk_sys_tbman, bool &clk_sys_timer, bool &clk_peri_uart0, bool &clk_sys_uart0, bool &clk_peri_uart1, bool &clk_sys_uart1, bool &clk_sys_usbctrl, bool &clk_usb_usbctrl, bool &clk_sys_watchdog, bool &clk_sys_xip, bool &clk_sys_xosc) volatile
+    inline void get_ENABLED1(bool &clk_sys_sram4, bool &clk_sys_sram5,
+                             bool &clk_sys_syscfg, bool &clk_sys_sysinfo,
+                             bool &clk_sys_tbman, bool &clk_sys_timer,
+                             bool &clk_peri_uart0, bool &clk_sys_uart0,
+                             bool &clk_peri_uart1, bool &clk_sys_uart1,
+                             bool &clk_sys_usbctrl, bool &clk_usb_usbctrl,
+                             bool &clk_sys_watchdog, bool &clk_sys_xip,
+                             bool &clk_sys_xosc) volatile
     {
         uint32_t curr = ENABLED1;
 

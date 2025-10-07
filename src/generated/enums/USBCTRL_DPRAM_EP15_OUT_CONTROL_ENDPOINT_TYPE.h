@@ -29,9 +29,11 @@ static_assert(sizeof(USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE) == 1);
  * \param[in] instance Value to convert.
  * \return             A C string representation of the value.
  */
-inline const char *to_string(USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE instance)
+inline const char *to_string(
+    USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE instance)
 {
-    const char *result = "UNKNOWN USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE";
+    const char *result =
+        "UNKNOWN USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE";
 
     switch (instance)
     {
@@ -52,7 +54,9 @@ inline const char *to_string(USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE instan
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE instance)
+inline std::ostream &operator<<(
+    std::ostream &stream,
+    USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE instance)
 {
     stream << to_string(instance);
     return stream;
@@ -65,7 +69,8 @@ inline std::ostream &operator<<(std::ostream &stream, USBCTRL_DPRAM_EP15_OUT_CON
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE &output)
+inline bool from_string(const char *data,
+                        USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE &output)
 {
     bool result = false;
 

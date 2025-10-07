@@ -16,8 +16,12 @@ namespace RP2040
 
 enum class IO_BANK0_GPIO15_CTRL_OEOVER : uint8_t
 {
-    NORMAL /*!< drive output enable from peripheral signal selected by funcsel */,
-    INVERT = 1 /*!< drive output enable from inverse of peripheral signal selected by funcsel */,
+    NORMAL /*!< drive output enable from peripheral signal selected by funcsel
+            */
+        ,
+    INVERT = 1 /*!< drive output enable from inverse of peripheral signal
+                  selected by funcsel */
+        ,
     DISABLE = 2 /*!< disable output */,
     ENABLE = 3 /*!< enable output */
 };
@@ -52,7 +56,8 @@ inline const char *to_string(IO_BANK0_GPIO15_CTRL_OEOVER instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, IO_BANK0_GPIO15_CTRL_OEOVER instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                IO_BANK0_GPIO15_CTRL_OEOVER instance)
 {
     stream << to_string(instance);
     return stream;

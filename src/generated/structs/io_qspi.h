@@ -50,34 +50,47 @@ struct [[gnu::packed]] io_qspi
 
     /* Fields. */
     const uint32_t GPIO_QSPI_SCLK_STATUS = {}; /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SCLK_CTRL;              /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SS_STATUS = {};   /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SS_CTRL;                /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD0_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD0_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD1_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD1_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD2_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD2_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    const uint32_t GPIO_QSPI_SD3_STATUS = {};  /*!< (read-only) GPIO status */
-    uint32_t GPIO_QSPI_SD3_CTRL;               /*!< (read-write) GPIO control including function select and overrides. */
-    uint32_t INTR;                             /*!< (read-write) Raw Interrupts */
-    uint32_t PROC0_INTE;                       /*!< (read-write) Interrupt Enable for proc0 */
-    uint32_t PROC0_INTF;                       /*!< (read-write) Interrupt Force for proc0 */
-    const uint32_t PROC0_INTS = {};            /*!< (read-only) Interrupt status after masking & forcing for proc0 */
-    uint32_t PROC1_INTE;                       /*!< (read-write) Interrupt Enable for proc1 */
-    uint32_t PROC1_INTF;                       /*!< (read-write) Interrupt Force for proc1 */
-    const uint32_t PROC1_INTS = {};            /*!< (read-only) Interrupt status after masking & forcing for proc1 */
-    uint32_t DORMANT_WAKE_INTE;                /*!< (read-write) Interrupt Enable for dormant_wake */
-    uint32_t DORMANT_WAKE_INTF;                /*!< (read-write) Interrupt Force for dormant_wake */
-    const uint32_t DORMANT_WAKE_INTS = {};     /*!< (read-only) Interrupt status after masking & forcing for dormant_wake */
+    uint32_t GPIO_QSPI_SCLK_CTRL; /*!< (read-write) GPIO control including
+                                     function select and overrides. */
+    const uint32_t GPIO_QSPI_SS_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SS_CTRL; /*!< (read-write) GPIO control including
+                                   function select and overrides. */
+    const uint32_t GPIO_QSPI_SD0_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD0_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD1_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD1_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD2_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD2_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    const uint32_t GPIO_QSPI_SD3_STATUS = {}; /*!< (read-only) GPIO status */
+    uint32_t GPIO_QSPI_SD3_CTRL; /*!< (read-write) GPIO control including
+                                    function select and overrides. */
+    uint32_t INTR;               /*!< (read-write) Raw Interrupts */
+    uint32_t PROC0_INTE; /*!< (read-write) Interrupt Enable for proc0 */
+    uint32_t PROC0_INTF; /*!< (read-write) Interrupt Force for proc0 */
+    const uint32_t PROC0_INTS = {}; /*!< (read-only) Interrupt status after
+                                       masking & forcing for proc0 */
+    uint32_t PROC1_INTE; /*!< (read-write) Interrupt Enable for proc1 */
+    uint32_t PROC1_INTF; /*!< (read-write) Interrupt Force for proc1 */
+    const uint32_t PROC1_INTS = {}; /*!< (read-only) Interrupt status after
+                                       masking & forcing for proc1 */
+    uint32_t DORMANT_WAKE_INTE;     /*!< (read-write) Interrupt Enable for
+                                       dormant_wake */
+    uint32_t DORMANT_WAKE_INTF;     /*!< (read-write) Interrupt Force for
+                                       dormant_wake */
+    const uint32_t DORMANT_WAKE_INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing for
+               dormant_wake */
 
     /* Methods. */
 
     /**
      * Get GPIO_QSPI_SCLK_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SCLK_STATUS_OUTFROMPERI() volatile
     {
@@ -97,7 +110,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SCLK_STATUS_OEFROMPERI() volatile
     {
@@ -159,7 +173,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SCLK_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SCLK_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                          bool &OEFROMPERI, bool &OETOPAD,
+                                          bool &INFROMPAD, bool &INTOPERI,
+                                          bool &IRQFROMPAD,
+                                          bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_STATUS;
 
@@ -179,9 +197,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL get_GPIO_QSPI_SCLK_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL
+    get_GPIO_QSPI_SCLK_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL((GPIO_QSPI_SCLK_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL(
+            (GPIO_QSPI_SCLK_CTRL >> 0u) & 0b11111u);
     }
 
     /**
@@ -190,7 +210,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -203,15 +224,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER get_GPIO_QSPI_SCLK_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER
+    get_GPIO_QSPI_SCLK_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER((GPIO_QSPI_SCLK_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -224,15 +248,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER get_GPIO_QSPI_SCLK_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER
+    get_GPIO_QSPI_SCLK_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER((GPIO_QSPI_SCLK_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -245,15 +272,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER get_GPIO_QSPI_SCLK_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER
+    get_GPIO_QSPI_SCLK_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER((GPIO_QSPI_SCLK_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -266,15 +296,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER get_GPIO_QSPI_SCLK_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER
+    get_GPIO_QSPI_SCLK_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER((GPIO_QSPI_SCLK_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER(
+            (GPIO_QSPI_SCLK_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SCLK_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -289,7 +322,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SCLK_CTRL(IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SCLK_CTRL(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -305,7 +343,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SCLK_CTRL(IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SCLK_CTRL(
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SCLK_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK_CTRL;
 
@@ -326,7 +369,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SS_STATUS_OUTFROMPERI() volatile
     {
@@ -346,7 +390,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SS_STATUS_OEFROMPERI() volatile
     {
@@ -408,7 +453,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SS_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SS_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                        bool &OEFROMPERI, bool &OETOPAD,
+                                        bool &INFROMPAD, bool &INTOPERI,
+                                        bool &IRQFROMPAD,
+                                        bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_STATUS;
 
@@ -428,9 +477,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL get_GPIO_QSPI_SS_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL
+    get_GPIO_QSPI_SS_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL((GPIO_QSPI_SS_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL((GPIO_QSPI_SS_CTRL >> 0u) &
+                                                 0b11111u);
     }
 
     /**
@@ -439,7 +490,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SS_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SS_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -452,15 +504,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER get_GPIO_QSPI_SS_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER
+    get_GPIO_QSPI_SS_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER((GPIO_QSPI_SS_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER((GPIO_QSPI_SS_CTRL >> 8u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SS_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -473,15 +528,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER get_GPIO_QSPI_SS_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER
+    get_GPIO_QSPI_SS_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER((GPIO_QSPI_SS_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER((GPIO_QSPI_SS_CTRL >> 12u) &
+                                                0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SS_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -494,15 +552,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER get_GPIO_QSPI_SS_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER
+    get_GPIO_QSPI_SS_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER((GPIO_QSPI_SS_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER((GPIO_QSPI_SS_CTRL >> 16u) &
+                                                0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SS_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -515,15 +576,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER get_GPIO_QSPI_SS_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER
+    get_GPIO_QSPI_SS_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER((GPIO_QSPI_SS_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER((GPIO_QSPI_SS_CTRL >> 28u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SS_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SS_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SS_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -538,7 +602,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SS_CTRL(IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SS_CTRL(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -554,7 +623,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SS_CTRL(IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SS_CTRL(
+        IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SS_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SS_CTRL;
 
@@ -575,7 +649,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD0_STATUS_OUTFROMPERI() volatile
     {
@@ -595,7 +670,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD0_STATUS_OEFROMPERI() volatile
     {
@@ -657,7 +733,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SD0_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SD0_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                         bool &OEFROMPERI, bool &OETOPAD,
+                                         bool &INFROMPAD, bool &INTOPERI,
+                                         bool &IRQFROMPAD,
+                                         bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_STATUS;
 
@@ -677,9 +757,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL get_GPIO_QSPI_SD0_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL
+    get_GPIO_QSPI_SD0_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL((GPIO_QSPI_SD0_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL((GPIO_QSPI_SD0_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
@@ -688,7 +770,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -701,15 +784,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER get_GPIO_QSPI_SD0_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER
+    get_GPIO_QSPI_SD0_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER((GPIO_QSPI_SD0_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER((GPIO_QSPI_SD0_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -722,15 +808,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER get_GPIO_QSPI_SD0_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER
+    get_GPIO_QSPI_SD0_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER((GPIO_QSPI_SD0_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER((GPIO_QSPI_SD0_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -743,15 +832,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER get_GPIO_QSPI_SD0_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER
+    get_GPIO_QSPI_SD0_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER((GPIO_QSPI_SD0_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER((GPIO_QSPI_SD0_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -764,15 +856,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER get_GPIO_QSPI_SD0_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER
+    get_GPIO_QSPI_SD0_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER((GPIO_QSPI_SD0_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER((GPIO_QSPI_SD0_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD0_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -787,7 +882,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SD0_CTRL(IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SD0_CTRL(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -803,7 +903,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SD0_CTRL(IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SD0_CTRL(
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SD0_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0_CTRL;
 
@@ -824,7 +929,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD1_STATUS_OUTFROMPERI() volatile
     {
@@ -844,7 +950,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD1_STATUS_OEFROMPERI() volatile
     {
@@ -906,7 +1013,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SD1_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SD1_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                         bool &OEFROMPERI, bool &OETOPAD,
+                                         bool &INFROMPAD, bool &INTOPERI,
+                                         bool &IRQFROMPAD,
+                                         bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_STATUS;
 
@@ -926,9 +1037,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL get_GPIO_QSPI_SD1_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL
+    get_GPIO_QSPI_SD1_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL((GPIO_QSPI_SD1_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL((GPIO_QSPI_SD1_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
@@ -937,7 +1050,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -950,15 +1064,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER get_GPIO_QSPI_SD1_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER
+    get_GPIO_QSPI_SD1_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER((GPIO_QSPI_SD1_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER((GPIO_QSPI_SD1_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -971,15 +1088,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER get_GPIO_QSPI_SD1_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER
+    get_GPIO_QSPI_SD1_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER((GPIO_QSPI_SD1_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER((GPIO_QSPI_SD1_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -992,15 +1112,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER get_GPIO_QSPI_SD1_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER
+    get_GPIO_QSPI_SD1_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER((GPIO_QSPI_SD1_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER((GPIO_QSPI_SD1_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -1013,15 +1136,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER get_GPIO_QSPI_SD1_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER
+    get_GPIO_QSPI_SD1_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER((GPIO_QSPI_SD1_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER((GPIO_QSPI_SD1_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD1_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -1036,7 +1162,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SD1_CTRL(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SD1_CTRL(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -1052,7 +1183,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SD1_CTRL(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SD1_CTRL(
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SD1_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1_CTRL;
 
@@ -1073,7 +1209,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD2_STATUS_OUTFROMPERI() volatile
     {
@@ -1093,7 +1230,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD2_STATUS_OEFROMPERI() volatile
     {
@@ -1155,7 +1293,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SD2_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SD2_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                         bool &OEFROMPERI, bool &OETOPAD,
+                                         bool &INFROMPAD, bool &INTOPERI,
+                                         bool &IRQFROMPAD,
+                                         bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_STATUS;
 
@@ -1175,9 +1317,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL get_GPIO_QSPI_SD2_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL
+    get_GPIO_QSPI_SD2_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL((GPIO_QSPI_SD2_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL((GPIO_QSPI_SD2_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
@@ -1186,7 +1330,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1199,15 +1344,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER get_GPIO_QSPI_SD2_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER
+    get_GPIO_QSPI_SD2_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER((GPIO_QSPI_SD2_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER((GPIO_QSPI_SD2_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1220,15 +1368,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER get_GPIO_QSPI_SD2_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER
+    get_GPIO_QSPI_SD2_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER((GPIO_QSPI_SD2_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER((GPIO_QSPI_SD2_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1241,15 +1392,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER get_GPIO_QSPI_SD2_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER
+    get_GPIO_QSPI_SD2_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER((GPIO_QSPI_SD2_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER((GPIO_QSPI_SD2_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1262,15 +1416,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER get_GPIO_QSPI_SD2_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER
+    get_GPIO_QSPI_SD2_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER((GPIO_QSPI_SD2_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER((GPIO_QSPI_SD2_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD2_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1285,7 +1442,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SD2_CTRL(IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SD2_CTRL(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1301,7 +1463,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SD2_CTRL(IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SD2_CTRL(
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SD2_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2_CTRL;
 
@@ -1322,7 +1489,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_STATUS's OUTFROMPERI bit.
      *
-     * output signal from selected peripheral, before register override is applied
+     * output signal from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD3_STATUS_OUTFROMPERI() volatile
     {
@@ -1342,7 +1510,8 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_STATUS's OEFROMPERI bit.
      *
-     * output enable from selected peripheral, before register override is applied
+     * output enable from selected peripheral, before register override is
+     * applied
      */
     inline bool get_GPIO_QSPI_SD3_STATUS_OEFROMPERI() volatile
     {
@@ -1404,7 +1573,11 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) GPIO status
      */
-    inline void get_GPIO_QSPI_SD3_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD, bool &OEFROMPERI, bool &OETOPAD, bool &INFROMPAD, bool &INTOPERI, bool &IRQFROMPAD, bool &IRQTOPROC) volatile
+    inline void get_GPIO_QSPI_SD3_STATUS(bool &OUTFROMPERI, bool &OUTTOPAD,
+                                         bool &OEFROMPERI, bool &OETOPAD,
+                                         bool &INFROMPAD, bool &INTOPERI,
+                                         bool &IRQFROMPAD,
+                                         bool &IRQTOPROC) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_STATUS;
 
@@ -1424,9 +1597,11 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL get_GPIO_QSPI_SD3_CTRL_FUNCSEL() volatile
+    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL
+    get_GPIO_QSPI_SD3_CTRL_FUNCSEL() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL((GPIO_QSPI_SD3_CTRL >> 0u) & 0b11111u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL((GPIO_QSPI_SD3_CTRL >> 0u) &
+                                                  0b11111u);
     }
 
     /**
@@ -1435,7 +1610,8 @@ struct [[gnu::packed]] io_qspi
      * 0-31 -> selects pin function according to the gpio table\n
      *                 31 == NULL
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL value) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL_FUNCSEL(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1448,15 +1624,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_CTRL's OUTOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER get_GPIO_QSPI_SD3_CTRL_OUTOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER
+    get_GPIO_QSPI_SD3_CTRL_OUTOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER((GPIO_QSPI_SD3_CTRL >> 8u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER((GPIO_QSPI_SD3_CTRL >> 8u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's OUTOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_OUTOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER value) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL_OUTOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1469,15 +1648,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_CTRL's OEOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER get_GPIO_QSPI_SD3_CTRL_OEOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER
+    get_GPIO_QSPI_SD3_CTRL_OEOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER((GPIO_QSPI_SD3_CTRL >> 12u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER((GPIO_QSPI_SD3_CTRL >> 12u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's OEOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_OEOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER value) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL_OEOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1490,15 +1672,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_CTRL's INOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER get_GPIO_QSPI_SD3_CTRL_INOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER
+    get_GPIO_QSPI_SD3_CTRL_INOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER((GPIO_QSPI_SD3_CTRL >> 16u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER((GPIO_QSPI_SD3_CTRL >> 16u) &
+                                                 0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's INOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_INOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER value) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL_INOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1511,15 +1696,18 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_CTRL's IRQOVER field.
      */
-    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER get_GPIO_QSPI_SD3_CTRL_IRQOVER() volatile
+    inline IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER
+    get_GPIO_QSPI_SD3_CTRL_IRQOVER() volatile
     {
-        return IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER((GPIO_QSPI_SD3_CTRL >> 28u) & 0b11u);
+        return IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER((GPIO_QSPI_SD3_CTRL >> 28u) &
+                                                  0b11u);
     }
 
     /**
      * Set GPIO_QSPI_SD3_CTRL's IRQOVER field.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL_IRQOVER(IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER value) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL_IRQOVER(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1534,7 +1722,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO_QSPI_SD3_CTRL(IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL &FUNCSEL, IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER &OUTOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER &OEOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER &INOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER &IRQOVER) volatile
+    inline void get_GPIO_QSPI_SD3_CTRL(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL &FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER &OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER &OEOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER &INOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -1550,7 +1743,12 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO_QSPI_SD3_CTRL(IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL FUNCSEL, IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER OUTOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER OEOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER INOVER, IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER IRQOVER) volatile
+    inline void set_GPIO_QSPI_SD3_CTRL(
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL FUNCSEL,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OUTOVER OUTOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_OEOVER OEOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_INOVER INOVER,
+        IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER IRQOVER) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3_CTRL;
 
@@ -2053,7 +2251,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Raw Interrupts
      */
-    inline void get_INTR(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_INTR(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = INTR;
 
@@ -2088,7 +2298,13 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Raw Interrupts
      */
-    inline void set_INTR(bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_INTR(
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = INTR;
 
@@ -2893,7 +3109,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for proc0
      */
-    inline void get_PROC0_INTE(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC0_INTE(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC0_INTE;
 
@@ -2928,7 +3156,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for proc0
      */
-    inline void set_PROC0_INTE(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_PROC0_INTE(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC0_INTE;
 
@@ -3757,7 +3997,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for proc0
      */
-    inline void get_PROC0_INTF(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC0_INTF(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC0_INTF;
 
@@ -3792,7 +4044,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for proc0
      */
-    inline void set_PROC0_INTF(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_PROC0_INTF(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC0_INTF;
 
@@ -4045,7 +4309,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) Interrupt status after masking & forcing for proc0
      */
-    inline void get_PROC0_INTS(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC0_INTS(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC0_INTS;
 
@@ -4848,7 +5124,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for proc1
      */
-    inline void get_PROC1_INTE(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC1_INTE(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC1_INTE;
 
@@ -4883,7 +5171,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for proc1
      */
-    inline void set_PROC1_INTE(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_PROC1_INTE(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC1_INTE;
 
@@ -5712,7 +6012,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for proc1
      */
-    inline void get_PROC1_INTF(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC1_INTF(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC1_INTF;
 
@@ -5747,7 +6059,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for proc1
      */
-    inline void set_PROC1_INTF(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_PROC1_INTF(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC1_INTF;
 
@@ -6000,7 +6324,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) Interrupt status after masking & forcing for proc1
      */
-    inline void get_PROC1_INTS(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_PROC1_INTS(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = PROC1_INTS;
 
@@ -6803,7 +7139,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for dormant_wake
      */
-    inline void get_DORMANT_WAKE_INTE(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_DORMANT_WAKE_INTE(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = DORMANT_WAKE_INTE;
 
@@ -6838,7 +7186,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Enable for dormant_wake
      */
-    inline void set_DORMANT_WAKE_INTE(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_DORMANT_WAKE_INTE(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = DORMANT_WAKE_INTE;
 
@@ -7667,7 +8027,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for dormant_wake
      */
-    inline void get_DORMANT_WAKE_INTF(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_DORMANT_WAKE_INTF(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = DORMANT_WAKE_INTF;
 
@@ -7702,7 +8074,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-write) Interrupt Force for dormant_wake
      */
-    inline void set_DORMANT_WAKE_INTF(bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH, bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH, bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH, bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH, bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH, bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH, bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH, bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH, bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH, bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH, bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH, bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void set_DORMANT_WAKE_INTF(
+        bool GPIO_QSPI_SCLK_LEVEL_LOW, bool GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool GPIO_QSPI_SCLK_EDGE_LOW, bool GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool GPIO_QSPI_SS_LEVEL_LOW, bool GPIO_QSPI_SS_LEVEL_HIGH,
+        bool GPIO_QSPI_SS_EDGE_LOW, bool GPIO_QSPI_SS_EDGE_HIGH,
+        bool GPIO_QSPI_SD0_LEVEL_LOW, bool GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool GPIO_QSPI_SD0_EDGE_LOW, bool GPIO_QSPI_SD0_EDGE_HIGH,
+        bool GPIO_QSPI_SD1_LEVEL_LOW, bool GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool GPIO_QSPI_SD1_EDGE_LOW, bool GPIO_QSPI_SD1_EDGE_HIGH,
+        bool GPIO_QSPI_SD2_LEVEL_LOW, bool GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool GPIO_QSPI_SD2_EDGE_LOW, bool GPIO_QSPI_SD2_EDGE_HIGH,
+        bool GPIO_QSPI_SD3_LEVEL_LOW, bool GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool GPIO_QSPI_SD3_EDGE_LOW, bool GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = DORMANT_WAKE_INTF;
 
@@ -7955,7 +8339,19 @@ struct [[gnu::packed]] io_qspi
      *
      * (read-only) Interrupt status after masking & forcing for dormant_wake
      */
-    inline void get_DORMANT_WAKE_INTS(bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH, bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH, bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH, bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH, bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH, bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH, bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH, bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH, bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH, bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH, bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH, bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
+    inline void get_DORMANT_WAKE_INTS(
+        bool &GPIO_QSPI_SCLK_LEVEL_LOW, bool &GPIO_QSPI_SCLK_LEVEL_HIGH,
+        bool &GPIO_QSPI_SCLK_EDGE_LOW, bool &GPIO_QSPI_SCLK_EDGE_HIGH,
+        bool &GPIO_QSPI_SS_LEVEL_LOW, bool &GPIO_QSPI_SS_LEVEL_HIGH,
+        bool &GPIO_QSPI_SS_EDGE_LOW, bool &GPIO_QSPI_SS_EDGE_HIGH,
+        bool &GPIO_QSPI_SD0_LEVEL_LOW, bool &GPIO_QSPI_SD0_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD0_EDGE_LOW, bool &GPIO_QSPI_SD0_EDGE_HIGH,
+        bool &GPIO_QSPI_SD1_LEVEL_LOW, bool &GPIO_QSPI_SD1_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD1_EDGE_LOW, bool &GPIO_QSPI_SD1_EDGE_HIGH,
+        bool &GPIO_QSPI_SD2_LEVEL_LOW, bool &GPIO_QSPI_SD2_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD2_EDGE_LOW, bool &GPIO_QSPI_SD2_EDGE_HIGH,
+        bool &GPIO_QSPI_SD3_LEVEL_LOW, bool &GPIO_QSPI_SD3_LEVEL_HIGH,
+        bool &GPIO_QSPI_SD3_EDGE_LOW, bool &GPIO_QSPI_SD3_EDGE_HIGH) volatile
     {
         uint32_t curr = DORMANT_WAKE_INTS;
 
@@ -7989,7 +8385,8 @@ struct [[gnu::packed]] io_qspi
 static_assert(sizeof(io_qspi) == io_qspi::size);
 static_assert(ifgen_struct<io_qspi>);
 
-static volatile io_qspi *const IO_QSPI = reinterpret_cast<io_qspi *>(0x40018000);
+static volatile io_qspi *const IO_QSPI =
+    reinterpret_cast<io_qspi *>(0x40018000);
 
 }; // namespace RP2040
 

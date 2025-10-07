@@ -56,7 +56,8 @@ inline const char *to_string(DMA_CH6_CTRL_TRIG_TREQ_SEL instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, DMA_CH6_CTRL_TRIG_TREQ_SEL instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                DMA_CH6_CTRL_TRIG_TREQ_SEL instance)
 {
     stream << to_string(instance);
     return stream;

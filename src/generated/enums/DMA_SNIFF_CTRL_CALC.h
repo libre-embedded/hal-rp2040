@@ -17,11 +17,16 @@ namespace RP2040
 enum class DMA_SNIFF_CTRL_CALC : uint8_t
 {
     CRC32 /*!< Calculate a CRC-32 (IEEE802.3 polynomial) */,
-    CRC32R = 1 /*!< Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed data */,
+    CRC32R = 1 /*!< Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed
+                  data */
+        ,
     CRC16 = 2 /*!< Calculate a CRC-16-CCITT */,
     CRC16R = 3 /*!< Calculate a CRC-16-CCITT with bit reversed data */,
-    EVEN = 14 /*!< XOR reduction over all data. == 1 if the total 1 population count is odd. */,
-    SUM = 15 /*!< Calculate a simple 32-bit checksum (addition with a 32 bit accumulator) */
+    EVEN = 14 /*!< XOR reduction over all data. == 1 if the total 1 population
+                 count is odd. */
+        ,
+    SUM = 15 /*!< Calculate a simple 32-bit checksum (addition with a 32 bit
+                accumulator) */
 };
 static_assert(sizeof(DMA_SNIFF_CTRL_CALC) == 1);
 
@@ -60,7 +65,8 @@ inline const char *to_string(DMA_SNIFF_CTRL_CALC instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, DMA_SNIFF_CTRL_CALC instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                DMA_SNIFF_CTRL_CALC instance)
 {
     stream << to_string(instance);
     return stream;

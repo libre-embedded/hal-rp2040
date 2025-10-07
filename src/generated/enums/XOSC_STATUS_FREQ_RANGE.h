@@ -52,7 +52,8 @@ inline const char *to_string(XOSC_STATUS_FREQ_RANGE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, XOSC_STATUS_FREQ_RANGE instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                XOSC_STATUS_FREQ_RANGE instance)
 {
     stream << to_string(instance);
     return stream;

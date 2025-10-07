@@ -22,7 +22,9 @@ struct [[gnu::packed]] rtc
     static constexpr std::size_t size = 48; /*!< rtc's size in bytes. */
 
     /* Fields. */
-    uint32_t CLKDIV_M1;        /*!< (read-write) Divider minus 1 for the 1 second counter. Safe to change the value when RTC is not enabled. */
+    uint32_t
+        CLKDIV_M1; /*!< (read-write) Divider minus 1 for the 1 second counter.
+                      Safe to change the value when RTC is not enabled. */
     uint32_t SETUP_0;          /*!< (read-write) RTC setup register 0 */
     uint32_t SETUP_1;          /*!< (read-write) RTC setup register 1 */
     uint32_t CTRL;             /*!< (read-write) RTC Control and status */
@@ -34,7 +36,8 @@ struct [[gnu::packed]] rtc
     const uint32_t INTR = {};  /*!< (read-only) Raw Interrupts */
     uint32_t INTE;             /*!< (read-write) Interrupt Enable */
     uint32_t INTF;             /*!< (read-write) Interrupt Force */
-    const uint32_t INTS = {};  /*!< (read-only) Interrupt status after masking & forcing */
+    const uint32_t INTS =
+        {}; /*!< (read-only) Interrupt status after masking & forcing */
 
     /* Methods. */
 
@@ -139,7 +142,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) RTC setup register 0
      */
-    inline void get_SETUP_0(uint8_t &DAY, uint8_t &MONTH, uint16_t &YEAR) volatile
+    inline void get_SETUP_0(uint8_t &DAY, uint8_t &MONTH,
+                            uint16_t &YEAR) volatile
     {
         uint32_t curr = SETUP_0;
 
@@ -272,7 +276,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) RTC setup register 1
      */
-    inline void get_SETUP_1(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR, uint8_t &DOTW) volatile
+    inline void get_SETUP_1(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR,
+                            uint8_t &DOTW) volatile
     {
         uint32_t curr = SETUP_1;
 
@@ -287,7 +292,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) RTC setup register 1
      */
-    inline void set_SETUP_1(uint8_t SEC, uint8_t MIN, uint8_t HOUR, uint8_t DOTW) volatile
+    inline void set_SETUP_1(uint8_t SEC, uint8_t MIN, uint8_t HOUR,
+                            uint8_t DOTW) volatile
     {
         uint32_t curr = SETUP_1;
 
@@ -442,7 +448,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) RTC Control and status
      */
-    inline void get_CTRL(bool &RTC_ENABLE, bool &RTC_ACTIVE, bool &LOAD, bool &FORCE_NOTLEAPYEAR) volatile
+    inline void get_CTRL(bool &RTC_ENABLE, bool &RTC_ACTIVE, bool &LOAD,
+                         bool &FORCE_NOTLEAPYEAR) volatile
     {
         uint32_t curr = CTRL;
 
@@ -457,7 +464,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) RTC Control and status
      */
-    inline void set_CTRL(bool RTC_ENABLE, bool LOAD, bool FORCE_NOTLEAPYEAR) volatile
+    inline void set_CTRL(bool RTC_ENABLE, bool LOAD,
+                         bool FORCE_NOTLEAPYEAR) volatile
     {
         uint32_t curr = CTRL;
 
@@ -669,7 +677,8 @@ struct [[gnu::packed]] rtc
     /**
      * Get IRQ_SETUP_0's MATCH_ENA bit.
      *
-     * Global match enable. Don't change any other value while this one is enabled
+     * Global match enable. Don't change any other value while this one is
+     * enabled
      */
     inline bool get_IRQ_SETUP_0_MATCH_ENA() volatile
     {
@@ -679,7 +688,8 @@ struct [[gnu::packed]] rtc
     /**
      * Set IRQ_SETUP_0's MATCH_ENA bit.
      *
-     * Global match enable. Don't change any other value while this one is enabled
+     * Global match enable. Don't change any other value while this one is
+     * enabled
      */
     inline void set_IRQ_SETUP_0_MATCH_ENA() volatile
     {
@@ -689,7 +699,8 @@ struct [[gnu::packed]] rtc
     /**
      * Clear IRQ_SETUP_0's MATCH_ENA bit.
      *
-     * Global match enable. Don't change any other value while this one is enabled
+     * Global match enable. Don't change any other value while this one is
+     * enabled
      */
     inline void clear_IRQ_SETUP_0_MATCH_ENA() volatile
     {
@@ -699,7 +710,8 @@ struct [[gnu::packed]] rtc
     /**
      * Toggle IRQ_SETUP_0's MATCH_ENA bit.
      *
-     * Global match enable. Don't change any other value while this one is enabled
+     * Global match enable. Don't change any other value while this one is
+     * enabled
      */
     inline void toggle_IRQ_SETUP_0_MATCH_ENA() volatile
     {
@@ -719,7 +731,9 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) Interrupt setup register 0
      */
-    inline void get_IRQ_SETUP_0(uint8_t &DAY, uint8_t &MONTH, uint16_t &YEAR, bool &DAY_ENA, bool &MONTH_ENA, bool &YEAR_ENA, bool &MATCH_ENA, bool &MATCH_ACTIVE) volatile
+    inline void get_IRQ_SETUP_0(uint8_t &DAY, uint8_t &MONTH, uint16_t &YEAR,
+                                bool &DAY_ENA, bool &MONTH_ENA, bool &YEAR_ENA,
+                                bool &MATCH_ENA, bool &MATCH_ACTIVE) volatile
     {
         uint32_t curr = IRQ_SETUP_0;
 
@@ -738,7 +752,9 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) Interrupt setup register 0
      */
-    inline void set_IRQ_SETUP_0(uint8_t DAY, uint8_t MONTH, uint16_t YEAR, bool DAY_ENA, bool MONTH_ENA, bool YEAR_ENA, bool MATCH_ENA) volatile
+    inline void set_IRQ_SETUP_0(uint8_t DAY, uint8_t MONTH, uint16_t YEAR,
+                                bool DAY_ENA, bool MONTH_ENA, bool YEAR_ENA,
+                                bool MATCH_ENA) volatile
     {
         uint32_t curr = IRQ_SETUP_0;
 
@@ -1025,7 +1041,9 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) Interrupt setup register 1
      */
-    inline void get_IRQ_SETUP_1(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR, uint8_t &DOTW, bool &SEC_ENA, bool &MIN_ENA, bool &HOUR_ENA, bool &DOTW_ENA) volatile
+    inline void get_IRQ_SETUP_1(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR,
+                                uint8_t &DOTW, bool &SEC_ENA, bool &MIN_ENA,
+                                bool &HOUR_ENA, bool &DOTW_ENA) volatile
     {
         uint32_t curr = IRQ_SETUP_1;
 
@@ -1044,7 +1062,9 @@ struct [[gnu::packed]] rtc
      *
      * (read-write) Interrupt setup register 1
      */
-    inline void set_IRQ_SETUP_1(uint8_t SEC, uint8_t MIN, uint8_t HOUR, uint8_t DOTW, bool SEC_ENA, bool MIN_ENA, bool HOUR_ENA, bool DOTW_ENA) volatile
+    inline void set_IRQ_SETUP_1(uint8_t SEC, uint8_t MIN, uint8_t HOUR,
+                                uint8_t DOTW, bool SEC_ENA, bool MIN_ENA,
+                                bool HOUR_ENA, bool DOTW_ENA) volatile
     {
         uint32_t curr = IRQ_SETUP_1;
 
@@ -1103,7 +1123,8 @@ struct [[gnu::packed]] rtc
      *
      * (read-only) RTC register 1.
      */
-    inline void get_RTC_1(uint8_t &DAY, uint8_t &MONTH, uint16_t &YEAR) volatile
+    inline void get_RTC_1(uint8_t &DAY, uint8_t &MONTH,
+                          uint16_t &YEAR) volatile
     {
         uint32_t curr = RTC_1;
 
@@ -1158,7 +1179,8 @@ struct [[gnu::packed]] rtc
      * (read-only) RTC register 0\n
      *             Read this before RTC 1!
      */
-    inline void get_RTC_0(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR, uint8_t &DOTW) volatile
+    inline void get_RTC_0(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR,
+                          uint8_t &DOTW) volatile
     {
         uint32_t curr = RTC_0;
 

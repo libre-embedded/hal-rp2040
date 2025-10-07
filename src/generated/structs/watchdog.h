@@ -19,27 +19,41 @@ struct [[gnu::packed]] watchdog
     static constexpr std::size_t size = 48; /*!< watchdog's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;              /*!< (read-write) Watchdog control\n
-                The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
-                The watchdog can be triggered in software. */
-    uint32_t LOAD;              /*!< (write-only) Load the watchdog timer. The maximum setting is 0xffffff which corresponds to 0xffffff / 2 ticks before triggering a watchdog reset (see errata RP2040-E1). */
-    const uint32_t REASON = {}; /*!< (read-only) Logs the reason for the last reset. Both bits are zero for the case of a hardware reset. */
-    uint32_t SCRATCH0;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH1;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH2;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH3;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH4;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH5;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH6;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t SCRATCH7;          /*!< (read-write) Scratch register. Information persists through soft reset of the chip. */
-    uint32_t TICK;              /*!< (read-write) Controls the tick generator */
+    uint32_t CTRL; /*!< (read-write) Watchdog control\n
+   The rst_wdsel register determines which subsystems are reset when the
+   watchdog is triggered.\n The watchdog can be triggered in software. */
+    uint32_t
+        LOAD; /*!< (write-only) Load the watchdog timer. The maximum setting is
+                 0xffffff which corresponds to 0xffffff / 2 ticks before
+                 triggering a watchdog reset (see errata RP2040-E1). */
+    const uint32_t REASON =
+        {}; /*!< (read-only) Logs the reason for the last reset. Both bits are
+               zero for the case of a hardware reset. */
+    uint32_t SCRATCH0; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH1; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH2; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH3; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH4; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH5; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH6; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t SCRATCH7; /*!< (read-write) Scratch register. Information persists
+                          through soft reset of the chip. */
+    uint32_t TICK;     /*!< (read-write) Controls the tick generator */
 
     /* Methods. */
 
     /**
      * Get CTRL's TIME field.
      *
-     * Indicates the number of ticks / 2 (see errata RP2040-E1) before a watchdog reset will be triggered
+     * Indicates the number of ticks / 2 (see errata RP2040-E1) before a
+     * watchdog reset will be triggered
      */
     inline uint32_t get_CTRL_TIME() volatile
     {
@@ -250,10 +264,13 @@ struct [[gnu::packed]] watchdog
      * Get all of CTRL's bit fields.
      *
      * (read-write) Watchdog control\n
-     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
-     *             The watchdog can be triggered in software.
+     *             The rst_wdsel register determines which subsystems are reset
+     * when the watchdog is triggered.\n The watchdog can be triggered in
+     * software.
      */
-    inline void get_CTRL(uint32_t &TIME, bool &PAUSE_JTAG, bool &PAUSE_DBG0, bool &PAUSE_DBG1, bool &ENABLE, bool &TRIGGER) volatile
+    inline void get_CTRL(uint32_t &TIME, bool &PAUSE_JTAG, bool &PAUSE_DBG0,
+                         bool &PAUSE_DBG1, bool &ENABLE,
+                         bool &TRIGGER) volatile
     {
         uint32_t curr = CTRL;
 
@@ -269,10 +286,12 @@ struct [[gnu::packed]] watchdog
      * Set all of CTRL's bit fields.
      *
      * (read-write) Watchdog control\n
-     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
-     *             The watchdog can be triggered in software.
+     *             The rst_wdsel register determines which subsystems are reset
+     * when the watchdog is triggered.\n The watchdog can be triggered in
+     * software.
      */
-    inline void set_CTRL(bool PAUSE_JTAG, bool PAUSE_DBG0, bool PAUSE_DBG1, bool ENABLE, bool TRIGGER) volatile
+    inline void set_CTRL(bool PAUSE_JTAG, bool PAUSE_DBG0, bool PAUSE_DBG1,
+                         bool ENABLE, bool TRIGGER) volatile
     {
         uint32_t curr = CTRL;
 
@@ -322,7 +341,8 @@ struct [[gnu::packed]] watchdog
     /**
      * Get all of REASON's bit fields.
      *
-     * (read-only) Logs the reason for the last reset. Both bits are zero for the case of a hardware reset.
+     * (read-only) Logs the reason for the last reset. Both bits are zero for
+     * the case of a hardware reset.
      */
     inline void get_REASON(bool &TIMER, bool &FORCE) volatile
     {
@@ -410,7 +430,8 @@ struct [[gnu::packed]] watchdog
     /**
      * Get TICK's COUNT field.
      *
-     * Count down timer: the remaining number clk_tick cycles before the next tick is generated.
+     * Count down timer: the remaining number clk_tick cycles before the next
+     * tick is generated.
      */
     inline uint16_t get_TICK_COUNT() volatile
     {
@@ -422,7 +443,8 @@ struct [[gnu::packed]] watchdog
      *
      * (read-write) Controls the tick generator
      */
-    inline void get_TICK(uint16_t &CYCLES, bool &ENABLE, bool &RUNNING, uint16_t &COUNT) volatile
+    inline void get_TICK(uint16_t &CYCLES, bool &ENABLE, bool &RUNNING,
+                         uint16_t &COUNT) volatile
     {
         uint32_t curr = TICK;
 
@@ -453,7 +475,8 @@ struct [[gnu::packed]] watchdog
 static_assert(sizeof(watchdog) == watchdog::size);
 static_assert(ifgen_struct<watchdog>);
 
-static volatile watchdog *const WATCHDOG = reinterpret_cast<watchdog *>(0x40058000);
+static volatile watchdog *const WATCHDOG =
+    reinterpret_cast<watchdog *>(0x40058000);
 
 }; // namespace RP2040
 

@@ -59,416 +59,759 @@ struct [[gnu::packed]] dma
     static constexpr std::size_t size = 2760; /*!< dma's size in bytes. */
 
     /* Fields. */
-    uint32_t CH0_READ_ADDR;                                            /*!< (read-write) DMA Channel 0 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH0_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 0 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH0_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 0 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH0_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 0 Control and Status */
-    uint32_t CH0_AL1_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 0 READ_ADDR register */
-    uint32_t CH0_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 0 WRITE_ADDR register */
-    uint32_t CH0_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 0 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH0_AL2_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 0 TRANS_COUNT register */
-    uint32_t CH0_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 0 READ_ADDR register */
-    uint32_t CH0_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 0 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH0_AL3_CTRL;                                             /*!< (read-write) Alias for channel 0 CTRL register */
-    uint32_t CH0_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 0 WRITE_ADDR register */
-    uint32_t CH0_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 0 TRANS_COUNT register */
-    uint32_t CH0_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 0 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_READ_ADDR;                                            /*!< (read-write) DMA Channel 1 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH1_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 1 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH1_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 1 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH1_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 1 Control and Status */
-    uint32_t CH1_AL1_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 1 READ_ADDR register */
-    uint32_t CH1_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 1 WRITE_ADDR register */
-    uint32_t CH1_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 1 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_AL2_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 1 TRANS_COUNT register */
-    uint32_t CH1_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 1 READ_ADDR register */
-    uint32_t CH1_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 1 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH1_AL3_CTRL;                                             /*!< (read-write) Alias for channel 1 CTRL register */
-    uint32_t CH1_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 1 WRITE_ADDR register */
-    uint32_t CH1_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 1 TRANS_COUNT register */
-    uint32_t CH1_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 1 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_READ_ADDR;                                            /*!< (read-write) DMA Channel 2 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH2_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 2 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH2_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 2 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH2_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 2 Control and Status */
-    uint32_t CH2_AL1_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 2 READ_ADDR register */
-    uint32_t CH2_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 2 WRITE_ADDR register */
-    uint32_t CH2_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 2 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_AL2_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 2 TRANS_COUNT register */
-    uint32_t CH2_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 2 READ_ADDR register */
-    uint32_t CH2_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 2 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH2_AL3_CTRL;                                             /*!< (read-write) Alias for channel 2 CTRL register */
-    uint32_t CH2_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 2 WRITE_ADDR register */
-    uint32_t CH2_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 2 TRANS_COUNT register */
-    uint32_t CH2_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 2 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_READ_ADDR;                                            /*!< (read-write) DMA Channel 3 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH3_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 3 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH3_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 3 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH3_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 3 Control and Status */
-    uint32_t CH3_AL1_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 3 READ_ADDR register */
-    uint32_t CH3_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 3 WRITE_ADDR register */
-    uint32_t CH3_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 3 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_AL2_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 3 TRANS_COUNT register */
-    uint32_t CH3_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 3 READ_ADDR register */
-    uint32_t CH3_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 3 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH3_AL3_CTRL;                                             /*!< (read-write) Alias for channel 3 CTRL register */
-    uint32_t CH3_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 3 WRITE_ADDR register */
-    uint32_t CH3_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 3 TRANS_COUNT register */
-    uint32_t CH3_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 3 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_READ_ADDR;                                            /*!< (read-write) DMA Channel 4 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH4_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 4 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH4_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 4 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH4_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 4 Control and Status */
-    uint32_t CH4_AL1_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 4 READ_ADDR register */
-    uint32_t CH4_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 4 WRITE_ADDR register */
-    uint32_t CH4_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 4 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_AL2_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 4 TRANS_COUNT register */
-    uint32_t CH4_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 4 READ_ADDR register */
-    uint32_t CH4_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 4 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH4_AL3_CTRL;                                             /*!< (read-write) Alias for channel 4 CTRL register */
-    uint32_t CH4_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 4 WRITE_ADDR register */
-    uint32_t CH4_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 4 TRANS_COUNT register */
-    uint32_t CH4_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 4 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_READ_ADDR;                                            /*!< (read-write) DMA Channel 5 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH5_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 5 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH5_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 5 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH5_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 5 Control and Status */
-    uint32_t CH5_AL1_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 5 READ_ADDR register */
-    uint32_t CH5_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 5 WRITE_ADDR register */
-    uint32_t CH5_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 5 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_AL2_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 5 TRANS_COUNT register */
-    uint32_t CH5_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 5 READ_ADDR register */
-    uint32_t CH5_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 5 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH5_AL3_CTRL;                                             /*!< (read-write) Alias for channel 5 CTRL register */
-    uint32_t CH5_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 5 WRITE_ADDR register */
-    uint32_t CH5_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 5 TRANS_COUNT register */
-    uint32_t CH5_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 5 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_READ_ADDR;                                            /*!< (read-write) DMA Channel 6 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH6_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 6 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH6_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 6 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH6_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 6 Control and Status */
-    uint32_t CH6_AL1_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 6 READ_ADDR register */
-    uint32_t CH6_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 6 WRITE_ADDR register */
-    uint32_t CH6_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 6 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_AL2_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 6 TRANS_COUNT register */
-    uint32_t CH6_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 6 READ_ADDR register */
-    uint32_t CH6_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 6 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH6_AL3_CTRL;                                             /*!< (read-write) Alias for channel 6 CTRL register */
-    uint32_t CH6_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 6 WRITE_ADDR register */
-    uint32_t CH6_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 6 TRANS_COUNT register */
-    uint32_t CH6_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 6 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_READ_ADDR;                                            /*!< (read-write) DMA Channel 7 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH7_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 7 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH7_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 7 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH7_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 7 Control and Status */
-    uint32_t CH7_AL1_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 7 READ_ADDR register */
-    uint32_t CH7_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 7 WRITE_ADDR register */
-    uint32_t CH7_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 7 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_AL2_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 7 TRANS_COUNT register */
-    uint32_t CH7_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 7 READ_ADDR register */
-    uint32_t CH7_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 7 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH7_AL3_CTRL;                                             /*!< (read-write) Alias for channel 7 CTRL register */
-    uint32_t CH7_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 7 WRITE_ADDR register */
-    uint32_t CH7_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 7 TRANS_COUNT register */
-    uint32_t CH7_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 7 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_READ_ADDR;                                            /*!< (read-write) DMA Channel 8 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH8_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 8 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH8_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 8 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH8_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 8 Control and Status */
-    uint32_t CH8_AL1_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 8 READ_ADDR register */
-    uint32_t CH8_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 8 WRITE_ADDR register */
-    uint32_t CH8_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 8 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_AL2_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 8 TRANS_COUNT register */
-    uint32_t CH8_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 8 READ_ADDR register */
-    uint32_t CH8_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 8 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH8_AL3_CTRL;                                             /*!< (read-write) Alias for channel 8 CTRL register */
-    uint32_t CH8_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 8 WRITE_ADDR register */
-    uint32_t CH8_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 8 TRANS_COUNT register */
-    uint32_t CH8_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 8 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_READ_ADDR;                                            /*!< (read-write) DMA Channel 9 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH9_WRITE_ADDR;                                           /*!< (read-write) DMA Channel 9 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH9_TRANS_COUNT;                                          /*!< (read-write) DMA Channel 9 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH9_CTRL_TRIG;                                            /*!< (read-write) DMA Channel 9 Control and Status */
-    uint32_t CH9_AL1_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL1_READ_ADDR;                                        /*!< (read-write) Alias for channel 9 READ_ADDR register */
-    uint32_t CH9_AL1_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 9 WRITE_ADDR register */
-    uint32_t CH9_AL1_TRANS_COUNT_TRIG;                                 /*!< (read-write) Alias for channel 9 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_AL2_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL2_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 9 TRANS_COUNT register */
-    uint32_t CH9_AL2_READ_ADDR;                                        /*!< (read-write) Alias for channel 9 READ_ADDR register */
-    uint32_t CH9_AL2_WRITE_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 9 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH9_AL3_CTRL;                                             /*!< (read-write) Alias for channel 9 CTRL register */
-    uint32_t CH9_AL3_WRITE_ADDR;                                       /*!< (read-write) Alias for channel 9 WRITE_ADDR register */
-    uint32_t CH9_AL3_TRANS_COUNT;                                      /*!< (read-write) Alias for channel 9 TRANS_COUNT register */
-    uint32_t CH9_AL3_READ_ADDR_TRIG;                                   /*!< (read-write) Alias for channel 9 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_READ_ADDR;                                           /*!< (read-write) DMA Channel 10 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH10_WRITE_ADDR;                                          /*!< (read-write) DMA Channel 10 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH10_TRANS_COUNT;                                         /*!< (read-write) DMA Channel 10 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH10_CTRL_TRIG;                                           /*!< (read-write) DMA Channel 10 Control and Status */
-    uint32_t CH10_AL1_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL1_READ_ADDR;                                       /*!< (read-write) Alias for channel 10 READ_ADDR register */
-    uint32_t CH10_AL1_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 10 WRITE_ADDR register */
-    uint32_t CH10_AL1_TRANS_COUNT_TRIG;                                /*!< (read-write) Alias for channel 10 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_AL2_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL2_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 10 TRANS_COUNT register */
-    uint32_t CH10_AL2_READ_ADDR;                                       /*!< (read-write) Alias for channel 10 READ_ADDR register */
-    uint32_t CH10_AL2_WRITE_ADDR_TRIG;                                 /*!< (read-write) Alias for channel 10 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH10_AL3_CTRL;                                            /*!< (read-write) Alias for channel 10 CTRL register */
-    uint32_t CH10_AL3_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 10 WRITE_ADDR register */
-    uint32_t CH10_AL3_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 10 TRANS_COUNT register */
-    uint32_t CH10_AL3_READ_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 10 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_READ_ADDR;                                           /*!< (read-write) DMA Channel 11 Read Address pointer\n
-                This register updates automatically each time a read completes. The current value is the next address to be read by this channel. */
-    uint32_t CH11_WRITE_ADDR;                                          /*!< (read-write) DMA Channel 11 Write Address pointer\n
-                This register updates automatically each time a write completes. The current value is the next address to be written by this channel. */
-    uint32_t CH11_TRANS_COUNT;                                         /*!< (read-write) DMA Channel 11 Transfer Count\n
-                Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n
-                When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.\n\n
-                Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.\n\n
-                The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD. */
-    uint32_t CH11_CTRL_TRIG;                                           /*!< (read-write) DMA Channel 11 Control and Status */
-    uint32_t CH11_AL1_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL1_READ_ADDR;                                       /*!< (read-write) Alias for channel 11 READ_ADDR register */
-    uint32_t CH11_AL1_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 11 WRITE_ADDR register */
-    uint32_t CH11_AL1_TRANS_COUNT_TRIG;                                /*!< (read-write) Alias for channel 11 TRANS_COUNT register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_AL2_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL2_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 11 TRANS_COUNT register */
-    uint32_t CH11_AL2_READ_ADDR;                                       /*!< (read-write) Alias for channel 11 READ_ADDR register */
-    uint32_t CH11_AL2_WRITE_ADDR_TRIG;                                 /*!< (read-write) Alias for channel 11 WRITE_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
-    uint32_t CH11_AL3_CTRL;                                            /*!< (read-write) Alias for channel 11 CTRL register */
-    uint32_t CH11_AL3_WRITE_ADDR;                                      /*!< (read-write) Alias for channel 11 WRITE_ADDR register */
-    uint32_t CH11_AL3_TRANS_COUNT;                                     /*!< (read-write) Alias for channel 11 TRANS_COUNT register */
-    uint32_t CH11_AL3_READ_ADDR_TRIG;                                  /*!< (read-write) Alias for channel 11 READ_ADDR register\n
-                This is a trigger register (0xc). Writing a nonzero value will\n
-                reload the channel counter and start the channel. */
+    uint32_t CH0_READ_ADDR;   /*!< (read-write) DMA Channel 0 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH0_WRITE_ADDR;  /*!< (read-write) DMA Channel 0 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH0_TRANS_COUNT; /*!< (read-write) DMA Channel 0 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH0_CTRL_TRIG; /*!< (read-write) DMA Channel 0 Control and Status */
+    uint32_t
+        CH0_AL1_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL1_READ_ADDR; /*!< (read-write) Alias for channel 0 READ_ADDR
+                                   register */
+    uint32_t CH0_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 0
+                                          WRITE_ADDR register */
+    uint32_t CH0_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 0
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH0_AL2_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 0
+                                     TRANS_COUNT register */
+    uint32_t CH0_AL2_READ_ADDR; /*!< (read-write) Alias for channel 0 READ_ADDR
+                                   register */
+    uint32_t CH0_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 0
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH0_AL3_CTRL; /*!< (read-write) Alias for channel 0 CTRL register */
+    uint32_t CH0_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 0
+                                        WRITE_ADDR register */
+    uint32_t CH0_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 0
+                                        TRANS_COUNT register */
+    uint32_t CH0_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 0
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH1_READ_ADDR;   /*!< (read-write) DMA Channel 1 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH1_WRITE_ADDR;  /*!< (read-write) DMA Channel 1 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH1_TRANS_COUNT; /*!< (read-write) DMA Channel 1 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH1_CTRL_TRIG; /*!< (read-write) DMA Channel 1 Control and Status */
+    uint32_t
+        CH1_AL1_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL1_READ_ADDR; /*!< (read-write) Alias for channel 1 READ_ADDR
+                                   register */
+    uint32_t CH1_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 1
+                                          WRITE_ADDR register */
+    uint32_t CH1_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 1
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH1_AL2_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 1
+                                     TRANS_COUNT register */
+    uint32_t CH1_AL2_READ_ADDR; /*!< (read-write) Alias for channel 1 READ_ADDR
+                                   register */
+    uint32_t CH1_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 1
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH1_AL3_CTRL; /*!< (read-write) Alias for channel 1 CTRL register */
+    uint32_t CH1_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 1
+                                        WRITE_ADDR register */
+    uint32_t CH1_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 1
+                                        TRANS_COUNT register */
+    uint32_t CH1_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 1
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH2_READ_ADDR;   /*!< (read-write) DMA Channel 2 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH2_WRITE_ADDR;  /*!< (read-write) DMA Channel 2 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH2_TRANS_COUNT; /*!< (read-write) DMA Channel 2 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH2_CTRL_TRIG; /*!< (read-write) DMA Channel 2 Control and Status */
+    uint32_t
+        CH2_AL1_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL1_READ_ADDR; /*!< (read-write) Alias for channel 2 READ_ADDR
+                                   register */
+    uint32_t CH2_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 2
+                                          WRITE_ADDR register */
+    uint32_t CH2_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 2
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH2_AL2_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 2
+                                     TRANS_COUNT register */
+    uint32_t CH2_AL2_READ_ADDR; /*!< (read-write) Alias for channel 2 READ_ADDR
+                                   register */
+    uint32_t CH2_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 2
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH2_AL3_CTRL; /*!< (read-write) Alias for channel 2 CTRL register */
+    uint32_t CH2_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 2
+                                        WRITE_ADDR register */
+    uint32_t CH2_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 2
+                                        TRANS_COUNT register */
+    uint32_t CH2_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 2
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH3_READ_ADDR;   /*!< (read-write) DMA Channel 3 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH3_WRITE_ADDR;  /*!< (read-write) DMA Channel 3 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH3_TRANS_COUNT; /*!< (read-write) DMA Channel 3 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH3_CTRL_TRIG; /*!< (read-write) DMA Channel 3 Control and Status */
+    uint32_t
+        CH3_AL1_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL1_READ_ADDR; /*!< (read-write) Alias for channel 3 READ_ADDR
+                                   register */
+    uint32_t CH3_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 3
+                                          WRITE_ADDR register */
+    uint32_t CH3_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 3
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH3_AL2_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 3
+                                     TRANS_COUNT register */
+    uint32_t CH3_AL2_READ_ADDR; /*!< (read-write) Alias for channel 3 READ_ADDR
+                                   register */
+    uint32_t CH3_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 3
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH3_AL3_CTRL; /*!< (read-write) Alias for channel 3 CTRL register */
+    uint32_t CH3_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 3
+                                        WRITE_ADDR register */
+    uint32_t CH3_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 3
+                                        TRANS_COUNT register */
+    uint32_t CH3_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 3
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH4_READ_ADDR;   /*!< (read-write) DMA Channel 4 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH4_WRITE_ADDR;  /*!< (read-write) DMA Channel 4 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH4_TRANS_COUNT; /*!< (read-write) DMA Channel 4 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH4_CTRL_TRIG; /*!< (read-write) DMA Channel 4 Control and Status */
+    uint32_t
+        CH4_AL1_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL1_READ_ADDR; /*!< (read-write) Alias for channel 4 READ_ADDR
+                                   register */
+    uint32_t CH4_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 4
+                                          WRITE_ADDR register */
+    uint32_t CH4_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 4
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH4_AL2_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 4
+                                     TRANS_COUNT register */
+    uint32_t CH4_AL2_READ_ADDR; /*!< (read-write) Alias for channel 4 READ_ADDR
+                                   register */
+    uint32_t CH4_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 4
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH4_AL3_CTRL; /*!< (read-write) Alias for channel 4 CTRL register */
+    uint32_t CH4_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 4
+                                        WRITE_ADDR register */
+    uint32_t CH4_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 4
+                                        TRANS_COUNT register */
+    uint32_t CH4_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 4
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH5_READ_ADDR;   /*!< (read-write) DMA Channel 5 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH5_WRITE_ADDR;  /*!< (read-write) DMA Channel 5 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH5_TRANS_COUNT; /*!< (read-write) DMA Channel 5 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH5_CTRL_TRIG; /*!< (read-write) DMA Channel 5 Control and Status */
+    uint32_t
+        CH5_AL1_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL1_READ_ADDR; /*!< (read-write) Alias for channel 5 READ_ADDR
+                                   register */
+    uint32_t CH5_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 5
+                                          WRITE_ADDR register */
+    uint32_t CH5_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 5
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH5_AL2_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 5
+                                     TRANS_COUNT register */
+    uint32_t CH5_AL2_READ_ADDR; /*!< (read-write) Alias for channel 5 READ_ADDR
+                                   register */
+    uint32_t CH5_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 5
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH5_AL3_CTRL; /*!< (read-write) Alias for channel 5 CTRL register */
+    uint32_t CH5_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 5
+                                        WRITE_ADDR register */
+    uint32_t CH5_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 5
+                                        TRANS_COUNT register */
+    uint32_t CH5_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 5
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH6_READ_ADDR;   /*!< (read-write) DMA Channel 6 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH6_WRITE_ADDR;  /*!< (read-write) DMA Channel 6 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH6_TRANS_COUNT; /*!< (read-write) DMA Channel 6 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH6_CTRL_TRIG; /*!< (read-write) DMA Channel 6 Control and Status */
+    uint32_t
+        CH6_AL1_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL1_READ_ADDR; /*!< (read-write) Alias for channel 6 READ_ADDR
+                                   register */
+    uint32_t CH6_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 6
+                                          WRITE_ADDR register */
+    uint32_t CH6_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 6
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH6_AL2_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 6
+                                     TRANS_COUNT register */
+    uint32_t CH6_AL2_READ_ADDR; /*!< (read-write) Alias for channel 6 READ_ADDR
+                                   register */
+    uint32_t CH6_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 6
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH6_AL3_CTRL; /*!< (read-write) Alias for channel 6 CTRL register */
+    uint32_t CH6_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 6
+                                        WRITE_ADDR register */
+    uint32_t CH6_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 6
+                                        TRANS_COUNT register */
+    uint32_t CH6_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 6
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH7_READ_ADDR;   /*!< (read-write) DMA Channel 7 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH7_WRITE_ADDR;  /*!< (read-write) DMA Channel 7 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH7_TRANS_COUNT; /*!< (read-write) DMA Channel 7 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH7_CTRL_TRIG; /*!< (read-write) DMA Channel 7 Control and Status */
+    uint32_t
+        CH7_AL1_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL1_READ_ADDR; /*!< (read-write) Alias for channel 7 READ_ADDR
+                                   register */
+    uint32_t CH7_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 7
+                                          WRITE_ADDR register */
+    uint32_t CH7_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 7
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH7_AL2_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 7
+                                     TRANS_COUNT register */
+    uint32_t CH7_AL2_READ_ADDR; /*!< (read-write) Alias for channel 7 READ_ADDR
+                                   register */
+    uint32_t CH7_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 7
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH7_AL3_CTRL; /*!< (read-write) Alias for channel 7 CTRL register */
+    uint32_t CH7_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 7
+                                        WRITE_ADDR register */
+    uint32_t CH7_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 7
+                                        TRANS_COUNT register */
+    uint32_t CH7_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 7
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH8_READ_ADDR;   /*!< (read-write) DMA Channel 8 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH8_WRITE_ADDR;  /*!< (read-write) DMA Channel 8 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH8_TRANS_COUNT; /*!< (read-write) DMA Channel 8 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH8_CTRL_TRIG; /*!< (read-write) DMA Channel 8 Control and Status */
+    uint32_t
+        CH8_AL1_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL1_READ_ADDR; /*!< (read-write) Alias for channel 8 READ_ADDR
+                                   register */
+    uint32_t CH8_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 8
+                                          WRITE_ADDR register */
+    uint32_t CH8_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 8
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH8_AL2_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 8
+                                     TRANS_COUNT register */
+    uint32_t CH8_AL2_READ_ADDR; /*!< (read-write) Alias for channel 8 READ_ADDR
+                                   register */
+    uint32_t CH8_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 8
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH8_AL3_CTRL; /*!< (read-write) Alias for channel 8 CTRL register */
+    uint32_t CH8_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 8
+                                        WRITE_ADDR register */
+    uint32_t CH8_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 8
+                                        TRANS_COUNT register */
+    uint32_t CH8_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 8
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH9_READ_ADDR;   /*!< (read-write) DMA Channel 9 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH9_WRITE_ADDR;  /*!< (read-write) DMA Channel 9 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH9_TRANS_COUNT; /*!< (read-write) DMA Channel 9 Transfer Count\n
+Program the number of bus transfers a channel will perform before halting. Note
+that, if transfers are larger than one byte in size, this is not equal to the
+number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the channel is
+active, reading this register shows the number of transfers remaining, updating
+automatically each time a write transfer completes.\n\n Writing this register
+sets the RELOAD value for the transfer counter. Each time this channel is
+triggered, the RELOAD value is copied into the live transfer counter. The
+channel can be started multiple times, and will perform the same number of
+transfers each time, as programmed by most recent write.\n\n The RELOAD value
+can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the
+written value is used immediately as the length of the new transfer sequence,
+as well as being written to RELOAD. */
+    uint32_t
+        CH9_CTRL_TRIG; /*!< (read-write) DMA Channel 9 Control and Status */
+    uint32_t
+        CH9_AL1_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL1_READ_ADDR; /*!< (read-write) Alias for channel 9 READ_ADDR
+                                   register */
+    uint32_t CH9_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 9
+                                          WRITE_ADDR register */
+    uint32_t CH9_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 9
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH9_AL2_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL2_TRANS_COUNT; /*!< (read-write) Alias for channel 9
+                                     TRANS_COUNT register */
+    uint32_t CH9_AL2_READ_ADDR; /*!< (read-write) Alias for channel 9 READ_ADDR
+                                   register */
+    uint32_t CH9_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 9
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH9_AL3_CTRL; /*!< (read-write) Alias for channel 9 CTRL register */
+    uint32_t CH9_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 9
+                                        WRITE_ADDR register */
+    uint32_t CH9_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 9
+                                        TRANS_COUNT register */
+    uint32_t CH9_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 9
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH10_READ_ADDR;   /*!< (read-write) DMA Channel 10 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH10_WRITE_ADDR;  /*!< (read-write) DMA Channel 10 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH10_TRANS_COUNT; /*!< (read-write) DMA Channel 10 Transfer
+Count\n Program the number of bus transfers a channel will perform before
+halting. Note that, if transfers are larger than one byte in size, this is not
+equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the
+channel is active, reading this register shows the number of transfers
+remaining, updating automatically each time a write transfer completes.\n\n
+Writing this register sets the RELOAD value for the transfer counter. Each time
+this channel is triggered, the RELOAD value is copied into the live transfer
+counter. The channel can be started multiple times, and will perform the same
+number of transfers each time, as programmed by most recent write.\n\n The
+RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a
+trigger, the written value is used immediately as the length of the new
+transfer sequence, as well as being written to RELOAD. */
+    uint32_t
+        CH10_CTRL_TRIG; /*!< (read-write) DMA Channel 10 Control and Status */
+    uint32_t
+        CH10_AL1_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL1_READ_ADDR;        /*!< (read-write) Alias for channel 10
+                                           READ_ADDR register */
+    uint32_t CH10_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 10
+                                           WRITE_ADDR register */
+    uint32_t CH10_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 10
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH10_AL2_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL2_TRANS_COUNT;     /*!< (read-write) Alias for channel 10
+                                          TRANS_COUNT register */
+    uint32_t CH10_AL2_READ_ADDR;       /*!< (read-write) Alias for channel 10
+                                          READ_ADDR register */
+    uint32_t CH10_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 10
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH10_AL3_CTRL; /*!< (read-write) Alias for channel 10 CTRL register */
+    uint32_t CH10_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 10
+                                         WRITE_ADDR register */
+    uint32_t CH10_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 10
+                                         TRANS_COUNT register */
+    uint32_t CH10_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 10
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t CH11_READ_ADDR;   /*!< (read-write) DMA Channel 11 Read Address
+  pointer\n   This register updates automatically each time a read completes. The
+  current value is the next address to be read by this channel. */
+    uint32_t CH11_WRITE_ADDR;  /*!< (read-write) DMA Channel 11 Write Address
+ pointer\n  This register updates automatically each time a write completes. The
+ current value is the next address to be written by this channel. */
+    uint32_t CH11_TRANS_COUNT; /*!< (read-write) DMA Channel 11 Transfer
+Count\n Program the number of bus transfers a channel will perform before
+halting. Note that, if transfers are larger than one byte in size, this is not
+equal to the number of bytes transferred (see CTRL_DATA_SIZE).\n\n When the
+channel is active, reading this register shows the number of transfers
+remaining, updating automatically each time a write transfer completes.\n\n
+Writing this register sets the RELOAD value for the transfer counter. Each time
+this channel is triggered, the RELOAD value is copied into the live transfer
+counter. The channel can be started multiple times, and will perform the same
+number of transfers each time, as programmed by most recent write.\n\n The
+RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a
+trigger, the written value is used immediately as the length of the new
+transfer sequence, as well as being written to RELOAD. */
+    uint32_t
+        CH11_CTRL_TRIG; /*!< (read-write) DMA Channel 11 Control and Status */
+    uint32_t
+        CH11_AL1_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL1_READ_ADDR;        /*!< (read-write) Alias for channel 11
+                                           READ_ADDR register */
+    uint32_t CH11_AL1_WRITE_ADDR;       /*!< (read-write) Alias for channel 11
+                                           WRITE_ADDR register */
+    uint32_t CH11_AL1_TRANS_COUNT_TRIG; /*!< (read-write) Alias for channel 11
+TRANS_COUNT register\n This is a trigger register (0xc). Writing a nonzero
+value will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH11_AL2_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL2_TRANS_COUNT;     /*!< (read-write) Alias for channel 11
+                                          TRANS_COUNT register */
+    uint32_t CH11_AL2_READ_ADDR;       /*!< (read-write) Alias for channel 11
+                                          READ_ADDR register */
+    uint32_t CH11_AL2_WRITE_ADDR_TRIG; /*!< (read-write) Alias for channel 11
+WRITE_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
+    uint32_t
+        CH11_AL3_CTRL; /*!< (read-write) Alias for channel 11 CTRL register */
+    uint32_t CH11_AL3_WRITE_ADDR;     /*!< (read-write) Alias for channel 11
+                                         WRITE_ADDR register */
+    uint32_t CH11_AL3_TRANS_COUNT;    /*!< (read-write) Alias for channel 11
+                                         TRANS_COUNT register */
+    uint32_t CH11_AL3_READ_ADDR_TRIG; /*!< (read-write) Alias for channel 11
+READ_ADDR register\n This is a trigger register (0xc). Writing a nonzero value
+will\n reload the channel counter and start the channel. */
     static constexpr std::size_t reserved_padding0_length = 64;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t INTR;                                                     /*!< (read-write) Interrupt Status (raw) */
-    uint32_t INTE0;                                                    /*!< (read-write) Interrupt Enables for IRQ 0 */
-    uint32_t INTF0;                                                    /*!< (read-write) Force Interrupts */
-    uint32_t INTS0;                                                    /*!< (read-write) Interrupt Status for IRQ 0 */
+    uint32_t INTR;  /*!< (read-write) Interrupt Status (raw) */
+    uint32_t INTE0; /*!< (read-write) Interrupt Enables for IRQ 0 */
+    uint32_t INTF0; /*!< (read-write) Force Interrupts */
+    uint32_t INTS0; /*!< (read-write) Interrupt Status for IRQ 0 */
     const uint32_t reserved_padding1 = {};
-    uint32_t INTE1;                                                    /*!< (read-write) Interrupt Enables for IRQ 1 */
-    uint32_t INTF1;                                                    /*!< (read-write) Force Interrupts for IRQ 1 */
-    uint32_t INTS1;                                                    /*!< (read-write) Interrupt Status (masked) for IRQ 1 */
-    uint32_t TIMER0;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER1;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER2;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t TIMER3;                                                   /*!< (read-write) Pacing (X/Y) Fractional Timer\n
-                The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
-    uint32_t MULTI_CHAN_TRIGGER;                                       /*!< (read-write) Trigger one or more channels simultaneously */
-    uint32_t SNIFF_CTRL;                                               /*!< (read-write) Sniffer Control */
-    uint32_t SNIFF_DATA;                                               /*!< (read-write) Data accumulator for sniff hardware\n
-                Write an initial seed value here before starting a DMA transfer on the channel indicated by SNIFF_CTRL_DMACH. The hardware will update this register each time it observes a read from the indicated channel. Once the channel completes, the final result can be read from this register. */
+    uint32_t INTE1;  /*!< (read-write) Interrupt Enables for IRQ 1 */
+    uint32_t INTF1;  /*!< (read-write) Force Interrupts for IRQ 1 */
+    uint32_t INTS1;  /*!< (read-write) Interrupt Status (masked) for IRQ 1 */
+    uint32_t TIMER0; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER1; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER2; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t TIMER3; /*!< (read-write) Pacing (X/Y) Fractional Timer\n
+The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
+This equation is evaluated every sys_clk cycles and therefore can only generate
+TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less. */
+    uint32_t MULTI_CHAN_TRIGGER; /*!< (read-write) Trigger one or more channels
+                                    simultaneously */
+    uint32_t SNIFF_CTRL;         /*!< (read-write) Sniffer Control */
+    uint32_t SNIFF_DATA;         /*!< (read-write) Data accumulator for sniff
+        hardware\n         Write an initial seed value here before starting a DMA
+        transfer on         the channel indicated by SNIFF_CTRL_DMACH. The hardware
+        will update         this         register each time it observes a read from the
+        indicated channel. Once the         channel completes, the final result can be
+        read         from this register. */
     const uint32_t reserved_padding2 = {};
-    const uint32_t FIFO_LEVELS = {};                                   /*!< (read-only) Debug RAF, WAF, TDF levels */
-    uint32_t CHAN_ABORT;                                               /*!< (read-write) Abort an in-progress transfer sequence on one or more channels */
-    const uint32_t N_CHANNELS = {};                                    /*!< (read-only) The number of channels this DMA instance is equipped with. This DMA supports up to 16 hardware channels, but can be configured with as few as one, to minimise silicon area. */
+    const uint32_t FIFO_LEVELS =
+        {};              /*!< (read-only) Debug RAF, WAF, TDF levels */
+    uint32_t CHAN_ABORT; /*!< (read-write) Abort an in-progress transfer
+                            sequence on one or more channels */
+    const uint32_t N_CHANNELS =
+        {}; /*!< (read-only) The number of channels this DMA instance is
+               equipped with. This DMA supports up to 16 hardware channels, but
+               can be configured with as few as one, to minimise silicon area.
+             */
     static constexpr std::size_t reserved_padding3_length = 237;
     const uint32_t reserved_padding3[reserved_padding3_length] = {};
-    uint32_t CH0_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH0_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH0_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH0_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding4_length = 14;
     const uint32_t reserved_padding4[reserved_padding4_length] = {};
-    uint32_t CH1_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH1_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH1_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH1_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding5_length = 14;
     const uint32_t reserved_padding5[reserved_padding5_length] = {};
-    uint32_t CH2_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH2_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH2_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH2_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding6_length = 14;
     const uint32_t reserved_padding6[reserved_padding6_length] = {};
-    uint32_t CH3_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH3_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH3_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH3_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding7_length = 14;
     const uint32_t reserved_padding7[reserved_padding7_length] = {};
-    uint32_t CH4_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH4_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH4_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH4_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding8_length = 14;
     const uint32_t reserved_padding8[reserved_padding8_length] = {};
-    uint32_t CH5_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH5_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH5_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH5_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding9_length = 14;
     const uint32_t reserved_padding9[reserved_padding9_length] = {};
-    uint32_t CH6_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH6_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH6_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH6_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding10_length = 14;
     const uint32_t reserved_padding10[reserved_padding10_length] = {};
-    uint32_t CH7_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH7_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH7_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH7_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding11_length = 14;
     const uint32_t reserved_padding11[reserved_padding11_length] = {};
-    uint32_t CH8_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH8_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH8_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH8_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding12_length = 14;
     const uint32_t reserved_padding12[reserved_padding12_length] = {};
-    uint32_t CH9_DBG_CTDREQ;                                           /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH9_DBG_TCR;                                              /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH9_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                           how many accesses the DMA expects it can perform on
+                           the peripheral without overflow/underflow. Write any
+                           value: clears the counter, and cause channel to
+                           re-initiate DREQ handshake. */
+    uint32_t
+        CH9_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                        value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding13_length = 14;
     const uint32_t reserved_padding13[reserved_padding13_length] = {};
-    uint32_t CH10_DBG_CTDREQ;                                          /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH10_DBG_TCR;                                             /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH10_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                            how many accesses the DMA expects it can perform on
+                            the peripheral without overflow/underflow. Write
+                            any value: clears the counter, and cause channel to
+                            re-initiate DREQ handshake. */
+    uint32_t
+        CH10_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                         value, i.e. the length of the next transfer */
     static constexpr std::size_t reserved_padding14_length = 14;
     const uint32_t reserved_padding14[reserved_padding14_length] = {};
-    uint32_t CH11_DBG_CTDREQ;                                          /*!< (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake. */
-    uint32_t CH11_DBG_TCR;                                             /*!< (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer */
+    uint32_t
+        CH11_DBG_CTDREQ; /*!< (read-write) Read: get channel DREQ counter (i.e.
+                            how many accesses the DMA expects it can perform on
+                            the peripheral without overflow/underflow. Write
+                            any value: clears the counter, and cause channel to
+                            re-initiate DREQ handshake. */
+    uint32_t
+        CH11_DBG_TCR; /*!< (read-write) Read to get channel TRANS_COUNT reload
+                         value, i.e. the length of the next transfer */
 
     /* Methods. */
 
@@ -476,7 +819,10 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH0_CTRL_TRIG_EN() volatile
     {
@@ -487,7 +833,10 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH0_CTRL_TRIG_EN() volatile
     {
@@ -498,7 +847,10 @@ struct [[gnu::packed]] dma
      * Clear CH0_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH0_CTRL_TRIG_EN() volatile
     {
@@ -509,7 +861,10 @@ struct [[gnu::packed]] dma
      * Toggle CH0_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH0_CTRL_TRIG_EN() volatile
     {
@@ -519,8 +874,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH0_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -530,8 +890,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH0_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -541,8 +906,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH0_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH0_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -552,8 +922,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH0_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH0_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -563,7 +938,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH0_CTRL_TRIG_DATA_SIZE get_CH0_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -573,9 +949,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH0_CTRL_TRIG_DATA_SIZE(DMA_CH0_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH0_CTRL_TRIG_DATA_SIZE(
+        DMA_CH0_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -588,8 +966,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH0_CTRL_TRIG_INCR_READ() volatile
     {
@@ -599,8 +978,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH0_CTRL_TRIG_INCR_READ() volatile
     {
@@ -610,8 +990,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH0_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH0_CTRL_TRIG_INCR_READ() volatile
     {
@@ -621,8 +1002,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH0_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH0_CTRL_TRIG_INCR_READ() volatile
     {
@@ -632,8 +1014,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH0_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -643,8 +1026,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH0_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -654,8 +1038,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH0_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH0_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -665,8 +1050,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH0_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH0_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -676,8 +1062,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH0_CTRL_TRIG_RING_SIZE get_CH0_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -687,10 +1076,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH0_CTRL_TRIG_RING_SIZE(DMA_CH0_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH0_CTRL_TRIG_RING_SIZE(
+        DMA_CH0_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -704,7 +1097,8 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH0_CTRL_TRIG_RING_SEL() volatile
     {
@@ -715,7 +1109,8 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH0_CTRL_TRIG_RING_SEL() volatile
     {
@@ -726,7 +1121,8 @@ struct [[gnu::packed]] dma
      * Clear CH0_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH0_CTRL_TRIG_RING_SEL() volatile
     {
@@ -737,7 +1133,8 @@ struct [[gnu::packed]] dma
      * Toggle CH0_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH0_CTRL_TRIG_RING_SEL() volatile
     {
@@ -747,7 +1144,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH0_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -757,7 +1155,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH0_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -773,8 +1172,10 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH0_CTRL_TRIG_TREQ_SEL get_CH0_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -785,10 +1186,13 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH0_CTRL_TRIG_TREQ_SEL(DMA_CH0_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH0_CTRL_TRIG_TREQ_SEL(
+        DMA_CH0_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -801,8 +1205,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH0_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -812,8 +1219,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH0_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -823,8 +1233,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH0_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH0_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -834,8 +1247,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH0_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH0_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -846,7 +1262,9 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH0_CTRL_TRIG_BSWAP() volatile
     {
@@ -857,7 +1275,9 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH0_CTRL_TRIG_BSWAP() volatile
     {
@@ -868,7 +1288,9 @@ struct [[gnu::packed]] dma
      * Clear CH0_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH0_CTRL_TRIG_BSWAP() volatile
     {
@@ -879,7 +1301,9 @@ struct [[gnu::packed]] dma
      * Toggle CH0_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH0_CTRL_TRIG_BSWAP() volatile
     {
@@ -889,8 +1313,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH0_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -900,8 +1327,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH0_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH0_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -911,8 +1341,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH0_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH0_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -922,8 +1355,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH0_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH0_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -933,8 +1369,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH0_CTRL_TRIG_BUSY() volatile
     {
@@ -945,7 +1384,9 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH0_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -956,7 +1397,9 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH0_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -967,7 +1410,9 @@ struct [[gnu::packed]] dma
      * Clear CH0_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH0_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -978,7 +1423,9 @@ struct [[gnu::packed]] dma
      * Toggle CH0_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH0_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -989,7 +1436,9 @@ struct [[gnu::packed]] dma
      * Get CH0_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH0_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1000,7 +1449,9 @@ struct [[gnu::packed]] dma
      * Set CH0_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH0_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1011,7 +1462,9 @@ struct [[gnu::packed]] dma
      * Clear CH0_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH0_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1022,7 +1475,9 @@ struct [[gnu::packed]] dma
      * Toggle CH0_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH0_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1032,7 +1487,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH0_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH0_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -1044,7 +1501,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 0 Control and Status
      */
-    inline void get_CH0_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH0_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH0_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH0_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH0_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH0_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH0_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH0_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -1071,7 +1536,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 0 Control and Status
      */
-    inline void set_CH0_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH0_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH0_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH0_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH0_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH0_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH0_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH0_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -1111,7 +1583,10 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH1_CTRL_TRIG_EN() volatile
     {
@@ -1122,7 +1597,10 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH1_CTRL_TRIG_EN() volatile
     {
@@ -1133,7 +1611,10 @@ struct [[gnu::packed]] dma
      * Clear CH1_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH1_CTRL_TRIG_EN() volatile
     {
@@ -1144,7 +1625,10 @@ struct [[gnu::packed]] dma
      * Toggle CH1_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH1_CTRL_TRIG_EN() volatile
     {
@@ -1154,8 +1638,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH1_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1165,8 +1654,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH1_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1176,8 +1670,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH1_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH1_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1187,8 +1686,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH1_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH1_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1198,7 +1702,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH1_CTRL_TRIG_DATA_SIZE get_CH1_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -1208,9 +1713,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH1_CTRL_TRIG_DATA_SIZE(DMA_CH1_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH1_CTRL_TRIG_DATA_SIZE(
+        DMA_CH1_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1223,8 +1730,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH1_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1234,8 +1742,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH1_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1245,8 +1754,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH1_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH1_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1256,8 +1766,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH1_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH1_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1267,8 +1778,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH1_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1278,8 +1790,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH1_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1289,8 +1802,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH1_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH1_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1300,8 +1814,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH1_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH1_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1311,8 +1826,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH1_CTRL_TRIG_RING_SIZE get_CH1_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -1322,10 +1840,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH1_CTRL_TRIG_RING_SIZE(DMA_CH1_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH1_CTRL_TRIG_RING_SIZE(
+        DMA_CH1_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1339,7 +1861,8 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH1_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1350,7 +1873,8 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH1_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1361,7 +1885,8 @@ struct [[gnu::packed]] dma
      * Clear CH1_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH1_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1372,7 +1897,8 @@ struct [[gnu::packed]] dma
      * Toggle CH1_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH1_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1382,7 +1908,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH1_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -1392,7 +1919,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH1_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -1408,8 +1936,10 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH1_CTRL_TRIG_TREQ_SEL get_CH1_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -1420,10 +1950,13 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH1_CTRL_TRIG_TREQ_SEL(DMA_CH1_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH1_CTRL_TRIG_TREQ_SEL(
+        DMA_CH1_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1436,8 +1969,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH1_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -1447,8 +1983,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH1_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -1458,8 +1997,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH1_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH1_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -1469,8 +2011,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH1_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH1_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -1481,7 +2026,9 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH1_CTRL_TRIG_BSWAP() volatile
     {
@@ -1492,7 +2039,9 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH1_CTRL_TRIG_BSWAP() volatile
     {
@@ -1503,7 +2052,9 @@ struct [[gnu::packed]] dma
      * Clear CH1_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH1_CTRL_TRIG_BSWAP() volatile
     {
@@ -1514,7 +2065,9 @@ struct [[gnu::packed]] dma
      * Toggle CH1_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH1_CTRL_TRIG_BSWAP() volatile
     {
@@ -1524,8 +2077,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH1_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -1535,8 +2091,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH1_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH1_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -1546,8 +2105,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH1_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH1_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -1557,8 +2119,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH1_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH1_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -1568,8 +2133,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH1_CTRL_TRIG_BUSY() volatile
     {
@@ -1580,7 +2148,9 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH1_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -1591,7 +2161,9 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH1_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -1602,7 +2174,9 @@ struct [[gnu::packed]] dma
      * Clear CH1_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH1_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -1613,7 +2187,9 @@ struct [[gnu::packed]] dma
      * Toggle CH1_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH1_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -1624,7 +2200,9 @@ struct [[gnu::packed]] dma
      * Get CH1_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH1_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1635,7 +2213,9 @@ struct [[gnu::packed]] dma
      * Set CH1_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH1_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1646,7 +2226,9 @@ struct [[gnu::packed]] dma
      * Clear CH1_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH1_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1657,7 +2239,9 @@ struct [[gnu::packed]] dma
      * Toggle CH1_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH1_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -1667,7 +2251,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH1_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH1_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -1679,7 +2265,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 1 Control and Status
      */
-    inline void get_CH1_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH1_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH1_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH1_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH1_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH1_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH1_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH1_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1706,7 +2300,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 1 Control and Status
      */
-    inline void set_CH1_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH1_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH1_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH1_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH1_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH1_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH1_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH1_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1746,7 +2347,10 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH2_CTRL_TRIG_EN() volatile
     {
@@ -1757,7 +2361,10 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH2_CTRL_TRIG_EN() volatile
     {
@@ -1768,7 +2375,10 @@ struct [[gnu::packed]] dma
      * Clear CH2_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH2_CTRL_TRIG_EN() volatile
     {
@@ -1779,7 +2389,10 @@ struct [[gnu::packed]] dma
      * Toggle CH2_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH2_CTRL_TRIG_EN() volatile
     {
@@ -1789,8 +2402,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH2_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1800,8 +2418,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH2_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1811,8 +2434,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH2_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH2_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1822,8 +2450,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH2_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH2_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -1833,7 +2466,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH2_CTRL_TRIG_DATA_SIZE get_CH2_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -1843,9 +2477,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH2_CTRL_TRIG_DATA_SIZE(DMA_CH2_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH2_CTRL_TRIG_DATA_SIZE(
+        DMA_CH2_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -1858,8 +2494,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH2_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1869,8 +2506,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH2_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1880,8 +2518,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH2_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH2_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1891,8 +2530,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH2_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH2_CTRL_TRIG_INCR_READ() volatile
     {
@@ -1902,8 +2542,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH2_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1913,8 +2554,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH2_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1924,8 +2566,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH2_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH2_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1935,8 +2578,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH2_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH2_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -1946,8 +2590,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH2_CTRL_TRIG_RING_SIZE get_CH2_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -1957,10 +2604,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH2_CTRL_TRIG_RING_SIZE(DMA_CH2_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH2_CTRL_TRIG_RING_SIZE(
+        DMA_CH2_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -1974,7 +2625,8 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH2_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1985,7 +2637,8 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH2_CTRL_TRIG_RING_SEL() volatile
     {
@@ -1996,7 +2649,8 @@ struct [[gnu::packed]] dma
      * Clear CH2_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH2_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2007,7 +2661,8 @@ struct [[gnu::packed]] dma
      * Toggle CH2_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH2_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2017,7 +2672,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH2_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -2027,7 +2683,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH2_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -2043,8 +2700,10 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH2_CTRL_TRIG_TREQ_SEL get_CH2_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -2055,10 +2714,13 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH2_CTRL_TRIG_TREQ_SEL(DMA_CH2_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH2_CTRL_TRIG_TREQ_SEL(
+        DMA_CH2_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2071,8 +2733,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH2_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2082,8 +2747,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH2_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2093,8 +2761,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH2_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH2_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2104,8 +2775,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH2_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH2_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2116,7 +2790,9 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH2_CTRL_TRIG_BSWAP() volatile
     {
@@ -2127,7 +2803,9 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH2_CTRL_TRIG_BSWAP() volatile
     {
@@ -2138,7 +2816,9 @@ struct [[gnu::packed]] dma
      * Clear CH2_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH2_CTRL_TRIG_BSWAP() volatile
     {
@@ -2149,7 +2829,9 @@ struct [[gnu::packed]] dma
      * Toggle CH2_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH2_CTRL_TRIG_BSWAP() volatile
     {
@@ -2159,8 +2841,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH2_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2170,8 +2855,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH2_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH2_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2181,8 +2869,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH2_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH2_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2192,8 +2883,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH2_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH2_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2203,8 +2897,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH2_CTRL_TRIG_BUSY() volatile
     {
@@ -2215,7 +2912,9 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH2_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2226,7 +2925,9 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH2_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2237,7 +2938,9 @@ struct [[gnu::packed]] dma
      * Clear CH2_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH2_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2248,7 +2951,9 @@ struct [[gnu::packed]] dma
      * Toggle CH2_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH2_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2259,7 +2964,9 @@ struct [[gnu::packed]] dma
      * Get CH2_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH2_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2270,7 +2977,9 @@ struct [[gnu::packed]] dma
      * Set CH2_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH2_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2281,7 +2990,9 @@ struct [[gnu::packed]] dma
      * Clear CH2_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH2_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2292,7 +3003,9 @@ struct [[gnu::packed]] dma
      * Toggle CH2_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH2_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2302,7 +3015,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH2_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH2_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -2314,7 +3029,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 2 Control and Status
      */
-    inline void get_CH2_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH2_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH2_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH2_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH2_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH2_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH2_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH2_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2341,7 +3064,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 2 Control and Status
      */
-    inline void set_CH2_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH2_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH2_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH2_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH2_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH2_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH2_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH2_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2381,7 +3111,10 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH3_CTRL_TRIG_EN() volatile
     {
@@ -2392,7 +3125,10 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH3_CTRL_TRIG_EN() volatile
     {
@@ -2403,7 +3139,10 @@ struct [[gnu::packed]] dma
      * Clear CH3_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH3_CTRL_TRIG_EN() volatile
     {
@@ -2414,7 +3153,10 @@ struct [[gnu::packed]] dma
      * Toggle CH3_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH3_CTRL_TRIG_EN() volatile
     {
@@ -2424,8 +3166,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH3_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -2435,8 +3182,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH3_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -2446,8 +3198,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH3_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH3_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -2457,8 +3214,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH3_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH3_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -2468,7 +3230,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH3_CTRL_TRIG_DATA_SIZE get_CH3_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -2478,9 +3241,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH3_CTRL_TRIG_DATA_SIZE(DMA_CH3_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH3_CTRL_TRIG_DATA_SIZE(
+        DMA_CH3_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2493,8 +3258,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH3_CTRL_TRIG_INCR_READ() volatile
     {
@@ -2504,8 +3270,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH3_CTRL_TRIG_INCR_READ() volatile
     {
@@ -2515,8 +3282,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH3_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH3_CTRL_TRIG_INCR_READ() volatile
     {
@@ -2526,8 +3294,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH3_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH3_CTRL_TRIG_INCR_READ() volatile
     {
@@ -2537,8 +3306,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH3_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -2548,8 +3318,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH3_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -2559,8 +3330,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH3_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH3_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -2570,8 +3342,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH3_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH3_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -2581,8 +3354,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH3_CTRL_TRIG_RING_SIZE get_CH3_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -2592,10 +3368,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH3_CTRL_TRIG_RING_SIZE(DMA_CH3_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH3_CTRL_TRIG_RING_SIZE(
+        DMA_CH3_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2609,7 +3389,8 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH3_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2620,7 +3401,8 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH3_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2631,7 +3413,8 @@ struct [[gnu::packed]] dma
      * Clear CH3_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH3_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2642,7 +3425,8 @@ struct [[gnu::packed]] dma
      * Toggle CH3_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH3_CTRL_TRIG_RING_SEL() volatile
     {
@@ -2652,7 +3436,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH3_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -2662,7 +3447,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH3_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -2678,8 +3464,10 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH3_CTRL_TRIG_TREQ_SEL get_CH3_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -2690,10 +3478,13 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH3_CTRL_TRIG_TREQ_SEL(DMA_CH3_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH3_CTRL_TRIG_TREQ_SEL(
+        DMA_CH3_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2706,8 +3497,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH3_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2717,8 +3511,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH3_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2728,8 +3525,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH3_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH3_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2739,8 +3539,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH3_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH3_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -2751,7 +3554,9 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH3_CTRL_TRIG_BSWAP() volatile
     {
@@ -2762,7 +3567,9 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH3_CTRL_TRIG_BSWAP() volatile
     {
@@ -2773,7 +3580,9 @@ struct [[gnu::packed]] dma
      * Clear CH3_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH3_CTRL_TRIG_BSWAP() volatile
     {
@@ -2784,7 +3593,9 @@ struct [[gnu::packed]] dma
      * Toggle CH3_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH3_CTRL_TRIG_BSWAP() volatile
     {
@@ -2794,8 +3605,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH3_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2805,8 +3619,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH3_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH3_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2816,8 +3633,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH3_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH3_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2827,8 +3647,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH3_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH3_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -2838,8 +3661,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH3_CTRL_TRIG_BUSY() volatile
     {
@@ -2850,7 +3676,9 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH3_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2861,7 +3689,9 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH3_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2872,7 +3702,9 @@ struct [[gnu::packed]] dma
      * Clear CH3_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH3_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2883,7 +3715,9 @@ struct [[gnu::packed]] dma
      * Toggle CH3_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH3_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -2894,7 +3728,9 @@ struct [[gnu::packed]] dma
      * Get CH3_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH3_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2905,7 +3741,9 @@ struct [[gnu::packed]] dma
      * Set CH3_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH3_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2916,7 +3754,9 @@ struct [[gnu::packed]] dma
      * Clear CH3_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH3_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2927,7 +3767,9 @@ struct [[gnu::packed]] dma
      * Toggle CH3_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH3_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -2937,7 +3779,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH3_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH3_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -2949,7 +3793,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 3 Control and Status
      */
-    inline void get_CH3_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH3_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH3_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH3_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH3_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH3_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH3_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH3_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2976,7 +3828,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 3 Control and Status
      */
-    inline void set_CH3_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH3_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH3_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH3_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH3_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH3_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH3_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH3_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -3016,7 +3875,10 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH4_CTRL_TRIG_EN() volatile
     {
@@ -3027,7 +3889,10 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH4_CTRL_TRIG_EN() volatile
     {
@@ -3038,7 +3903,10 @@ struct [[gnu::packed]] dma
      * Clear CH4_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH4_CTRL_TRIG_EN() volatile
     {
@@ -3049,7 +3917,10 @@ struct [[gnu::packed]] dma
      * Toggle CH4_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH4_CTRL_TRIG_EN() volatile
     {
@@ -3059,8 +3930,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH4_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3070,8 +3946,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH4_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3081,8 +3962,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH4_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH4_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3092,8 +3978,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH4_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH4_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3103,7 +3994,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH4_CTRL_TRIG_DATA_SIZE get_CH4_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -3113,9 +4005,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH4_CTRL_TRIG_DATA_SIZE(DMA_CH4_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH4_CTRL_TRIG_DATA_SIZE(
+        DMA_CH4_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3128,8 +4022,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH4_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3139,8 +4034,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH4_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3150,8 +4046,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH4_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH4_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3161,8 +4058,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH4_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH4_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3172,8 +4070,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH4_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3183,8 +4082,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH4_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3194,8 +4094,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH4_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH4_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3205,8 +4106,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH4_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH4_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3216,8 +4118,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH4_CTRL_TRIG_RING_SIZE get_CH4_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -3227,10 +4132,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH4_CTRL_TRIG_RING_SIZE(DMA_CH4_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH4_CTRL_TRIG_RING_SIZE(
+        DMA_CH4_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3244,7 +4153,8 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH4_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3255,7 +4165,8 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH4_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3266,7 +4177,8 @@ struct [[gnu::packed]] dma
      * Clear CH4_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH4_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3277,7 +4189,8 @@ struct [[gnu::packed]] dma
      * Toggle CH4_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH4_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3287,7 +4200,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH4_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -3297,7 +4211,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH4_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -3313,8 +4228,10 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH4_CTRL_TRIG_TREQ_SEL get_CH4_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -3325,10 +4242,13 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH4_CTRL_TRIG_TREQ_SEL(DMA_CH4_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH4_CTRL_TRIG_TREQ_SEL(
+        DMA_CH4_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3341,8 +4261,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH4_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3352,8 +4275,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH4_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3363,8 +4289,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH4_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH4_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3374,8 +4303,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH4_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH4_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3386,7 +4318,9 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH4_CTRL_TRIG_BSWAP() volatile
     {
@@ -3397,7 +4331,9 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH4_CTRL_TRIG_BSWAP() volatile
     {
@@ -3408,7 +4344,9 @@ struct [[gnu::packed]] dma
      * Clear CH4_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH4_CTRL_TRIG_BSWAP() volatile
     {
@@ -3419,7 +4357,9 @@ struct [[gnu::packed]] dma
      * Toggle CH4_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH4_CTRL_TRIG_BSWAP() volatile
     {
@@ -3429,8 +4369,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH4_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -3440,8 +4383,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH4_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH4_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -3451,8 +4397,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH4_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH4_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -3462,8 +4411,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH4_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH4_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -3473,8 +4425,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH4_CTRL_TRIG_BUSY() volatile
     {
@@ -3485,7 +4440,9 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH4_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -3496,7 +4453,9 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH4_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -3507,7 +4466,9 @@ struct [[gnu::packed]] dma
      * Clear CH4_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH4_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -3518,7 +4479,9 @@ struct [[gnu::packed]] dma
      * Toggle CH4_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH4_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -3529,7 +4492,9 @@ struct [[gnu::packed]] dma
      * Get CH4_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH4_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -3540,7 +4505,9 @@ struct [[gnu::packed]] dma
      * Set CH4_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH4_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -3551,7 +4518,9 @@ struct [[gnu::packed]] dma
      * Clear CH4_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH4_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -3562,7 +4531,9 @@ struct [[gnu::packed]] dma
      * Toggle CH4_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH4_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -3572,7 +4543,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH4_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH4_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -3584,7 +4557,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 4 Control and Status
      */
-    inline void get_CH4_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH4_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH4_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH4_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH4_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH4_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH4_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH4_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3611,7 +4592,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 4 Control and Status
      */
-    inline void set_CH4_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH4_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH4_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH4_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH4_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH4_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH4_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH4_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3651,7 +4639,10 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH5_CTRL_TRIG_EN() volatile
     {
@@ -3662,7 +4653,10 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH5_CTRL_TRIG_EN() volatile
     {
@@ -3673,7 +4667,10 @@ struct [[gnu::packed]] dma
      * Clear CH5_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH5_CTRL_TRIG_EN() volatile
     {
@@ -3684,7 +4681,10 @@ struct [[gnu::packed]] dma
      * Toggle CH5_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH5_CTRL_TRIG_EN() volatile
     {
@@ -3694,8 +4694,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH5_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3705,8 +4710,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH5_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3716,8 +4726,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH5_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH5_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3727,8 +4742,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH5_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH5_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -3738,7 +4758,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH5_CTRL_TRIG_DATA_SIZE get_CH5_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -3748,9 +4769,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH5_CTRL_TRIG_DATA_SIZE(DMA_CH5_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH5_CTRL_TRIG_DATA_SIZE(
+        DMA_CH5_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -3763,8 +4786,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH5_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3774,8 +4798,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH5_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3785,8 +4810,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH5_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH5_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3796,8 +4822,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH5_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH5_CTRL_TRIG_INCR_READ() volatile
     {
@@ -3807,8 +4834,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH5_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3818,8 +4846,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH5_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3829,8 +4858,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH5_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH5_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3840,8 +4870,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH5_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH5_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -3851,8 +4882,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH5_CTRL_TRIG_RING_SIZE get_CH5_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -3862,10 +4896,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH5_CTRL_TRIG_RING_SIZE(DMA_CH5_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH5_CTRL_TRIG_RING_SIZE(
+        DMA_CH5_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -3879,7 +4917,8 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH5_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3890,7 +4929,8 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH5_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3901,7 +4941,8 @@ struct [[gnu::packed]] dma
      * Clear CH5_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH5_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3912,7 +4953,8 @@ struct [[gnu::packed]] dma
      * Toggle CH5_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH5_CTRL_TRIG_RING_SEL() volatile
     {
@@ -3922,7 +4964,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH5_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -3932,7 +4975,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH5_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -3948,8 +4992,10 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH5_CTRL_TRIG_TREQ_SEL get_CH5_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -3960,10 +5006,13 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH5_CTRL_TRIG_TREQ_SEL(DMA_CH5_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH5_CTRL_TRIG_TREQ_SEL(
+        DMA_CH5_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -3976,8 +5025,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH5_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3987,8 +5039,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH5_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -3998,8 +5053,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH5_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH5_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4009,8 +5067,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH5_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH5_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4021,7 +5082,9 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH5_CTRL_TRIG_BSWAP() volatile
     {
@@ -4032,7 +5095,9 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH5_CTRL_TRIG_BSWAP() volatile
     {
@@ -4043,7 +5108,9 @@ struct [[gnu::packed]] dma
      * Clear CH5_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH5_CTRL_TRIG_BSWAP() volatile
     {
@@ -4054,7 +5121,9 @@ struct [[gnu::packed]] dma
      * Toggle CH5_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH5_CTRL_TRIG_BSWAP() volatile
     {
@@ -4064,8 +5133,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH5_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4075,8 +5147,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH5_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH5_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4086,8 +5161,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH5_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH5_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4097,8 +5175,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH5_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH5_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4108,8 +5189,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH5_CTRL_TRIG_BUSY() volatile
     {
@@ -4120,7 +5204,9 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH5_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4131,7 +5217,9 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH5_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4142,7 +5230,9 @@ struct [[gnu::packed]] dma
      * Clear CH5_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH5_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4153,7 +5243,9 @@ struct [[gnu::packed]] dma
      * Toggle CH5_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH5_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4164,7 +5256,9 @@ struct [[gnu::packed]] dma
      * Get CH5_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH5_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4175,7 +5269,9 @@ struct [[gnu::packed]] dma
      * Set CH5_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH5_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4186,7 +5282,9 @@ struct [[gnu::packed]] dma
      * Clear CH5_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH5_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4197,7 +5295,9 @@ struct [[gnu::packed]] dma
      * Toggle CH5_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH5_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4207,7 +5307,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH5_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH5_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -4219,7 +5321,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 5 Control and Status
      */
-    inline void get_CH5_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH5_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH5_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH5_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH5_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH5_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH5_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH5_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -4246,7 +5356,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 5 Control and Status
      */
-    inline void set_CH5_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH5_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH5_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH5_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH5_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH5_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH5_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH5_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -4286,7 +5403,10 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH6_CTRL_TRIG_EN() volatile
     {
@@ -4297,7 +5417,10 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH6_CTRL_TRIG_EN() volatile
     {
@@ -4308,7 +5431,10 @@ struct [[gnu::packed]] dma
      * Clear CH6_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH6_CTRL_TRIG_EN() volatile
     {
@@ -4319,7 +5445,10 @@ struct [[gnu::packed]] dma
      * Toggle CH6_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH6_CTRL_TRIG_EN() volatile
     {
@@ -4329,8 +5458,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH6_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4340,8 +5474,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH6_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4351,8 +5490,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH6_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH6_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4362,8 +5506,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH6_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH6_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4373,7 +5522,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH6_CTRL_TRIG_DATA_SIZE get_CH6_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -4383,9 +5533,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH6_CTRL_TRIG_DATA_SIZE(DMA_CH6_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH6_CTRL_TRIG_DATA_SIZE(
+        DMA_CH6_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4398,8 +5550,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH6_CTRL_TRIG_INCR_READ() volatile
     {
@@ -4409,8 +5562,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH6_CTRL_TRIG_INCR_READ() volatile
     {
@@ -4420,8 +5574,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH6_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH6_CTRL_TRIG_INCR_READ() volatile
     {
@@ -4431,8 +5586,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH6_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH6_CTRL_TRIG_INCR_READ() volatile
     {
@@ -4442,8 +5598,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH6_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -4453,8 +5610,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH6_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -4464,8 +5622,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH6_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH6_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -4475,8 +5634,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH6_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH6_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -4486,8 +5646,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH6_CTRL_TRIG_RING_SIZE get_CH6_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -4497,10 +5660,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH6_CTRL_TRIG_RING_SIZE(DMA_CH6_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH6_CTRL_TRIG_RING_SIZE(
+        DMA_CH6_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4514,7 +5681,8 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH6_CTRL_TRIG_RING_SEL() volatile
     {
@@ -4525,7 +5693,8 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH6_CTRL_TRIG_RING_SEL() volatile
     {
@@ -4536,7 +5705,8 @@ struct [[gnu::packed]] dma
      * Clear CH6_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH6_CTRL_TRIG_RING_SEL() volatile
     {
@@ -4547,7 +5717,8 @@ struct [[gnu::packed]] dma
      * Toggle CH6_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH6_CTRL_TRIG_RING_SEL() volatile
     {
@@ -4557,7 +5728,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH6_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -4567,7 +5739,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH6_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -4583,8 +5756,10 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH6_CTRL_TRIG_TREQ_SEL get_CH6_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -4595,10 +5770,13 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH6_CTRL_TRIG_TREQ_SEL(DMA_CH6_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH6_CTRL_TRIG_TREQ_SEL(
+        DMA_CH6_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4611,8 +5789,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH6_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4622,8 +5803,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH6_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4633,8 +5817,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH6_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH6_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4644,8 +5831,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH6_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH6_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -4656,7 +5846,9 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH6_CTRL_TRIG_BSWAP() volatile
     {
@@ -4667,7 +5859,9 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH6_CTRL_TRIG_BSWAP() volatile
     {
@@ -4678,7 +5872,9 @@ struct [[gnu::packed]] dma
      * Clear CH6_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH6_CTRL_TRIG_BSWAP() volatile
     {
@@ -4689,7 +5885,9 @@ struct [[gnu::packed]] dma
      * Toggle CH6_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH6_CTRL_TRIG_BSWAP() volatile
     {
@@ -4699,8 +5897,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH6_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4710,8 +5911,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH6_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH6_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4721,8 +5925,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH6_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH6_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4732,8 +5939,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH6_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH6_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -4743,8 +5953,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH6_CTRL_TRIG_BUSY() volatile
     {
@@ -4755,7 +5968,9 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH6_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4766,7 +5981,9 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH6_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4777,7 +5994,9 @@ struct [[gnu::packed]] dma
      * Clear CH6_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH6_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4788,7 +6007,9 @@ struct [[gnu::packed]] dma
      * Toggle CH6_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH6_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -4799,7 +6020,9 @@ struct [[gnu::packed]] dma
      * Get CH6_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH6_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4810,7 +6033,9 @@ struct [[gnu::packed]] dma
      * Set CH6_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH6_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4821,7 +6046,9 @@ struct [[gnu::packed]] dma
      * Clear CH6_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH6_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4832,7 +6059,9 @@ struct [[gnu::packed]] dma
      * Toggle CH6_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH6_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -4842,7 +6071,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH6_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH6_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -4854,7 +6085,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 6 Control and Status
      */
-    inline void get_CH6_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH6_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH6_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH6_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH6_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH6_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH6_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH6_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4881,7 +6120,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 6 Control and Status
      */
-    inline void set_CH6_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH6_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH6_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH6_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH6_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH6_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH6_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH6_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4921,7 +6167,10 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH7_CTRL_TRIG_EN() volatile
     {
@@ -4932,7 +6181,10 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH7_CTRL_TRIG_EN() volatile
     {
@@ -4943,7 +6195,10 @@ struct [[gnu::packed]] dma
      * Clear CH7_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH7_CTRL_TRIG_EN() volatile
     {
@@ -4954,7 +6209,10 @@ struct [[gnu::packed]] dma
      * Toggle CH7_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH7_CTRL_TRIG_EN() volatile
     {
@@ -4964,8 +6222,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH7_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4975,8 +6238,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH7_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4986,8 +6254,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH7_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH7_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -4997,8 +6270,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH7_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH7_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -5008,7 +6286,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH7_CTRL_TRIG_DATA_SIZE get_CH7_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -5018,9 +6297,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH7_CTRL_TRIG_DATA_SIZE(DMA_CH7_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH7_CTRL_TRIG_DATA_SIZE(
+        DMA_CH7_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5033,8 +6314,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH7_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5044,8 +6326,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH7_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5055,8 +6338,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH7_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH7_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5066,8 +6350,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH7_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH7_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5077,8 +6362,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH7_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5088,8 +6374,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH7_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5099,8 +6386,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH7_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH7_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5110,8 +6398,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH7_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH7_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5121,8 +6410,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH7_CTRL_TRIG_RING_SIZE get_CH7_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -5132,10 +6424,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH7_CTRL_TRIG_RING_SIZE(DMA_CH7_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH7_CTRL_TRIG_RING_SIZE(
+        DMA_CH7_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5149,7 +6445,8 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH7_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5160,7 +6457,8 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH7_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5171,7 +6469,8 @@ struct [[gnu::packed]] dma
      * Clear CH7_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH7_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5182,7 +6481,8 @@ struct [[gnu::packed]] dma
      * Toggle CH7_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH7_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5192,7 +6492,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH7_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -5202,7 +6503,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH7_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -5218,8 +6520,10 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH7_CTRL_TRIG_TREQ_SEL get_CH7_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -5230,10 +6534,13 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH7_CTRL_TRIG_TREQ_SEL(DMA_CH7_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH7_CTRL_TRIG_TREQ_SEL(
+        DMA_CH7_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5246,8 +6553,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH7_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5257,8 +6567,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH7_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5268,8 +6581,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH7_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH7_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5279,8 +6595,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH7_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH7_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5291,7 +6610,9 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH7_CTRL_TRIG_BSWAP() volatile
     {
@@ -5302,7 +6623,9 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH7_CTRL_TRIG_BSWAP() volatile
     {
@@ -5313,7 +6636,9 @@ struct [[gnu::packed]] dma
      * Clear CH7_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH7_CTRL_TRIG_BSWAP() volatile
     {
@@ -5324,7 +6649,9 @@ struct [[gnu::packed]] dma
      * Toggle CH7_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH7_CTRL_TRIG_BSWAP() volatile
     {
@@ -5334,8 +6661,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH7_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5345,8 +6675,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH7_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH7_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5356,8 +6689,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH7_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH7_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5367,8 +6703,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH7_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH7_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5378,8 +6717,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH7_CTRL_TRIG_BUSY() volatile
     {
@@ -5390,7 +6732,9 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH7_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -5401,7 +6745,9 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH7_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -5412,7 +6758,9 @@ struct [[gnu::packed]] dma
      * Clear CH7_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH7_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -5423,7 +6771,9 @@ struct [[gnu::packed]] dma
      * Toggle CH7_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH7_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -5434,7 +6784,9 @@ struct [[gnu::packed]] dma
      * Get CH7_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH7_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -5445,7 +6797,9 @@ struct [[gnu::packed]] dma
      * Set CH7_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH7_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -5456,7 +6810,9 @@ struct [[gnu::packed]] dma
      * Clear CH7_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH7_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -5467,7 +6823,9 @@ struct [[gnu::packed]] dma
      * Toggle CH7_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH7_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -5477,7 +6835,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH7_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH7_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -5489,7 +6849,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 7 Control and Status
      */
-    inline void get_CH7_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH7_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH7_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH7_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH7_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH7_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH7_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH7_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5516,7 +6884,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 7 Control and Status
      */
-    inline void set_CH7_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH7_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH7_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH7_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH7_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH7_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH7_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH7_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5556,7 +6931,10 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH8_CTRL_TRIG_EN() volatile
     {
@@ -5567,7 +6945,10 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH8_CTRL_TRIG_EN() volatile
     {
@@ -5578,7 +6959,10 @@ struct [[gnu::packed]] dma
      * Clear CH8_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH8_CTRL_TRIG_EN() volatile
     {
@@ -5589,7 +6973,10 @@ struct [[gnu::packed]] dma
      * Toggle CH8_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH8_CTRL_TRIG_EN() volatile
     {
@@ -5599,8 +6986,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH8_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -5610,8 +7002,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH8_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -5621,8 +7018,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH8_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH8_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -5632,8 +7034,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH8_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH8_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -5643,7 +7050,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH8_CTRL_TRIG_DATA_SIZE get_CH8_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -5653,9 +7061,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH8_CTRL_TRIG_DATA_SIZE(DMA_CH8_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH8_CTRL_TRIG_DATA_SIZE(
+        DMA_CH8_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -5668,8 +7078,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH8_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5679,8 +7090,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH8_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5690,8 +7102,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH8_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH8_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5701,8 +7114,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH8_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH8_CTRL_TRIG_INCR_READ() volatile
     {
@@ -5712,8 +7126,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH8_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5723,8 +7138,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH8_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5734,8 +7150,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH8_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH8_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5745,8 +7162,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH8_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH8_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -5756,8 +7174,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH8_CTRL_TRIG_RING_SIZE get_CH8_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -5767,10 +7188,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH8_CTRL_TRIG_RING_SIZE(DMA_CH8_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH8_CTRL_TRIG_RING_SIZE(
+        DMA_CH8_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -5784,7 +7209,8 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH8_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5795,7 +7221,8 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH8_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5806,7 +7233,8 @@ struct [[gnu::packed]] dma
      * Clear CH8_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH8_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5817,7 +7245,8 @@ struct [[gnu::packed]] dma
      * Toggle CH8_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH8_CTRL_TRIG_RING_SEL() volatile
     {
@@ -5827,7 +7256,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH8_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -5837,7 +7267,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH8_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -5853,8 +7284,10 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH8_CTRL_TRIG_TREQ_SEL get_CH8_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -5865,10 +7298,13 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH8_CTRL_TRIG_TREQ_SEL(DMA_CH8_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH8_CTRL_TRIG_TREQ_SEL(
+        DMA_CH8_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -5881,8 +7317,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH8_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5892,8 +7331,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH8_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5903,8 +7345,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH8_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH8_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5914,8 +7359,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH8_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH8_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -5926,7 +7374,9 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH8_CTRL_TRIG_BSWAP() volatile
     {
@@ -5937,7 +7387,9 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH8_CTRL_TRIG_BSWAP() volatile
     {
@@ -5948,7 +7400,9 @@ struct [[gnu::packed]] dma
      * Clear CH8_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH8_CTRL_TRIG_BSWAP() volatile
     {
@@ -5959,7 +7413,9 @@ struct [[gnu::packed]] dma
      * Toggle CH8_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH8_CTRL_TRIG_BSWAP() volatile
     {
@@ -5969,8 +7425,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH8_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5980,8 +7439,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH8_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH8_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -5991,8 +7453,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH8_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH8_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6002,8 +7467,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH8_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH8_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6013,8 +7481,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH8_CTRL_TRIG_BUSY() volatile
     {
@@ -6025,7 +7496,9 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH8_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6036,7 +7509,9 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH8_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6047,7 +7522,9 @@ struct [[gnu::packed]] dma
      * Clear CH8_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH8_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6058,7 +7535,9 @@ struct [[gnu::packed]] dma
      * Toggle CH8_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH8_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6069,7 +7548,9 @@ struct [[gnu::packed]] dma
      * Get CH8_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH8_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6080,7 +7561,9 @@ struct [[gnu::packed]] dma
      * Set CH8_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH8_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6091,7 +7574,9 @@ struct [[gnu::packed]] dma
      * Clear CH8_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH8_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6102,7 +7587,9 @@ struct [[gnu::packed]] dma
      * Toggle CH8_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH8_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6112,7 +7599,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH8_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH8_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -6124,7 +7613,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 8 Control and Status
      */
-    inline void get_CH8_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH8_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH8_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH8_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH8_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH8_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH8_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH8_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -6151,7 +7648,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 8 Control and Status
      */
-    inline void set_CH8_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH8_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH8_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH8_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH8_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH8_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH8_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH8_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -6191,7 +7695,10 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH9_CTRL_TRIG_EN() volatile
     {
@@ -6202,7 +7709,10 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH9_CTRL_TRIG_EN() volatile
     {
@@ -6213,7 +7723,10 @@ struct [[gnu::packed]] dma
      * Clear CH9_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH9_CTRL_TRIG_EN() volatile
     {
@@ -6224,7 +7737,10 @@ struct [[gnu::packed]] dma
      * Toggle CH9_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH9_CTRL_TRIG_EN() volatile
     {
@@ -6234,8 +7750,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH9_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6245,8 +7766,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH9_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6256,8 +7782,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH9_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH9_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6267,8 +7798,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH9_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH9_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6278,7 +7814,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH9_CTRL_TRIG_DATA_SIZE get_CH9_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -6288,9 +7825,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH9_CTRL_TRIG_DATA_SIZE(DMA_CH9_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH9_CTRL_TRIG_DATA_SIZE(
+        DMA_CH9_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6303,8 +7842,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH9_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6314,8 +7854,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH9_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6325,8 +7866,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH9_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH9_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6336,8 +7878,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH9_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH9_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6347,8 +7890,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH9_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -6358,8 +7902,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH9_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -6369,8 +7914,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH9_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH9_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -6380,8 +7926,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH9_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH9_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -6391,8 +7938,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH9_CTRL_TRIG_RING_SIZE get_CH9_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -6402,10 +7952,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH9_CTRL_TRIG_RING_SIZE(DMA_CH9_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH9_CTRL_TRIG_RING_SIZE(
+        DMA_CH9_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6419,7 +7973,8 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH9_CTRL_TRIG_RING_SEL() volatile
     {
@@ -6430,7 +7985,8 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH9_CTRL_TRIG_RING_SEL() volatile
     {
@@ -6441,7 +7997,8 @@ struct [[gnu::packed]] dma
      * Clear CH9_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH9_CTRL_TRIG_RING_SEL() volatile
     {
@@ -6452,7 +8009,8 @@ struct [[gnu::packed]] dma
      * Toggle CH9_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH9_CTRL_TRIG_RING_SEL() volatile
     {
@@ -6462,7 +8020,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH9_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -6472,7 +8031,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH9_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -6488,8 +8048,10 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH9_CTRL_TRIG_TREQ_SEL get_CH9_CTRL_TRIG_TREQ_SEL() volatile
     {
@@ -6500,10 +8062,13 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH9_CTRL_TRIG_TREQ_SEL(DMA_CH9_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH9_CTRL_TRIG_TREQ_SEL(
+        DMA_CH9_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6516,8 +8081,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH9_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -6527,8 +8095,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH9_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -6538,8 +8109,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH9_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH9_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -6549,8 +8123,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH9_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH9_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -6561,7 +8138,9 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH9_CTRL_TRIG_BSWAP() volatile
     {
@@ -6572,7 +8151,9 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH9_CTRL_TRIG_BSWAP() volatile
     {
@@ -6583,7 +8164,9 @@ struct [[gnu::packed]] dma
      * Clear CH9_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH9_CTRL_TRIG_BSWAP() volatile
     {
@@ -6594,7 +8177,9 @@ struct [[gnu::packed]] dma
      * Toggle CH9_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH9_CTRL_TRIG_BSWAP() volatile
     {
@@ -6604,8 +8189,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH9_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6615,8 +8203,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH9_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH9_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6626,8 +8217,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH9_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH9_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6637,8 +8231,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH9_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH9_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -6648,8 +8245,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH9_CTRL_TRIG_BUSY() volatile
     {
@@ -6660,7 +8260,9 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH9_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6671,7 +8273,9 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH9_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6682,7 +8286,9 @@ struct [[gnu::packed]] dma
      * Clear CH9_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH9_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6693,7 +8299,9 @@ struct [[gnu::packed]] dma
      * Toggle CH9_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH9_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -6704,7 +8312,9 @@ struct [[gnu::packed]] dma
      * Get CH9_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH9_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6715,7 +8325,9 @@ struct [[gnu::packed]] dma
      * Set CH9_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH9_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6726,7 +8338,9 @@ struct [[gnu::packed]] dma
      * Clear CH9_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH9_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6737,7 +8351,9 @@ struct [[gnu::packed]] dma
      * Toggle CH9_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH9_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -6747,7 +8363,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH9_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH9_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -6759,7 +8377,15 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 9 Control and Status
      */
-    inline void get_CH9_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH9_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH9_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH9_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH9_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
+                                  DMA_CH9_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+                                  bool &INCR_READ, bool &INCR_WRITE,
+                                  DMA_CH9_CTRL_TRIG_RING_SIZE &RING_SIZE,
+                                  bool &RING_SEL, uint8_t &CHAIN_TO,
+                                  DMA_CH9_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+                                  bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN,
+                                  bool &BUSY, bool &WRITE_ERROR,
+                                  bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6786,7 +8412,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 9 Control and Status
      */
-    inline void set_CH9_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH9_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH9_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH9_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH9_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                  DMA_CH9_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                  bool INCR_READ, bool INCR_WRITE,
+                                  DMA_CH9_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                  bool RING_SEL, uint8_t CHAIN_TO,
+                                  DMA_CH9_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                  bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                  bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6826,7 +8459,10 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH10_CTRL_TRIG_EN() volatile
     {
@@ -6837,7 +8473,10 @@ struct [[gnu::packed]] dma
      * Set CH10_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH10_CTRL_TRIG_EN() volatile
     {
@@ -6848,7 +8487,10 @@ struct [[gnu::packed]] dma
      * Clear CH10_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH10_CTRL_TRIG_EN() volatile
     {
@@ -6859,7 +8501,10 @@ struct [[gnu::packed]] dma
      * Toggle CH10_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH10_CTRL_TRIG_EN() volatile
     {
@@ -6869,8 +8514,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH10_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6880,8 +8530,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH10_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6891,8 +8546,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH10_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH10_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6902,8 +8562,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH10_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH10_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -6913,7 +8578,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH10_CTRL_TRIG_DATA_SIZE get_CH10_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -6923,9 +8589,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH10_CTRL_TRIG_DATA_SIZE(DMA_CH10_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH10_CTRL_TRIG_DATA_SIZE(
+        DMA_CH10_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -6938,8 +8606,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH10_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6949,8 +8618,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH10_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6960,8 +8630,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH10_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH10_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6971,8 +8642,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH10_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH10_CTRL_TRIG_INCR_READ() volatile
     {
@@ -6982,8 +8654,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH10_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -6993,8 +8666,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH10_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7004,8 +8678,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH10_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH10_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7015,8 +8690,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH10_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH10_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7026,8 +8702,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH10_CTRL_TRIG_RING_SIZE get_CH10_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -7037,10 +8716,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH10_CTRL_TRIG_RING_SIZE(DMA_CH10_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH10_CTRL_TRIG_RING_SIZE(
+        DMA_CH10_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7054,7 +8737,8 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH10_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7065,7 +8749,8 @@ struct [[gnu::packed]] dma
      * Set CH10_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH10_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7076,7 +8761,8 @@ struct [[gnu::packed]] dma
      * Clear CH10_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH10_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7087,7 +8773,8 @@ struct [[gnu::packed]] dma
      * Toggle CH10_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH10_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7097,7 +8784,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH10_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -7107,7 +8795,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH10_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -7123,22 +8812,28 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH10_CTRL_TRIG_TREQ_SEL get_CH10_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH10_CTRL_TRIG_TREQ_SEL((CH10_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_CH10_CTRL_TRIG_TREQ_SEL((CH10_CTRL_TRIG >> 15u) &
+                                           0b111111u);
     }
 
     /**
      * Set CH10_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH10_CTRL_TRIG_TREQ_SEL(DMA_CH10_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH10_CTRL_TRIG_TREQ_SEL(
+        DMA_CH10_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7151,8 +8846,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH10_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7162,8 +8860,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH10_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7173,8 +8874,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH10_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH10_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7184,8 +8888,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH10_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH10_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7196,7 +8903,9 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH10_CTRL_TRIG_BSWAP() volatile
     {
@@ -7207,7 +8916,9 @@ struct [[gnu::packed]] dma
      * Set CH10_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH10_CTRL_TRIG_BSWAP() volatile
     {
@@ -7218,7 +8929,9 @@ struct [[gnu::packed]] dma
      * Clear CH10_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH10_CTRL_TRIG_BSWAP() volatile
     {
@@ -7229,7 +8942,9 @@ struct [[gnu::packed]] dma
      * Toggle CH10_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH10_CTRL_TRIG_BSWAP() volatile
     {
@@ -7239,8 +8954,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH10_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7250,8 +8968,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH10_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH10_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7261,8 +8982,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH10_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH10_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7272,8 +8996,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH10_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH10_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7283,8 +9010,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH10_CTRL_TRIG_BUSY() volatile
     {
@@ -7295,7 +9025,9 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH10_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7306,7 +9038,9 @@ struct [[gnu::packed]] dma
      * Set CH10_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH10_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7317,7 +9051,9 @@ struct [[gnu::packed]] dma
      * Clear CH10_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH10_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7328,7 +9064,9 @@ struct [[gnu::packed]] dma
      * Toggle CH10_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH10_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7339,7 +9077,9 @@ struct [[gnu::packed]] dma
      * Get CH10_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH10_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7350,7 +9090,9 @@ struct [[gnu::packed]] dma
      * Set CH10_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH10_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7361,7 +9103,9 @@ struct [[gnu::packed]] dma
      * Clear CH10_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH10_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7372,7 +9116,9 @@ struct [[gnu::packed]] dma
      * Toggle CH10_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH10_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7382,7 +9128,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH10_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH10_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -7394,7 +9142,13 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 10 Control and Status
      */
-    inline void get_CH10_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH10_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH10_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH10_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH10_CTRL_TRIG(
+        bool &EN, bool &HIGH_PRIORITY, DMA_CH10_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+        bool &INCR_READ, bool &INCR_WRITE,
+        DMA_CH10_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL,
+        uint8_t &CHAIN_TO, DMA_CH10_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+        bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
+        bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7421,7 +9175,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 10 Control and Status
      */
-    inline void set_CH10_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH10_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH10_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH10_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH10_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                   DMA_CH10_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                   bool INCR_READ, bool INCR_WRITE,
+                                   DMA_CH10_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                   bool RING_SEL, uint8_t CHAIN_TO,
+                                   DMA_CH10_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                   bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                   bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7461,7 +9222,10 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline bool get_CH11_CTRL_TRIG_EN() volatile
     {
@@ -7472,7 +9236,10 @@ struct [[gnu::packed]] dma
      * Set CH11_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void set_CH11_CTRL_TRIG_EN() volatile
     {
@@ -7483,7 +9250,10 @@ struct [[gnu::packed]] dma
      * Clear CH11_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void clear_CH11_CTRL_TRIG_EN() volatile
     {
@@ -7494,7 +9264,10 @@ struct [[gnu::packed]] dma
      * Toggle CH11_CTRL_TRIG's EN bit.
      *
      * DMA Channel Enable.\n
-     *                 When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
      */
     inline void toggle_CH11_CTRL_TRIG_EN() volatile
     {
@@ -7504,8 +9277,13 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline bool get_CH11_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -7515,8 +9293,13 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void set_CH11_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -7526,8 +9309,13 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH11_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void clear_CH11_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -7537,8 +9325,13 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH11_CTRL_TRIG's HIGH_PRIORITY bit.
      *
-     * HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.\n\n
-     *                 This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels.\n\n This only affects the order
+     * in which the DMA schedules channels. The DMA's bus priority is not
+     * changed. If the DMA is not saturated then a low priority channel will
+     * see no loss of throughput.
      */
     inline void toggle_CH11_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
@@ -7548,7 +9341,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
     inline DMA_CH11_CTRL_TRIG_DATA_SIZE get_CH11_CTRL_TRIG_DATA_SIZE() volatile
     {
@@ -7558,9 +9352,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's DATA_SIZE field.
      *
-     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH11_CTRL_TRIG_DATA_SIZE(DMA_CH11_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH11_CTRL_TRIG_DATA_SIZE(
+        DMA_CH11_CTRL_TRIG_DATA_SIZE value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7573,8 +9369,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline bool get_CH11_CTRL_TRIG_INCR_READ() volatile
     {
@@ -7584,8 +9381,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void set_CH11_CTRL_TRIG_INCR_READ() volatile
     {
@@ -7595,8 +9393,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH11_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void clear_CH11_CTRL_TRIG_INCR_READ() volatile
     {
@@ -7606,8 +9405,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH11_CTRL_TRIG's INCR_READ bit.
      *
-     * If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for peripheral-to-memory transfers.
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address.\n\n Generally this should be
+     * disabled for peripheral-to-memory transfers.
      */
     inline void toggle_CH11_CTRL_TRIG_INCR_READ() volatile
     {
@@ -7617,8 +9417,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline bool get_CH11_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7628,8 +9429,9 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void set_CH11_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7639,8 +9441,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH11_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void clear_CH11_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7650,8 +9453,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH11_CTRL_TRIG's INCR_WRITE bit.
      *
-     * If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.\n\n
-     *                 Generally this should be disabled for memory-to-peripheral transfers.
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address.\n\n Generally this should be
+     * disabled for memory-to-peripheral transfers.
      */
     inline void toggle_CH11_CTRL_TRIG_INCR_WRITE() volatile
     {
@@ -7661,8 +9465,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
     inline DMA_CH11_CTRL_TRIG_RING_SIZE get_CH11_CTRL_TRIG_RING_SIZE() volatile
     {
@@ -7672,10 +9479,14 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's RING_SIZE field.
      *
-     * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.\n\n
-     *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers.\n\n Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH11_CTRL_TRIG_RING_SIZE(DMA_CH11_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH11_CTRL_TRIG_RING_SIZE(
+        DMA_CH11_CTRL_TRIG_RING_SIZE value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7689,7 +9500,8 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline bool get_CH11_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7700,7 +9512,8 @@ struct [[gnu::packed]] dma
      * Set CH11_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void set_CH11_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7711,7 +9524,8 @@ struct [[gnu::packed]] dma
      * Clear CH11_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void clear_CH11_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7722,7 +9536,8 @@ struct [[gnu::packed]] dma
      * Toggle CH11_CTRL_TRIG's RING_SEL bit.
      *
      * Select whether RING_SIZE applies to read or write addresses.\n
-     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
      */
     inline void toggle_CH11_CTRL_TRIG_RING_SEL() volatile
     {
@@ -7732,7 +9547,8 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline uint8_t get_CH11_CTRL_TRIG_CHAIN_TO() volatile
     {
@@ -7742,7 +9558,8 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's CHAIN_TO field.
      *
-     * When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
     inline void set_CH11_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
@@ -7758,22 +9575,28 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
     inline DMA_CH11_CTRL_TRIG_TREQ_SEL get_CH11_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH11_CTRL_TRIG_TREQ_SEL((CH11_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_CH11_CTRL_TRIG_TREQ_SEL((CH11_CTRL_TRIG >> 15u) &
+                                           0b111111u);
     }
 
     /**
      * Set CH11_CTRL_TRIG's TREQ_SEL field.
      *
      * Select a Transfer Request signal.\n
-     *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).\n
-     *                 0x0 to 0x3a -> select DREQ n as TREQ
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system).\n 0x0 to 0x3a -> select
+     * DREQ n as TREQ
      */
-    inline void set_CH11_CTRL_TRIG_TREQ_SEL(DMA_CH11_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH11_CTRL_TRIG_TREQ_SEL(
+        DMA_CH11_CTRL_TRIG_TREQ_SEL value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7786,8 +9609,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline bool get_CH11_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7797,8 +9623,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void set_CH11_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7808,8 +9637,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH11_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void clear_CH11_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7819,8 +9651,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH11_CTRL_TRIG's IRQ_QUIET bit.
      *
-     * In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.\n\n
-     *                 This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain.\n\n This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
      */
     inline void toggle_CH11_CTRL_TRIG_IRQ_QUIET() volatile
     {
@@ -7831,7 +9666,9 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline bool get_CH11_CTRL_TRIG_BSWAP() volatile
     {
@@ -7842,7 +9679,9 @@ struct [[gnu::packed]] dma
      * Set CH11_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void set_CH11_CTRL_TRIG_BSWAP() volatile
     {
@@ -7853,7 +9692,9 @@ struct [[gnu::packed]] dma
      * Clear CH11_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void clear_CH11_CTRL_TRIG_BSWAP() volatile
     {
@@ -7864,7 +9705,9 @@ struct [[gnu::packed]] dma
      * Toggle CH11_CTRL_TRIG's BSWAP bit.
      *
      * Apply byte-swap transformation to DMA data.\n
-     *                 For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
      */
     inline void toggle_CH11_CTRL_TRIG_BSWAP() volatile
     {
@@ -7874,8 +9717,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline bool get_CH11_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7885,8 +9731,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CH11_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void set_CH11_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7896,8 +9745,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear CH11_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void clear_CH11_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7907,8 +9759,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle CH11_CTRL_TRIG's SNIFF_EN bit.
      *
-     * If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.\n\n
-     *                 This allows checksum to be enabled or disabled on a per-control- block basis.
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel
+     * selected.\n\n This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
      */
     inline void toggle_CH11_CTRL_TRIG_SNIFF_EN() volatile
     {
@@ -7918,8 +9773,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's BUSY bit.
      *
-     * This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.\n\n
-     *                 To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while
+     * paused.\n\n To terminate a sequence early (and clear the BUSY flag), see
+     * CHAN_ABORT.
      */
     inline bool get_CH11_CTRL_TRIG_BUSY() volatile
     {
@@ -7930,7 +9788,9 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline bool get_CH11_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7941,7 +9801,9 @@ struct [[gnu::packed]] dma
      * Set CH11_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void set_CH11_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7952,7 +9814,9 @@ struct [[gnu::packed]] dma
      * Clear CH11_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void clear_CH11_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7963,7 +9827,9 @@ struct [[gnu::packed]] dma
      * Toggle CH11_CTRL_TRIG's WRITE_ERROR bit.
      *
      * If 1, the channel received a write bus error. Write one to clear.\n
-     *                 WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
      */
     inline void toggle_CH11_CTRL_TRIG_WRITE_ERROR() volatile
     {
@@ -7974,7 +9840,9 @@ struct [[gnu::packed]] dma
      * Get CH11_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline bool get_CH11_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7985,7 +9853,9 @@ struct [[gnu::packed]] dma
      * Set CH11_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void set_CH11_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -7996,7 +9866,9 @@ struct [[gnu::packed]] dma
      * Clear CH11_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void clear_CH11_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -8007,7 +9879,9 @@ struct [[gnu::packed]] dma
      * Toggle CH11_CTRL_TRIG's READ_ERROR bit.
      *
      * If 1, the channel received a read bus error. Write one to clear.\n
-     *                 READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
      */
     inline void toggle_CH11_CTRL_TRIG_READ_ERROR() volatile
     {
@@ -8017,7 +9891,9 @@ struct [[gnu::packed]] dma
     /**
      * Get CH11_CTRL_TRIG's AHB_ERROR bit.
      *
-     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
      */
     inline bool get_CH11_CTRL_TRIG_AHB_ERROR() volatile
     {
@@ -8029,7 +9905,13 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 11 Control and Status
      */
-    inline void get_CH11_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH11_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH11_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH11_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH11_CTRL_TRIG(
+        bool &EN, bool &HIGH_PRIORITY, DMA_CH11_CTRL_TRIG_DATA_SIZE &DATA_SIZE,
+        bool &INCR_READ, bool &INCR_WRITE,
+        DMA_CH11_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL,
+        uint8_t &CHAIN_TO, DMA_CH11_CTRL_TRIG_TREQ_SEL &TREQ_SEL,
+        bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
+        bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -8056,7 +9938,14 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 11 Control and Status
      */
-    inline void set_CH11_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH11_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH11_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH11_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH11_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
+                                   DMA_CH11_CTRL_TRIG_DATA_SIZE DATA_SIZE,
+                                   bool INCR_READ, bool INCR_WRITE,
+                                   DMA_CH11_CTRL_TRIG_RING_SIZE RING_SIZE,
+                                   bool RING_SEL, uint8_t CHAIN_TO,
+                                   DMA_CH11_CTRL_TRIG_TREQ_SEL TREQ_SEL,
+                                   bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                                   bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -8095,10 +9984,15 @@ struct [[gnu::packed]] dma
     /**
      * Get INTR's INTR field.
      *
-     * Raw interrupt status for DMA Channels 0..15. Bit n corresponds to channel n. Ignores any masking or forcing. Channel interrupts can be cleared by writing a bit mask to INTR, INTS0 or INTS1.\n\n
-     *                 Channel interrupts can be routed to either of two system-level IRQs based on INTE0 and INTE1.\n\n
-     *                 This can be used vector different channel interrupts to different ISRs: this might be done to allow NVIC IRQ preemption for more time-critical channels, or to spread IRQ load across different cores.\n\n
-     *                 It is also valid to ignore this behaviour and just use INTE0/INTS0/IRQ 0.
+     * Raw interrupt status for DMA Channels 0..15. Bit n corresponds to
+     * channel n. Ignores any masking or forcing. Channel interrupts can be
+     * cleared by writing a bit mask to INTR, INTS0 or INTS1.\n\n Channel
+     * interrupts can be routed to either of two system-level IRQs based on
+     * INTE0 and INTE1.\n\n This can be used vector different channel
+     * interrupts to different ISRs: this might be done to allow NVIC IRQ
+     * preemption for more time-critical channels, or to spread IRQ load across
+     * different cores.\n\n It is also valid to ignore this behaviour and just
+     * use INTE0/INTS0/IRQ 0.
      */
     inline uint16_t get_INTR_INTR() volatile
     {
@@ -8108,10 +10002,15 @@ struct [[gnu::packed]] dma
     /**
      * Set INTR's INTR field.
      *
-     * Raw interrupt status for DMA Channels 0..15. Bit n corresponds to channel n. Ignores any masking or forcing. Channel interrupts can be cleared by writing a bit mask to INTR, INTS0 or INTS1.\n\n
-     *                 Channel interrupts can be routed to either of two system-level IRQs based on INTE0 and INTE1.\n\n
-     *                 This can be used vector different channel interrupts to different ISRs: this might be done to allow NVIC IRQ preemption for more time-critical channels, or to spread IRQ load across different cores.\n\n
-     *                 It is also valid to ignore this behaviour and just use INTE0/INTS0/IRQ 0.
+     * Raw interrupt status for DMA Channels 0..15. Bit n corresponds to
+     * channel n. Ignores any masking or forcing. Channel interrupts can be
+     * cleared by writing a bit mask to INTR, INTS0 or INTS1.\n\n Channel
+     * interrupts can be routed to either of two system-level IRQs based on
+     * INTE0 and INTE1.\n\n This can be used vector different channel
+     * interrupts to different ISRs: this might be done to allow NVIC IRQ
+     * preemption for more time-critical channels, or to spread IRQ load across
+     * different cores.\n\n It is also valid to ignore this behaviour and just
+     * use INTE0/INTS0/IRQ 0.
      */
     inline void set_INTR_INTR(uint16_t value) volatile
     {
@@ -8151,7 +10050,8 @@ struct [[gnu::packed]] dma
     /**
      * Get INTF0's INTF0 field.
      *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
+     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
+     * asserted until INTF0 is cleared.
      */
     inline uint16_t get_INTF0_INTF0() volatile
     {
@@ -8161,7 +10061,8 @@ struct [[gnu::packed]] dma
     /**
      * Set INTF0's INTF0 field.
      *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
+     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
+     * asserted until INTF0 is cleared.
      */
     inline void set_INTF0_INTF0(uint16_t value) volatile
     {
@@ -8176,8 +10077,9 @@ struct [[gnu::packed]] dma
     /**
      * Get INTS0's INTS0 field.
      *
-     * Indicates active channel interrupt requests which are currently causing IRQ 0 to be asserted.\n
-     *                 Channel interrupts can be cleared by writing a bit mask here.
+     * Indicates active channel interrupt requests which are currently causing
+     * IRQ 0 to be asserted.\n Channel interrupts can be cleared by writing a
+     * bit mask here.
      */
     inline uint16_t get_INTS0_INTS0() volatile
     {
@@ -8187,8 +10089,9 @@ struct [[gnu::packed]] dma
     /**
      * Set INTS0's INTS0 field.
      *
-     * Indicates active channel interrupt requests which are currently causing IRQ 0 to be asserted.\n
-     *                 Channel interrupts can be cleared by writing a bit mask here.
+     * Indicates active channel interrupt requests which are currently causing
+     * IRQ 0 to be asserted.\n Channel interrupts can be cleared by writing a
+     * bit mask here.
      */
     inline void set_INTS0_INTS0(uint16_t value) volatile
     {
@@ -8228,7 +10131,8 @@ struct [[gnu::packed]] dma
     /**
      * Get INTF1's INTF1 field.
      *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
+     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
+     * asserted until INTF0 is cleared.
      */
     inline uint16_t get_INTF1_INTF1() volatile
     {
@@ -8238,7 +10142,8 @@ struct [[gnu::packed]] dma
     /**
      * Set INTF1's INTF1 field.
      *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
+     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
+     * asserted until INTF0 is cleared.
      */
     inline void set_INTF1_INTF1(uint16_t value) volatile
     {
@@ -8253,8 +10158,9 @@ struct [[gnu::packed]] dma
     /**
      * Get INTS1's INTS1 field.
      *
-     * Indicates active channel interrupt requests which are currently causing IRQ 1 to be asserted.\n
-     *                 Channel interrupts can be cleared by writing a bit mask here.
+     * Indicates active channel interrupt requests which are currently causing
+     * IRQ 1 to be asserted.\n Channel interrupts can be cleared by writing a
+     * bit mask here.
      */
     inline uint16_t get_INTS1_INTS1() volatile
     {
@@ -8264,8 +10170,9 @@ struct [[gnu::packed]] dma
     /**
      * Set INTS1's INTS1 field.
      *
-     * Indicates active channel interrupt requests which are currently causing IRQ 1 to be asserted.\n
-     *                 Channel interrupts can be cleared by writing a bit mask here.
+     * Indicates active channel interrupt requests which are currently causing
+     * IRQ 1 to be asserted.\n Channel interrupts can be cleared by writing a
+     * bit mask here.
      */
     inline void set_INTS1_INTS1(uint16_t value) volatile
     {
@@ -8280,7 +10187,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER0's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER0_Y() volatile
     {
@@ -8290,7 +10198,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER0's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER0_Y(uint16_t value) volatile
     {
@@ -8305,7 +10214,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER0's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER0_X() volatile
     {
@@ -8315,7 +10225,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER0's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER0_X(uint16_t value) volatile
     {
@@ -8331,7 +10242,10 @@ struct [[gnu::packed]] dma
      * Get all of TIMER0's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void get_TIMER0(uint16_t &Y, uint16_t &X) volatile
     {
@@ -8345,7 +10259,10 @@ struct [[gnu::packed]] dma
      * Set all of TIMER0's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void set_TIMER0(uint16_t Y, uint16_t X) volatile
     {
@@ -8362,7 +10279,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER1's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER1_Y() volatile
     {
@@ -8372,7 +10290,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER1's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER1_Y(uint16_t value) volatile
     {
@@ -8387,7 +10306,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER1's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER1_X() volatile
     {
@@ -8397,7 +10317,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER1's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER1_X(uint16_t value) volatile
     {
@@ -8413,7 +10334,10 @@ struct [[gnu::packed]] dma
      * Get all of TIMER1's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void get_TIMER1(uint16_t &Y, uint16_t &X) volatile
     {
@@ -8427,7 +10351,10 @@ struct [[gnu::packed]] dma
      * Set all of TIMER1's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void set_TIMER1(uint16_t Y, uint16_t X) volatile
     {
@@ -8444,7 +10371,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER2's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER2_Y() volatile
     {
@@ -8454,7 +10382,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER2's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER2_Y(uint16_t value) volatile
     {
@@ -8469,7 +10398,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER2's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER2_X() volatile
     {
@@ -8479,7 +10409,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER2's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER2_X(uint16_t value) volatile
     {
@@ -8495,7 +10426,10 @@ struct [[gnu::packed]] dma
      * Get all of TIMER2's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void get_TIMER2(uint16_t &Y, uint16_t &X) volatile
     {
@@ -8509,7 +10443,10 @@ struct [[gnu::packed]] dma
      * Set all of TIMER2's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void set_TIMER2(uint16_t Y, uint16_t X) volatile
     {
@@ -8526,7 +10463,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER3's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER3_Y() volatile
     {
@@ -8536,7 +10474,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER3's Y field.
      *
-     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional timer.
+     * Pacing Timer Divisor. Specifies the Y value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER3_Y(uint16_t value) volatile
     {
@@ -8551,7 +10490,8 @@ struct [[gnu::packed]] dma
     /**
      * Get TIMER3's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline uint16_t get_TIMER3_X() volatile
     {
@@ -8561,7 +10501,8 @@ struct [[gnu::packed]] dma
     /**
      * Set TIMER3's X field.
      *
-     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional timer.
+     * Pacing Timer Dividend. Specifies the X value for the (X/Y) fractional
+     * timer.
      */
     inline void set_TIMER3_X(uint16_t value) volatile
     {
@@ -8577,7 +10518,10 @@ struct [[gnu::packed]] dma
      * Get all of TIMER3's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void get_TIMER3(uint16_t &Y, uint16_t &X) volatile
     {
@@ -8591,7 +10535,10 @@ struct [[gnu::packed]] dma
      * Set all of TIMER3's bit fields.
      *
      * (read-write) Pacing (X/Y) Fractional Timer\n
-     *             The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and therefore can only generate TREQs at a rate of 1 per sys_clk (i.e. permanent TREQ) or less.
+     *             The pacing timer produces TREQ assertions at a rate set by
+     * ((X/Y) * sys_clk). This equation is evaluated every sys_clk cycles and
+     * therefore can only generate TREQs at a rate of 1 per sys_clk (i.e.
+     * permanent TREQ) or less.
      */
     inline void set_TIMER3(uint16_t Y, uint16_t X) volatile
     {
@@ -8608,7 +10555,10 @@ struct [[gnu::packed]] dma
     /**
      * Get MULTI_CHAN_TRIGGER's MULTI_CHAN_TRIGGER field.
      *
-     * Each bit in this register corresponds to a DMA channel. Writing a 1 to the relevant bit is the same as writing to that channel's trigger register; the channel will start if it is currently enabled and not already busy.
+     * Each bit in this register corresponds to a DMA channel. Writing a 1 to
+     * the relevant bit is the same as writing to that channel's trigger
+     * register; the channel will start if it is currently enabled and not
+     * already busy.
      */
     inline uint16_t get_MULTI_CHAN_TRIGGER_MULTI_CHAN_TRIGGER() volatile
     {
@@ -8618,9 +10568,13 @@ struct [[gnu::packed]] dma
     /**
      * Set MULTI_CHAN_TRIGGER's MULTI_CHAN_TRIGGER field.
      *
-     * Each bit in this register corresponds to a DMA channel. Writing a 1 to the relevant bit is the same as writing to that channel's trigger register; the channel will start if it is currently enabled and not already busy.
+     * Each bit in this register corresponds to a DMA channel. Writing a 1 to
+     * the relevant bit is the same as writing to that channel's trigger
+     * register; the channel will start if it is currently enabled and not
+     * already busy.
      */
-    inline void set_MULTI_CHAN_TRIGGER_MULTI_CHAN_TRIGGER(uint16_t value) volatile
+    inline void set_MULTI_CHAN_TRIGGER_MULTI_CHAN_TRIGGER(
+        uint16_t value) volatile
     {
         uint32_t curr = MULTI_CHAN_TRIGGER;
 
@@ -8719,8 +10673,11 @@ struct [[gnu::packed]] dma
     /**
      * Get SNIFF_CTRL's BSWAP bit.
      *
-     * Locally perform a byte reverse on the sniffed data, before feeding into checksum.\n\n
-     *                 Note that the sniff hardware is downstream of the DMA channel byteswap performed in the read master: if channel CTRL_BSWAP and SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the sniffer's point of view.
+     * Locally perform a byte reverse on the sniffed data, before feeding into
+     * checksum.\n\n Note that the sniff hardware is downstream of the DMA
+     * channel byteswap performed in the read master: if channel CTRL_BSWAP and
+     * SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the
+     * sniffer's point of view.
      */
     inline bool get_SNIFF_CTRL_BSWAP() volatile
     {
@@ -8730,8 +10687,11 @@ struct [[gnu::packed]] dma
     /**
      * Set SNIFF_CTRL's BSWAP bit.
      *
-     * Locally perform a byte reverse on the sniffed data, before feeding into checksum.\n\n
-     *                 Note that the sniff hardware is downstream of the DMA channel byteswap performed in the read master: if channel CTRL_BSWAP and SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the sniffer's point of view.
+     * Locally perform a byte reverse on the sniffed data, before feeding into
+     * checksum.\n\n Note that the sniff hardware is downstream of the DMA
+     * channel byteswap performed in the read master: if channel CTRL_BSWAP and
+     * SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the
+     * sniffer's point of view.
      */
     inline void set_SNIFF_CTRL_BSWAP() volatile
     {
@@ -8741,8 +10701,11 @@ struct [[gnu::packed]] dma
     /**
      * Clear SNIFF_CTRL's BSWAP bit.
      *
-     * Locally perform a byte reverse on the sniffed data, before feeding into checksum.\n\n
-     *                 Note that the sniff hardware is downstream of the DMA channel byteswap performed in the read master: if channel CTRL_BSWAP and SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the sniffer's point of view.
+     * Locally perform a byte reverse on the sniffed data, before feeding into
+     * checksum.\n\n Note that the sniff hardware is downstream of the DMA
+     * channel byteswap performed in the read master: if channel CTRL_BSWAP and
+     * SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the
+     * sniffer's point of view.
      */
     inline void clear_SNIFF_CTRL_BSWAP() volatile
     {
@@ -8752,8 +10715,11 @@ struct [[gnu::packed]] dma
     /**
      * Toggle SNIFF_CTRL's BSWAP bit.
      *
-     * Locally perform a byte reverse on the sniffed data, before feeding into checksum.\n\n
-     *                 Note that the sniff hardware is downstream of the DMA channel byteswap performed in the read master: if channel CTRL_BSWAP and SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the sniffer's point of view.
+     * Locally perform a byte reverse on the sniffed data, before feeding into
+     * checksum.\n\n Note that the sniff hardware is downstream of the DMA
+     * channel byteswap performed in the read master: if channel CTRL_BSWAP and
+     * SNIFF_CTRL_BSWAP are both enabled, their effects cancel from the
+     * sniffer's point of view.
      */
     inline void toggle_SNIFF_CTRL_BSWAP() volatile
     {
@@ -8763,7 +10729,9 @@ struct [[gnu::packed]] dma
     /**
      * Get SNIFF_CTRL's OUT_REV bit.
      *
-     * If set, the result appears bit-reversed when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears bit-reversed when read. This does not affect
+     * the way the checksum is calculated; the result is transformed on-the-fly
+     * between the result register and the bus.
      */
     inline bool get_SNIFF_CTRL_OUT_REV() volatile
     {
@@ -8773,7 +10741,9 @@ struct [[gnu::packed]] dma
     /**
      * Set SNIFF_CTRL's OUT_REV bit.
      *
-     * If set, the result appears bit-reversed when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears bit-reversed when read. This does not affect
+     * the way the checksum is calculated; the result is transformed on-the-fly
+     * between the result register and the bus.
      */
     inline void set_SNIFF_CTRL_OUT_REV() volatile
     {
@@ -8783,7 +10753,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear SNIFF_CTRL's OUT_REV bit.
      *
-     * If set, the result appears bit-reversed when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears bit-reversed when read. This does not affect
+     * the way the checksum is calculated; the result is transformed on-the-fly
+     * between the result register and the bus.
      */
     inline void clear_SNIFF_CTRL_OUT_REV() volatile
     {
@@ -8793,7 +10765,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle SNIFF_CTRL's OUT_REV bit.
      *
-     * If set, the result appears bit-reversed when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears bit-reversed when read. This does not affect
+     * the way the checksum is calculated; the result is transformed on-the-fly
+     * between the result register and the bus.
      */
     inline void toggle_SNIFF_CTRL_OUT_REV() volatile
     {
@@ -8803,7 +10777,9 @@ struct [[gnu::packed]] dma
     /**
      * Get SNIFF_CTRL's OUT_INV bit.
      *
-     * If set, the result appears inverted (bitwise complement) when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears inverted (bitwise complement) when read. This
+     * does not affect the way the checksum is calculated; the result is
+     * transformed on-the-fly between the result register and the bus.
      */
     inline bool get_SNIFF_CTRL_OUT_INV() volatile
     {
@@ -8813,7 +10789,9 @@ struct [[gnu::packed]] dma
     /**
      * Set SNIFF_CTRL's OUT_INV bit.
      *
-     * If set, the result appears inverted (bitwise complement) when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears inverted (bitwise complement) when read. This
+     * does not affect the way the checksum is calculated; the result is
+     * transformed on-the-fly between the result register and the bus.
      */
     inline void set_SNIFF_CTRL_OUT_INV() volatile
     {
@@ -8823,7 +10801,9 @@ struct [[gnu::packed]] dma
     /**
      * Clear SNIFF_CTRL's OUT_INV bit.
      *
-     * If set, the result appears inverted (bitwise complement) when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears inverted (bitwise complement) when read. This
+     * does not affect the way the checksum is calculated; the result is
+     * transformed on-the-fly between the result register and the bus.
      */
     inline void clear_SNIFF_CTRL_OUT_INV() volatile
     {
@@ -8833,7 +10813,9 @@ struct [[gnu::packed]] dma
     /**
      * Toggle SNIFF_CTRL's OUT_INV bit.
      *
-     * If set, the result appears inverted (bitwise complement) when read. This does not affect the way the checksum is calculated; the result is transformed on-the-fly between the result register and the bus.
+     * If set, the result appears inverted (bitwise complement) when read. This
+     * does not affect the way the checksum is calculated; the result is
+     * transformed on-the-fly between the result register and the bus.
      */
     inline void toggle_SNIFF_CTRL_OUT_INV() volatile
     {
@@ -8845,7 +10827,9 @@ struct [[gnu::packed]] dma
      *
      * (read-write) Sniffer Control
      */
-    inline void get_SNIFF_CTRL(bool &EN, uint8_t &DMACH, DMA_SNIFF_CTRL_CALC &CALC, bool &BSWAP, bool &OUT_REV, bool &OUT_INV) volatile
+    inline void get_SNIFF_CTRL(bool &EN, uint8_t &DMACH,
+                               DMA_SNIFF_CTRL_CALC &CALC, bool &BSWAP,
+                               bool &OUT_REV, bool &OUT_INV) volatile
     {
         uint32_t curr = SNIFF_CTRL;
 
@@ -8862,7 +10846,9 @@ struct [[gnu::packed]] dma
      *
      * (read-write) Sniffer Control
      */
-    inline void set_SNIFF_CTRL(bool EN, uint8_t DMACH, DMA_SNIFF_CTRL_CALC CALC, bool BSWAP, bool OUT_REV, bool OUT_INV) volatile
+    inline void set_SNIFF_CTRL(bool EN, uint8_t DMACH,
+                               DMA_SNIFF_CTRL_CALC CALC, bool BSWAP,
+                               bool OUT_REV, bool OUT_INV) volatile
     {
         uint32_t curr = SNIFF_CTRL;
 
@@ -8917,7 +10903,8 @@ struct [[gnu::packed]] dma
      *
      * (read-only) Debug RAF, WAF, TDF levels
      */
-    inline void get_FIFO_LEVELS(uint8_t &TDF_LVL, uint8_t &WAF_LVL, uint8_t &RAF_LVL) volatile
+    inline void get_FIFO_LEVELS(uint8_t &TDF_LVL, uint8_t &WAF_LVL,
+                                uint8_t &RAF_LVL) volatile
     {
         uint32_t curr = FIFO_LEVELS;
 
@@ -8929,8 +10916,11 @@ struct [[gnu::packed]] dma
     /**
      * Get CHAN_ABORT's CHAN_ABORT field.
      *
-     * Each bit corresponds to a channel. Writing a 1 aborts whatever transfer sequence is in progress on that channel. The bit will remain high until any in-flight transfers have been flushed through the address and data FIFOs.\n\n
-     *                 After writing, this register must be polled until it returns all-zero. Until this point, it is unsafe to restart the channel.
+     * Each bit corresponds to a channel. Writing a 1 aborts whatever transfer
+     * sequence is in progress on that channel. The bit will remain high until
+     * any in-flight transfers have been flushed through the address and data
+     * FIFOs.\n\n After writing, this register must be polled until it returns
+     * all-zero. Until this point, it is unsafe to restart the channel.
      */
     inline uint16_t get_CHAN_ABORT_CHAN_ABORT() volatile
     {
@@ -8940,8 +10930,11 @@ struct [[gnu::packed]] dma
     /**
      * Set CHAN_ABORT's CHAN_ABORT field.
      *
-     * Each bit corresponds to a channel. Writing a 1 aborts whatever transfer sequence is in progress on that channel. The bit will remain high until any in-flight transfers have been flushed through the address and data FIFOs.\n\n
-     *                 After writing, this register must be polled until it returns all-zero. Until this point, it is unsafe to restart the channel.
+     * Each bit corresponds to a channel. Writing a 1 aborts whatever transfer
+     * sequence is in progress on that channel. The bit will remain high until
+     * any in-flight transfers have been flushed through the address and data
+     * FIFOs.\n\n After writing, this register must be polled until it returns
+     * all-zero. Until this point, it is unsafe to restart the channel.
      */
     inline void set_CHAN_ABORT_CHAN_ABORT(uint16_t value) volatile
     {

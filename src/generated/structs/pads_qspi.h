@@ -26,7 +26,8 @@ struct [[gnu::packed]] pads_qspi
     static constexpr std::size_t size = 28; /*!< pads_qspi's size in bytes. */
 
     /* Fields. */
-    uint32_t VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
+    uint32_t
+        VOLTAGE_SELECT; /*!< (read-write) Voltage select. Per bank control */
     uint32_t GPIO_QSPI_SCLK; /*!< (read-write) Pad control register */
     uint32_t GPIO_QSPI_SD0;  /*!< (read-write) Pad control register */
     uint32_t GPIO_QSPI_SD1;  /*!< (read-write) Pad control register */
@@ -39,9 +40,11 @@ struct [[gnu::packed]] pads_qspi
     /**
      * Get VOLTAGE_SELECT's VOLTAGE_SELECT bit.
      */
-    inline PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT get_VOLTAGE_SELECT_VOLTAGE_SELECT() volatile
+    inline PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT
+    get_VOLTAGE_SELECT_VOLTAGE_SELECT() volatile
     {
-        return PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT & (1u << 0u));
+        return PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT &
+                                                       (1u << 0u));
     }
 
     /**
@@ -243,7 +246,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SCLK_DRIVE(PADS_QSPI_GPIO_QSPI_SCLK_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SCLK_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SCLK_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK;
 
@@ -338,7 +342,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SCLK(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SCLK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SCLK(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                   bool &PUE,
+                                   PADS_QSPI_GPIO_QSPI_SCLK_DRIVE &DRIVE,
+                                   bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK;
 
@@ -356,7 +363,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SCLK(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SCLK_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SCLK(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                   bool PUE,
+                                   PADS_QSPI_GPIO_QSPI_SCLK_DRIVE DRIVE,
+                                   bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SCLK;
 
@@ -553,7 +563,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SD0_DRIVE(PADS_QSPI_GPIO_QSPI_SD0_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SD0_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SD0_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0;
 
@@ -648,7 +659,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SD0(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SD0_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SD0(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                  bool &PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD0_DRIVE &DRIVE,
+                                  bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0;
 
@@ -666,7 +680,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SD0(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SD0_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SD0(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                  bool PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD0_DRIVE DRIVE, bool IE,
+                                  bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD0;
 
@@ -863,7 +880,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SD1_DRIVE(PADS_QSPI_GPIO_QSPI_SD1_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SD1_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SD1_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1;
 
@@ -958,7 +976,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SD1(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SD1_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SD1(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                  bool &PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD1_DRIVE &DRIVE,
+                                  bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1;
 
@@ -976,7 +997,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SD1(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SD1_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SD1(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                  bool PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD1_DRIVE DRIVE, bool IE,
+                                  bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD1;
 
@@ -1173,7 +1197,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SD2_DRIVE(PADS_QSPI_GPIO_QSPI_SD2_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SD2_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SD2_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2;
 
@@ -1268,7 +1293,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SD2(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SD2_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SD2(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                  bool &PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD2_DRIVE &DRIVE,
+                                  bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2;
 
@@ -1286,7 +1314,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SD2(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SD2_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SD2(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                  bool PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD2_DRIVE DRIVE, bool IE,
+                                  bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD2;
 
@@ -1483,7 +1514,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SD3_DRIVE(PADS_QSPI_GPIO_QSPI_SD3_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SD3_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SD3_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3;
 
@@ -1578,7 +1610,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SD3(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SD3_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SD3(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                  bool &PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD3_DRIVE &DRIVE,
+                                  bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3;
 
@@ -1596,7 +1631,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SD3(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SD3_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SD3(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                  bool PUE,
+                                  PADS_QSPI_GPIO_QSPI_SD3_DRIVE DRIVE, bool IE,
+                                  bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SD3;
 
@@ -1793,7 +1831,8 @@ struct [[gnu::packed]] pads_qspi
      *
      * Drive strength.
      */
-    inline void set_GPIO_QSPI_SS_DRIVE(PADS_QSPI_GPIO_QSPI_SS_DRIVE value) volatile
+    inline void set_GPIO_QSPI_SS_DRIVE(
+        PADS_QSPI_GPIO_QSPI_SS_DRIVE value) volatile
     {
         uint32_t curr = GPIO_QSPI_SS;
 
@@ -1888,7 +1927,10 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO_QSPI_SS(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_QSPI_GPIO_QSPI_SS_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO_QSPI_SS(bool &SLEWFAST, bool &SCHMITT, bool &PDE,
+                                 bool &PUE,
+                                 PADS_QSPI_GPIO_QSPI_SS_DRIVE &DRIVE, bool &IE,
+                                 bool &OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SS;
 
@@ -1906,7 +1948,9 @@ struct [[gnu::packed]] pads_qspi
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO_QSPI_SS(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_QSPI_GPIO_QSPI_SS_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO_QSPI_SS(bool SLEWFAST, bool SCHMITT, bool PDE,
+                                 bool PUE, PADS_QSPI_GPIO_QSPI_SS_DRIVE DRIVE,
+                                 bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO_QSPI_SS;
 
@@ -1932,7 +1976,8 @@ struct [[gnu::packed]] pads_qspi
 static_assert(sizeof(pads_qspi) == pads_qspi::size);
 static_assert(ifgen_struct<pads_qspi>);
 
-static volatile pads_qspi *const PADS_QSPI = reinterpret_cast<pads_qspi *>(0x40020000);
+static volatile pads_qspi *const PADS_QSPI =
+    reinterpret_cast<pads_qspi *>(0x40020000);
 
 }; // namespace RP2040
 

@@ -52,7 +52,8 @@ inline const char *to_string(IO_BANK0_GPIO19_CTRL_INOVER instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, IO_BANK0_GPIO19_CTRL_INOVER instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                IO_BANK0_GPIO19_CTRL_INOVER instance)
 {
     stream << to_string(instance);
     return stream;

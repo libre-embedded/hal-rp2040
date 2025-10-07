@@ -52,7 +52,8 @@ inline const char *to_string(ROSC_CTRL_FREQ_RANGE instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, ROSC_CTRL_FREQ_RANGE instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                ROSC_CTRL_FREQ_RANGE instance)
 {
     stream << to_string(instance);
     return stream;

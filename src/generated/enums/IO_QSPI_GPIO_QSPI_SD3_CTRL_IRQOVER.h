@@ -52,7 +52,8 @@ inline const char *to_string(IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER instance)
     return result;
 }
 
-inline std::ostream &operator<<(std::ostream &stream, IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER instance)
+inline std::ostream &operator<<(std::ostream &stream,
+                                IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER instance)
 {
     stream << to_string(instance);
     return stream;
@@ -65,7 +66,8 @@ inline std::ostream &operator<<(std::ostream &stream, IO_QSPI_GPIO_QSPI_SD3_CTRL
  * \param[out] output The enumeration element to write.
  * \return            Whether or not the output was written.
  */
-inline bool from_string(const char *data, IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER &output)
+inline bool from_string(const char *data,
+                        IO_QSPI_GPIO_QSPI_SD3_CTRL_IRQOVER &output)
 {
     bool result = false;
 
