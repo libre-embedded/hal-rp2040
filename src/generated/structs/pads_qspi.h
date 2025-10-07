@@ -13,7 +13,6 @@
 #include "../enums/PADS_QSPI_GPIO_QSPI_SD2_DRIVE.h"
 #include "../enums/PADS_QSPI_GPIO_QSPI_SD3_DRIVE.h"
 #include "../enums/PADS_QSPI_GPIO_QSPI_SS_DRIVE.h"
-#include "../enums/PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -39,9 +38,9 @@ struct [[gnu::packed]] pads_qspi
     /**
      * Get VOLTAGE_SELECT's VOLTAGE_SELECT bit.
      */
-    inline PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT get_VOLTAGE_SELECT_VOLTAGE_SELECT() volatile
+    inline bool get_VOLTAGE_SELECT_VOLTAGE_SELECT() volatile
     {
-        return PADS_QSPI_VOLTAGE_SELECT_VOLTAGE_SELECT(VOLTAGE_SELECT & (1u << 0u));
+        return VOLTAGE_SELECT & (1u << 0u);
     }
 
     /**

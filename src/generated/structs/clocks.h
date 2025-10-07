@@ -17,7 +17,6 @@
 #include "../enums/CLOCKS_CLK_REF_CTRL_SRC.h"
 #include "../enums/CLOCKS_CLK_RTC_CTRL_AUXSRC.h"
 #include "../enums/CLOCKS_CLK_SYS_CTRL_AUXSRC.h"
-#include "../enums/CLOCKS_CLK_SYS_CTRL_SRC.h"
 #include "../enums/CLOCKS_CLK_USB_CTRL_AUXSRC.h"
 #include "../enums/CLOCKS_FC0_SRC_FC0_SRC.h"
 #include "../ifgen/common.h"
@@ -1560,9 +1559,9 @@ struct [[gnu::packed]] clocks
      *
      * Selects the clock source glitchlessly, can be changed on-the-fly
      */
-    inline CLOCKS_CLK_SYS_CTRL_SRC get_CLK_SYS_CTRL_SRC() volatile
+    inline bool get_CLK_SYS_CTRL_SRC() volatile
     {
-        return CLOCKS_CLK_SYS_CTRL_SRC(CLK_SYS_CTRL & (1u << 0u));
+        return CLK_SYS_CTRL & (1u << 0u);
     }
 
     /**
@@ -1625,11 +1624,11 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
      */
-    inline void get_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC &SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC &AUXSRC) volatile
+    inline void get_CLK_SYS_CTRL(bool &SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC &AUXSRC) volatile
     {
         uint32_t curr = CLK_SYS_CTRL;
 
-        SRC = CLOCKS_CLK_SYS_CTRL_SRC(curr & (1u << 0u));
+        SRC = curr & (1u << 0u);
         AUXSRC = CLOCKS_CLK_SYS_CTRL_AUXSRC((curr >> 5u) & 0b111u);
     }
 
@@ -1638,12 +1637,12 @@ struct [[gnu::packed]] clocks
      *
      * (read-write) Clock control, can be changed on-the-fly (except for auxsrc)
      */
-    inline void set_CLK_SYS_CTRL(CLOCKS_CLK_SYS_CTRL_SRC SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC AUXSRC) volatile
+    inline void set_CLK_SYS_CTRL(bool SRC, CLOCKS_CLK_SYS_CTRL_AUXSRC AUXSRC) volatile
     {
         uint32_t curr = CLK_SYS_CTRL;
 
         curr &= ~(0b1u << 0u);
-        curr |= (std::to_underlying(SRC) & 0b1u) << 0u;
+        curr |= (SRC & 0b1u) << 0u;
         curr &= ~(0b111u << 5u);
         curr |= (std::to_underlying(AUXSRC) & 0b111u) << 5u;
 

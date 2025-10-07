@@ -82,25 +82,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO0_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO0_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO0_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO0_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO1_STATUS
         type: uint32_t
         expected_size: 4
@@ -178,25 +178,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO1_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO1_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO1_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO1_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO2_STATUS
         type: uint32_t
         expected_size: 4
@@ -274,25 +274,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO2_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO2_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO2_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO2_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO3_STATUS
         type: uint32_t
         expected_size: 4
@@ -370,25 +370,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO3_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO3_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO3_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO3_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO4_STATUS
         type: uint32_t
         expected_size: 4
@@ -466,25 +466,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO4_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO4_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO4_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO4_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO5_STATUS
         type: uint32_t
         expected_size: 4
@@ -562,25 +562,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO5_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO5_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO5_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO5_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO6_STATUS
         type: uint32_t
         expected_size: 4
@@ -658,25 +658,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO6_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO6_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO6_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO6_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO7_STATUS
         type: uint32_t
         expected_size: 4
@@ -754,25 +754,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO7_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO7_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO7_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO7_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO8_STATUS
         type: uint32_t
         expected_size: 4
@@ -850,25 +850,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO8_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO8_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO8_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO8_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO9_STATUS
         type: uint32_t
         expected_size: 4
@@ -946,25 +946,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO9_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO9_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO9_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO9_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO10_STATUS
         type: uint32_t
         expected_size: 4
@@ -1042,25 +1042,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO10_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO10_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO10_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO10_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO11_STATUS
         type: uint32_t
         expected_size: 4
@@ -1138,25 +1138,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO11_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO11_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO11_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO11_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO12_STATUS
         type: uint32_t
         expected_size: 4
@@ -1234,25 +1234,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO12_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO12_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO12_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO12_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO13_STATUS
         type: uint32_t
         expected_size: 4
@@ -1330,25 +1330,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO13_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO13_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO13_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO13_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO14_STATUS
         type: uint32_t
         expected_size: 4
@@ -1426,25 +1426,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO14_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO14_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO14_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO14_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO15_STATUS
         type: uint32_t
         expected_size: 4
@@ -1522,25 +1522,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO15_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO15_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO15_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO15_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO16_STATUS
         type: uint32_t
         expected_size: 4
@@ -1618,25 +1618,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO16_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO16_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO16_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO16_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO17_STATUS
         type: uint32_t
         expected_size: 4
@@ -1714,25 +1714,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO17_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO17_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO17_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO17_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO18_STATUS
         type: uint32_t
         expected_size: 4
@@ -1810,25 +1810,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO18_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO18_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO18_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO18_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO19_STATUS
         type: uint32_t
         expected_size: 4
@@ -1906,25 +1906,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO19_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO19_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO19_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO19_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO20_STATUS
         type: uint32_t
         expected_size: 4
@@ -2002,25 +2002,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO20_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO20_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO20_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO20_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO21_STATUS
         type: uint32_t
         expected_size: 4
@@ -2098,25 +2098,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO21_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO21_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO21_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO21_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO22_STATUS
         type: uint32_t
         expected_size: 4
@@ -2194,25 +2194,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO22_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO22_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO22_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO22_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO23_STATUS
         type: uint32_t
         expected_size: 4
@@ -2290,25 +2290,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO23_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO23_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO23_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO23_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO24_STATUS
         type: uint32_t
         expected_size: 4
@@ -2386,25 +2386,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO24_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO24_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO24_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO24_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO25_STATUS
         type: uint32_t
         expected_size: 4
@@ -2482,25 +2482,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO25_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO25_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO25_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO25_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO26_STATUS
         type: uint32_t
         expected_size: 4
@@ -2578,25 +2578,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO26_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO26_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO26_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO26_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO27_STATUS
         type: uint32_t
         expected_size: 4
@@ -2674,25 +2674,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO27_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO27_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO27_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO27_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO28_STATUS
         type: uint32_t
         expected_size: 4
@@ -2770,25 +2770,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO28_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO28_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO28_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO28_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: GPIO29_STATUS
         type: uint32_t
         expected_size: 4
@@ -2866,25 +2866,25 @@ structs:
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO29_CTRL_OUTOVER
+            type: IO_BANK_CTRL_OVER
           - name: OEOVER
             index: 12
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO29_CTRL_OEOVER
+            type: IO_BANK_CTRL_OEOVER
           - name: INOVER
             index: 16
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO29_CTRL_INOVER
+            type: IO_BANK_CTRL_OVER
           - name: IRQOVER
             index: 28
             width: 2
             read: true
             write: true
-            type: IO_BANK_GPIO29_CTRL_IRQOVER
+            type: IO_BANK_CTRL_OVER
       - name: INTR0
         type: uint32_t
         expected_size: 4
@@ -9176,81 +9176,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO0_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO0_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO0_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO0_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO1_CTRL_FUNCSEL:
     enum:
       jtag_tms:
@@ -9273,81 +9198,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO1_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO1_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO1_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO1_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -9378,81 +9228,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO2_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO2_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO2_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO2_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO3_CTRL_FUNCSEL:
     enum:
       jtag_tdo:
@@ -9475,81 +9250,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO3_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO3_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO3_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO3_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -9578,81 +9278,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO4_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO4_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO4_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO4_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO5_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -9673,81 +9298,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO5_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO5_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO5_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO5_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -9778,81 +9328,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO6_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO6_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO6_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO6_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO7_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -9875,81 +9350,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO7_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO7_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO7_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO7_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -9980,81 +9380,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO8_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO8_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO8_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO8_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO9_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -10077,81 +9402,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO9_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO9_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO9_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO9_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -10182,81 +9432,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO10_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO10_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO10_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO10_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO11_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -10279,81 +9454,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO11_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO11_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO11_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO11_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -10384,81 +9484,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO12_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO12_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO12_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO12_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO13_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -10481,81 +9506,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO13_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO13_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO13_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO13_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -10586,81 +9536,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO14_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO14_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO14_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO14_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO15_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -10683,81 +9558,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO15_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO15_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO15_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO15_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -10788,81 +9588,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO16_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO16_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO16_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO16_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO17_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -10883,81 +9608,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO17_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO17_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO17_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO17_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -10986,81 +9636,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO18_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO18_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO18_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO18_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO19_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -11081,81 +9656,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO19_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO19_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO19_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO19_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -11186,81 +9686,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO20_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO20_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO20_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO20_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO21_CTRL_FUNCSEL:
     enum:
       spi0_ss_n:
@@ -11283,81 +9708,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO21_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO21_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO21_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO21_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -11388,81 +9738,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO22_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO22_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO22_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO22_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO23_CTRL_FUNCSEL:
     enum:
       spi0_tx:
@@ -11485,81 +9760,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO23_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO23_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO23_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO23_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -11590,81 +9790,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO24_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO24_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO24_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO24_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO25_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -11687,81 +9812,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO25_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO25_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO25_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO25_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -11790,81 +9840,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO26_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO26_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO26_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO26_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO27_CTRL_FUNCSEL:
     enum:
       spi1_tx:
@@ -11885,81 +9860,6 @@ enums:
         value: 9
       null_:
         value: 31
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO27_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO27_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO27_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO27_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
     unit_test: false
     json: false
     use_map: false
@@ -11988,81 +9888,6 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO28_CTRL_OUTOVER:
-    enum:
-      NORMAL:
-        description: drive output from peripheral signal selected by funcsel
-        value: 0
-      INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
-        value: 1
-      LOW:
-        description: drive output low
-        value: 2
-      HIGH:
-        description: drive output high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO28_CTRL_OEOVER:
-    enum:
-      NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
-        value: 0
-      INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
-        value: 1
-      DISABLE:
-        description: disable output
-        value: 2
-      ENABLE:
-        description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO28_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO28_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
   IO_BANK_GPIO29_CTRL_FUNCSEL:
     enum:
       spi1_ss_n:
@@ -12087,7 +9912,7 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO29_CTRL_OUTOVER:
+  IO_BANK_CTRL_OVER:
     enum:
       NORMAL:
         description: drive output from peripheral signal selected by funcsel
@@ -12106,7 +9931,7 @@ enums:
     json: false
     use_map: false
     identifier: false
-  IO_BANK_GPIO29_CTRL_OEOVER:
+  IO_BANK_CTRL_OEOVER:
     enum:
       NORMAL:
         description: drive output enable from peripheral signal selected by 
@@ -12121,42 +9946,6 @@ enums:
         value: 2
       ENABLE:
         description: enable output
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO29_CTRL_INOVER:
-    enum:
-      NORMAL:
-        description: don't invert the peri input
-        value: 0
-      INVERT:
-        description: invert the peri input
-        value: 1
-      LOW:
-        description: drive peri input low
-        value: 2
-      HIGH:
-        description: drive peri input high
-        value: 3
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false
-  IO_BANK_GPIO29_CTRL_IRQOVER:
-    enum:
-      NORMAL:
-        description: don't invert the interrupt
-        value: 0
-      INVERT:
-        description: invert the interrupt
-        value: 1
-      LOW:
-        description: drive interrupt low
-        value: 2
-      HIGH:
-        description: drive interrupt high
         value: 3
     unit_test: false
     json: false
