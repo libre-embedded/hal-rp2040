@@ -49,22 +49,22 @@ structs:
         expected_offset: 8
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -76,8 +76,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -95,8 +95,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -107,22 +107,22 @@ structs:
         expected_offset: 12
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -134,8 +134,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -153,8 +153,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -165,22 +165,22 @@ structs:
         expected_offset: 16
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -192,8 +192,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -211,8 +211,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -223,22 +223,22 @@ structs:
         expected_offset: 20
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -250,8 +250,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -269,8 +269,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -281,22 +281,22 @@ structs:
         expected_offset: 24
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -308,8 +308,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -327,8 +327,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -339,22 +339,22 @@ structs:
         expected_offset: 28
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -366,8 +366,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -385,8 +385,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -397,22 +397,22 @@ structs:
         expected_offset: 32
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -424,8 +424,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -443,8 +443,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -455,22 +455,22 @@ structs:
         expected_offset: 36
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -482,8 +482,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -501,8 +501,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -513,22 +513,22 @@ structs:
         expected_offset: 40
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -540,8 +540,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -559,8 +559,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -571,22 +571,22 @@ structs:
         expected_offset: 44
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -598,8 +598,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -617,8 +617,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -629,22 +629,22 @@ structs:
         expected_offset: 48
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -656,8 +656,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -675,8 +675,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -687,22 +687,22 @@ structs:
         expected_offset: 52
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -714,8 +714,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -733,8 +733,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -745,22 +745,22 @@ structs:
         expected_offset: 56
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -772,8 +772,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -791,8 +791,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -803,22 +803,22 @@ structs:
         expected_offset: 60
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -830,8 +830,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -849,8 +849,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -861,22 +861,22 @@ structs:
         expected_offset: 64
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -888,8 +888,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -907,8 +907,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -919,22 +919,22 @@ structs:
         expected_offset: 68
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -946,8 +946,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -965,8 +965,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -977,22 +977,22 @@ structs:
         expected_offset: 72
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1004,8 +1004,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1023,8 +1023,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1035,22 +1035,22 @@ structs:
         expected_offset: 76
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1062,8 +1062,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1081,8 +1081,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1093,22 +1093,22 @@ structs:
         expected_offset: 80
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1120,8 +1120,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1139,8 +1139,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1151,22 +1151,22 @@ structs:
         expected_offset: 84
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1178,8 +1178,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1197,8 +1197,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1209,22 +1209,22 @@ structs:
         expected_offset: 88
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1236,8 +1236,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1255,8 +1255,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1267,22 +1267,22 @@ structs:
         expected_offset: 92
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1294,8 +1294,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1313,8 +1313,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1325,22 +1325,22 @@ structs:
         expected_offset: 96
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1352,8 +1352,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1371,8 +1371,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1383,22 +1383,22 @@ structs:
         expected_offset: 100
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1410,8 +1410,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1429,8 +1429,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1441,22 +1441,22 @@ structs:
         expected_offset: 104
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1468,8 +1468,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1487,8 +1487,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1499,22 +1499,22 @@ structs:
         expected_offset: 108
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1526,8 +1526,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1545,8 +1545,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1557,22 +1557,22 @@ structs:
         expected_offset: 112
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1584,8 +1584,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1603,8 +1603,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1615,22 +1615,22 @@ structs:
         expected_offset: 116
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1642,8 +1642,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1661,8 +1661,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1673,22 +1673,22 @@ structs:
         expected_offset: 120
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1700,8 +1700,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1719,8 +1719,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1731,22 +1731,22 @@ structs:
         expected_offset: 124
         fields:
           - name: BUFFER_ADDRESS
-            description: 64 byte aligned buffer address for this EP (bits 0-5 are
-              ignored). Relative to the start of the DPRAM.
+            description: 64 byte aligned buffer address for this EP (bits 0-5 
+              are ignored). Relative to the start of the DPRAM.
             index: 0
             width: 16
             read: true
             write: true
           - name: INTERRUPT_ON_NAK
-            description: Trigger an interrupt if a NAK is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a NAK is sent. Intended for 
+              debug only.
             index: 16
             width: 1
             read: true
             write: true
           - name: INTERRUPT_ON_STALL
-            description: Trigger an interrupt if a STALL is sent. Intended for debug
-              only.
+            description: Trigger an interrupt if a STALL is sent. Intended for 
+              debug only.
             index: 17
             width: 1
             read: true
@@ -1758,8 +1758,8 @@ structs:
             write: true
             type: USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE
           - name: INTERRUPT_PER_DOUBLE_BUFF
-            description: Trigger an interrupt each time both buffers are done. Only
-              valid in double buffered mode.
+            description: Trigger an interrupt each time both buffers are done. 
+              Only valid in double buffered mode.
             index: 28
             width: 1
             read: true
@@ -1777,8 +1777,8 @@ structs:
             read: true
             write: true
           - name: ENABLE
-            description: Enable this endpoint. The device will not reply to any packets
-              for this endpoint if this bit is not set.
+            description: Enable this endpoint. The device will not reply to any 
+              packets for this endpoint if this bit is not set.
             index: 31
             width: 1
             read: true
@@ -1799,9 +1799,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -1831,10 +1831,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -1846,9 +1846,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -1876,10 +1876,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -1900,9 +1900,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -1932,10 +1932,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -1947,9 +1947,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -1977,10 +1977,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2001,9 +2001,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2033,10 +2033,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2048,9 +2048,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2078,10 +2078,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2102,9 +2102,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2134,10 +2134,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2149,9 +2149,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2179,10 +2179,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2203,9 +2203,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2235,10 +2235,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2250,9 +2250,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2280,10 +2280,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2304,9 +2304,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2336,10 +2336,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2351,9 +2351,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2381,10 +2381,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2405,9 +2405,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2437,10 +2437,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2452,9 +2452,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2482,10 +2482,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2506,9 +2506,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2538,10 +2538,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2553,9 +2553,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2583,10 +2583,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2607,9 +2607,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2639,10 +2639,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2654,9 +2654,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2684,10 +2684,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2708,9 +2708,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2740,10 +2740,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2755,9 +2755,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2785,10 +2785,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2809,9 +2809,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2841,10 +2841,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2856,9 +2856,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2886,10 +2886,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -2910,9 +2910,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -2942,10 +2942,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -2957,9 +2957,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -2987,10 +2987,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3011,9 +3011,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3043,10 +3043,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3058,9 +3058,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3088,10 +3088,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3112,9 +3112,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3144,10 +3144,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3159,9 +3159,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3189,10 +3189,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3213,9 +3213,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3245,10 +3245,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3260,9 +3260,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3290,10 +3290,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3314,9 +3314,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3346,10 +3346,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3361,9 +3361,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3391,10 +3391,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3415,9 +3415,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3447,10 +3447,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3462,9 +3462,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3492,10 +3492,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3516,9 +3516,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3548,10 +3548,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3563,9 +3563,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3593,10 +3593,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3617,9 +3617,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3649,10 +3649,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3664,9 +3664,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3694,10 +3694,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3718,9 +3718,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3750,10 +3750,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3765,9 +3765,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3795,10 +3795,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3819,9 +3819,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3851,10 +3851,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3866,9 +3866,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3896,10 +3896,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -3920,9 +3920,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -3952,10 +3952,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -3967,9 +3967,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -3997,10 +3997,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4021,9 +4021,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4053,10 +4053,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4068,9 +4068,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4098,10 +4098,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4122,9 +4122,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4154,10 +4154,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4169,9 +4169,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4199,10 +4199,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4223,9 +4223,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4255,10 +4255,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4270,9 +4270,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4300,10 +4300,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4324,9 +4324,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4356,10 +4356,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4371,9 +4371,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4401,10 +4401,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4425,9 +4425,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4457,10 +4457,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4472,9 +4472,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4502,10 +4502,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4526,9 +4526,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4558,10 +4558,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4573,9 +4573,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4603,10 +4603,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4627,9 +4627,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4659,10 +4659,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4674,9 +4674,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4704,10 +4704,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4728,9 +4728,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4760,10 +4760,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4775,9 +4775,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4805,10 +4805,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4829,9 +4829,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4861,10 +4861,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4876,9 +4876,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -4906,10 +4906,10 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
@@ -4930,9 +4930,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_0
-            description: Buffer 0 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 0 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 10
             width: 1
             read: true
@@ -4962,10 +4962,10 @@ structs:
             read: true
             write: true
           - name: FULL_0
-            description: Buffer 0 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 0 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 15
             width: 1
             read: true
@@ -4977,9 +4977,9 @@ structs:
             read: true
             write: true
           - name: AVAILABLE_1
-            description: Buffer 1 is available. This bit is set to indicate the buffer
-              can be used by the controller. The controller clears the available bit
-              when writing the status back.
+            description: Buffer 1 is available. This bit is set to indicate the 
+              buffer can be used by the controller. The controller clears the 
+              available bit when writing the status back.
             index: 26
             width: 1
             read: true
@@ -5007,19 +5007,14 @@ structs:
             read: true
             write: true
           - name: FULL_1
-            description: Buffer 1 is full. For an IN transfer (TX to the host) the
-              bit is set to indicate the data is valid. For an OUT transfer (RX from
-              the host) this bit should be left as a 0. The host will set it when
-              it has filled the buffer with data.
+            description: Buffer 1 is full. For an IN transfer (TX to the host) 
+              the bit is set to indicate the data is valid. For an OUT transfer 
+              (RX from the host) this bit should be left as a 0. The host will 
+              set it when it has filled the buffer with data.
             index: 31
             width: 1
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE:
     enum:

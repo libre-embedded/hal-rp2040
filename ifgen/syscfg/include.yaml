@@ -90,7 +90,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Directly control the SWD debug port of either processor
+        description: (read-write) Directly control the SWD debug port of either 
+          processor
         fields:
           - name: PROC0_SWDO
             description: Observe the value of processor 0 SWDIO output.
@@ -99,21 +100,22 @@ structs:
             read: true
             write: false
           - name: PROC0_SWDI
-            description: Directly drive processor 0 SWDIO input, if PROC0_ATTACH is
-              set
+            description: Directly drive processor 0 SWDIO input, if PROC0_ATTACH
+              is set
             index: 1
             width: 1
             read: true
             write: true
           - name: PROC0_SWCLK
-            description: Directly drive processor 0 SWCLK, if PROC0_ATTACH is set
+            description: Directly drive processor 0 SWCLK, if PROC0_ATTACH is 
+              set
             index: 2
             width: 1
             read: true
             write: true
           - name: PROC0_ATTACH
-            description: Attach processor 0 debug port to syscfg controls, and disconnect
-              it from external SWD pads.
+            description: Attach processor 0 debug port to syscfg controls, and 
+              disconnect it from external SWD pads.
             index: 3
             width: 1
             read: true
@@ -125,21 +127,22 @@ structs:
             read: true
             write: false
           - name: PROC1_SWDI
-            description: Directly drive processor 1 SWDIO input, if PROC1_ATTACH is
-              set
+            description: Directly drive processor 1 SWDIO input, if PROC1_ATTACH
+              is set
             index: 5
             width: 1
             read: true
             write: true
           - name: PROC1_SWCLK
-            description: Directly drive processor 1 SWCLK, if PROC1_ATTACH is set
+            description: Directly drive processor 1 SWCLK, if PROC1_ATTACH is 
+              set
             index: 6
             width: 1
             read: true
             write: true
           - name: PROC1_ATTACH
-            description: Attach processor 1 debug port to syscfg controls, and disconnect
-              it from external SWD pads.
+            description: Attach processor 1 debug port to syscfg controls, and 
+              disconnect it from external SWD pads.
             index: 7
             width: 1
             read: true
@@ -191,9 +194,4 @@ structs:
             width: 1
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

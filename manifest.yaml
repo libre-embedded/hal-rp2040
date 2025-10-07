@@ -1,6 +1,9 @@
 ---
 default_target: groups-all
 
+params:
+  slug: hal_rp2040
+
 includes:
   - config/includes/license.yaml
   - config/includes/funding.yaml

@@ -66,8 +66,8 @@ structs:
         description: (write-only) GPIO output value set
         fields:
           - name: GPIO_OUT_SET
-            description: Perform an atomic bit-set on GPIO_OUT, i.e. `GPIO_OUT |=
-              wdata`
+            description: Perform an atomic bit-set on GPIO_OUT, i.e. `GPIO_OUT 
+              |= wdata`
             index: 0
             width: 30
             read: false
@@ -79,8 +79,8 @@ structs:
         description: (write-only) GPIO output value clear
         fields:
           - name: GPIO_OUT_CLR
-            description: Perform an atomic bit-clear on GPIO_OUT, i.e. `GPIO_OUT &=
-              ~wdata`
+            description: Perform an atomic bit-clear on GPIO_OUT, i.e. `GPIO_OUT
+              &= ~wdata`
             index: 0
             width: 30
             read: false
@@ -92,8 +92,8 @@ structs:
         description: (write-only) GPIO output value XOR
         fields:
           - name: GPIO_OUT_XOR
-            description: Perform an atomic bitwise XOR on GPIO_OUT, i.e. `GPIO_OUT
-              ^= wdata`
+            description: Perform an atomic bitwise XOR on GPIO_OUT, i.e. 
+              `GPIO_OUT ^= wdata`
             index: 0
             width: 30
             read: false
@@ -122,7 +122,8 @@ structs:
         description: (write-only) GPIO output enable set
         fields:
           - name: GPIO_OE_SET
-            description: Perform an atomic bit-set on GPIO_OE, i.e. `GPIO_OE |= wdata`
+            description: Perform an atomic bit-set on GPIO_OE, i.e. `GPIO_OE |= 
+              wdata`
             index: 0
             width: 30
             read: false
@@ -134,8 +135,8 @@ structs:
         description: (write-only) GPIO output enable clear
         fields:
           - name: GPIO_OE_CLR
-            description: Perform an atomic bit-clear on GPIO_OE, i.e. `GPIO_OE &=
-              ~wdata`
+            description: Perform an atomic bit-clear on GPIO_OE, i.e. `GPIO_OE 
+              &= ~wdata`
             index: 0
             width: 30
             read: false
@@ -147,8 +148,8 @@ structs:
         description: (write-only) GPIO output enable XOR
         fields:
           - name: GPIO_OE_XOR
-            description: Perform an atomic bitwise XOR on GPIO_OE, i.e. `GPIO_OE ^=
-              wdata`
+            description: Perform an atomic bitwise XOR on GPIO_OE, i.e. `GPIO_OE
+              ^= wdata`
             index: 0
             width: 30
             read: false
@@ -178,8 +179,8 @@ structs:
         description: (write-only) QSPI output value set
         fields:
           - name: GPIO_HI_OUT_SET
-            description: Perform an atomic bit-set on GPIO_HI_OUT, i.e. `GPIO_HI_OUT
-              |= wdata`
+            description: Perform an atomic bit-set on GPIO_HI_OUT, i.e. 
+              `GPIO_HI_OUT |= wdata`
             index: 0
             width: 6
             read: false
@@ -191,8 +192,8 @@ structs:
         description: (write-only) QSPI output value clear
         fields:
           - name: GPIO_HI_OUT_CLR
-            description: Perform an atomic bit-clear on GPIO_HI_OUT, i.e. `GPIO_HI_OUT
-              &= ~wdata`
+            description: Perform an atomic bit-clear on GPIO_HI_OUT, i.e. 
+              `GPIO_HI_OUT &= ~wdata`
             index: 0
             width: 6
             read: false
@@ -204,8 +205,8 @@ structs:
         description: (write-only) QSPI output value XOR
         fields:
           - name: GPIO_HI_OUT_XOR
-            description: Perform an atomic bitwise XOR on GPIO_HI_OUT, i.e. `GPIO_HI_OUT
-              ^= wdata`
+            description: Perform an atomic bitwise XOR on GPIO_HI_OUT, i.e. 
+              `GPIO_HI_OUT ^= wdata`
             index: 0
             width: 6
             read: false
@@ -234,8 +235,8 @@ structs:
         description: (write-only) QSPI output enable set
         fields:
           - name: GPIO_HI_OE_SET
-            description: Perform an atomic bit-set on GPIO_HI_OE, i.e. `GPIO_HI_OE
-              |= wdata`
+            description: Perform an atomic bit-set on GPIO_HI_OE, i.e. 
+              `GPIO_HI_OE |= wdata`
             index: 0
             width: 6
             read: false
@@ -247,8 +248,8 @@ structs:
         description: (write-only) QSPI output enable clear
         fields:
           - name: GPIO_HI_OE_CLR
-            description: Perform an atomic bit-clear on GPIO_HI_OE, i.e. `GPIO_HI_OE
-              &= ~wdata`
+            description: Perform an atomic bit-clear on GPIO_HI_OE, i.e. 
+              `GPIO_HI_OE &= ~wdata`
             index: 0
             width: 6
             read: false
@@ -260,8 +261,8 @@ structs:
         description: (write-only) QSPI output enable XOR
         fields:
           - name: GPIO_HI_OE_XOR
-            description: Perform an atomic bitwise XOR on GPIO_HI_OE, i.e. `GPIO_HI_OE
-              ^= wdata`
+            description: Perform an atomic bitwise XOR on GPIO_HI_OE, i.e. 
+              `GPIO_HI_OE ^= wdata`
             index: 0
             width: 6
             read: false
@@ -280,29 +281,29 @@ structs:
           fields of its FIFO_ST register."
         fields:
           - name: VLD
-            description: Value is 1 if this core's RX FIFO is not empty (i.e. if FIFO_RD
-              is valid)
+            description: Value is 1 if this core's RX FIFO is not empty (i.e. if
+              FIFO_RD is valid)
             index: 0
             width: 1
             read: true
             write: false
           - name: RDY
-            description: Value is 1 if this core's TX FIFO is not full (i.e. if FIFO_WR
-              is ready for more data)
+            description: Value is 1 if this core's TX FIFO is not full (i.e. if 
+              FIFO_WR is ready for more data)
             index: 1
             width: 1
             read: true
             write: false
           - name: WOF
-            description: Sticky flag indicating the TX FIFO was written when full.
-              This write was ignored by the FIFO.
+            description: Sticky flag indicating the TX FIFO was written when 
+              full. This write was ignored by the FIFO.
             index: 2
             width: 1
             read: true
             write: true
           - name: ROE
-            description: Sticky flag indicating the RX FIFO was read when empty. This
-              read was ignored by the FIFO.
+            description: Sticky flag indicating the RX FIFO was read when empty.
+              This read was ignored by the FIFO.
             index: 3
             width: 1
             read: true
@@ -437,38 +438,38 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 148
-        description: (read-write) Read LANE0 result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read LANE0 result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP0_POP_LANE1
         type: uint32_t
         expected_size: 4
         expected_offset: 152
-        description: (read-write) Read LANE1 result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read LANE1 result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP0_POP_FULL
         type: uint32_t
         expected_size: 4
         expected_offset: 156
-        description: (read-write) Read FULL result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read FULL result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP0_PEEK_LANE0
         type: uint32_t
         expected_size: 4
         expected_offset: 160
-        description: (read-write) Read LANE0 result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read LANE0 result, without altering any 
+          internal state (PEEK).
       - name: INTERP0_PEEK_LANE1
         type: uint32_t
         expected_size: 4
         expected_offset: 164
-        description: (read-write) Read LANE1 result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read LANE1 result, without altering any 
+          internal state (PEEK).
       - name: INTERP0_PEEK_FULL
         type: uint32_t
         expected_size: 4
         expected_offset: 168
-        description: (read-write) Read FULL result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read FULL result, without altering any 
+          internal state (PEEK).
       - name: INTERP0_CTRL_LANE0
         type: uint32_t
         expected_size: 4
@@ -476,13 +477,15 @@ structs:
         description: (read-write) Control register for lane 0
         fields:
           - name: SHIFT
-            description: Logical right-shift applied to accumulator before masking
+            description: Logical right-shift applied to accumulator before 
+              masking
             index: 0
             width: 5
             read: true
             write: true
           - name: MASK_LSB
-            description: The least-significant bit allowed to pass by the mask (inclusive)
+            description: The least-significant bit allowed to pass by the mask 
+              (inclusive)
             index: 5
             width: 5
             read: true
@@ -511,15 +514,15 @@ structs:
             read: true
             write: true
           - name: CROSS_RESULT
-            description: If 1, feed the opposite lane's result into this lane's accumulator
-              on POP.
+            description: If 1, feed the opposite lane's result into this lane's 
+              accumulator on POP.
             index: 17
             width: 1
             read: true
             write: true
           - name: ADD_RAW
-            description: If 1, mask + shift is bypassed for LANE0 result. This does
-              not affect FULL result.
+            description: If 1, mask + shift is bypassed for LANE0 result. This 
+              does not affect FULL result.
             index: 18
             width: 1
             read: true
@@ -572,13 +575,15 @@ structs:
         description: (read-write) Control register for lane 1
         fields:
           - name: SHIFT
-            description: Logical right-shift applied to accumulator before masking
+            description: Logical right-shift applied to accumulator before 
+              masking
             index: 0
             width: 5
             read: true
             write: true
           - name: MASK_LSB
-            description: The least-significant bit allowed to pass by the mask (inclusive)
+            description: The least-significant bit allowed to pass by the mask 
+              (inclusive)
             index: 5
             width: 5
             read: true
@@ -607,15 +612,15 @@ structs:
             read: true
             write: true
           - name: CROSS_RESULT
-            description: If 1, feed the opposite lane's result into this lane's accumulator
-              on POP.
+            description: If 1, feed the opposite lane's result into this lane's 
+              accumulator on POP.
             index: 17
             width: 1
             read: true
             write: true
           - name: ADD_RAW
-            description: If 1, mask + shift is bypassed for LANE1 result. This does
-              not affect FULL result.
+            description: If 1, mask + shift is bypassed for LANE1 result. This 
+              does not affect FULL result.
             index: 18
             width: 1
             read: true
@@ -691,38 +696,38 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 212
-        description: (read-write) Read LANE0 result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read LANE0 result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP1_POP_LANE1
         type: uint32_t
         expected_size: 4
         expected_offset: 216
-        description: (read-write) Read LANE1 result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read LANE1 result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP1_POP_FULL
         type: uint32_t
         expected_size: 4
         expected_offset: 220
-        description: (read-write) Read FULL result, and simultaneously write lane
-          results to both accumulators (POP).
+        description: (read-write) Read FULL result, and simultaneously write 
+          lane results to both accumulators (POP).
       - name: INTERP1_PEEK_LANE0
         type: uint32_t
         expected_size: 4
         expected_offset: 224
-        description: (read-write) Read LANE0 result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read LANE0 result, without altering any 
+          internal state (PEEK).
       - name: INTERP1_PEEK_LANE1
         type: uint32_t
         expected_size: 4
         expected_offset: 228
-        description: (read-write) Read LANE1 result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read LANE1 result, without altering any 
+          internal state (PEEK).
       - name: INTERP1_PEEK_FULL
         type: uint32_t
         expected_size: 4
         expected_offset: 232
-        description: (read-write) Read FULL result, without altering any internal
-          state (PEEK).
+        description: (read-write) Read FULL result, without altering any 
+          internal state (PEEK).
       - name: INTERP1_CTRL_LANE0
         type: uint32_t
         expected_size: 4
@@ -730,13 +735,15 @@ structs:
         description: (read-write) Control register for lane 0
         fields:
           - name: SHIFT
-            description: Logical right-shift applied to accumulator before masking
+            description: Logical right-shift applied to accumulator before 
+              masking
             index: 0
             width: 5
             read: true
             write: true
           - name: MASK_LSB
-            description: The least-significant bit allowed to pass by the mask (inclusive)
+            description: The least-significant bit allowed to pass by the mask 
+              (inclusive)
             index: 5
             width: 5
             read: true
@@ -765,15 +772,15 @@ structs:
             read: true
             write: true
           - name: CROSS_RESULT
-            description: If 1, feed the opposite lane's result into this lane's accumulator
-              on POP.
+            description: If 1, feed the opposite lane's result into this lane's 
+              accumulator on POP.
             index: 17
             width: 1
             read: true
             write: true
           - name: ADD_RAW
-            description: If 1, mask + shift is bypassed for LANE0 result. This does
-              not affect FULL result.
+            description: If 1, mask + shift is bypassed for LANE0 result. This 
+              does not affect FULL result.
             index: 18
             width: 1
             read: true
@@ -822,13 +829,15 @@ structs:
         description: (read-write) Control register for lane 1
         fields:
           - name: SHIFT
-            description: Logical right-shift applied to accumulator before masking
+            description: Logical right-shift applied to accumulator before 
+              masking
             index: 0
             width: 5
             read: true
             write: true
           - name: MASK_LSB
-            description: The least-significant bit allowed to pass by the mask (inclusive)
+            description: The least-significant bit allowed to pass by the mask 
+              (inclusive)
             index: 5
             width: 5
             read: true
@@ -857,15 +866,15 @@ structs:
             read: true
             write: true
           - name: CROSS_RESULT
-            description: If 1, feed the opposite lane's result into this lane's accumulator
-              on POP.
+            description: If 1, feed the opposite lane's result into this lane's 
+              accumulator on POP.
             index: 17
             width: 1
             read: true
             write: true
           - name: ADD_RAW
-            description: If 1, mask + shift is bypassed for LANE1 result. This does
-              not affect FULL result.
+            description: If 1, mask + shift is bypassed for LANE1 result. This 
+              does not affect FULL result.
             index: 18
             width: 1
             read: true
@@ -1232,9 +1241,4 @@ structs:
           (any value) releases the lock.\\n\n            If core 0 and core 1 attempt
           to claim the same lock simultaneously, core 0 wins.\\n\n            The
           value returned on success is 0x1 << lock number."
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

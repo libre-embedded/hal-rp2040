@@ -10,8 +10,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 0
-        description: (read-write) Divider minus 1 for the 1 second counter. Safe to
-          change the value when RTC is not enabled.
+        description: (read-write) Divider minus 1 for the 1 second counter. Safe
+          to change the value when RTC is not enabled.
         fields:
           - name: CLKDIV_M1
             index: 0
@@ -146,8 +146,8 @@ structs:
             read: true
             write: true
           - name: MATCH_ENA
-            description: Global match enable. Don't change any other value while this
-              one is enabled
+            description: Global match enable. Don't change any other value while
+              this one is enabled
             index: 28
             width: 1
             read: true
@@ -314,9 +314,4 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

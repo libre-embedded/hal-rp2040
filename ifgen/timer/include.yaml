@@ -88,18 +88,20 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) Raw read from bits 63:32 of time (no side effects)
+        description: (read-write) Raw read from bits 63:32 of time (no side 
+          effects)
       - name: TIMERAWL
         type: uint32_t
         expected_size: 4
         expected_offset: 40
-        description: (read-write) Raw read from bits 31:0 of time (no side effects)
+        description: (read-write) Raw read from bits 31:0 of time (no side 
+          effects)
       - name: DBGPAUSE
         type: uint32_t
         expected_size: 4
         expected_offset: 44
-        description: (read-write) Set bits high to enable pause when the corresponding
-          debug ports are active
+        description: (read-write) Set bits high to enable pause when the 
+          corresponding debug ports are active
         fields:
           - name: DBG0
             description: Pause when processor 0 is in debug mode
@@ -229,9 +231,4 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

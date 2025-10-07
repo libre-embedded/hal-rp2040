@@ -1,12 +1,12 @@
 <!--
     =====================================
     generator=datazen
-    version=3.1.4
-    hash=0c576b6f87a8c797dcc6744f39847875
+    version=3.2.3
+    hash=81b7bebf88f422a2966bc3a63df7adf1
     =====================================
 -->
 
-# hal-rp2040 ([1.1.1](https://github.com/vkottler/hal-rp2040/releases/tag/1.1.1))
+# hal-rp2040 ([1.2.0](https://github.com/vkottler/hal-rp2040/releases/tag/1.2.0))
 
 [![codecov](https://codecov.io/gh/vkottler/hal-rp2040/branch/master/graph/badge.svg)](https://codecov.io/gh/vkottler/hal-rp2040)
 ![Build Status](https://github.com/vkottler/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
@@ -24,7 +24,7 @@
 
 ## Workflow
 
-Install [vmklib](https://github.com/vkottler/vmklib) such that you can
+Install [vmklib](https://github.com/libre-embedded/vmklib) such that you can
 `mk --version` (a `pip install vmklib` to your desired Python environment is
 all that's needed).
 
@@ -42,11 +42,11 @@ This should result in fully compiled code that you can now use or add to.
 ### Generating Interfaces
 
 Structs and enumerations can be defined for
-[ifgen](https://github.com/vkottler/ifgen) which can then generate C++ source
+[ifgen](https://github.com/libre-embedded/ifgen) which can then generate C++ source
 code into the project.
 
 Generating configurations based on an
-[SVD](https://github.com/vkottler/ifgen/tree/master/ifgen/data/svd) file:
+[SVD](https://github.com/libre-embedded/ifgen/tree/master/ifgen/data/svd) file:
 
 ```
 mk ifgen-svd-XMC4700

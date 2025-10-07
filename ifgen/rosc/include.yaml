@@ -202,8 +202,8 @@ structs:
             read: true
             write: false
           - name: BADWRITE
-            description: An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE
-              or FREQA or FREQB or DIV or PHASE or DORMANT
+            description: An invalid value has been written to CTRL_ENABLE or 
+              CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
             index: 24
             width: 1
             read: true
@@ -219,9 +219,9 @@ structs:
         expected_size: 4
         expected_offset: 28
         const: true
-        description: (read-only) This just reads the state of the oscillator output
-          so randomness is compromised if the ring oscillator is stopped or run at
-          a harmonic of the bus frequency
+        description: (read-only) This just reads the state of the oscillator 
+          output so randomness is compromised if the ring oscillator is stopped 
+          or run at a harmonic of the bus frequency
         fields:
           - name: RANDOMBIT
             index: 0
@@ -242,11 +242,6 @@ structs:
             width: 8
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   ROSC_CTRL_FREQ_RANGE:
     enum:
@@ -254,10 +249,10 @@ enums:
         value: 4004
       MEDIUM:
         value: 4005
-      HIGH:
-        value: 4007
       TOOHIGH:
         value: 4006
+      HIGH:
+        value: 4007
     unit_test: false
     json: false
     use_map: false

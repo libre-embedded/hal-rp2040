@@ -1,8 +1,8 @@
 ---
 structs:
   tbman:
-    description: Testbench manager. Allows the programmer to know what platform their
-      software is running on.
+    description: Testbench manager. Allows the programmer to know what platform 
+      their software is running on.
     instances:
       - name: TBMAN
         address: '0x4006c000'
@@ -26,9 +26,4 @@ structs:
             width: 1
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

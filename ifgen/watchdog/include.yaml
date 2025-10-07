@@ -14,26 +14,29 @@ structs:
           n\n            The watchdog can be triggered in software."
         fields:
           - name: TIME
-            description: Indicates the number of ticks / 2 (see errata RP2040-E1)
-              before a watchdog reset will be triggered
+            description: Indicates the number of ticks / 2 (see errata 
+              RP2040-E1) before a watchdog reset will be triggered
             index: 0
             width: 24
             read: true
             write: false
           - name: PAUSE_JTAG
-            description: Pause the watchdog timer when JTAG is accessing the bus fabric
+            description: Pause the watchdog timer when JTAG is accessing the bus
+              fabric
             index: 24
             width: 1
             read: true
             write: true
           - name: PAUSE_DBG0
-            description: Pause the watchdog timer when processor 0 is in debug mode
+            description: Pause the watchdog timer when processor 0 is in debug 
+              mode
             index: 25
             width: 1
             read: true
             write: true
           - name: PAUSE_DBG1
-            description: Pause the watchdog timer when processor 1 is in debug mode
+            description: Pause the watchdog timer when processor 1 is in debug 
+              mode
             index: 26
             width: 1
             read: true
@@ -54,9 +57,9 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (write-only) Load the watchdog timer. The maximum setting is
-          0xffffff which corresponds to 0xffffff / 2 ticks before triggering a watchdog
-          reset (see errata RP2040-E1).
+        description: (write-only) Load the watchdog timer. The maximum setting 
+          is 0xffffff which corresponds to 0xffffff / 2 ticks before triggering 
+          a watchdog reset (see errata RP2040-E1).
         fields:
           - name: LOAD
             index: 0
@@ -68,8 +71,8 @@ structs:
         expected_size: 4
         expected_offset: 8
         const: true
-        description: (read-only) Logs the reason for the last reset. Both bits are
-          zero for the case of a hardware reset.
+        description: (read-only) Logs the reason for the last reset. Both bits 
+          are zero for the case of a hardware reset.
         fields:
           - name: TIMER
             index: 0
@@ -85,50 +88,50 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH1
         type: uint32_t
         expected_size: 4
         expected_offset: 16
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH2
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH3
         type: uint32_t
         expected_size: 4
         expected_offset: 24
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH4
         type: uint32_t
         expected_size: 4
         expected_offset: 28
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH5
         type: uint32_t
         expected_size: 4
         expected_offset: 32
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH6
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: SCRATCH7
         type: uint32_t
         expected_size: 4
         expected_offset: 40
-        description: (read-write) Scratch register. Information persists through soft
-          reset of the chip.
+        description: (read-write) Scratch register. Information persists through
+          soft reset of the chip.
       - name: TICK
         type: uint32_t
         expected_size: 4
@@ -160,9 +163,4 @@ structs:
             width: 9
             read: true
             write: false
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}

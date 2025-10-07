@@ -13,7 +13,8 @@ structs:
         description: (read-write) Crystal Oscillator Control
         fields:
           - name: FREQ_RANGE
-            description: Frequency range. This resets to 0xAA0 and cannot be changed.
+            description: Frequency range. This resets to 0xAA0 and cannot be 
+              changed.
             index: 0
             width: 12
             read: true
@@ -46,15 +47,15 @@ structs:
             write: false
             type: XOSC_STATUS_FREQ_RANGE
           - name: ENABLED
-            description: Oscillator is enabled but not necessarily running and stable,
-              resets to 0
+            description: Oscillator is enabled but not necessarily running and 
+              stable, resets to 0
             index: 12
             width: 1
             read: true
             write: false
           - name: BADWRITE
-            description: An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE
-              or DORMANT
+            description: An invalid value has been written to CTRL_ENABLE or 
+              CTRL_FREQ_RANGE or DORMANT
             index: 24
             width: 1
             read: true
@@ -82,15 +83,15 @@ structs:
         description: (read-write) Controls the startup delay
         fields:
           - name: DELAY
-            description: in multiples of 256*xtal_period. The reset value of 0xc4
-              corresponds to approx 50 000 cycles.
+            description: in multiples of 256*xtal_period. The reset value of 
+              0xc4 corresponds to approx 50 000 cycles.
             index: 0
             width: 14
             read: true
             write: true
           - name: X4
-            description: Multiplies the startup_delay by 4. This is of little value
-              to the user given that the delay can be programmed directly.
+            description: Multiplies the startup_delay by 4. This is of little 
+              value to the user given that the delay can be programmed directly.
             index: 20
             width: 1
             read: true
@@ -109,11 +110,6 @@ structs:
             width: 8
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums:
   XOSC_CTRL_FREQ_RANGE:
     enum:

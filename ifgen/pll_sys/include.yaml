@@ -26,9 +26,10 @@ structs:
             read: true
             write: true
           - name: BYPASS
-            description: Passes the reference clock to the output instead of the divided
-              VCO. The VCO continues to run so the user can switch between the reference
-              clock and the divided VCO but the output will glitch when doing so.
+            description: Passes the reference clock to the output instead of the
+              divided VCO. The VCO continues to run so the user can switch 
+              between the reference clock and the divided VCO but the output 
+              will glitch when doing so.
             index: 8
             width: 1
             read: true
@@ -106,9 +107,4 @@ structs:
             width: 3
             read: true
             write: true
-    stream: false
-    codec: false
-    methods: false
-    unit_test: false
-    identifier: false
 enums: {}
