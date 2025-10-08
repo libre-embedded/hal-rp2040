@@ -176,7 +176,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SCLK_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL get_GPIO_QSPI_SCLK_CTRL_FUNCSEL() volatile
@@ -187,7 +187,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SCLK_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SCLK_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL value) volatile
@@ -425,7 +425,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SS_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL get_GPIO_QSPI_SS_CTRL_FUNCSEL() volatile
@@ -436,7 +436,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SS_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SS_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL value) volatile
@@ -674,7 +674,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD0_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL get_GPIO_QSPI_SD0_CTRL_FUNCSEL() volatile
@@ -685,7 +685,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SD0_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SD0_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL value) volatile
@@ -923,7 +923,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD1_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL get_GPIO_QSPI_SD1_CTRL_FUNCSEL() volatile
@@ -934,7 +934,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SD1_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SD1_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL value) volatile
@@ -1172,7 +1172,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD2_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL get_GPIO_QSPI_SD2_CTRL_FUNCSEL() volatile
@@ -1183,7 +1183,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SD2_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SD2_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL value) volatile
@@ -1421,7 +1421,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Get GPIO_QSPI_SD3_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL get_GPIO_QSPI_SD3_CTRL_FUNCSEL() volatile
@@ -1432,7 +1432,7 @@ struct [[gnu::packed]] io_qspi
     /**
      * Set GPIO_QSPI_SD3_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO_QSPI_SD3_CTRL_FUNCSEL(IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL value) volatile

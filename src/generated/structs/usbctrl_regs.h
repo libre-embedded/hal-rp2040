@@ -96,7 +96,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP_ENDPOINT() volatile
     {
-        return (ADDR_ENDP >> 16u) & 0b1111u;
+        return (ADDR_ENDP >> 16u) & 0xfu;
     }
 
     /**
@@ -108,8 +108,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP = curr;
     }
@@ -124,7 +124,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
     }
 
     /**
@@ -138,8 +138,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
 
         ADDR_ENDP = curr;
     }
@@ -176,7 +176,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP1_ENDPOINT() volatile
     {
-        return (ADDR_ENDP1 >> 16u) & 0b1111u;
+        return (ADDR_ENDP1 >> 16u) & 0xfu;
     }
 
     /**
@@ -188,8 +188,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP1;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP1 = curr;
     }
@@ -284,7 +284,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP1;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -300,8 +300,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -342,7 +342,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP2_ENDPOINT() volatile
     {
-        return (ADDR_ENDP2 >> 16u) & 0b1111u;
+        return (ADDR_ENDP2 >> 16u) & 0xfu;
     }
 
     /**
@@ -354,8 +354,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP2;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP2 = curr;
     }
@@ -450,7 +450,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP2;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -466,8 +466,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -508,7 +508,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP3_ENDPOINT() volatile
     {
-        return (ADDR_ENDP3 >> 16u) & 0b1111u;
+        return (ADDR_ENDP3 >> 16u) & 0xfu;
     }
 
     /**
@@ -520,8 +520,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP3;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP3 = curr;
     }
@@ -616,7 +616,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP3;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -632,8 +632,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -674,7 +674,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP4_ENDPOINT() volatile
     {
-        return (ADDR_ENDP4 >> 16u) & 0b1111u;
+        return (ADDR_ENDP4 >> 16u) & 0xfu;
     }
 
     /**
@@ -686,8 +686,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP4;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP4 = curr;
     }
@@ -782,7 +782,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP4;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -798,8 +798,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -840,7 +840,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP5_ENDPOINT() volatile
     {
-        return (ADDR_ENDP5 >> 16u) & 0b1111u;
+        return (ADDR_ENDP5 >> 16u) & 0xfu;
     }
 
     /**
@@ -852,8 +852,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP5;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP5 = curr;
     }
@@ -948,7 +948,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP5;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -964,8 +964,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1006,7 +1006,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP6_ENDPOINT() volatile
     {
-        return (ADDR_ENDP6 >> 16u) & 0b1111u;
+        return (ADDR_ENDP6 >> 16u) & 0xfu;
     }
 
     /**
@@ -1018,8 +1018,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP6;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP6 = curr;
     }
@@ -1114,7 +1114,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP6;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1130,8 +1130,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1172,7 +1172,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP7_ENDPOINT() volatile
     {
-        return (ADDR_ENDP7 >> 16u) & 0b1111u;
+        return (ADDR_ENDP7 >> 16u) & 0xfu;
     }
 
     /**
@@ -1184,8 +1184,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP7;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP7 = curr;
     }
@@ -1280,7 +1280,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP7;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1296,8 +1296,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1338,7 +1338,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP8_ENDPOINT() volatile
     {
-        return (ADDR_ENDP8 >> 16u) & 0b1111u;
+        return (ADDR_ENDP8 >> 16u) & 0xfu;
     }
 
     /**
@@ -1350,8 +1350,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP8;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP8 = curr;
     }
@@ -1446,7 +1446,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP8;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1462,8 +1462,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1504,7 +1504,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP9_ENDPOINT() volatile
     {
-        return (ADDR_ENDP9 >> 16u) & 0b1111u;
+        return (ADDR_ENDP9 >> 16u) & 0xfu;
     }
 
     /**
@@ -1516,8 +1516,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP9;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP9 = curr;
     }
@@ -1612,7 +1612,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP9;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1628,8 +1628,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1670,7 +1670,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP10_ENDPOINT() volatile
     {
-        return (ADDR_ENDP10 >> 16u) & 0b1111u;
+        return (ADDR_ENDP10 >> 16u) & 0xfu;
     }
 
     /**
@@ -1682,8 +1682,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP10;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP10 = curr;
     }
@@ -1778,7 +1778,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP10;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1794,8 +1794,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -1836,7 +1836,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP11_ENDPOINT() volatile
     {
-        return (ADDR_ENDP11 >> 16u) & 0b1111u;
+        return (ADDR_ENDP11 >> 16u) & 0xfu;
     }
 
     /**
@@ -1848,8 +1848,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP11;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP11 = curr;
     }
@@ -1944,7 +1944,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP11;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -1960,8 +1960,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -2002,7 +2002,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP12_ENDPOINT() volatile
     {
-        return (ADDR_ENDP12 >> 16u) & 0b1111u;
+        return (ADDR_ENDP12 >> 16u) & 0xfu;
     }
 
     /**
@@ -2014,8 +2014,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP12;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP12 = curr;
     }
@@ -2110,7 +2110,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP12;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -2126,8 +2126,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -2168,7 +2168,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP13_ENDPOINT() volatile
     {
-        return (ADDR_ENDP13 >> 16u) & 0b1111u;
+        return (ADDR_ENDP13 >> 16u) & 0xfu;
     }
 
     /**
@@ -2180,8 +2180,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP13;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP13 = curr;
     }
@@ -2276,7 +2276,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP13;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -2292,8 +2292,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -2334,7 +2334,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP14_ENDPOINT() volatile
     {
-        return (ADDR_ENDP14 >> 16u) & 0b1111u;
+        return (ADDR_ENDP14 >> 16u) & 0xfu;
     }
 
     /**
@@ -2346,8 +2346,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP14;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP14 = curr;
     }
@@ -2442,7 +2442,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP14;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -2458,8 +2458,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -2500,7 +2500,7 @@ struct [[gnu::packed]] usbctrl_regs
      */
     inline uint8_t get_ADDR_ENDP15_ENDPOINT() volatile
     {
-        return (ADDR_ENDP15 >> 16u) & 0b1111u;
+        return (ADDR_ENDP15 >> 16u) & 0xfu;
     }
 
     /**
@@ -2512,8 +2512,8 @@ struct [[gnu::packed]] usbctrl_regs
     {
         uint32_t curr = ADDR_ENDP15;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         ADDR_ENDP15 = curr;
     }
@@ -2608,7 +2608,7 @@ struct [[gnu::packed]] usbctrl_regs
         uint32_t curr = ADDR_ENDP15;
 
         ADDRESS = curr & 0b1111111u;
-        ENDPOINT = (curr >> 16u) & 0b1111u;
+        ENDPOINT = (curr >> 16u) & 0xfu;
         INTEP_DIR = curr & (1u << 25u);
         INTEP_PREAMBLE = curr & (1u << 26u);
     }
@@ -2624,8 +2624,8 @@ struct [[gnu::packed]] usbctrl_regs
 
         curr &= ~(0b1111111u);
         curr |= (ADDRESS & 0b1111111u);
-        curr &= ~(0b1111u << 16u);
-        curr |= (ENDPOINT & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (ENDPOINT & 0xfu) << 16u;
         curr &= ~(0b1u << 25u);
         curr |= (INTEP_DIR & 0b1u) << 25u;
         curr &= ~(0b1u << 26u);
@@ -4082,10 +4082,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get SIE_STATUS's TRANS_COMPLETE bit.
      *
-     * Transaction complete.\n\n
-     *                 Raised by device if:\n\n
-     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register\n\n
-     *                 Raised by host if:\n\n
+     * Transaction complete.
+     *                 Raised by device if:
+     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register
+     *                 Raised by host if:
      *                 * A setup packet is sent when no data in or data out transaction follows * An IN packet is received and the `LAST_BUFF` bit is set in the buffer control register * An IN packet is received with zero length * An OUT packet is sent and the `LAST_BUFF` bit is set
      */
     inline bool get_SIE_STATUS_TRANS_COMPLETE() volatile
@@ -4096,10 +4096,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set SIE_STATUS's TRANS_COMPLETE bit.
      *
-     * Transaction complete.\n\n
-     *                 Raised by device if:\n\n
-     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register\n\n
-     *                 Raised by host if:\n\n
+     * Transaction complete.
+     *                 Raised by device if:
+     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register
+     *                 Raised by host if:
      *                 * A setup packet is sent when no data in or data out transaction follows * An IN packet is received and the `LAST_BUFF` bit is set in the buffer control register * An IN packet is received with zero length * An OUT packet is sent and the `LAST_BUFF` bit is set
      */
     inline void set_SIE_STATUS_TRANS_COMPLETE() volatile
@@ -4110,10 +4110,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear SIE_STATUS's TRANS_COMPLETE bit.
      *
-     * Transaction complete.\n\n
-     *                 Raised by device if:\n\n
-     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register\n\n
-     *                 Raised by host if:\n\n
+     * Transaction complete.
+     *                 Raised by device if:
+     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register
+     *                 Raised by host if:
      *                 * A setup packet is sent when no data in or data out transaction follows * An IN packet is received and the `LAST_BUFF` bit is set in the buffer control register * An IN packet is received with zero length * An OUT packet is sent and the `LAST_BUFF` bit is set
      */
     inline void clear_SIE_STATUS_TRANS_COMPLETE() volatile
@@ -4124,10 +4124,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle SIE_STATUS's TRANS_COMPLETE bit.
      *
-     * Transaction complete.\n\n
-     *                 Raised by device if:\n\n
-     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register\n\n
-     *                 Raised by host if:\n\n
+     * Transaction complete.
+     *                 Raised by device if:
+     *                 * An IN or OUT packet is sent with the `LAST_BUFF` bit set in the buffer control register
+     *                 Raised by host if:
      *                 * A setup packet is sent when no data in or data out transaction follows * An IN packet is received and the `LAST_BUFF` bit is set in the buffer control register * An IN packet is received with zero length * An OUT packet is sent and the `LAST_BUFF` bit is set
      */
     inline void toggle_SIE_STATUS_TRANS_COMPLETE() volatile
@@ -4458,10 +4458,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get SIE_STATUS's DATA_SEQ_ERROR bit.
      *
-     * Data Sequence Error.\n\n
-     *                 The device can raise a sequence error in the following conditions:\n\n
-     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM\n\n
-     *                 The host can raise a data sequence error in the following conditions:\n\n
+     * Data Sequence Error.
+     *                 The device can raise a sequence error in the following conditions:
+     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM
+     *                 The host can raise a data sequence error in the following conditions:
      *                 * An IN packet from the device has the wrong data PID
      */
     inline bool get_SIE_STATUS_DATA_SEQ_ERROR() volatile
@@ -4472,10 +4472,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set SIE_STATUS's DATA_SEQ_ERROR bit.
      *
-     * Data Sequence Error.\n\n
-     *                 The device can raise a sequence error in the following conditions:\n\n
-     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM\n\n
-     *                 The host can raise a data sequence error in the following conditions:\n\n
+     * Data Sequence Error.
+     *                 The device can raise a sequence error in the following conditions:
+     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM
+     *                 The host can raise a data sequence error in the following conditions:
      *                 * An IN packet from the device has the wrong data PID
      */
     inline void set_SIE_STATUS_DATA_SEQ_ERROR() volatile
@@ -4486,10 +4486,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear SIE_STATUS's DATA_SEQ_ERROR bit.
      *
-     * Data Sequence Error.\n\n
-     *                 The device can raise a sequence error in the following conditions:\n\n
-     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM\n\n
-     *                 The host can raise a data sequence error in the following conditions:\n\n
+     * Data Sequence Error.
+     *                 The device can raise a sequence error in the following conditions:
+     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM
+     *                 The host can raise a data sequence error in the following conditions:
      *                 * An IN packet from the device has the wrong data PID
      */
     inline void clear_SIE_STATUS_DATA_SEQ_ERROR() volatile
@@ -4500,10 +4500,10 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle SIE_STATUS's DATA_SEQ_ERROR bit.
      *
-     * Data Sequence Error.\n\n
-     *                 The device can raise a sequence error in the following conditions:\n\n
-     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM\n\n
-     *                 The host can raise a data sequence error in the following conditions:\n\n
+     * Data Sequence Error.
+     *                 The device can raise a sequence error in the following conditions:
+     *                 * A SETUP packet is received followed by a DATA1 packet (data phase should always be DATA0) * An OUT packet is received from the host but doesn't match the data pid in the buffer control register read from DPSRAM
+     *                 The host can raise a data sequence error in the following conditions:
      *                 * An IN packet from the device has the wrong data PID
      */
     inline void toggle_SIE_STATUS_DATA_SEQ_ERROR() volatile
@@ -10298,7 +10298,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_DP_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving\n
+     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving
      *                 If TX_DIFFMODE=0, OE for DPP only. 0 - DPP in Hi-Z state; 1 - DPP driving
      */
     inline bool get_USBPHY_DIRECT_TX_DP_OE() volatile
@@ -10309,7 +10309,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_DP_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving\n
+     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving
      *                 If TX_DIFFMODE=0, OE for DPP only. 0 - DPP in Hi-Z state; 1 - DPP driving
      */
     inline void set_USBPHY_DIRECT_TX_DP_OE() volatile
@@ -10320,7 +10320,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_DP_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving\n
+     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving
      *                 If TX_DIFFMODE=0, OE for DPP only. 0 - DPP in Hi-Z state; 1 - DPP driving
      */
     inline void clear_USBPHY_DIRECT_TX_DP_OE() volatile
@@ -10331,7 +10331,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_DP_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving\n
+     * Output enable. If TX_DIFFMODE=1, OE for DPP/DPM diff pair. 0 - DPP/DPM in Hi-Z state; 1 - DPP/DPM driving
      *                 If TX_DIFFMODE=0, OE for DPP only. 0 - DPP in Hi-Z state; 1 - DPP driving
      */
     inline void toggle_USBPHY_DIRECT_TX_DP_OE() volatile
@@ -10342,7 +10342,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_DM_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, Ignored.\n
+     * Output enable. If TX_DIFFMODE=1, Ignored.
      *                 If TX_DIFFMODE=0, OE for DPM only. 0 - DPM in Hi-Z state; 1 - DPM driving
      */
     inline bool get_USBPHY_DIRECT_TX_DM_OE() volatile
@@ -10353,7 +10353,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_DM_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, Ignored.\n
+     * Output enable. If TX_DIFFMODE=1, Ignored.
      *                 If TX_DIFFMODE=0, OE for DPM only. 0 - DPM in Hi-Z state; 1 - DPM driving
      */
     inline void set_USBPHY_DIRECT_TX_DM_OE() volatile
@@ -10364,7 +10364,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_DM_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, Ignored.\n
+     * Output enable. If TX_DIFFMODE=1, Ignored.
      *                 If TX_DIFFMODE=0, OE for DPM only. 0 - DPM in Hi-Z state; 1 - DPM driving
      */
     inline void clear_USBPHY_DIRECT_TX_DM_OE() volatile
@@ -10375,7 +10375,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_DM_OE bit.
      *
-     * Output enable. If TX_DIFFMODE=1, Ignored.\n
+     * Output enable. If TX_DIFFMODE=1, Ignored.
      *                 If TX_DIFFMODE=0, OE for DPM only. 0 - DPM in Hi-Z state; 1 - DPM driving
      */
     inline void toggle_USBPHY_DIRECT_TX_DM_OE() volatile
@@ -10386,7 +10386,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_DP bit.
      *
-     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP\n
+     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP
      *                 If TX_DIFFMODE=0, Drives DPP only. TX_DP_OE=1 to enable drive. DPP=TX_DP
      */
     inline bool get_USBPHY_DIRECT_TX_DP() volatile
@@ -10397,7 +10397,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_DP bit.
      *
-     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP\n
+     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP
      *                 If TX_DIFFMODE=0, Drives DPP only. TX_DP_OE=1 to enable drive. DPP=TX_DP
      */
     inline void set_USBPHY_DIRECT_TX_DP() volatile
@@ -10408,7 +10408,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_DP bit.
      *
-     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP\n
+     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP
      *                 If TX_DIFFMODE=0, Drives DPP only. TX_DP_OE=1 to enable drive. DPP=TX_DP
      */
     inline void clear_USBPHY_DIRECT_TX_DP() volatile
@@ -10419,7 +10419,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_DP bit.
      *
-     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP\n
+     * Output data. If TX_DIFFMODE=1, Drives DPP/DPM diff pair. TX_DP_OE=1 to enable drive. DPP=TX_DP, DPM=~TX_DP
      *                 If TX_DIFFMODE=0, Drives DPP only. TX_DP_OE=1 to enable drive. DPP=TX_DP
      */
     inline void toggle_USBPHY_DIRECT_TX_DP() volatile
@@ -10430,7 +10430,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_DM bit.
      *
-     * Output data. TX_DIFFMODE=1, Ignored\n
+     * Output data. TX_DIFFMODE=1, Ignored
      *                 TX_DIFFMODE=0, Drives DPM only. TX_DM_OE=1 to enable drive. DPM=TX_DM
      */
     inline bool get_USBPHY_DIRECT_TX_DM() volatile
@@ -10441,7 +10441,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_DM bit.
      *
-     * Output data. TX_DIFFMODE=1, Ignored\n
+     * Output data. TX_DIFFMODE=1, Ignored
      *                 TX_DIFFMODE=0, Drives DPM only. TX_DM_OE=1 to enable drive. DPM=TX_DM
      */
     inline void set_USBPHY_DIRECT_TX_DM() volatile
@@ -10452,7 +10452,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_DM bit.
      *
-     * Output data. TX_DIFFMODE=1, Ignored\n
+     * Output data. TX_DIFFMODE=1, Ignored
      *                 TX_DIFFMODE=0, Drives DPM only. TX_DM_OE=1 to enable drive. DPM=TX_DM
      */
     inline void clear_USBPHY_DIRECT_TX_DM() volatile
@@ -10463,7 +10463,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_DM bit.
      *
-     * Output data. TX_DIFFMODE=1, Ignored\n
+     * Output data. TX_DIFFMODE=1, Ignored
      *                 TX_DIFFMODE=0, Drives DPM only. TX_DM_OE=1 to enable drive. DPM=TX_DM
      */
     inline void toggle_USBPHY_DIRECT_TX_DM() volatile
@@ -10554,7 +10554,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_FSSLEW bit.
      *
-     * TX_FSSLEW=0: Low speed slew rate\n
+     * TX_FSSLEW=0: Low speed slew rate
      *                 TX_FSSLEW=1: Full speed slew rate
      */
     inline bool get_USBPHY_DIRECT_TX_FSSLEW() volatile
@@ -10565,7 +10565,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_FSSLEW bit.
      *
-     * TX_FSSLEW=0: Low speed slew rate\n
+     * TX_FSSLEW=0: Low speed slew rate
      *                 TX_FSSLEW=1: Full speed slew rate
      */
     inline void set_USBPHY_DIRECT_TX_FSSLEW() volatile
@@ -10576,7 +10576,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_FSSLEW bit.
      *
-     * TX_FSSLEW=0: Low speed slew rate\n
+     * TX_FSSLEW=0: Low speed slew rate
      *                 TX_FSSLEW=1: Full speed slew rate
      */
     inline void clear_USBPHY_DIRECT_TX_FSSLEW() volatile
@@ -10587,7 +10587,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_FSSLEW bit.
      *
-     * TX_FSSLEW=0: Low speed slew rate\n
+     * TX_FSSLEW=0: Low speed slew rate
      *                 TX_FSSLEW=1: Full speed slew rate
      */
     inline void toggle_USBPHY_DIRECT_TX_FSSLEW() volatile
@@ -10598,7 +10598,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_DIRECT's TX_DIFFMODE bit.
      *
-     * TX_DIFFMODE=0: Single ended mode\n
+     * TX_DIFFMODE=0: Single ended mode
      *                 TX_DIFFMODE=1: Differential drive mode (TX_DM, TX_DM_OE ignored)
      */
     inline bool get_USBPHY_DIRECT_TX_DIFFMODE() volatile
@@ -10609,7 +10609,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_DIRECT's TX_DIFFMODE bit.
      *
-     * TX_DIFFMODE=0: Single ended mode\n
+     * TX_DIFFMODE=0: Single ended mode
      *                 TX_DIFFMODE=1: Differential drive mode (TX_DM, TX_DM_OE ignored)
      */
     inline void set_USBPHY_DIRECT_TX_DIFFMODE() volatile
@@ -10620,7 +10620,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Clear USBPHY_DIRECT's TX_DIFFMODE bit.
      *
-     * TX_DIFFMODE=0: Single ended mode\n
+     * TX_DIFFMODE=0: Single ended mode
      *                 TX_DIFFMODE=1: Differential drive mode (TX_DM, TX_DM_OE ignored)
      */
     inline void clear_USBPHY_DIRECT_TX_DIFFMODE() volatile
@@ -10631,7 +10631,7 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Toggle USBPHY_DIRECT's TX_DIFFMODE bit.
      *
-     * TX_DIFFMODE=0: Single ended mode\n
+     * TX_DIFFMODE=0: Single ended mode
      *                 TX_DIFFMODE=1: Differential drive mode (TX_DM, TX_DM_OE ignored)
      */
     inline void toggle_USBPHY_DIRECT_TX_DIFFMODE() volatile
@@ -11299,8 +11299,8 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_TRIM's DP_PULLDN_TRIM field.
      *
-     * Value to drive to USB PHY\n
-     *                 DP pulldown resistor trim control\n
+     * Value to drive to USB PHY
+     *                 DP pulldown resistor trim control
      *                 Experimental data suggests that the reset value will work, but this register allows adjustment if required
      */
     inline uint8_t get_USBPHY_TRIM_DP_PULLDN_TRIM() volatile
@@ -11311,8 +11311,8 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_TRIM's DP_PULLDN_TRIM field.
      *
-     * Value to drive to USB PHY\n
-     *                 DP pulldown resistor trim control\n
+     * Value to drive to USB PHY
+     *                 DP pulldown resistor trim control
      *                 Experimental data suggests that the reset value will work, but this register allows adjustment if required
      */
     inline void set_USBPHY_TRIM_DP_PULLDN_TRIM(uint8_t value) volatile
@@ -11328,8 +11328,8 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Get USBPHY_TRIM's DM_PULLDN_TRIM field.
      *
-     * Value to drive to USB PHY\n
-     *                 DM pulldown resistor trim control\n
+     * Value to drive to USB PHY
+     *                 DM pulldown resistor trim control
      *                 Experimental data suggests that the reset value will work, but this register allows adjustment if required
      */
     inline uint8_t get_USBPHY_TRIM_DM_PULLDN_TRIM() volatile
@@ -11340,8 +11340,8 @@ struct [[gnu::packed]] usbctrl_regs
     /**
      * Set USBPHY_TRIM's DM_PULLDN_TRIM field.
      *
-     * Value to drive to USB PHY\n
-     *                 DM pulldown resistor trim control\n
+     * Value to drive to USB PHY
+     *                 DM pulldown resistor trim control
      *                 Experimental data suggests that the reset value will work, but this register allows adjustment if required
      */
     inline void set_USBPHY_TRIM_DM_PULLDN_TRIM(uint8_t value) volatile

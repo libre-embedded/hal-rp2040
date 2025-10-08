@@ -26,9 +26,9 @@ struct [[gnu::packed]] adc
     const uint32_t RESULT = {}; /*!< (read-only) Result of most recent ADC conversion */
     uint32_t FCS;               /*!< (read-write) FIFO control and status */
     const uint32_t FIFO = {};   /*!< (read-only) Conversion result FIFO */
-    uint32_t DIV;               /*!< (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions\n
-                at regular intervals rather than back-to-back.\n
-                The divider is reset when either of these fields are written.\n
+    uint32_t DIV;               /*!< (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions
+                at regular intervals rather than back-to-back.
+                The divider is reset when either of these fields are written.
                 Total period is 1 + INT + FRAC / 256 */
     const uint32_t INTR = {};   /*!< (read-only) Raw Interrupts */
     uint32_t INTE;              /*!< (read-write) Interrupt Enable */
@@ -40,7 +40,7 @@ struct [[gnu::packed]] adc
     /**
      * Get CS's EN bit.
      *
-     * Power on ADC and enable its clock.\n
+     * Power on ADC and enable its clock.
      *                 1 - enabled. 0 - disabled.
      */
     inline bool get_CS_EN() volatile
@@ -51,7 +51,7 @@ struct [[gnu::packed]] adc
     /**
      * Set CS's EN bit.
      *
-     * Power on ADC and enable its clock.\n
+     * Power on ADC and enable its clock.
      *                 1 - enabled. 0 - disabled.
      */
     inline void set_CS_EN() volatile
@@ -62,7 +62,7 @@ struct [[gnu::packed]] adc
     /**
      * Clear CS's EN bit.
      *
-     * Power on ADC and enable its clock.\n
+     * Power on ADC and enable its clock.
      *                 1 - enabled. 0 - disabled.
      */
     inline void clear_CS_EN() volatile
@@ -73,7 +73,7 @@ struct [[gnu::packed]] adc
     /**
      * Toggle CS's EN bit.
      *
-     * Power on ADC and enable its clock.\n
+     * Power on ADC and enable its clock.
      *                 1 - enabled. 0 - disabled.
      */
     inline void toggle_CS_EN() volatile
@@ -204,7 +204,7 @@ struct [[gnu::packed]] adc
     /**
      * Get CS's READY bit.
      *
-     * 1 if the ADC is ready to start a new conversion. Implies any previous conversion has completed.\n
+     * 1 if the ADC is ready to start a new conversion. Implies any previous conversion has completed.
      *                 0 whilst conversion in progress.
      */
     inline bool get_CS_READY() volatile
@@ -290,9 +290,9 @@ struct [[gnu::packed]] adc
     /**
      * Get CS's RROBIN field.
      *
-     * Round-robin sampling. 1 bit per channel. Set all bits to 0 to disable.\n
-     *                 Otherwise, the ADC will cycle through each enabled channel in a round-robin fashion.\n
-     *                 The first channel to be sampled will be the one currently indicated by AINSEL.\n
+     * Round-robin sampling. 1 bit per channel. Set all bits to 0 to disable.
+     *                 Otherwise, the ADC will cycle through each enabled channel in a round-robin fashion.
+     *                 The first channel to be sampled will be the one currently indicated by AINSEL.
      *                 AINSEL will be updated after each conversion with the newly-selected channel.
      */
     inline uint8_t get_CS_RROBIN() volatile
@@ -303,9 +303,9 @@ struct [[gnu::packed]] adc
     /**
      * Set CS's RROBIN field.
      *
-     * Round-robin sampling. 1 bit per channel. Set all bits to 0 to disable.\n
-     *                 Otherwise, the ADC will cycle through each enabled channel in a round-robin fashion.\n
-     *                 The first channel to be sampled will be the one currently indicated by AINSEL.\n
+     * Round-robin sampling. 1 bit per channel. Set all bits to 0 to disable.
+     *                 Otherwise, the ADC will cycle through each enabled channel in a round-robin fashion.
+     *                 The first channel to be sampled will be the one currently indicated by AINSEL.
      *                 AINSEL will be updated after each conversion with the newly-selected channel.
      */
     inline void set_CS_RROBIN(uint8_t value) volatile
@@ -370,7 +370,7 @@ struct [[gnu::packed]] adc
      */
     inline uint16_t get_RESULT() volatile
     {
-        return RESULT & 0b111111111111u;
+        return RESULT & 0xfffu;
     }
 
     /**
@@ -636,7 +636,7 @@ struct [[gnu::packed]] adc
      */
     inline uint8_t get_FCS_LEVEL() volatile
     {
-        return (FCS >> 16u) & 0b1111u;
+        return (FCS >> 16u) & 0xfu;
     }
 
     /**
@@ -646,7 +646,7 @@ struct [[gnu::packed]] adc
      */
     inline uint8_t get_FCS_THRESH() volatile
     {
-        return (FCS >> 24u) & 0b1111u;
+        return (FCS >> 24u) & 0xfu;
     }
 
     /**
@@ -658,8 +658,8 @@ struct [[gnu::packed]] adc
     {
         uint32_t curr = FCS;
 
-        curr &= ~(0b1111u << 24u);
-        curr |= (value & 0b1111u) << 24u;
+        curr &= ~(0xfu << 24u);
+        curr |= (value & 0xfu) << 24u;
 
         FCS = curr;
     }
@@ -681,8 +681,8 @@ struct [[gnu::packed]] adc
         FULL = curr & (1u << 9u);
         UNDER = curr & (1u << 10u);
         OVER = curr & (1u << 11u);
-        LEVEL = (curr >> 16u) & 0b1111u;
-        THRESH = (curr >> 24u) & 0b1111u;
+        LEVEL = (curr >> 16u) & 0xfu;
+        THRESH = (curr >> 24u) & 0xfu;
     }
 
     /**
@@ -706,8 +706,8 @@ struct [[gnu::packed]] adc
         curr |= (UNDER & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
         curr |= (OVER & 0b1u) << 11u;
-        curr &= ~(0b1111u << 24u);
-        curr |= (THRESH & 0b1111u) << 24u;
+        curr &= ~(0xfu << 24u);
+        curr |= (THRESH & 0xfu) << 24u;
 
         FCS = curr;
     }
@@ -717,7 +717,7 @@ struct [[gnu::packed]] adc
      */
     inline uint16_t get_FIFO_VAL() volatile
     {
-        return FIFO & 0b111111111111u;
+        return FIFO & 0xfffu;
     }
 
     /**
@@ -739,7 +739,7 @@ struct [[gnu::packed]] adc
     {
         uint32_t curr = FIFO;
 
-        VAL = curr & 0b111111111111u;
+        VAL = curr & 0xfffu;
         ERR = curr & (1u << 15u);
     }
 
@@ -750,7 +750,7 @@ struct [[gnu::packed]] adc
      */
     inline uint8_t get_DIV_FRAC() volatile
     {
-        return DIV & 0b11111111u;
+        return DIV & 0xffu;
     }
 
     /**
@@ -762,8 +762,8 @@ struct [[gnu::packed]] adc
     {
         uint32_t curr = DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         DIV = curr;
     }
@@ -775,7 +775,7 @@ struct [[gnu::packed]] adc
      */
     inline uint16_t get_DIV_INT() volatile
     {
-        return (DIV >> 8u) & 0b1111111111111111u;
+        return (DIV >> 8u) & 0xffffu;
     }
 
     /**
@@ -787,8 +787,8 @@ struct [[gnu::packed]] adc
     {
         uint32_t curr = DIV;
 
-        curr &= ~(0b1111111111111111u << 8u);
-        curr |= (value & 0b1111111111111111u) << 8u;
+        curr &= ~(0xffffu << 8u);
+        curr |= (value & 0xffffu) << 8u;
 
         DIV = curr;
     }
@@ -796,35 +796,35 @@ struct [[gnu::packed]] adc
     /**
      * Get all of DIV's bit fields.
      *
-     * (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions\n
-     *             at regular intervals rather than back-to-back.\n
-     *             The divider is reset when either of these fields are written.\n
+     * (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions
+     *             at regular intervals rather than back-to-back.
+     *             The divider is reset when either of these fields are written.
      *             Total period is 1 + INT + FRAC / 256
      */
     inline void get_DIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b1111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffu;
     }
 
     /**
      * Set all of DIV's bit fields.
      *
-     * (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions\n
-     *             at regular intervals rather than back-to-back.\n
-     *             The divider is reset when either of these fields are written.\n
+     * (read-write) Clock divider. If non-zero, CS_START_MANY will start conversions
+     *             at regular intervals rather than back-to-back.
+     *             The divider is reset when either of these fields are written.
      *             Total period is 1 + INT + FRAC / 256
      */
     inline void set_DIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b1111111111111111u << 8u);
-        curr |= (INT & 0b1111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffu << 8u);
+        curr |= (INT & 0xffffu) << 8u;
 
         DIV = curr;
     }
@@ -832,7 +832,7 @@ struct [[gnu::packed]] adc
     /**
      * Get INTR's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline bool get_INTR() volatile
@@ -843,7 +843,7 @@ struct [[gnu::packed]] adc
     /**
      * Get INTE's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline bool get_INTE() volatile
@@ -854,7 +854,7 @@ struct [[gnu::packed]] adc
     /**
      * Set INTE's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void set_INTE() volatile
@@ -865,7 +865,7 @@ struct [[gnu::packed]] adc
     /**
      * Clear INTE's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void clear_INTE() volatile
@@ -876,7 +876,7 @@ struct [[gnu::packed]] adc
     /**
      * Toggle INTE's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void toggle_INTE() volatile
@@ -887,7 +887,7 @@ struct [[gnu::packed]] adc
     /**
      * Get INTF's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline bool get_INTF() volatile
@@ -898,7 +898,7 @@ struct [[gnu::packed]] adc
     /**
      * Set INTF's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void set_INTF() volatile
@@ -909,7 +909,7 @@ struct [[gnu::packed]] adc
     /**
      * Clear INTF's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void clear_INTF() volatile
@@ -920,7 +920,7 @@ struct [[gnu::packed]] adc
     /**
      * Toggle INTF's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline void toggle_INTF() volatile
@@ -931,7 +931,7 @@ struct [[gnu::packed]] adc
     /**
      * Get INTS's FIFO bit.
      *
-     * Triggered when the sample FIFO reaches a certain level.\n
+     * Triggered when the sample FIFO reaches a certain level.
      *                 This level can be programmed via the FCS_THRESH field.
      */
     inline bool get_INTS() volatile

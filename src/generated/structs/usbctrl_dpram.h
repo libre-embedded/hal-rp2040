@@ -116,69 +116,69 @@ struct [[gnu::packed]] usbctrl_dpram
     uint32_t EP14_OUT_CONTROL;
     uint32_t EP15_IN_CONTROL;
     uint32_t EP15_OUT_CONTROL;
-    uint32_t EP0_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP0_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP0_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP0_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP1_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP1_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP1_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP1_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP2_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP2_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP2_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP2_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP3_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP3_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP3_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP3_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP4_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP4_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP4_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP4_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP5_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP5_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP5_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP5_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP6_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP6_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP6_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP6_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP7_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP7_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP7_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP7_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP8_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP8_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP8_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP8_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP9_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP9_IN_BUFFER_CONTROL;   /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP9_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP9_OUT_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP10_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP10_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP10_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP10_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP11_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP11_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP11_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP11_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP12_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP12_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP12_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP12_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP13_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP13_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP13_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP13_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP14_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP14_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP14_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP14_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP15_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP15_IN_BUFFER_CONTROL;  /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
-    uint32_t EP15_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+    uint32_t EP15_OUT_BUFFER_CONTROL; /*!< (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
                 Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode. */
 
     /* Methods. */
@@ -188,7 +188,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint8_t get_SETUP_PACKET_LOW_BMREQUESTTYPE() volatile
     {
-        return SETUP_PACKET_LOW & 0b11111111u;
+        return SETUP_PACKET_LOW & 0xffu;
     }
 
     /**
@@ -198,8 +198,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         SETUP_PACKET_LOW = curr;
     }
@@ -209,7 +209,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint8_t get_SETUP_PACKET_LOW_BREQUEST() volatile
     {
-        return (SETUP_PACKET_LOW >> 8u) & 0b11111111u;
+        return (SETUP_PACKET_LOW >> 8u) & 0xffu;
     }
 
     /**
@@ -219,8 +219,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SETUP_PACKET_LOW = curr;
     }
@@ -230,7 +230,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_SETUP_PACKET_LOW_WVALUE() volatile
     {
-        return (SETUP_PACKET_LOW >> 16u) & 0b1111111111111111u;
+        return (SETUP_PACKET_LOW >> 16u) & 0xffffu;
     }
 
     /**
@@ -240,8 +240,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SETUP_PACKET_LOW = curr;
     }
@@ -255,9 +255,9 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
-        BMREQUESTTYPE = curr & 0b11111111u;
-        BREQUEST = (curr >> 8u) & 0b11111111u;
-        WVALUE = (curr >> 16u) & 0b1111111111111111u;
+        BMREQUESTTYPE = curr & 0xffu;
+        BREQUEST = (curr >> 8u) & 0xffu;
+        WVALUE = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -269,12 +269,12 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_LOW;
 
-        curr &= ~(0b11111111u);
-        curr |= (BMREQUESTTYPE & 0b11111111u);
-        curr &= ~(0b11111111u << 8u);
-        curr |= (BREQUEST & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (WVALUE & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu);
+        curr |= (BMREQUESTTYPE & 0xffu);
+        curr &= ~(0xffu << 8u);
+        curr |= (BREQUEST & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (WVALUE & 0xffffu) << 16u;
 
         SETUP_PACKET_LOW = curr;
     }
@@ -284,7 +284,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_SETUP_PACKET_HIGH_WINDEX() volatile
     {
-        return SETUP_PACKET_HIGH & 0b1111111111111111u;
+        return SETUP_PACKET_HIGH & 0xffffu;
     }
 
     /**
@@ -294,8 +294,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SETUP_PACKET_HIGH = curr;
     }
@@ -305,7 +305,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_SETUP_PACKET_HIGH_WLENGTH() volatile
     {
-        return (SETUP_PACKET_HIGH >> 16u) & 0b1111111111111111u;
+        return (SETUP_PACKET_HIGH >> 16u) & 0xffffu;
     }
 
     /**
@@ -315,8 +315,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SETUP_PACKET_HIGH = curr;
     }
@@ -330,8 +330,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
-        WINDEX = curr & 0b1111111111111111u;
-        WLENGTH = (curr >> 16u) & 0b1111111111111111u;
+        WINDEX = curr & 0xffffu;
+        WLENGTH = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -343,10 +343,10 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = SETUP_PACKET_HIGH;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (WINDEX & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (WLENGTH & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (WINDEX & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (WLENGTH & 0xffffu) << 16u;
 
         SETUP_PACKET_HIGH = curr;
     }
@@ -358,7 +358,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP1_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP1_IN_CONTROL & 0b1111111111111111u;
+        return EP1_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -370,8 +370,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP1_IN_CONTROL = curr;
     }
@@ -644,7 +644,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP1_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -661,8 +661,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -688,7 +688,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP1_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP1_OUT_CONTROL & 0b1111111111111111u;
+        return EP1_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -700,8 +700,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP1_OUT_CONTROL = curr;
     }
@@ -974,7 +974,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP1_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -991,8 +991,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP1_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -1018,7 +1018,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP2_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP2_IN_CONTROL & 0b1111111111111111u;
+        return EP2_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -1030,8 +1030,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP2_IN_CONTROL = curr;
     }
@@ -1304,7 +1304,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP2_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -1321,8 +1321,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -1348,7 +1348,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP2_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP2_OUT_CONTROL & 0b1111111111111111u;
+        return EP2_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -1360,8 +1360,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP2_OUT_CONTROL = curr;
     }
@@ -1634,7 +1634,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP2_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -1651,8 +1651,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP2_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -1678,7 +1678,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP3_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP3_IN_CONTROL & 0b1111111111111111u;
+        return EP3_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -1690,8 +1690,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP3_IN_CONTROL = curr;
     }
@@ -1964,7 +1964,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP3_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -1981,8 +1981,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -2008,7 +2008,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP3_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP3_OUT_CONTROL & 0b1111111111111111u;
+        return EP3_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -2020,8 +2020,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP3_OUT_CONTROL = curr;
     }
@@ -2294,7 +2294,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP3_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -2311,8 +2311,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP3_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -2338,7 +2338,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP4_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP4_IN_CONTROL & 0b1111111111111111u;
+        return EP4_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -2350,8 +2350,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP4_IN_CONTROL = curr;
     }
@@ -2624,7 +2624,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP4_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -2641,8 +2641,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -2668,7 +2668,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP4_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP4_OUT_CONTROL & 0b1111111111111111u;
+        return EP4_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -2680,8 +2680,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP4_OUT_CONTROL = curr;
     }
@@ -2954,7 +2954,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP4_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -2971,8 +2971,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP4_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -2998,7 +2998,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP5_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP5_IN_CONTROL & 0b1111111111111111u;
+        return EP5_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -3010,8 +3010,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP5_IN_CONTROL = curr;
     }
@@ -3284,7 +3284,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP5_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -3301,8 +3301,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -3328,7 +3328,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP5_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP5_OUT_CONTROL & 0b1111111111111111u;
+        return EP5_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -3340,8 +3340,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP5_OUT_CONTROL = curr;
     }
@@ -3614,7 +3614,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP5_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -3631,8 +3631,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP5_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -3658,7 +3658,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP6_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP6_IN_CONTROL & 0b1111111111111111u;
+        return EP6_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -3670,8 +3670,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP6_IN_CONTROL = curr;
     }
@@ -3944,7 +3944,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP6_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -3961,8 +3961,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -3988,7 +3988,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP6_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP6_OUT_CONTROL & 0b1111111111111111u;
+        return EP6_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -4000,8 +4000,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP6_OUT_CONTROL = curr;
     }
@@ -4274,7 +4274,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP6_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -4291,8 +4291,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP6_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -4318,7 +4318,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP7_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP7_IN_CONTROL & 0b1111111111111111u;
+        return EP7_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -4330,8 +4330,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP7_IN_CONTROL = curr;
     }
@@ -4604,7 +4604,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP7_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -4621,8 +4621,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -4648,7 +4648,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP7_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP7_OUT_CONTROL & 0b1111111111111111u;
+        return EP7_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -4660,8 +4660,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP7_OUT_CONTROL = curr;
     }
@@ -4934,7 +4934,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP7_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -4951,8 +4951,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP7_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -4978,7 +4978,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP8_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP8_IN_CONTROL & 0b1111111111111111u;
+        return EP8_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -4990,8 +4990,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP8_IN_CONTROL = curr;
     }
@@ -5264,7 +5264,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP8_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -5281,8 +5281,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -5308,7 +5308,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP8_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP8_OUT_CONTROL & 0b1111111111111111u;
+        return EP8_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -5320,8 +5320,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP8_OUT_CONTROL = curr;
     }
@@ -5594,7 +5594,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP8_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -5611,8 +5611,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP8_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -5638,7 +5638,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP9_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP9_IN_CONTROL & 0b1111111111111111u;
+        return EP9_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -5650,8 +5650,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP9_IN_CONTROL = curr;
     }
@@ -5924,7 +5924,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP9_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -5941,8 +5941,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -5968,7 +5968,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP9_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP9_OUT_CONTROL & 0b1111111111111111u;
+        return EP9_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -5980,8 +5980,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP9_OUT_CONTROL = curr;
     }
@@ -6254,7 +6254,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP9_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -6271,8 +6271,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP9_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -6298,7 +6298,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP10_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP10_IN_CONTROL & 0b1111111111111111u;
+        return EP10_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -6310,8 +6310,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP10_IN_CONTROL = curr;
     }
@@ -6584,7 +6584,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP10_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -6601,8 +6601,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -6628,7 +6628,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP10_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP10_OUT_CONTROL & 0b1111111111111111u;
+        return EP10_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -6640,8 +6640,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP10_OUT_CONTROL = curr;
     }
@@ -6914,7 +6914,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP10_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -6931,8 +6931,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP10_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -6958,7 +6958,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP11_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP11_IN_CONTROL & 0b1111111111111111u;
+        return EP11_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -6970,8 +6970,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP11_IN_CONTROL = curr;
     }
@@ -7244,7 +7244,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP11_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -7261,8 +7261,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -7288,7 +7288,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP11_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP11_OUT_CONTROL & 0b1111111111111111u;
+        return EP11_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -7300,8 +7300,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP11_OUT_CONTROL = curr;
     }
@@ -7574,7 +7574,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP11_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -7591,8 +7591,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP11_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -7618,7 +7618,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP12_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP12_IN_CONTROL & 0b1111111111111111u;
+        return EP12_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -7630,8 +7630,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP12_IN_CONTROL = curr;
     }
@@ -7904,7 +7904,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP12_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -7921,8 +7921,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -7948,7 +7948,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP12_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP12_OUT_CONTROL & 0b1111111111111111u;
+        return EP12_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -7960,8 +7960,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP12_OUT_CONTROL = curr;
     }
@@ -8234,7 +8234,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP12_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -8251,8 +8251,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP12_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -8278,7 +8278,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP13_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP13_IN_CONTROL & 0b1111111111111111u;
+        return EP13_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -8290,8 +8290,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP13_IN_CONTROL = curr;
     }
@@ -8564,7 +8564,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP13_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -8581,8 +8581,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -8608,7 +8608,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP13_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP13_OUT_CONTROL & 0b1111111111111111u;
+        return EP13_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -8620,8 +8620,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP13_OUT_CONTROL = curr;
     }
@@ -8894,7 +8894,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP13_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -8911,8 +8911,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP13_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -8938,7 +8938,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP14_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP14_IN_CONTROL & 0b1111111111111111u;
+        return EP14_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -8950,8 +8950,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP14_IN_CONTROL = curr;
     }
@@ -9224,7 +9224,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP14_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -9241,8 +9241,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -9268,7 +9268,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP14_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP14_OUT_CONTROL & 0b1111111111111111u;
+        return EP14_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -9280,8 +9280,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP14_OUT_CONTROL = curr;
     }
@@ -9554,7 +9554,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP14_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -9571,8 +9571,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP14_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -9598,7 +9598,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP15_IN_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP15_IN_CONTROL & 0b1111111111111111u;
+        return EP15_IN_CONTROL & 0xffffu;
     }
 
     /**
@@ -9610,8 +9610,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP15_IN_CONTROL = curr;
     }
@@ -9884,7 +9884,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_IN_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP15_IN_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -9901,8 +9901,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_IN_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -9928,7 +9928,7 @@ struct [[gnu::packed]] usbctrl_dpram
      */
     inline uint16_t get_EP15_OUT_CONTROL_BUFFER_ADDRESS() volatile
     {
-        return EP15_OUT_CONTROL & 0b1111111111111111u;
+        return EP15_OUT_CONTROL & 0xffffu;
     }
 
     /**
@@ -9940,8 +9940,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         EP15_OUT_CONTROL = curr;
     }
@@ -10214,7 +10214,7 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
-        BUFFER_ADDRESS = curr & 0b1111111111111111u;
+        BUFFER_ADDRESS = curr & 0xffffu;
         INTERRUPT_ON_NAK = curr & (1u << 16u);
         INTERRUPT_ON_STALL = curr & (1u << 17u);
         ENDPOINT_TYPE = USBCTRL_DPRAM_EP15_OUT_CONTROL_ENDPOINT_TYPE((curr >> 26u) & 0b11u);
@@ -10231,8 +10231,8 @@ struct [[gnu::packed]] usbctrl_dpram
     {
         uint32_t curr = EP15_OUT_CONTROL;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (BUFFER_ADDRESS & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (BUFFER_ADDRESS & 0xffffu);
         curr &= ~(0b1u << 16u);
         curr |= (INTERRUPT_ON_NAK & 0b1u) << 16u;
         curr &= ~(0b1u << 17u);
@@ -10584,7 +10584,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -10595,7 +10595,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -10731,7 +10731,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP0_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP0_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -10756,7 +10756,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP0_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP0_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP0_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -11126,7 +11126,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP0_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -11137,7 +11137,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP0_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -11273,7 +11273,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP0_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP0_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -11298,7 +11298,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP0_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP0_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP0_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -11668,7 +11668,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -11679,7 +11679,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -11815,7 +11815,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP1_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -11840,7 +11840,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP1_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP1_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -12210,7 +12210,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP1_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -12221,7 +12221,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP1_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -12357,7 +12357,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP1_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP1_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -12382,7 +12382,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP1_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP1_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP1_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -12752,7 +12752,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -12763,7 +12763,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -12899,7 +12899,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP2_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -12924,7 +12924,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP2_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP2_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -13294,7 +13294,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP2_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -13305,7 +13305,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP2_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -13441,7 +13441,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP2_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP2_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -13466,7 +13466,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP2_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP2_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP2_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -13836,7 +13836,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -13847,7 +13847,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -13983,7 +13983,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP3_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -14008,7 +14008,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP3_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP3_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -14378,7 +14378,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP3_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -14389,7 +14389,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP3_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -14525,7 +14525,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP3_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP3_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -14550,7 +14550,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP3_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP3_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP3_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -14920,7 +14920,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -14931,7 +14931,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -15067,7 +15067,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP4_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -15092,7 +15092,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP4_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP4_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -15462,7 +15462,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP4_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -15473,7 +15473,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP4_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -15609,7 +15609,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP4_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP4_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -15634,7 +15634,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP4_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP4_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP4_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -16004,7 +16004,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -16015,7 +16015,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -16151,7 +16151,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP5_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -16176,7 +16176,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP5_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP5_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -16546,7 +16546,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP5_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -16557,7 +16557,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP5_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -16693,7 +16693,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP5_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP5_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -16718,7 +16718,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP5_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP5_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP5_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -17088,7 +17088,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -17099,7 +17099,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -17235,7 +17235,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP6_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -17260,7 +17260,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP6_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP6_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -17630,7 +17630,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP6_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -17641,7 +17641,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP6_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -17777,7 +17777,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP6_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP6_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -17802,7 +17802,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP6_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP6_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP6_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -18172,7 +18172,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -18183,7 +18183,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -18319,7 +18319,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP7_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -18344,7 +18344,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP7_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP7_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -18714,7 +18714,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP7_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -18725,7 +18725,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP7_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -18861,7 +18861,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP7_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP7_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -18886,7 +18886,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP7_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP7_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP7_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -19256,7 +19256,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -19267,7 +19267,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -19403,7 +19403,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP8_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -19428,7 +19428,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP8_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP8_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -19798,7 +19798,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP8_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -19809,7 +19809,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP8_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -19945,7 +19945,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP8_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP8_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -19970,7 +19970,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP8_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP8_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP8_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -20340,7 +20340,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -20351,7 +20351,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -20487,7 +20487,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP9_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -20512,7 +20512,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP9_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP9_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -20882,7 +20882,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP9_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -20893,7 +20893,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP9_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -21029,7 +21029,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP9_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP9_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -21054,7 +21054,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP9_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP9_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP9_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -21424,7 +21424,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -21435,7 +21435,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -21571,7 +21571,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP10_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -21596,7 +21596,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP10_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP10_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -21966,7 +21966,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP10_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -21977,7 +21977,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP10_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -22113,7 +22113,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP10_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP10_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -22138,7 +22138,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP10_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP10_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP10_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -22508,7 +22508,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -22519,7 +22519,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -22655,7 +22655,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP11_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -22680,7 +22680,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP11_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP11_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -23050,7 +23050,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP11_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -23061,7 +23061,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP11_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -23197,7 +23197,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP11_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP11_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -23222,7 +23222,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP11_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP11_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP11_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -23592,7 +23592,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -23603,7 +23603,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -23739,7 +23739,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP12_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -23764,7 +23764,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP12_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP12_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -24134,7 +24134,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP12_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -24145,7 +24145,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP12_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -24281,7 +24281,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP12_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP12_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -24306,7 +24306,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP12_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP12_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP12_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -24676,7 +24676,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -24687,7 +24687,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -24823,7 +24823,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP13_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -24848,7 +24848,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP13_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP13_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -25218,7 +25218,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP13_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -25229,7 +25229,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP13_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -25365,7 +25365,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP13_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP13_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -25390,7 +25390,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP13_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP13_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP13_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -25760,7 +25760,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -25771,7 +25771,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -25907,7 +25907,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP14_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -25932,7 +25932,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP14_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP14_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -26302,7 +26302,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP14_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -26313,7 +26313,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP14_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -26449,7 +26449,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP14_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP14_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -26474,7 +26474,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP14_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP14_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP14_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -26844,7 +26844,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -26855,7 +26855,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_IN_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -26991,7 +26991,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP15_IN_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -27016,7 +27016,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_IN_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP15_IN_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP15_IN_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile
@@ -27386,7 +27386,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get EP15_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET get_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET() volatile
@@ -27397,7 +27397,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set EP15_OUT_BUFFER_CONTROL's DOUBLE_BUFFER_ISO_OFFSET field.
      *
-     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.\n
+     * The number of bytes buffer 1 is offset from buffer 0 in Isochronous mode. Only valid in double buffered mode for an Isochronous endpoint.
      *                 For a non Isochronous endpoint the offset is always 64 bytes.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET(USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET value) volatile
@@ -27533,7 +27533,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Get all of EP15_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void get_EP15_OUT_BUFFER_CONTROL(uint16_t &LENGTH_0, bool &AVAILABLE_0, bool &STALL, bool &RESET, bool &PID_0, bool &LAST_0, bool &FULL_0, uint16_t &LENGTH_1, bool &AVAILABLE_1, USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET &DOUBLE_BUFFER_ISO_OFFSET, bool &PID_1, bool &LAST_1, bool &FULL_1) volatile
@@ -27558,7 +27558,7 @@ struct [[gnu::packed]] usbctrl_dpram
     /**
      * Set all of EP15_OUT_BUFFER_CONTROL's bit fields.
      *
-     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.\n
+     * (read-write) Buffer control for both buffers of an endpoint. Fields ending in a _1 are for buffer 1.
      *             Fields ending in a _0 are for buffer 0. Buffer 1 controls are only valid if the endpoint is in double buffered mode.
      */
     inline void set_EP15_OUT_BUFFER_CONTROL(uint16_t LENGTH_0, bool AVAILABLE_0, bool STALL, bool RESET, bool PID_0, bool LAST_0, bool FULL_0, uint16_t LENGTH_1, bool AVAILABLE_1, USBCTRL_DPRAM_EP15_OUT_BUFFER_CONTROL_DOUBLE_BUFFER_ISO_OFFSET DOUBLE_BUFFER_ISO_OFFSET, bool PID_1, bool LAST_1, bool FULL_1) volatile

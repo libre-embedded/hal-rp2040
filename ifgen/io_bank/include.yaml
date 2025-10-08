@@ -10,54 +10,61 @@ structs:
         expected_size: 4
         expected_offset: 0
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -66,12 +73,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -106,54 +114,61 @@ structs:
         expected_size: 4
         expected_offset: 8
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -162,12 +177,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -202,54 +218,61 @@ structs:
         expected_size: 4
         expected_offset: 16
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -258,12 +281,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -298,54 +322,61 @@ structs:
         expected_size: 4
         expected_offset: 24
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -354,12 +385,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 28
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -394,54 +426,61 @@ structs:
         expected_size: 4
         expected_offset: 32
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -450,12 +489,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 36
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -490,54 +530,61 @@ structs:
         expected_size: 4
         expected_offset: 40
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -546,12 +593,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 44
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -586,54 +634,61 @@ structs:
         expected_size: 4
         expected_offset: 48
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -642,12 +697,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 52
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -682,54 +738,61 @@ structs:
         expected_size: 4
         expected_offset: 56
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -738,12 +801,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 60
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -778,54 +842,61 @@ structs:
         expected_size: 4
         expected_offset: 64
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -834,12 +905,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 68
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -874,54 +946,61 @@ structs:
         expected_size: 4
         expected_offset: 72
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -930,12 +1009,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 76
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -970,54 +1050,61 @@ structs:
         expected_size: 4
         expected_offset: 80
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1026,12 +1113,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 84
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1066,54 +1154,61 @@ structs:
         expected_size: 4
         expected_offset: 88
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1122,12 +1217,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 92
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1162,54 +1258,61 @@ structs:
         expected_size: 4
         expected_offset: 96
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1218,12 +1321,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 100
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1258,54 +1362,61 @@ structs:
         expected_size: 4
         expected_offset: 104
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1314,12 +1425,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 108
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1354,54 +1466,61 @@ structs:
         expected_size: 4
         expected_offset: 112
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1410,12 +1529,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 116
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1450,54 +1570,61 @@ structs:
         expected_size: 4
         expected_offset: 120
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1506,12 +1633,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 124
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1546,54 +1674,61 @@ structs:
         expected_size: 4
         expected_offset: 128
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1602,12 +1737,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 132
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1642,54 +1778,61 @@ structs:
         expected_size: 4
         expected_offset: 136
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1698,12 +1841,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 140
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1738,54 +1882,61 @@ structs:
         expected_size: 4
         expected_offset: 144
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1794,12 +1945,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 148
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1834,54 +1986,61 @@ structs:
         expected_size: 4
         expected_offset: 152
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1890,12 +2049,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 156
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -1930,54 +2090,61 @@ structs:
         expected_size: 4
         expected_offset: 160
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -1986,12 +2153,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 164
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2026,54 +2194,61 @@ structs:
         expected_size: 4
         expected_offset: 168
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2082,12 +2257,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 172
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2122,54 +2298,61 @@ structs:
         expected_size: 4
         expected_offset: 176
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2178,12 +2361,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 180
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2218,54 +2402,61 @@ structs:
         expected_size: 4
         expected_offset: 184
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2274,12 +2465,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 188
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2314,54 +2506,61 @@ structs:
         expected_size: 4
         expected_offset: 192
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2370,12 +2569,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 196
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2410,54 +2610,61 @@ structs:
         expected_size: 4
         expected_offset: 200
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2466,12 +2673,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 204
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2506,54 +2714,61 @@ structs:
         expected_size: 4
         expected_offset: 208
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2562,12 +2777,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 212
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2602,54 +2818,61 @@ structs:
         expected_size: 4
         expected_offset: 216
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2658,12 +2881,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 220
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2698,54 +2922,61 @@ structs:
         expected_size: 4
         expected_offset: 224
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2754,12 +2985,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 228
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2794,54 +3026,61 @@ structs:
         expected_size: 4
         expected_offset: 232
         const: true
-        description: (read-only) GPIO status
+        description: |-
+          (read-only) GPIO status
         fields:
           - name: OUTFROMPERI
-            description: output signal from selected peripheral, before register
-              override is applied
+            description: |-
+              output signal from selected peripheral, before register override is applied
             index: 8
             width: 1
             read: true
             write: false
           - name: OUTTOPAD
-            description: output signal to pad after register override is applied
+            description: |-
+              output signal to pad after register override is applied
             index: 9
             width: 1
             read: true
             write: false
           - name: OEFROMPERI
-            description: output enable from selected peripheral, before register
-              override is applied
+            description: |-
+              output enable from selected peripheral, before register override is applied
             index: 12
             width: 1
             read: true
             write: false
           - name: OETOPAD
-            description: output enable to pad after register override is applied
+            description: |-
+              output enable to pad after register override is applied
             index: 13
             width: 1
             read: true
             write: false
           - name: INFROMPAD
-            description: input signal from pad, before override is applied
+            description: |-
+              input signal from pad, before override is applied
             index: 17
             width: 1
             read: true
             write: false
           - name: INTOPERI
-            description: input signal to peripheral, after override is applied
+            description: |-
+              input signal to peripheral, after override is applied
             index: 19
             width: 1
             read: true
             write: false
           - name: IRQFROMPAD
-            description: interrupt from pad before override is applied
+            description: |-
+              interrupt from pad before override is applied
             index: 24
             width: 1
             read: true
             write: false
           - name: IRQTOPROC
-            description: interrupt to processors, after override is applied
+            description: |-
+              interrupt to processors, after override is applied
             index: 26
             width: 1
             read: true
@@ -2850,12 +3089,13 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 236
-        description: (read-write) GPIO control including function select and 
-          overrides.
+        description: |-
+          (read-write) GPIO control including function select and overrides.
         fields:
           - name: FUNCSEL
-            description: "0-31 -> selects pin function according to the gpio table\\\
-              n\n                31 == NULL"
+            description: |-
+              0-31 -> selects pin function according to the gpio table
+                              31 == NULL
             index: 0
             width: 5
             read: true
@@ -2889,7 +3129,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 240
-        description: (read-write) Raw Interrupts
+        description: |-
+          (read-write) Raw Interrupts
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -3055,7 +3296,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 244
-        description: (read-write) Raw Interrupts
+        description: |-
+          (read-write) Raw Interrupts
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -3221,7 +3463,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 248
-        description: (read-write) Raw Interrupts
+        description: |-
+          (read-write) Raw Interrupts
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -3387,7 +3630,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 252
-        description: (read-write) Raw Interrupts
+        description: |-
+          (read-write) Raw Interrupts
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -3513,7 +3757,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 256
-        description: (read-write) Interrupt Enable for proc0
+        description: |-
+          (read-write) Interrupt Enable for proc0
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -3679,7 +3924,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 260
-        description: (read-write) Interrupt Enable for proc0
+        description: |-
+          (read-write) Interrupt Enable for proc0
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -3845,7 +4091,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 264
-        description: (read-write) Interrupt Enable for proc0
+        description: |-
+          (read-write) Interrupt Enable for proc0
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -4011,7 +4258,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 268
-        description: (read-write) Interrupt Enable for proc0
+        description: |-
+          (read-write) Interrupt Enable for proc0
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -4137,7 +4385,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 272
-        description: (read-write) Interrupt Force for proc0
+        description: |-
+          (read-write) Interrupt Force for proc0
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -4303,7 +4552,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 276
-        description: (read-write) Interrupt Force for proc0
+        description: |-
+          (read-write) Interrupt Force for proc0
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -4469,7 +4719,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 280
-        description: (read-write) Interrupt Force for proc0
+        description: |-
+          (read-write) Interrupt Force for proc0
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -4635,7 +4886,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 284
-        description: (read-write) Interrupt Force for proc0
+        description: |-
+          (read-write) Interrupt Force for proc0
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -4762,8 +5014,8 @@ structs:
         expected_size: 4
         expected_offset: 288
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc0
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc0
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -4930,8 +5182,8 @@ structs:
         expected_size: 4
         expected_offset: 292
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc0
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc0
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -5098,8 +5350,8 @@ structs:
         expected_size: 4
         expected_offset: 296
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc0
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc0
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -5266,8 +5518,8 @@ structs:
         expected_size: 4
         expected_offset: 300
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc0
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc0
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -5393,7 +5645,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 304
-        description: (read-write) Interrupt Enable for proc1
+        description: |-
+          (read-write) Interrupt Enable for proc1
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -5559,7 +5812,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 308
-        description: (read-write) Interrupt Enable for proc1
+        description: |-
+          (read-write) Interrupt Enable for proc1
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -5725,7 +5979,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 312
-        description: (read-write) Interrupt Enable for proc1
+        description: |-
+          (read-write) Interrupt Enable for proc1
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -5891,7 +6146,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 316
-        description: (read-write) Interrupt Enable for proc1
+        description: |-
+          (read-write) Interrupt Enable for proc1
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -6017,7 +6273,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 320
-        description: (read-write) Interrupt Force for proc1
+        description: |-
+          (read-write) Interrupt Force for proc1
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -6183,7 +6440,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 324
-        description: (read-write) Interrupt Force for proc1
+        description: |-
+          (read-write) Interrupt Force for proc1
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -6349,7 +6607,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 328
-        description: (read-write) Interrupt Force for proc1
+        description: |-
+          (read-write) Interrupt Force for proc1
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -6515,7 +6774,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 332
-        description: (read-write) Interrupt Force for proc1
+        description: |-
+          (read-write) Interrupt Force for proc1
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -6642,8 +6902,8 @@ structs:
         expected_size: 4
         expected_offset: 336
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc1
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc1
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -6810,8 +7070,8 @@ structs:
         expected_size: 4
         expected_offset: 340
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc1
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc1
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -6978,8 +7238,8 @@ structs:
         expected_size: 4
         expected_offset: 344
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc1
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc1
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -7146,8 +7406,8 @@ structs:
         expected_size: 4
         expected_offset: 348
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          proc1
+        description: |-
+          (read-only) Interrupt status after masking & forcing for proc1
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -7273,7 +7533,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 352
-        description: (read-write) Interrupt Enable for dormant_wake
+        description: |-
+          (read-write) Interrupt Enable for dormant_wake
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -7439,7 +7700,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 356
-        description: (read-write) Interrupt Enable for dormant_wake
+        description: |-
+          (read-write) Interrupt Enable for dormant_wake
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -7605,7 +7867,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 360
-        description: (read-write) Interrupt Enable for dormant_wake
+        description: |-
+          (read-write) Interrupt Enable for dormant_wake
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -7771,7 +8034,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 364
-        description: (read-write) Interrupt Enable for dormant_wake
+        description: |-
+          (read-write) Interrupt Enable for dormant_wake
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -7897,7 +8161,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 368
-        description: (read-write) Interrupt Force for dormant_wake
+        description: |-
+          (read-write) Interrupt Force for dormant_wake
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -8063,7 +8328,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 372
-        description: (read-write) Interrupt Force for dormant_wake
+        description: |-
+          (read-write) Interrupt Force for dormant_wake
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -8229,7 +8495,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 376
-        description: (read-write) Interrupt Force for dormant_wake
+        description: |-
+          (read-write) Interrupt Force for dormant_wake
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -8395,7 +8662,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 380
-        description: (read-write) Interrupt Force for dormant_wake
+        description: |-
+          (read-write) Interrupt Force for dormant_wake
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -8522,8 +8790,8 @@ structs:
         expected_size: 4
         expected_offset: 384
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          dormant_wake
+        description: |-
+          (read-only) Interrupt status after masking & forcing for dormant_wake
         fields:
           - name: GPIO0_LEVEL_LOW
             index: 0
@@ -8690,8 +8958,8 @@ structs:
         expected_size: 4
         expected_offset: 388
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          dormant_wake
+        description: |-
+          (read-only) Interrupt status after masking & forcing for dormant_wake
         fields:
           - name: GPIO8_LEVEL_LOW
             index: 0
@@ -8858,8 +9126,8 @@ structs:
         expected_size: 4
         expected_offset: 392
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          dormant_wake
+        description: |-
+          (read-only) Interrupt status after masking & forcing for dormant_wake
         fields:
           - name: GPIO16_LEVEL_LOW
             index: 0
@@ -9026,8 +9294,8 @@ structs:
         expected_size: 4
         expected_offset: 396
         const: true
-        description: (read-only) Interrupt status after masking & forcing for 
-          dormant_wake
+        description: |-
+          (read-only) Interrupt status after masking & forcing for dormant_wake
         fields:
           - name: GPIO24_LEVEL_LOW
             index: 0
@@ -9915,17 +10183,20 @@ enums:
   IO_BANK_CTRL_OVER:
     enum:
       NORMAL:
-        description: drive output from peripheral signal selected by funcsel
+        description: |-
+          drive output from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output from inverse of peripheral signal selected by 
-          funcsel
+        description: |-
+          drive output from inverse of peripheral signal selected by funcsel
         value: 1
       LOW:
-        description: drive output low
+        description: |-
+          drive output low
         value: 2
       HIGH:
-        description: drive output high
+        description: |-
+          drive output high
         value: 3
     unit_test: false
     json: false
@@ -9934,18 +10205,20 @@ enums:
   IO_BANK_CTRL_OEOVER:
     enum:
       NORMAL:
-        description: drive output enable from peripheral signal selected by 
-          funcsel
+        description: |-
+          drive output enable from peripheral signal selected by funcsel
         value: 0
       INVERT:
-        description: drive output enable from inverse of peripheral signal 
-          selected by funcsel
+        description: |-
+          drive output enable from inverse of peripheral signal selected by funcsel
         value: 1
       DISABLE:
-        description: disable output
+        description: |-
+          disable output
         value: 2
       ENABLE:
-        description: enable output
+        description: |-
+          enable output
         value: 3
     unit_test: false
     json: false

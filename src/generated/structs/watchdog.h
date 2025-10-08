@@ -19,8 +19,8 @@ struct [[gnu::packed]] watchdog
     static constexpr std::size_t size = 48; /*!< watchdog's size in bytes. */
 
     /* Fields. */
-    uint32_t CTRL;              /*!< (read-write) Watchdog control\n
-                The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
+    uint32_t CTRL;              /*!< (read-write) Watchdog control
+                The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.
                 The watchdog can be triggered in software. */
     uint32_t LOAD;              /*!< (write-only) Load the watchdog timer. The maximum setting is 0xffffff which corresponds to 0xffffff / 2 ticks before triggering a watchdog reset (see errata RP2040-E1). */
     const uint32_t REASON = {}; /*!< (read-only) Logs the reason for the last reset. Both bits are zero for the case of a hardware reset. */
@@ -43,7 +43,7 @@ struct [[gnu::packed]] watchdog
      */
     inline uint32_t get_CTRL_TIME() volatile
     {
-        return CTRL & 0b111111111111111111111111u;
+        return CTRL & 0xffffffu;
     }
 
     /**
@@ -249,15 +249,15 @@ struct [[gnu::packed]] watchdog
     /**
      * Get all of CTRL's bit fields.
      *
-     * (read-write) Watchdog control\n
-     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
+     * (read-write) Watchdog control
+     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.
      *             The watchdog can be triggered in software.
      */
     inline void get_CTRL(uint32_t &TIME, bool &PAUSE_JTAG, bool &PAUSE_DBG0, bool &PAUSE_DBG1, bool &ENABLE, bool &TRIGGER) volatile
     {
         uint32_t curr = CTRL;
 
-        TIME = curr & 0b111111111111111111111111u;
+        TIME = curr & 0xffffffu;
         PAUSE_JTAG = curr & (1u << 24u);
         PAUSE_DBG0 = curr & (1u << 25u);
         PAUSE_DBG1 = curr & (1u << 26u);
@@ -268,8 +268,8 @@ struct [[gnu::packed]] watchdog
     /**
      * Set all of CTRL's bit fields.
      *
-     * (read-write) Watchdog control\n
-     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.\n
+     * (read-write) Watchdog control
+     *             The rst_wdsel register determines which subsystems are reset when the watchdog is triggered.
      *             The watchdog can be triggered in software.
      */
     inline void set_CTRL(bool PAUSE_JTAG, bool PAUSE_DBG0, bool PAUSE_DBG1, bool ENABLE, bool TRIGGER) volatile
@@ -297,8 +297,8 @@ struct [[gnu::packed]] watchdog
     {
         uint32_t curr = LOAD;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         LOAD = curr;
     }

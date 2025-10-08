@@ -34,16 +34,16 @@ struct [[gnu::packed]] pio
     uint32_t RXF1;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
     uint32_t RXF2;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
     uint32_t RXF3;                   /*!< (read-write) Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined. */
-    uint32_t IRQ;                    /*!< (read-write) State machine IRQ flags register. Write 1 to clear. There are 8 state machine IRQ flags, which can be set, cleared, and waited on by the state machines. There's no fixed association between flags and state machines -- any state machine can use any flag.\n\n
+    uint32_t IRQ;                    /*!< (read-write) State machine IRQ flags register. Write 1 to clear. There are 8 state machine IRQ flags, which can be set, cleared, and waited on by the state machines. There's no fixed association between flags and state machines -- any state machine can use any flag.
                 Any of the 8 flags can be used for timing synchronisation between state machines, using IRQ and WAIT instructions. The lower four of these flags are also routed out to system-level interrupt requests, alongside FIFO status interrupts -- see e.g. IRQ0_INTE. */
     uint32_t IRQ_FORCE;              /*!< (write-only) Writing a 1 to each of these bits will forcibly assert the corresponding IRQ. Note this is different to the INTF register: writing here affects PIO internal state. INTF just asserts the processor-facing IRQ signal for testing ISRs, and is not visible to the state machines. */
-    uint32_t INPUT_SYNC_BYPASS;      /*!< (read-write) There is a 2-flipflop synchronizer on each GPIO input, which protects PIO logic from metastabilities. This increases input delay, and for fast synchronous IO (e.g. SPI) these synchronizers may need to be bypassed. Each bit in this register corresponds to one GPIO.\n
-                0 -> input is synchronized (default)\n
-                1 -> synchronizer is bypassed\n
+    uint32_t INPUT_SYNC_BYPASS;      /*!< (read-write) There is a 2-flipflop synchronizer on each GPIO input, which protects PIO logic from metastabilities. This increases input delay, and for fast synchronous IO (e.g. SPI) these synchronizers may need to be bypassed. Each bit in this register corresponds to one GPIO.
+                0 -> input is synchronized (default)
+                1 -> synchronizer is bypassed
                 If in doubt, leave this register as all zeroes. */
     uint32_t DBG_PADOUT;             /*!< (read-write) Read to sample the pad output values PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0. */
     uint32_t DBG_PADOE;              /*!< (read-write) Read to sample the pad output enables (direction) PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0. */
-    const uint32_t DBG_CFGINFO = {}; /*!< (read-only) The PIO hardware has some free parameters that may vary between chip products.\n
+    const uint32_t DBG_CFGINFO = {}; /*!< (read-only) The PIO hardware has some free parameters that may vary between chip products.
                 These should be provided in the chip datasheet, but are also exposed here. */
     uint32_t INSTR_MEM0;             /*!< (write-only) Write-only access to instruction memory location 0 */
     uint32_t INSTR_MEM1;             /*!< (write-only) Write-only access to instruction memory location 1 */
@@ -77,36 +77,36 @@ struct [[gnu::packed]] pio
     uint32_t INSTR_MEM29;            /*!< (write-only) Write-only access to instruction memory location 29 */
     uint32_t INSTR_MEM30;            /*!< (write-only) Write-only access to instruction memory location 30 */
     uint32_t INSTR_MEM31;            /*!< (write-only) Write-only access to instruction memory location 31 */
-    uint32_t SM0_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 0\n
+    uint32_t SM0_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 0
                 Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
     uint32_t SM0_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 0 */
     uint32_t SM0_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 0 */
     const uint32_t SM0_ADDR = {};    /*!< (read-only) Current instruction address of state machine 0 */
-    uint32_t SM0_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 0's program counter\n
+    uint32_t SM0_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 0's program counter
                 Write to execute an instruction immediately (including jumps) and then resume execution. */
     uint32_t SM0_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM1_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 1\n
+    uint32_t SM1_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 1
                 Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
     uint32_t SM1_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 1 */
     uint32_t SM1_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 1 */
     const uint32_t SM1_ADDR = {};    /*!< (read-only) Current instruction address of state machine 1 */
-    uint32_t SM1_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 1's program counter\n
+    uint32_t SM1_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 1's program counter
                 Write to execute an instruction immediately (including jumps) and then resume execution. */
     uint32_t SM1_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM2_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 2\n
+    uint32_t SM2_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 2
                 Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
     uint32_t SM2_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 2 */
     uint32_t SM2_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 2 */
     const uint32_t SM2_ADDR = {};    /*!< (read-only) Current instruction address of state machine 2 */
-    uint32_t SM2_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 2's program counter\n
+    uint32_t SM2_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 2's program counter
                 Write to execute an instruction immediately (including jumps) and then resume execution. */
     uint32_t SM2_PINCTRL;            /*!< (read-write) State machine pin control */
-    uint32_t SM3_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 3\n
+    uint32_t SM3_CLKDIV;             /*!< (read-write) Clock divisor register for state machine 3
                 Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256) */
     uint32_t SM3_EXECCTRL;           /*!< (read-write) Execution/behavioural settings for state machine 3 */
     uint32_t SM3_SHIFTCTRL;          /*!< (read-write) Control behaviour of the input/output shift registers for state machine 3 */
     const uint32_t SM3_ADDR = {};    /*!< (read-only) Current instruction address of state machine 3 */
-    uint32_t SM3_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 3's program counter\n
+    uint32_t SM3_INSTR;              /*!< (read-write) Read to see the instruction currently addressed by state machine 3's program counter
                 Write to execute an instruction immediately (including jumps) and then resume execution. */
     uint32_t SM3_PINCTRL;            /*!< (read-write) State machine pin control */
     const uint32_t INTR = {};        /*!< (read-only) Raw Interrupts */
@@ -126,7 +126,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_CTRL_SM_ENABLE() volatile
     {
-        return CTRL & 0b1111u;
+        return CTRL & 0xfu;
     }
 
     /**
@@ -138,8 +138,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CTRL = curr;
     }
@@ -147,28 +147,28 @@ struct [[gnu::packed]] pio
     /**
      * Get CTRL's SM_RESTART field.
      *
-     * Write 1 to instantly clear internal SM state which may be otherwise difficult to access and will affect future execution.\n\n
-     *                 Specifically, the following are cleared: input and output shift counters; the contents of the input shift register; the delay counter; the waiting-on-IRQ state; any stalled instruction written to SMx_INSTR or run by OUT/MOV EXEC; any pin write left asserted due to OUT_STICKY.\n\n
+     * Write 1 to instantly clear internal SM state which may be otherwise difficult to access and will affect future execution.
+     *                 Specifically, the following are cleared: input and output shift counters; the contents of the input shift register; the delay counter; the waiting-on-IRQ state; any stalled instruction written to SMx_INSTR or run by OUT/MOV EXEC; any pin write left asserted due to OUT_STICKY.
      *                 The program counter, the contents of the output shift register and the X/Y scratch registers are not affected.
      */
     inline uint8_t get_CTRL_SM_RESTART() volatile
     {
-        return (CTRL >> 4u) & 0b1111u;
+        return (CTRL >> 4u) & 0xfu;
     }
 
     /**
      * Set CTRL's SM_RESTART field.
      *
-     * Write 1 to instantly clear internal SM state which may be otherwise difficult to access and will affect future execution.\n\n
-     *                 Specifically, the following are cleared: input and output shift counters; the contents of the input shift register; the delay counter; the waiting-on-IRQ state; any stalled instruction written to SMx_INSTR or run by OUT/MOV EXEC; any pin write left asserted due to OUT_STICKY.\n\n
+     * Write 1 to instantly clear internal SM state which may be otherwise difficult to access and will affect future execution.
+     *                 Specifically, the following are cleared: input and output shift counters; the contents of the input shift register; the delay counter; the waiting-on-IRQ state; any stalled instruction written to SMx_INSTR or run by OUT/MOV EXEC; any pin write left asserted due to OUT_STICKY.
      *                 The program counter, the contents of the output shift register and the X/Y scratch registers are not affected.
      */
     inline void set_CTRL_SM_RESTART(uint8_t value) volatile
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b1111u << 4u);
-        curr |= (value & 0b1111u) << 4u;
+        curr &= ~(0xfu << 4u);
+        curr |= (value & 0xfu) << 4u;
 
         CTRL = curr;
     }
@@ -176,28 +176,28 @@ struct [[gnu::packed]] pio
     /**
      * Get CTRL's CLKDIV_RESTART field.
      *
-     * Restart a state machine's clock divider from an initial phase of 0. Clock dividers are free-running, so once started, their output (including fractional jitter) is completely determined by the integer/fractional divisor configured in SMx_CLKDIV. This means that, if multiple clock dividers with the same divisor are restarted simultaneously, by writing multiple 1 bits to this field, the execution clocks of those state machines will run in precise lockstep.\n\n
-     *                 Note that setting/clearing SM_ENABLE does not stop the clock divider from running, so once multiple state machines' clocks are synchronised, it is safe to disable/reenable a state machine, whilst keeping the clock dividers in sync.\n\n
+     * Restart a state machine's clock divider from an initial phase of 0. Clock dividers are free-running, so once started, their output (including fractional jitter) is completely determined by the integer/fractional divisor configured in SMx_CLKDIV. This means that, if multiple clock dividers with the same divisor are restarted simultaneously, by writing multiple 1 bits to this field, the execution clocks of those state machines will run in precise lockstep.
+     *                 Note that setting/clearing SM_ENABLE does not stop the clock divider from running, so once multiple state machines' clocks are synchronised, it is safe to disable/reenable a state machine, whilst keeping the clock dividers in sync.
      *                 Note also that CLKDIV_RESTART can be written to whilst the state machine is running, and this is useful to resynchronise clock dividers after the divisors (SMx_CLKDIV) have been changed on-the-fly.
      */
     inline uint8_t get_CTRL_CLKDIV_RESTART() volatile
     {
-        return (CTRL >> 8u) & 0b1111u;
+        return (CTRL >> 8u) & 0xfu;
     }
 
     /**
      * Set CTRL's CLKDIV_RESTART field.
      *
-     * Restart a state machine's clock divider from an initial phase of 0. Clock dividers are free-running, so once started, their output (including fractional jitter) is completely determined by the integer/fractional divisor configured in SMx_CLKDIV. This means that, if multiple clock dividers with the same divisor are restarted simultaneously, by writing multiple 1 bits to this field, the execution clocks of those state machines will run in precise lockstep.\n\n
-     *                 Note that setting/clearing SM_ENABLE does not stop the clock divider from running, so once multiple state machines' clocks are synchronised, it is safe to disable/reenable a state machine, whilst keeping the clock dividers in sync.\n\n
+     * Restart a state machine's clock divider from an initial phase of 0. Clock dividers are free-running, so once started, their output (including fractional jitter) is completely determined by the integer/fractional divisor configured in SMx_CLKDIV. This means that, if multiple clock dividers with the same divisor are restarted simultaneously, by writing multiple 1 bits to this field, the execution clocks of those state machines will run in precise lockstep.
+     *                 Note that setting/clearing SM_ENABLE does not stop the clock divider from running, so once multiple state machines' clocks are synchronised, it is safe to disable/reenable a state machine, whilst keeping the clock dividers in sync.
      *                 Note also that CLKDIV_RESTART can be written to whilst the state machine is running, and this is useful to resynchronise clock dividers after the divisors (SMx_CLKDIV) have been changed on-the-fly.
      */
     inline void set_CTRL_CLKDIV_RESTART(uint8_t value) volatile
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b1111u << 8u);
-        curr |= (value & 0b1111u) << 8u;
+        curr &= ~(0xfu << 8u);
+        curr |= (value & 0xfu) << 8u;
 
         CTRL = curr;
     }
@@ -211,9 +211,9 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = CTRL;
 
-        SM_ENABLE = curr & 0b1111u;
-        SM_RESTART = (curr >> 4u) & 0b1111u;
-        CLKDIV_RESTART = (curr >> 8u) & 0b1111u;
+        SM_ENABLE = curr & 0xfu;
+        SM_RESTART = (curr >> 4u) & 0xfu;
+        CLKDIV_RESTART = (curr >> 8u) & 0xfu;
     }
 
     /**
@@ -225,12 +225,12 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (SM_ENABLE & 0b1111u);
-        curr &= ~(0b1111u << 4u);
-        curr |= (SM_RESTART & 0b1111u) << 4u;
-        curr &= ~(0b1111u << 8u);
-        curr |= (CLKDIV_RESTART & 0b1111u) << 8u;
+        curr &= ~(0xfu);
+        curr |= (SM_ENABLE & 0xfu);
+        curr &= ~(0xfu << 4u);
+        curr |= (SM_RESTART & 0xfu) << 4u;
+        curr &= ~(0xfu << 8u);
+        curr |= (CLKDIV_RESTART & 0xfu) << 8u;
 
         CTRL = curr;
     }
@@ -242,7 +242,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FSTAT_RXFULL() volatile
     {
-        return FSTAT & 0b1111u;
+        return FSTAT & 0xfu;
     }
 
     /**
@@ -252,7 +252,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FSTAT_RXEMPTY() volatile
     {
-        return (FSTAT >> 8u) & 0b1111u;
+        return (FSTAT >> 8u) & 0xfu;
     }
 
     /**
@@ -262,7 +262,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FSTAT_TXFULL() volatile
     {
-        return (FSTAT >> 16u) & 0b1111u;
+        return (FSTAT >> 16u) & 0xfu;
     }
 
     /**
@@ -272,7 +272,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FSTAT_TXEMPTY() volatile
     {
-        return (FSTAT >> 24u) & 0b1111u;
+        return (FSTAT >> 24u) & 0xfu;
     }
 
     /**
@@ -284,10 +284,10 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FSTAT;
 
-        RXFULL = curr & 0b1111u;
-        RXEMPTY = (curr >> 8u) & 0b1111u;
-        TXFULL = (curr >> 16u) & 0b1111u;
-        TXEMPTY = (curr >> 24u) & 0b1111u;
+        RXFULL = curr & 0xfu;
+        RXEMPTY = (curr >> 8u) & 0xfu;
+        TXFULL = (curr >> 16u) & 0xfu;
+        TXEMPTY = (curr >> 24u) & 0xfu;
     }
 
     /**
@@ -297,7 +297,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FDEBUG_RXSTALL() volatile
     {
-        return FDEBUG & 0b1111u;
+        return FDEBUG & 0xfu;
     }
 
     /**
@@ -309,8 +309,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         FDEBUG = curr;
     }
@@ -322,7 +322,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FDEBUG_RXUNDER() volatile
     {
-        return (FDEBUG >> 8u) & 0b1111u;
+        return (FDEBUG >> 8u) & 0xfu;
     }
 
     /**
@@ -334,8 +334,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        curr &= ~(0b1111u << 8u);
-        curr |= (value & 0b1111u) << 8u;
+        curr &= ~(0xfu << 8u);
+        curr |= (value & 0xfu) << 8u;
 
         FDEBUG = curr;
     }
@@ -347,7 +347,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FDEBUG_TXOVER() volatile
     {
-        return (FDEBUG >> 16u) & 0b1111u;
+        return (FDEBUG >> 16u) & 0xfu;
     }
 
     /**
@@ -359,8 +359,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        curr &= ~(0b1111u << 16u);
-        curr |= (value & 0b1111u) << 16u;
+        curr &= ~(0xfu << 16u);
+        curr |= (value & 0xfu) << 16u;
 
         FDEBUG = curr;
     }
@@ -372,7 +372,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FDEBUG_TXSTALL() volatile
     {
-        return (FDEBUG >> 24u) & 0b1111u;
+        return (FDEBUG >> 24u) & 0xfu;
     }
 
     /**
@@ -384,8 +384,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        curr &= ~(0b1111u << 24u);
-        curr |= (value & 0b1111u) << 24u;
+        curr &= ~(0xfu << 24u);
+        curr |= (value & 0xfu) << 24u;
 
         FDEBUG = curr;
     }
@@ -399,10 +399,10 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        RXSTALL = curr & 0b1111u;
-        RXUNDER = (curr >> 8u) & 0b1111u;
-        TXOVER = (curr >> 16u) & 0b1111u;
-        TXSTALL = (curr >> 24u) & 0b1111u;
+        RXSTALL = curr & 0xfu;
+        RXUNDER = (curr >> 8u) & 0xfu;
+        TXOVER = (curr >> 16u) & 0xfu;
+        TXSTALL = (curr >> 24u) & 0xfu;
     }
 
     /**
@@ -414,14 +414,14 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FDEBUG;
 
-        curr &= ~(0b1111u);
-        curr |= (RXSTALL & 0b1111u);
-        curr &= ~(0b1111u << 8u);
-        curr |= (RXUNDER & 0b1111u) << 8u;
-        curr &= ~(0b1111u << 16u);
-        curr |= (TXOVER & 0b1111u) << 16u;
-        curr &= ~(0b1111u << 24u);
-        curr |= (TXSTALL & 0b1111u) << 24u;
+        curr &= ~(0xfu);
+        curr |= (RXSTALL & 0xfu);
+        curr &= ~(0xfu << 8u);
+        curr |= (RXUNDER & 0xfu) << 8u;
+        curr &= ~(0xfu << 16u);
+        curr |= (TXOVER & 0xfu) << 16u;
+        curr &= ~(0xfu << 24u);
+        curr |= (TXSTALL & 0xfu) << 24u;
 
         FDEBUG = curr;
     }
@@ -431,7 +431,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_TX0() volatile
     {
-        return FLEVEL & 0b1111u;
+        return FLEVEL & 0xfu;
     }
 
     /**
@@ -439,7 +439,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_RX0() volatile
     {
-        return (FLEVEL >> 4u) & 0b1111u;
+        return (FLEVEL >> 4u) & 0xfu;
     }
 
     /**
@@ -447,7 +447,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_TX1() volatile
     {
-        return (FLEVEL >> 8u) & 0b1111u;
+        return (FLEVEL >> 8u) & 0xfu;
     }
 
     /**
@@ -455,7 +455,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_RX1() volatile
     {
-        return (FLEVEL >> 12u) & 0b1111u;
+        return (FLEVEL >> 12u) & 0xfu;
     }
 
     /**
@@ -463,7 +463,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_TX2() volatile
     {
-        return (FLEVEL >> 16u) & 0b1111u;
+        return (FLEVEL >> 16u) & 0xfu;
     }
 
     /**
@@ -471,7 +471,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_RX2() volatile
     {
-        return (FLEVEL >> 20u) & 0b1111u;
+        return (FLEVEL >> 20u) & 0xfu;
     }
 
     /**
@@ -479,7 +479,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_TX3() volatile
     {
-        return (FLEVEL >> 24u) & 0b1111u;
+        return (FLEVEL >> 24u) & 0xfu;
     }
 
     /**
@@ -487,7 +487,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_FLEVEL_RX3() volatile
     {
-        return (FLEVEL >> 28u) & 0b1111u;
+        return (FLEVEL >> 28u) & 0xfu;
     }
 
     /**
@@ -499,14 +499,14 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = FLEVEL;
 
-        TX0 = curr & 0b1111u;
-        RX0 = (curr >> 4u) & 0b1111u;
-        TX1 = (curr >> 8u) & 0b1111u;
-        RX1 = (curr >> 12u) & 0b1111u;
-        TX2 = (curr >> 16u) & 0b1111u;
-        RX2 = (curr >> 20u) & 0b1111u;
-        TX3 = (curr >> 24u) & 0b1111u;
-        RX3 = (curr >> 28u) & 0b1111u;
+        TX0 = curr & 0xfu;
+        RX0 = (curr >> 4u) & 0xfu;
+        TX1 = (curr >> 8u) & 0xfu;
+        RX1 = (curr >> 12u) & 0xfu;
+        TX2 = (curr >> 16u) & 0xfu;
+        RX2 = (curr >> 20u) & 0xfu;
+        TX3 = (curr >> 24u) & 0xfu;
+        RX3 = (curr >> 28u) & 0xfu;
     }
 
     /**
@@ -514,7 +514,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_IRQ() volatile
     {
-        return IRQ & 0b11111111u;
+        return IRQ & 0xffu;
     }
 
     /**
@@ -524,8 +524,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = IRQ;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         IRQ = curr;
     }
@@ -537,8 +537,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = IRQ_FORCE;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         IRQ_FORCE = curr;
     }
@@ -546,8 +546,8 @@ struct [[gnu::packed]] pio
     /**
      * Get DBG_CFGINFO's FIFO_DEPTH field.
      *
-     * The depth of the state machine TX/RX FIFOs, measured in words.\n
-     *                 Joining fifos via SHIFTCTRL_FJOIN gives one FIFO with double\n
+     * The depth of the state machine TX/RX FIFOs, measured in words.
+     *                 Joining fifos via SHIFTCTRL_FJOIN gives one FIFO with double
      *                 this depth.
      */
     inline uint8_t get_DBG_CFGINFO_FIFO_DEPTH() volatile
@@ -562,7 +562,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_DBG_CFGINFO_SM_COUNT() volatile
     {
-        return (DBG_CFGINFO >> 8u) & 0b1111u;
+        return (DBG_CFGINFO >> 8u) & 0xfu;
     }
 
     /**
@@ -578,7 +578,7 @@ struct [[gnu::packed]] pio
     /**
      * Get all of DBG_CFGINFO's bit fields.
      *
-     * (read-only) The PIO hardware has some free parameters that may vary between chip products.\n
+     * (read-only) The PIO hardware has some free parameters that may vary between chip products.
      *             These should be provided in the chip datasheet, but are also exposed here.
      */
     inline void get_DBG_CFGINFO(uint8_t &FIFO_DEPTH, uint8_t &SM_COUNT, uint8_t &IMEM_SIZE) volatile
@@ -586,7 +586,7 @@ struct [[gnu::packed]] pio
         uint32_t curr = DBG_CFGINFO;
 
         FIFO_DEPTH = curr & 0b111111u;
-        SM_COUNT = (curr >> 8u) & 0b1111u;
+        SM_COUNT = (curr >> 8u) & 0xfu;
         IMEM_SIZE = (curr >> 16u) & 0b111111u;
     }
 
@@ -597,8 +597,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM0;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM0 = curr;
     }
@@ -610,8 +610,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM1;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM1 = curr;
     }
@@ -623,8 +623,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM2;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM2 = curr;
     }
@@ -636,8 +636,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM3;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM3 = curr;
     }
@@ -649,8 +649,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM4;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM4 = curr;
     }
@@ -662,8 +662,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM5;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM5 = curr;
     }
@@ -675,8 +675,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM6;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM6 = curr;
     }
@@ -688,8 +688,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM7;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM7 = curr;
     }
@@ -701,8 +701,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM8;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM8 = curr;
     }
@@ -714,8 +714,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM9;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM9 = curr;
     }
@@ -727,8 +727,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM10;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM10 = curr;
     }
@@ -740,8 +740,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM11;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM11 = curr;
     }
@@ -753,8 +753,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM12;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM12 = curr;
     }
@@ -766,8 +766,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM13;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM13 = curr;
     }
@@ -779,8 +779,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM14;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM14 = curr;
     }
@@ -792,8 +792,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM15;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM15 = curr;
     }
@@ -805,8 +805,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM16;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM16 = curr;
     }
@@ -818,8 +818,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM17;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM17 = curr;
     }
@@ -831,8 +831,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM18;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM18 = curr;
     }
@@ -844,8 +844,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM19;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM19 = curr;
     }
@@ -857,8 +857,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM20;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM20 = curr;
     }
@@ -870,8 +870,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM21;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM21 = curr;
     }
@@ -883,8 +883,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM22;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM22 = curr;
     }
@@ -896,8 +896,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM23;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM23 = curr;
     }
@@ -909,8 +909,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM24;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM24 = curr;
     }
@@ -922,8 +922,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM25;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM25 = curr;
     }
@@ -935,8 +935,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM26;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM26 = curr;
     }
@@ -948,8 +948,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM27;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM27 = curr;
     }
@@ -961,8 +961,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM28;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM28 = curr;
     }
@@ -974,8 +974,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM29;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM29 = curr;
     }
@@ -987,8 +987,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM30;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM30 = curr;
     }
@@ -1000,8 +1000,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = INSTR_MEM31;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         INSTR_MEM31 = curr;
     }
@@ -1013,7 +1013,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM0_CLKDIV_FRAC() volatile
     {
-        return (SM0_CLKDIV >> 8u) & 0b11111111u;
+        return (SM0_CLKDIV >> 8u) & 0xffu;
     }
 
     /**
@@ -1025,8 +1025,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM0_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SM0_CLKDIV = curr;
     }
@@ -1034,26 +1034,26 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline uint16_t get_SM0_CLKDIV_INT() volatile
     {
-        return (SM0_CLKDIV >> 16u) & 0b1111111111111111u;
+        return (SM0_CLKDIV >> 16u) & 0xffffu;
     }
 
     /**
      * Set SM0_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline void set_SM0_CLKDIV_INT(uint16_t value) volatile
     {
         uint32_t curr = SM0_CLKDIV;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SM0_CLKDIV = curr;
     }
@@ -1061,31 +1061,31 @@ struct [[gnu::packed]] pio
     /**
      * Get all of SM0_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 0\n
+     * (read-write) Clock divisor register for state machine 0
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void get_SM0_CLKDIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = SM0_CLKDIV;
 
-        FRAC = (curr >> 8u) & 0b11111111u;
-        INT = (curr >> 16u) & 0b1111111111111111u;
+        FRAC = (curr >> 8u) & 0xffu;
+        INT = (curr >> 16u) & 0xffffu;
     }
 
     /**
      * Set all of SM0_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 0\n
+     * (read-write) Clock divisor register for state machine 0
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void set_SM0_CLKDIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = SM0_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (FRAC & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (INT & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu << 8u);
+        curr |= (FRAC & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (INT & 0xffffu) << 16u;
 
         SM0_CLKDIV = curr;
     }
@@ -1097,7 +1097,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM0_EXECCTRL_STATUS_N() volatile
     {
-        return SM0_EXECCTRL & 0b1111u;
+        return SM0_EXECCTRL & 0xfu;
     }
 
     /**
@@ -1109,8 +1109,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM0_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         SM0_EXECCTRL = curr;
     }
@@ -1183,7 +1183,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline uint8_t get_SM0_EXECCTRL_WRAP_TOP() volatile
@@ -1194,7 +1194,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline void set_SM0_EXECCTRL_WRAP_TOP(uint8_t value) volatile
@@ -1250,9 +1250,9 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline bool get_SM0_EXECCTRL_INLINE_OUT_EN() volatile
@@ -1263,9 +1263,9 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void set_SM0_EXECCTRL_INLINE_OUT_EN() volatile
@@ -1276,9 +1276,9 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM0_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void clear_SM0_EXECCTRL_INLINE_OUT_EN() volatile
@@ -1289,9 +1289,9 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM0_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void toggle_SM0_EXECCTRL_INLINE_OUT_EN() volatile
@@ -1448,7 +1448,7 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM0_EXECCTRL;
 
-        STATUS_N = curr & 0b1111u;
+        STATUS_N = curr & 0xfu;
         STATUS_SEL = curr & (1u << 4u);
         WRAP_BOTTOM = (curr >> 7u) & 0b11111u;
         WRAP_TOP = (curr >> 12u) & 0b11111u;
@@ -1470,8 +1470,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM0_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (STATUS_N & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (STATUS_N & 0xfu);
         curr &= ~(0b1u << 4u);
         curr |= (STATUS_SEL & 0b1u) << 4u;
         curr &= ~(0b11111u << 7u);
@@ -1657,7 +1657,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM0_SHIFTCTRL_PUSH_THRESH() volatile
@@ -1668,7 +1668,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM0_SHIFTCTRL_PUSH_THRESH(uint8_t value) volatile
@@ -1684,7 +1684,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM0_SHIFTCTRL_PULL_THRESH() volatile
@@ -1695,7 +1695,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM0_SHIFTCTRL_PULL_THRESH(uint8_t value) volatile
@@ -1711,8 +1711,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM0_SHIFTCTRL_FJOIN_TX() volatile
@@ -1723,8 +1723,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM0_SHIFTCTRL_FJOIN_TX() volatile
@@ -1735,8 +1735,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM0_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM0_SHIFTCTRL_FJOIN_TX() volatile
@@ -1747,8 +1747,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM0_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM0_SHIFTCTRL_FJOIN_TX() volatile
@@ -1759,8 +1759,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM0_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM0_SHIFTCTRL_FJOIN_RX() volatile
@@ -1771,8 +1771,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM0_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM0_SHIFTCTRL_FJOIN_RX() volatile
@@ -1783,8 +1783,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM0_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM0_SHIFTCTRL_FJOIN_RX() volatile
@@ -1795,8 +1795,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM0_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM0_SHIFTCTRL_FJOIN_RX() volatile
@@ -1865,7 +1865,7 @@ struct [[gnu::packed]] pio
      */
     inline uint16_t get_SM0_INSTR() volatile
     {
-        return SM0_INSTR & 0b1111111111111111u;
+        return SM0_INSTR & 0xffffu;
     }
 
     /**
@@ -1875,8 +1875,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM0_INSTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SM0_INSTR = curr;
     }
@@ -2108,7 +2108,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM1_CLKDIV_FRAC() volatile
     {
-        return (SM1_CLKDIV >> 8u) & 0b11111111u;
+        return (SM1_CLKDIV >> 8u) & 0xffu;
     }
 
     /**
@@ -2120,8 +2120,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM1_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SM1_CLKDIV = curr;
     }
@@ -2129,26 +2129,26 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline uint16_t get_SM1_CLKDIV_INT() volatile
     {
-        return (SM1_CLKDIV >> 16u) & 0b1111111111111111u;
+        return (SM1_CLKDIV >> 16u) & 0xffffu;
     }
 
     /**
      * Set SM1_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline void set_SM1_CLKDIV_INT(uint16_t value) volatile
     {
         uint32_t curr = SM1_CLKDIV;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SM1_CLKDIV = curr;
     }
@@ -2156,31 +2156,31 @@ struct [[gnu::packed]] pio
     /**
      * Get all of SM1_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 1\n
+     * (read-write) Clock divisor register for state machine 1
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void get_SM1_CLKDIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = SM1_CLKDIV;
 
-        FRAC = (curr >> 8u) & 0b11111111u;
-        INT = (curr >> 16u) & 0b1111111111111111u;
+        FRAC = (curr >> 8u) & 0xffu;
+        INT = (curr >> 16u) & 0xffffu;
     }
 
     /**
      * Set all of SM1_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 1\n
+     * (read-write) Clock divisor register for state machine 1
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void set_SM1_CLKDIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = SM1_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (FRAC & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (INT & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu << 8u);
+        curr |= (FRAC & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (INT & 0xffffu) << 16u;
 
         SM1_CLKDIV = curr;
     }
@@ -2192,7 +2192,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM1_EXECCTRL_STATUS_N() volatile
     {
-        return SM1_EXECCTRL & 0b1111u;
+        return SM1_EXECCTRL & 0xfu;
     }
 
     /**
@@ -2204,8 +2204,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM1_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         SM1_EXECCTRL = curr;
     }
@@ -2278,7 +2278,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline uint8_t get_SM1_EXECCTRL_WRAP_TOP() volatile
@@ -2289,7 +2289,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline void set_SM1_EXECCTRL_WRAP_TOP(uint8_t value) volatile
@@ -2345,9 +2345,9 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline bool get_SM1_EXECCTRL_INLINE_OUT_EN() volatile
@@ -2358,9 +2358,9 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void set_SM1_EXECCTRL_INLINE_OUT_EN() volatile
@@ -2371,9 +2371,9 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM1_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void clear_SM1_EXECCTRL_INLINE_OUT_EN() volatile
@@ -2384,9 +2384,9 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM1_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void toggle_SM1_EXECCTRL_INLINE_OUT_EN() volatile
@@ -2543,7 +2543,7 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM1_EXECCTRL;
 
-        STATUS_N = curr & 0b1111u;
+        STATUS_N = curr & 0xfu;
         STATUS_SEL = curr & (1u << 4u);
         WRAP_BOTTOM = (curr >> 7u) & 0b11111u;
         WRAP_TOP = (curr >> 12u) & 0b11111u;
@@ -2565,8 +2565,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM1_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (STATUS_N & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (STATUS_N & 0xfu);
         curr &= ~(0b1u << 4u);
         curr |= (STATUS_SEL & 0b1u) << 4u;
         curr &= ~(0b11111u << 7u);
@@ -2752,7 +2752,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM1_SHIFTCTRL_PUSH_THRESH() volatile
@@ -2763,7 +2763,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM1_SHIFTCTRL_PUSH_THRESH(uint8_t value) volatile
@@ -2779,7 +2779,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM1_SHIFTCTRL_PULL_THRESH() volatile
@@ -2790,7 +2790,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM1_SHIFTCTRL_PULL_THRESH(uint8_t value) volatile
@@ -2806,8 +2806,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM1_SHIFTCTRL_FJOIN_TX() volatile
@@ -2818,8 +2818,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM1_SHIFTCTRL_FJOIN_TX() volatile
@@ -2830,8 +2830,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM1_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM1_SHIFTCTRL_FJOIN_TX() volatile
@@ -2842,8 +2842,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM1_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM1_SHIFTCTRL_FJOIN_TX() volatile
@@ -2854,8 +2854,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM1_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM1_SHIFTCTRL_FJOIN_RX() volatile
@@ -2866,8 +2866,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM1_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM1_SHIFTCTRL_FJOIN_RX() volatile
@@ -2878,8 +2878,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM1_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM1_SHIFTCTRL_FJOIN_RX() volatile
@@ -2890,8 +2890,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM1_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM1_SHIFTCTRL_FJOIN_RX() volatile
@@ -2960,7 +2960,7 @@ struct [[gnu::packed]] pio
      */
     inline uint16_t get_SM1_INSTR() volatile
     {
-        return SM1_INSTR & 0b1111111111111111u;
+        return SM1_INSTR & 0xffffu;
     }
 
     /**
@@ -2970,8 +2970,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM1_INSTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SM1_INSTR = curr;
     }
@@ -3203,7 +3203,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM2_CLKDIV_FRAC() volatile
     {
-        return (SM2_CLKDIV >> 8u) & 0b11111111u;
+        return (SM2_CLKDIV >> 8u) & 0xffu;
     }
 
     /**
@@ -3215,8 +3215,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM2_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SM2_CLKDIV = curr;
     }
@@ -3224,26 +3224,26 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline uint16_t get_SM2_CLKDIV_INT() volatile
     {
-        return (SM2_CLKDIV >> 16u) & 0b1111111111111111u;
+        return (SM2_CLKDIV >> 16u) & 0xffffu;
     }
 
     /**
      * Set SM2_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline void set_SM2_CLKDIV_INT(uint16_t value) volatile
     {
         uint32_t curr = SM2_CLKDIV;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SM2_CLKDIV = curr;
     }
@@ -3251,31 +3251,31 @@ struct [[gnu::packed]] pio
     /**
      * Get all of SM2_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 2\n
+     * (read-write) Clock divisor register for state machine 2
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void get_SM2_CLKDIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = SM2_CLKDIV;
 
-        FRAC = (curr >> 8u) & 0b11111111u;
-        INT = (curr >> 16u) & 0b1111111111111111u;
+        FRAC = (curr >> 8u) & 0xffu;
+        INT = (curr >> 16u) & 0xffffu;
     }
 
     /**
      * Set all of SM2_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 2\n
+     * (read-write) Clock divisor register for state machine 2
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void set_SM2_CLKDIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = SM2_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (FRAC & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (INT & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu << 8u);
+        curr |= (FRAC & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (INT & 0xffffu) << 16u;
 
         SM2_CLKDIV = curr;
     }
@@ -3287,7 +3287,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM2_EXECCTRL_STATUS_N() volatile
     {
-        return SM2_EXECCTRL & 0b1111u;
+        return SM2_EXECCTRL & 0xfu;
     }
 
     /**
@@ -3299,8 +3299,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM2_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         SM2_EXECCTRL = curr;
     }
@@ -3373,7 +3373,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline uint8_t get_SM2_EXECCTRL_WRAP_TOP() volatile
@@ -3384,7 +3384,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline void set_SM2_EXECCTRL_WRAP_TOP(uint8_t value) volatile
@@ -3440,9 +3440,9 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline bool get_SM2_EXECCTRL_INLINE_OUT_EN() volatile
@@ -3453,9 +3453,9 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void set_SM2_EXECCTRL_INLINE_OUT_EN() volatile
@@ -3466,9 +3466,9 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM2_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void clear_SM2_EXECCTRL_INLINE_OUT_EN() volatile
@@ -3479,9 +3479,9 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM2_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void toggle_SM2_EXECCTRL_INLINE_OUT_EN() volatile
@@ -3638,7 +3638,7 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM2_EXECCTRL;
 
-        STATUS_N = curr & 0b1111u;
+        STATUS_N = curr & 0xfu;
         STATUS_SEL = curr & (1u << 4u);
         WRAP_BOTTOM = (curr >> 7u) & 0b11111u;
         WRAP_TOP = (curr >> 12u) & 0b11111u;
@@ -3660,8 +3660,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM2_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (STATUS_N & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (STATUS_N & 0xfu);
         curr &= ~(0b1u << 4u);
         curr |= (STATUS_SEL & 0b1u) << 4u;
         curr &= ~(0b11111u << 7u);
@@ -3847,7 +3847,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM2_SHIFTCTRL_PUSH_THRESH() volatile
@@ -3858,7 +3858,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM2_SHIFTCTRL_PUSH_THRESH(uint8_t value) volatile
@@ -3874,7 +3874,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM2_SHIFTCTRL_PULL_THRESH() volatile
@@ -3885,7 +3885,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM2_SHIFTCTRL_PULL_THRESH(uint8_t value) volatile
@@ -3901,8 +3901,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM2_SHIFTCTRL_FJOIN_TX() volatile
@@ -3913,8 +3913,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM2_SHIFTCTRL_FJOIN_TX() volatile
@@ -3925,8 +3925,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM2_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM2_SHIFTCTRL_FJOIN_TX() volatile
@@ -3937,8 +3937,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM2_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM2_SHIFTCTRL_FJOIN_TX() volatile
@@ -3949,8 +3949,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM2_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM2_SHIFTCTRL_FJOIN_RX() volatile
@@ -3961,8 +3961,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM2_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM2_SHIFTCTRL_FJOIN_RX() volatile
@@ -3973,8 +3973,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM2_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM2_SHIFTCTRL_FJOIN_RX() volatile
@@ -3985,8 +3985,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM2_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM2_SHIFTCTRL_FJOIN_RX() volatile
@@ -4055,7 +4055,7 @@ struct [[gnu::packed]] pio
      */
     inline uint16_t get_SM2_INSTR() volatile
     {
-        return SM2_INSTR & 0b1111111111111111u;
+        return SM2_INSTR & 0xffffu;
     }
 
     /**
@@ -4065,8 +4065,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM2_INSTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SM2_INSTR = curr;
     }
@@ -4298,7 +4298,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM3_CLKDIV_FRAC() volatile
     {
-        return (SM3_CLKDIV >> 8u) & 0b11111111u;
+        return (SM3_CLKDIV >> 8u) & 0xffu;
     }
 
     /**
@@ -4310,8 +4310,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM3_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SM3_CLKDIV = curr;
     }
@@ -4319,26 +4319,26 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline uint16_t get_SM3_CLKDIV_INT() volatile
     {
-        return (SM3_CLKDIV >> 16u) & 0b1111111111111111u;
+        return (SM3_CLKDIV >> 16u) & 0xffffu;
     }
 
     /**
      * Set SM3_CLKDIV's INT field.
      *
-     * Effective frequency is sysclk/(int + frac/256).\n
+     * Effective frequency is sysclk/(int + frac/256).
      *                 Value of 0 is interpreted as 65536. If INT is 0, FRAC must also be 0.
      */
     inline void set_SM3_CLKDIV_INT(uint16_t value) volatile
     {
         uint32_t curr = SM3_CLKDIV;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         SM3_CLKDIV = curr;
     }
@@ -4346,31 +4346,31 @@ struct [[gnu::packed]] pio
     /**
      * Get all of SM3_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 3\n
+     * (read-write) Clock divisor register for state machine 3
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void get_SM3_CLKDIV(uint8_t &FRAC, uint16_t &INT) volatile
     {
         uint32_t curr = SM3_CLKDIV;
 
-        FRAC = (curr >> 8u) & 0b11111111u;
-        INT = (curr >> 16u) & 0b1111111111111111u;
+        FRAC = (curr >> 8u) & 0xffu;
+        INT = (curr >> 16u) & 0xffffu;
     }
 
     /**
      * Set all of SM3_CLKDIV's bit fields.
      *
-     * (read-write) Clock divisor register for state machine 3\n
+     * (read-write) Clock divisor register for state machine 3
      *             Frequency = clock freq / (CLKDIV_INT + CLKDIV_FRAC / 256)
      */
     inline void set_SM3_CLKDIV(uint8_t FRAC, uint16_t INT) volatile
     {
         uint32_t curr = SM3_CLKDIV;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (FRAC & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (INT & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu << 8u);
+        curr |= (FRAC & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (INT & 0xffffu) << 16u;
 
         SM3_CLKDIV = curr;
     }
@@ -4382,7 +4382,7 @@ struct [[gnu::packed]] pio
      */
     inline uint8_t get_SM3_EXECCTRL_STATUS_N() volatile
     {
-        return SM3_EXECCTRL & 0b1111u;
+        return SM3_EXECCTRL & 0xfu;
     }
 
     /**
@@ -4394,8 +4394,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM3_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         SM3_EXECCTRL = curr;
     }
@@ -4468,7 +4468,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline uint8_t get_SM3_EXECCTRL_WRAP_TOP() volatile
@@ -4479,7 +4479,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_EXECCTRL's WRAP_TOP field.
      *
-     * After reaching this address, execution is wrapped to wrap_bottom.\n
+     * After reaching this address, execution is wrapped to wrap_bottom.
      *                 If the instruction is a jump, and the jump condition is true, the jump takes priority.
      */
     inline void set_SM3_EXECCTRL_WRAP_TOP(uint8_t value) volatile
@@ -4535,9 +4535,9 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline bool get_SM3_EXECCTRL_INLINE_OUT_EN() volatile
@@ -4548,9 +4548,9 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void set_SM3_EXECCTRL_INLINE_OUT_EN() volatile
@@ -4561,9 +4561,9 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM3_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void clear_SM3_EXECCTRL_INLINE_OUT_EN() volatile
@@ -4574,9 +4574,9 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM3_EXECCTRL's INLINE_OUT_EN bit.
      *
-     * If 1, use a bit of OUT data as an auxiliary write enable\n
-     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will\n
-     *                 deassert the latest pin write. This can create useful masking/override behaviour\n
+     * If 1, use a bit of OUT data as an auxiliary write enable
+     *                 When used in conjunction with OUT_STICKY, writes with an enable of 0 will
+     *                 deassert the latest pin write. This can create useful masking/override behaviour
      *                 due to the priority ordering of state machine pin writes (SM0 < SM1 < ...)
      */
     inline void toggle_SM3_EXECCTRL_INLINE_OUT_EN() volatile
@@ -4733,7 +4733,7 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM3_EXECCTRL;
 
-        STATUS_N = curr & 0b1111u;
+        STATUS_N = curr & 0xfu;
         STATUS_SEL = curr & (1u << 4u);
         WRAP_BOTTOM = (curr >> 7u) & 0b11111u;
         WRAP_TOP = (curr >> 12u) & 0b11111u;
@@ -4755,8 +4755,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM3_EXECCTRL;
 
-        curr &= ~(0b1111u);
-        curr |= (STATUS_N & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (STATUS_N & 0xfu);
         curr &= ~(0b1u << 4u);
         curr |= (STATUS_SEL & 0b1u) << 4u;
         curr &= ~(0b11111u << 7u);
@@ -4942,7 +4942,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM3_SHIFTCTRL_PUSH_THRESH() volatile
@@ -4953,7 +4953,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_SHIFTCTRL's PUSH_THRESH field.
      *
-     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.\n
+     * Number of bits shifted into ISR before autopush, or conditional push (PUSH IFFULL), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM3_SHIFTCTRL_PUSH_THRESH(uint8_t value) volatile
@@ -4969,7 +4969,7 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline uint8_t get_SM3_SHIFTCTRL_PULL_THRESH() volatile
@@ -4980,7 +4980,7 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_SHIFTCTRL's PULL_THRESH field.
      *
-     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.\n
+     * Number of bits shifted out of OSR before autopull, or conditional pull (PULL IFEMPTY), will take place.
      *                 Write 0 for value of 32.
      */
     inline void set_SM3_SHIFTCTRL_PULL_THRESH(uint8_t value) volatile
@@ -4996,8 +4996,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM3_SHIFTCTRL_FJOIN_TX() volatile
@@ -5008,8 +5008,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM3_SHIFTCTRL_FJOIN_TX() volatile
@@ -5020,8 +5020,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM3_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM3_SHIFTCTRL_FJOIN_TX() volatile
@@ -5032,8 +5032,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM3_SHIFTCTRL's FJOIN_TX bit.
      *
-     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.\n
-     *                 RX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, TX FIFO steals the RX FIFO's storage, and becomes twice as deep.
+     *                 RX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM3_SHIFTCTRL_FJOIN_TX() volatile
@@ -5044,8 +5044,8 @@ struct [[gnu::packed]] pio
     /**
      * Get SM3_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline bool get_SM3_SHIFTCTRL_FJOIN_RX() volatile
@@ -5056,8 +5056,8 @@ struct [[gnu::packed]] pio
     /**
      * Set SM3_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void set_SM3_SHIFTCTRL_FJOIN_RX() volatile
@@ -5068,8 +5068,8 @@ struct [[gnu::packed]] pio
     /**
      * Clear SM3_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void clear_SM3_SHIFTCTRL_FJOIN_RX() volatile
@@ -5080,8 +5080,8 @@ struct [[gnu::packed]] pio
     /**
      * Toggle SM3_SHIFTCTRL's FJOIN_RX bit.
      *
-     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.\n
-     *                 TX FIFO is disabled as a result (always reads as both full and empty).\n
+     * When 1, RX FIFO steals the TX FIFO's storage, and becomes twice as deep.
+     *                 TX FIFO is disabled as a result (always reads as both full and empty).
      *                 FIFOs are flushed when this bit is changed.
      */
     inline void toggle_SM3_SHIFTCTRL_FJOIN_RX() volatile
@@ -5150,7 +5150,7 @@ struct [[gnu::packed]] pio
      */
     inline uint16_t get_SM3_INSTR() volatile
     {
-        return SM3_INSTR & 0b1111111111111111u;
+        return SM3_INSTR & 0xffffu;
     }
 
     /**
@@ -5160,8 +5160,8 @@ struct [[gnu::packed]] pio
     {
         uint32_t curr = SM3_INSTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SM3_INSTR = curr;
     }

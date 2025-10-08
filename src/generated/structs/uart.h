@@ -56,7 +56,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTDR_DATA() volatile
     {
-        return UARTDR & 0b11111111u;
+        return UARTDR & 0xffu;
     }
 
     /**
@@ -68,8 +68,8 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTDR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         UARTDR = curr;
     }
@@ -123,7 +123,7 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTDR;
 
-        DATA = curr & 0b11111111u;
+        DATA = curr & 0xffu;
         FE = curr & (1u << 8u);
         PE = curr & (1u << 9u);
         BE = curr & (1u << 10u);
@@ -443,7 +443,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTILPR() volatile
     {
-        return UARTILPR & 0b11111111u;
+        return UARTILPR & 0xffu;
     }
 
     /**
@@ -455,8 +455,8 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTILPR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         UARTILPR = curr;
     }
@@ -468,7 +468,7 @@ struct [[gnu::packed]] uart
      */
     inline uint16_t get_UARTIBRD() volatile
     {
-        return UARTIBRD & 0b1111111111111111u;
+        return UARTIBRD & 0xffffu;
     }
 
     /**
@@ -480,8 +480,8 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTIBRD;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         UARTIBRD = curr;
     }
@@ -2859,7 +2859,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID0() volatile
     {
-        return UARTPERIPHID0 & 0b11111111u;
+        return UARTPERIPHID0 & 0xffu;
     }
 
     /**
@@ -2869,7 +2869,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID1_PARTNUMBER1() volatile
     {
-        return UARTPERIPHID1 & 0b1111u;
+        return UARTPERIPHID1 & 0xfu;
     }
 
     /**
@@ -2879,7 +2879,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID1_DESIGNER0() volatile
     {
-        return (UARTPERIPHID1 >> 4u) & 0b1111u;
+        return (UARTPERIPHID1 >> 4u) & 0xfu;
     }
 
     /**
@@ -2891,8 +2891,8 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTPERIPHID1;
 
-        PARTNUMBER1 = curr & 0b1111u;
-        DESIGNER0 = (curr >> 4u) & 0b1111u;
+        PARTNUMBER1 = curr & 0xfu;
+        DESIGNER0 = (curr >> 4u) & 0xfu;
     }
 
     /**
@@ -2902,7 +2902,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID2_DESIGNER1() volatile
     {
-        return UARTPERIPHID2 & 0b1111u;
+        return UARTPERIPHID2 & 0xfu;
     }
 
     /**
@@ -2912,7 +2912,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID2_REVISION() volatile
     {
-        return (UARTPERIPHID2 >> 4u) & 0b1111u;
+        return (UARTPERIPHID2 >> 4u) & 0xfu;
     }
 
     /**
@@ -2924,8 +2924,8 @@ struct [[gnu::packed]] uart
     {
         uint32_t curr = UARTPERIPHID2;
 
-        DESIGNER1 = curr & 0b1111u;
-        REVISION = (curr >> 4u) & 0b1111u;
+        DESIGNER1 = curr & 0xfu;
+        REVISION = (curr >> 4u) & 0xfu;
     }
 
     /**
@@ -2935,7 +2935,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPERIPHID3() volatile
     {
-        return UARTPERIPHID3 & 0b11111111u;
+        return UARTPERIPHID3 & 0xffu;
     }
 
     /**
@@ -2945,7 +2945,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPCELLID0() volatile
     {
-        return UARTPCELLID0 & 0b11111111u;
+        return UARTPCELLID0 & 0xffu;
     }
 
     /**
@@ -2955,7 +2955,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPCELLID1() volatile
     {
-        return UARTPCELLID1 & 0b11111111u;
+        return UARTPCELLID1 & 0xffu;
     }
 
     /**
@@ -2965,7 +2965,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPCELLID2() volatile
     {
-        return UARTPCELLID2 & 0b11111111u;
+        return UARTPCELLID2 & 0xffu;
     }
 
     /**
@@ -2975,7 +2975,7 @@ struct [[gnu::packed]] uart
      */
     inline uint8_t get_UARTPCELLID3() volatile
     {
-        return UARTPCELLID3 & 0b11111111u;
+        return UARTPCELLID3 & 0xffu;
     }
 };
 

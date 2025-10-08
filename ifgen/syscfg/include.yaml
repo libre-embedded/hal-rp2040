@@ -1,7 +1,8 @@
 ---
 structs:
   syscfg:
-    description: Register block for various chip control signals
+    description: |-
+      Register block for various chip control signals
     instances:
       - name: SYSCFG
         address: '0x40004000'
@@ -10,46 +11,51 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 0
-        description: "(read-write) Processor core 0 NMI source mask\\n\n         \
-          \   Set a bit high to enable NMI from that IRQ"
+        description: |-
+          (read-write) Processor core 0 NMI source mask
+                      Set a bit high to enable NMI from that IRQ
       - name: PROC1_NMI_MASK
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: "(read-write) Processor core 1 NMI source mask\\n\n         \
-          \   Set a bit high to enable NMI from that IRQ"
+        description: |-
+          (read-write) Processor core 1 NMI source mask
+                      Set a bit high to enable NMI from that IRQ
       - name: PROC_CONFIG
         type: uint32_t
         expected_size: 4
         expected_offset: 8
-        description: (read-write) Configuration for processors
+        description: |-
+          (read-write) Configuration for processors
         fields:
           - name: PROC0_HALTED
-            description: Indication that proc0 has halted
+            description: |-
+              Indication that proc0 has halted
             index: 0
             width: 1
             read: true
             write: false
           - name: PROC1_HALTED
-            description: Indication that proc1 has halted
+            description: |-
+              Indication that proc1 has halted
             index: 1
             width: 1
             read: true
             write: false
           - name: PROC0_DAP_INSTID
-            description: "Configure proc0 DAP instance ID.\\n\n                Recommend
-              that this is NOT changed until you require debug access in multi-chip
-              environment\\n\n                WARNING: do not set to 15 as this is
-              reserved for RescueDP"
+            description: |-
+              Configure proc0 DAP instance ID.
+                              Recommend that this is NOT changed until you require debug access in multi-chip environment
+                              WARNING: do not set to 15 as this is reserved for RescueDP
             index: 24
             width: 4
             read: true
             write: true
           - name: PROC1_DAP_INSTID
-            description: "Configure proc1 DAP instance ID.\\n\n                Recommend
-              that this is NOT changed until you require debug access in multi-chip
-              environment\\n\n                WARNING: do not set to 15 as this is
-              reserved for RescueDP"
+            description: |-
+              Configure proc1 DAP instance ID.
+                              Recommend that this is NOT changed until you require debug access in multi-chip environment
+                              WARNING: do not set to 15 as this is reserved for RescueDP
             index: 28
             width: 4
             read: true
@@ -58,12 +64,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 12
-        description: "(read-write) For each bit, if 1, bypass the input synchronizer
-          between that GPIO\\n\n            and the GPIO input register in the SIO.
-          The input synchronizers should\\n\n            generally be unbypassed,
-          to avoid injecting metastabilities into processors.\\n\n            If you're
-          feeling brave, you can bypass to save two cycles of input\\n\n         \
-          \   latency. This register applies to GPIO 0...29."
+        description: |-
+          (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO
+                      and the GPIO input register in the SIO. The input synchronizers should
+                      generally be unbypassed, to avoid injecting metastabilities into processors.
+                      If you're feeling brave, you can bypass to save two cycles of input
+                      latency. This register applies to GPIO 0...29.
         fields:
           - name: PROC_IN_SYNC_BYPASS
             index: 0
@@ -74,12 +80,12 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 16
-        description: "(read-write) For each bit, if 1, bypass the input synchronizer
-          between that GPIO\\n\n            and the GPIO input register in the SIO.
-          The input synchronizers should\\n\n            generally be unbypassed,
-          to avoid injecting metastabilities into processors.\\n\n            If you're
-          feeling brave, you can bypass to save two cycles of input\\n\n         \
-          \   latency. This register applies to GPIO 30...35 (the QSPI IOs)."
+        description: |-
+          (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO
+                      and the GPIO input register in the SIO. The input synchronizers should
+                      generally be unbypassed, to avoid injecting metastabilities into processors.
+                      If you're feeling brave, you can bypass to save two cycles of input
+                      latency. This register applies to GPIO 30...35 (the QSPI IOs).
         fields:
           - name: PROC_IN_SYNC_BYPASS_HI
             index: 0
@@ -90,59 +96,61 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 20
-        description: (read-write) Directly control the SWD debug port of either 
-          processor
+        description: |-
+          (read-write) Directly control the SWD debug port of either processor
         fields:
           - name: PROC0_SWDO
-            description: Observe the value of processor 0 SWDIO output.
+            description: |-
+              Observe the value of processor 0 SWDIO output.
             index: 0
             width: 1
             read: true
             write: false
           - name: PROC0_SWDI
-            description: Directly drive processor 0 SWDIO input, if PROC0_ATTACH
-              is set
+            description: |-
+              Directly drive processor 0 SWDIO input, if PROC0_ATTACH is set
             index: 1
             width: 1
             read: true
             write: true
           - name: PROC0_SWCLK
-            description: Directly drive processor 0 SWCLK, if PROC0_ATTACH is 
-              set
+            description: |-
+              Directly drive processor 0 SWCLK, if PROC0_ATTACH is set
             index: 2
             width: 1
             read: true
             write: true
           - name: PROC0_ATTACH
-            description: Attach processor 0 debug port to syscfg controls, and 
-              disconnect it from external SWD pads.
+            description: |-
+              Attach processor 0 debug port to syscfg controls, and disconnect it from external SWD pads.
             index: 3
             width: 1
             read: true
             write: true
           - name: PROC1_SWDO
-            description: Observe the value of processor 1 SWDIO output.
+            description: |-
+              Observe the value of processor 1 SWDIO output.
             index: 4
             width: 1
             read: true
             write: false
           - name: PROC1_SWDI
-            description: Directly drive processor 1 SWDIO input, if PROC1_ATTACH
-              is set
+            description: |-
+              Directly drive processor 1 SWDIO input, if PROC1_ATTACH is set
             index: 5
             width: 1
             read: true
             write: true
           - name: PROC1_SWCLK
-            description: Directly drive processor 1 SWCLK, if PROC1_ATTACH is 
-              set
+            description: |-
+              Directly drive processor 1 SWCLK, if PROC1_ATTACH is set
             index: 6
             width: 1
             read: true
             write: true
           - name: PROC1_ATTACH
-            description: Attach processor 1 debug port to syscfg controls, and 
-              disconnect it from external SWD pads.
+            description: |-
+              Attach processor 1 debug port to syscfg controls, and disconnect it from external SWD pads.
             index: 7
             width: 1
             read: true
@@ -151,8 +159,9 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 24
-        description: "(read-write) Control power downs to memories. Set high to power
-          down memories.\\n\n            Use with extreme caution"
+        description: |-
+          (read-write) Control power downs to memories. Set high to power down memories.
+                      Use with extreme caution
         fields:
           - name: SRAM0
             index: 0

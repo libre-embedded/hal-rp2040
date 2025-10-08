@@ -31,7 +31,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get VREG's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline bool get_VREG_EN() volatile
@@ -42,7 +42,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Set VREG's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void set_VREG_EN() volatile
@@ -53,7 +53,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Clear VREG's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void clear_VREG_EN() volatile
@@ -64,7 +64,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Toggle VREG's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void toggle_VREG_EN() volatile
@@ -75,7 +75,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get VREG's HIZ bit.
      *
-     * high impedance mode select\n
+     * high impedance mode select
      *                 0=not in high impedance mode, 1=in high impedance mode
      */
     inline bool get_VREG_HIZ() volatile
@@ -86,7 +86,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Set VREG's HIZ bit.
      *
-     * high impedance mode select\n
+     * high impedance mode select
      *                 0=not in high impedance mode, 1=in high impedance mode
      */
     inline void set_VREG_HIZ() volatile
@@ -97,7 +97,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Clear VREG's HIZ bit.
      *
-     * high impedance mode select\n
+     * high impedance mode select
      *                 0=not in high impedance mode, 1=in high impedance mode
      */
     inline void clear_VREG_HIZ() volatile
@@ -108,7 +108,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Toggle VREG's HIZ bit.
      *
-     * high impedance mode select\n
+     * high impedance mode select
      *                 0=not in high impedance mode, 1=in high impedance mode
      */
     inline void toggle_VREG_HIZ() volatile
@@ -119,46 +119,46 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get VREG's VSEL field.
      *
-     * output voltage select\n
-     *                 0000 to 0101 - 0.80V\n
-     *                 0110         - 0.85V\n
-     *                 0111         - 0.90V\n
-     *                 1000         - 0.95V\n
-     *                 1001         - 1.00V\n
-     *                 1010         - 1.05V\n
-     *                 1011         - 1.10V (default)\n
-     *                 1100         - 1.15V\n
-     *                 1101         - 1.20V\n
-     *                 1110         - 1.25V\n
+     * output voltage select
+     *                 0000 to 0101 - 0.80V
+     *                 0110         - 0.85V
+     *                 0111         - 0.90V
+     *                 1000         - 0.95V
+     *                 1001         - 1.00V
+     *                 1010         - 1.05V
+     *                 1011         - 1.10V (default)
+     *                 1100         - 1.15V
+     *                 1101         - 1.20V
+     *                 1110         - 1.25V
      *                 1111         - 1.30V
      */
     inline uint8_t get_VREG_VSEL() volatile
     {
-        return (VREG >> 4u) & 0b1111u;
+        return (VREG >> 4u) & 0xfu;
     }
 
     /**
      * Set VREG's VSEL field.
      *
-     * output voltage select\n
-     *                 0000 to 0101 - 0.80V\n
-     *                 0110         - 0.85V\n
-     *                 0111         - 0.90V\n
-     *                 1000         - 0.95V\n
-     *                 1001         - 1.00V\n
-     *                 1010         - 1.05V\n
-     *                 1011         - 1.10V (default)\n
-     *                 1100         - 1.15V\n
-     *                 1101         - 1.20V\n
-     *                 1110         - 1.25V\n
+     * output voltage select
+     *                 0000 to 0101 - 0.80V
+     *                 0110         - 0.85V
+     *                 0111         - 0.90V
+     *                 1000         - 0.95V
+     *                 1001         - 1.00V
+     *                 1010         - 1.05V
+     *                 1011         - 1.10V (default)
+     *                 1100         - 1.15V
+     *                 1101         - 1.20V
+     *                 1110         - 1.25V
      *                 1111         - 1.30V
      */
     inline void set_VREG_VSEL(uint8_t value) volatile
     {
         uint32_t curr = VREG;
 
-        curr &= ~(0b1111u << 4u);
-        curr |= (value & 0b1111u) << 4u;
+        curr &= ~(0xfu << 4u);
+        curr |= (value & 0xfu) << 4u;
 
         VREG = curr;
     }
@@ -166,7 +166,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get VREG's ROK bit.
      *
-     * regulation status\n
+     * regulation status
      *                 0=not in regulation, 1=in regulation
      */
     inline bool get_VREG_ROK() volatile
@@ -185,7 +185,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
 
         EN = curr & 1u;
         HIZ = curr & (1u << 1u);
-        VSEL = (curr >> 4u) & 0b1111u;
+        VSEL = (curr >> 4u) & 0xfu;
         ROK = curr & (1u << 12u);
     }
 
@@ -202,8 +202,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
         curr |= (EN & 0b1u);
         curr &= ~(0b1u << 1u);
         curr |= (HIZ & 0b1u) << 1u;
-        curr &= ~(0b1111u << 4u);
-        curr |= (VSEL & 0b1111u) << 4u;
+        curr &= ~(0xfu << 4u);
+        curr |= (VSEL & 0xfu) << 4u;
 
         VREG = curr;
     }
@@ -211,7 +211,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get BOD's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline bool get_BOD_EN() volatile
@@ -222,7 +222,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Set BOD's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void set_BOD_EN() volatile
@@ -233,7 +233,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Clear BOD's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void clear_BOD_EN() volatile
@@ -244,7 +244,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Toggle BOD's EN bit.
      *
-     * enable\n
+     * enable
      *                 0=not enabled, 1=enabled
      */
     inline void toggle_BOD_EN() volatile
@@ -255,56 +255,56 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get BOD's VSEL field.
      *
-     * threshold select\n
-     *                 0000 - 0.473V\n
-     *                 0001 - 0.516V\n
-     *                 0010 - 0.559V\n
-     *                 0011 - 0.602V\n
-     *                 0100 - 0.645V\n
-     *                 0101 - 0.688V\n
-     *                 0110 - 0.731V\n
-     *                 0111 - 0.774V\n
-     *                 1000 - 0.817V\n
-     *                 1001 - 0.860V (default)\n
-     *                 1010 - 0.903V\n
-     *                 1011 - 0.946V\n
-     *                 1100 - 0.989V\n
-     *                 1101 - 1.032V\n
-     *                 1110 - 1.075V\n
+     * threshold select
+     *                 0000 - 0.473V
+     *                 0001 - 0.516V
+     *                 0010 - 0.559V
+     *                 0011 - 0.602V
+     *                 0100 - 0.645V
+     *                 0101 - 0.688V
+     *                 0110 - 0.731V
+     *                 0111 - 0.774V
+     *                 1000 - 0.817V
+     *                 1001 - 0.860V (default)
+     *                 1010 - 0.903V
+     *                 1011 - 0.946V
+     *                 1100 - 0.989V
+     *                 1101 - 1.032V
+     *                 1110 - 1.075V
      *                 1111 - 1.118V
      */
     inline uint8_t get_BOD_VSEL() volatile
     {
-        return (BOD >> 4u) & 0b1111u;
+        return (BOD >> 4u) & 0xfu;
     }
 
     /**
      * Set BOD's VSEL field.
      *
-     * threshold select\n
-     *                 0000 - 0.473V\n
-     *                 0001 - 0.516V\n
-     *                 0010 - 0.559V\n
-     *                 0011 - 0.602V\n
-     *                 0100 - 0.645V\n
-     *                 0101 - 0.688V\n
-     *                 0110 - 0.731V\n
-     *                 0111 - 0.774V\n
-     *                 1000 - 0.817V\n
-     *                 1001 - 0.860V (default)\n
-     *                 1010 - 0.903V\n
-     *                 1011 - 0.946V\n
-     *                 1100 - 0.989V\n
-     *                 1101 - 1.032V\n
-     *                 1110 - 1.075V\n
+     * threshold select
+     *                 0000 - 0.473V
+     *                 0001 - 0.516V
+     *                 0010 - 0.559V
+     *                 0011 - 0.602V
+     *                 0100 - 0.645V
+     *                 0101 - 0.688V
+     *                 0110 - 0.731V
+     *                 0111 - 0.774V
+     *                 1000 - 0.817V
+     *                 1001 - 0.860V (default)
+     *                 1010 - 0.903V
+     *                 1011 - 0.946V
+     *                 1100 - 0.989V
+     *                 1101 - 1.032V
+     *                 1110 - 1.075V
      *                 1111 - 1.118V
      */
     inline void set_BOD_VSEL(uint8_t value) volatile
     {
         uint32_t curr = BOD;
 
-        curr &= ~(0b1111u << 4u);
-        curr |= (value & 0b1111u) << 4u;
+        curr &= ~(0xfu << 4u);
+        curr |= (value & 0xfu) << 4u;
 
         BOD = curr;
     }
@@ -319,7 +319,7 @@ struct [[gnu::packed]] vreg_and_chip_reset
         uint32_t curr = BOD;
 
         EN = curr & 1u;
-        VSEL = (curr >> 4u) & 0b1111u;
+        VSEL = (curr >> 4u) & 0xfu;
     }
 
     /**
@@ -333,8 +333,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
 
         curr &= ~(0b1u);
         curr |= (EN & 0b1u);
-        curr &= ~(0b1111u << 4u);
-        curr |= (VSEL & 0b1111u) << 4u;
+        curr &= ~(0xfu << 4u);
+        curr |= (VSEL & 0xfu) << 4u;
 
         BOD = curr;
     }
@@ -372,8 +372,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Get CHIP_RESET's PSM_RESTART_FLAG bit.
      *
-     * This is set by psm_restart from the debugger.\n
-     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.\n
+     * This is set by psm_restart from the debugger.
+     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.
      *                 In the safe mode the debugger can repair the boot code, clear this flag then reboot the processor.
      */
     inline bool get_CHIP_RESET_PSM_RESTART_FLAG() volatile
@@ -384,8 +384,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Set CHIP_RESET's PSM_RESTART_FLAG bit.
      *
-     * This is set by psm_restart from the debugger.\n
-     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.\n
+     * This is set by psm_restart from the debugger.
+     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.
      *                 In the safe mode the debugger can repair the boot code, clear this flag then reboot the processor.
      */
     inline void set_CHIP_RESET_PSM_RESTART_FLAG() volatile
@@ -396,8 +396,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Clear CHIP_RESET's PSM_RESTART_FLAG bit.
      *
-     * This is set by psm_restart from the debugger.\n
-     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.\n
+     * This is set by psm_restart from the debugger.
+     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.
      *                 In the safe mode the debugger can repair the boot code, clear this flag then reboot the processor.
      */
     inline void clear_CHIP_RESET_PSM_RESTART_FLAG() volatile
@@ -408,8 +408,8 @@ struct [[gnu::packed]] vreg_and_chip_reset
     /**
      * Toggle CHIP_RESET's PSM_RESTART_FLAG bit.
      *
-     * This is set by psm_restart from the debugger.\n
-     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.\n
+     * This is set by psm_restart from the debugger.
+     *                 Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.
      *                 In the safe mode the debugger can repair the boot code, clear this flag then reboot the processor.
      */
     inline void toggle_CHIP_RESET_PSM_RESTART_FLAG() volatile

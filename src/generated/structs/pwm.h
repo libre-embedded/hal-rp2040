@@ -31,65 +31,65 @@ struct [[gnu::packed]] pwm
 
     /* Fields. */
     uint32_t CH0_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH0_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH0_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH0_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH0_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH0_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH1_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH1_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH1_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH1_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH1_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH1_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH2_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH2_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH2_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH2_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH2_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH2_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH3_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH3_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH3_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH3_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH3_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH3_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH4_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH4_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH4_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH4_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH4_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH4_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH5_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH5_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH5_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH5_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH5_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH5_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH6_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH6_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH6_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH6_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH6_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH6_TOP;         /*!< (read-write) Counter wrap value */
     uint32_t CH7_CSR;         /*!< (read-write) Control and status register */
-    uint32_t CH7_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.\n
-                Counting rate is system clock frequency divided by this number.\n
+    uint32_t CH7_DIV;         /*!< (read-write) INT and FRAC form a fixed-point fractional number.
+                Counting rate is system clock frequency divided by this number.
                 Fractional division uses simple 1st-order sigma-delta. */
     uint32_t CH7_CTR;         /*!< (read-write) Direct access to the PWM counter */
     uint32_t CH7_CC;          /*!< (read-write) Counter compare values */
     uint32_t CH7_TOP;         /*!< (read-write) Counter wrap value */
-    uint32_t EN;              /*!< (read-write) This register aliases the CSR_EN bits for all channels.\n
-                Writing to this register allows multiple channels to be enabled\n
-                or disabled simultaneously, so they can run in perfect sync.\n
-                For each channel, there is only one physical EN register bit,\n
+    uint32_t EN;              /*!< (read-write) This register aliases the CSR_EN bits for all channels.
+                Writing to this register allows multiple channels to be enabled
+                or disabled simultaneously, so they can run in perfect sync.
+                For each channel, there is only one physical EN register bit,
                 which can be accessed through here or CHx_CSR. */
     uint32_t INTR;            /*!< (read-write) Raw Interrupts */
     uint32_t INTE;            /*!< (read-write) Interrupt Enable */
@@ -282,7 +282,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH0_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH0_CSR_PH_RET() volatile
@@ -293,7 +293,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH0_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH0_CSR_PH_RET() volatile
@@ -304,7 +304,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH0_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH0_CSR_PH_RET() volatile
@@ -315,7 +315,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH0_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH0_CSR_PH_RET() volatile
@@ -326,8 +326,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH0_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH0_CSR_PH_ADV() volatile
@@ -338,8 +338,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH0_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH0_CSR_PH_ADV() volatile
@@ -350,8 +350,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH0_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH0_CSR_PH_ADV() volatile
@@ -362,8 +362,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH0_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH0_CSR_PH_ADV() volatile
@@ -421,7 +421,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH0_DIV_FRAC() volatile
     {
-        return CH0_DIV & 0b1111u;
+        return CH0_DIV & 0xfu;
     }
 
     /**
@@ -431,8 +431,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH0_DIV = curr;
     }
@@ -442,7 +442,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH0_DIV_INT() volatile
     {
-        return (CH0_DIV >> 4u) & 0b11111111u;
+        return (CH0_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -452,8 +452,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH0_DIV = curr;
     }
@@ -461,33 +461,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH0_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH0_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH0_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH0_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH0_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH0_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH0_DIV = curr;
     }
@@ -497,7 +497,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH0_CTR() volatile
     {
-        return CH0_CTR & 0b1111111111111111u;
+        return CH0_CTR & 0xffffu;
     }
 
     /**
@@ -507,8 +507,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH0_CTR = curr;
     }
@@ -518,7 +518,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH0_CC_A() volatile
     {
-        return CH0_CC & 0b1111111111111111u;
+        return CH0_CC & 0xffffu;
     }
 
     /**
@@ -528,8 +528,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH0_CC = curr;
     }
@@ -539,7 +539,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH0_CC_B() volatile
     {
-        return (CH0_CC >> 16u) & 0b1111111111111111u;
+        return (CH0_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -549,8 +549,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH0_CC = curr;
     }
@@ -564,8 +564,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -577,10 +577,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH0_CC = curr;
     }
@@ -590,7 +590,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH0_TOP() volatile
     {
-        return CH0_TOP & 0b1111111111111111u;
+        return CH0_TOP & 0xffffu;
     }
 
     /**
@@ -600,8 +600,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH0_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH0_TOP = curr;
     }
@@ -790,7 +790,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH1_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH1_CSR_PH_RET() volatile
@@ -801,7 +801,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH1_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH1_CSR_PH_RET() volatile
@@ -812,7 +812,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH1_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH1_CSR_PH_RET() volatile
@@ -823,7 +823,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH1_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH1_CSR_PH_RET() volatile
@@ -834,8 +834,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH1_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH1_CSR_PH_ADV() volatile
@@ -846,8 +846,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH1_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH1_CSR_PH_ADV() volatile
@@ -858,8 +858,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH1_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH1_CSR_PH_ADV() volatile
@@ -870,8 +870,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH1_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH1_CSR_PH_ADV() volatile
@@ -929,7 +929,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH1_DIV_FRAC() volatile
     {
-        return CH1_DIV & 0b1111u;
+        return CH1_DIV & 0xfu;
     }
 
     /**
@@ -939,8 +939,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH1_DIV = curr;
     }
@@ -950,7 +950,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH1_DIV_INT() volatile
     {
-        return (CH1_DIV >> 4u) & 0b11111111u;
+        return (CH1_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -960,8 +960,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH1_DIV = curr;
     }
@@ -969,33 +969,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH1_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH1_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH1_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH1_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH1_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH1_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH1_DIV = curr;
     }
@@ -1005,7 +1005,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH1_CTR() volatile
     {
-        return CH1_CTR & 0b1111111111111111u;
+        return CH1_CTR & 0xffffu;
     }
 
     /**
@@ -1015,8 +1015,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH1_CTR = curr;
     }
@@ -1026,7 +1026,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH1_CC_A() volatile
     {
-        return CH1_CC & 0b1111111111111111u;
+        return CH1_CC & 0xffffu;
     }
 
     /**
@@ -1036,8 +1036,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH1_CC = curr;
     }
@@ -1047,7 +1047,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH1_CC_B() volatile
     {
-        return (CH1_CC >> 16u) & 0b1111111111111111u;
+        return (CH1_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -1057,8 +1057,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH1_CC = curr;
     }
@@ -1072,8 +1072,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -1085,10 +1085,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH1_CC = curr;
     }
@@ -1098,7 +1098,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH1_TOP() volatile
     {
-        return CH1_TOP & 0b1111111111111111u;
+        return CH1_TOP & 0xffffu;
     }
 
     /**
@@ -1108,8 +1108,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH1_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH1_TOP = curr;
     }
@@ -1298,7 +1298,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH2_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH2_CSR_PH_RET() volatile
@@ -1309,7 +1309,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH2_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH2_CSR_PH_RET() volatile
@@ -1320,7 +1320,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH2_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH2_CSR_PH_RET() volatile
@@ -1331,7 +1331,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH2_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH2_CSR_PH_RET() volatile
@@ -1342,8 +1342,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH2_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH2_CSR_PH_ADV() volatile
@@ -1354,8 +1354,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH2_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH2_CSR_PH_ADV() volatile
@@ -1366,8 +1366,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH2_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH2_CSR_PH_ADV() volatile
@@ -1378,8 +1378,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH2_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH2_CSR_PH_ADV() volatile
@@ -1437,7 +1437,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH2_DIV_FRAC() volatile
     {
-        return CH2_DIV & 0b1111u;
+        return CH2_DIV & 0xfu;
     }
 
     /**
@@ -1447,8 +1447,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH2_DIV = curr;
     }
@@ -1458,7 +1458,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH2_DIV_INT() volatile
     {
-        return (CH2_DIV >> 4u) & 0b11111111u;
+        return (CH2_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -1468,8 +1468,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH2_DIV = curr;
     }
@@ -1477,33 +1477,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH2_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH2_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH2_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH2_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH2_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH2_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH2_DIV = curr;
     }
@@ -1513,7 +1513,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH2_CTR() volatile
     {
-        return CH2_CTR & 0b1111111111111111u;
+        return CH2_CTR & 0xffffu;
     }
 
     /**
@@ -1523,8 +1523,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH2_CTR = curr;
     }
@@ -1534,7 +1534,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH2_CC_A() volatile
     {
-        return CH2_CC & 0b1111111111111111u;
+        return CH2_CC & 0xffffu;
     }
 
     /**
@@ -1544,8 +1544,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH2_CC = curr;
     }
@@ -1555,7 +1555,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH2_CC_B() volatile
     {
-        return (CH2_CC >> 16u) & 0b1111111111111111u;
+        return (CH2_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -1565,8 +1565,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH2_CC = curr;
     }
@@ -1580,8 +1580,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -1593,10 +1593,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH2_CC = curr;
     }
@@ -1606,7 +1606,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH2_TOP() volatile
     {
-        return CH2_TOP & 0b1111111111111111u;
+        return CH2_TOP & 0xffffu;
     }
 
     /**
@@ -1616,8 +1616,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH2_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH2_TOP = curr;
     }
@@ -1806,7 +1806,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH3_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH3_CSR_PH_RET() volatile
@@ -1817,7 +1817,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH3_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH3_CSR_PH_RET() volatile
@@ -1828,7 +1828,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH3_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH3_CSR_PH_RET() volatile
@@ -1839,7 +1839,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH3_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH3_CSR_PH_RET() volatile
@@ -1850,8 +1850,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH3_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH3_CSR_PH_ADV() volatile
@@ -1862,8 +1862,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH3_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH3_CSR_PH_ADV() volatile
@@ -1874,8 +1874,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH3_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH3_CSR_PH_ADV() volatile
@@ -1886,8 +1886,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH3_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH3_CSR_PH_ADV() volatile
@@ -1945,7 +1945,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH3_DIV_FRAC() volatile
     {
-        return CH3_DIV & 0b1111u;
+        return CH3_DIV & 0xfu;
     }
 
     /**
@@ -1955,8 +1955,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH3_DIV = curr;
     }
@@ -1966,7 +1966,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH3_DIV_INT() volatile
     {
-        return (CH3_DIV >> 4u) & 0b11111111u;
+        return (CH3_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -1976,8 +1976,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH3_DIV = curr;
     }
@@ -1985,33 +1985,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH3_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH3_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH3_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH3_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH3_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH3_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH3_DIV = curr;
     }
@@ -2021,7 +2021,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH3_CTR() volatile
     {
-        return CH3_CTR & 0b1111111111111111u;
+        return CH3_CTR & 0xffffu;
     }
 
     /**
@@ -2031,8 +2031,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH3_CTR = curr;
     }
@@ -2042,7 +2042,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH3_CC_A() volatile
     {
-        return CH3_CC & 0b1111111111111111u;
+        return CH3_CC & 0xffffu;
     }
 
     /**
@@ -2052,8 +2052,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH3_CC = curr;
     }
@@ -2063,7 +2063,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH3_CC_B() volatile
     {
-        return (CH3_CC >> 16u) & 0b1111111111111111u;
+        return (CH3_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -2073,8 +2073,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH3_CC = curr;
     }
@@ -2088,8 +2088,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -2101,10 +2101,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH3_CC = curr;
     }
@@ -2114,7 +2114,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH3_TOP() volatile
     {
-        return CH3_TOP & 0b1111111111111111u;
+        return CH3_TOP & 0xffffu;
     }
 
     /**
@@ -2124,8 +2124,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH3_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH3_TOP = curr;
     }
@@ -2314,7 +2314,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH4_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH4_CSR_PH_RET() volatile
@@ -2325,7 +2325,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH4_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH4_CSR_PH_RET() volatile
@@ -2336,7 +2336,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH4_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH4_CSR_PH_RET() volatile
@@ -2347,7 +2347,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH4_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH4_CSR_PH_RET() volatile
@@ -2358,8 +2358,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH4_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH4_CSR_PH_ADV() volatile
@@ -2370,8 +2370,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH4_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH4_CSR_PH_ADV() volatile
@@ -2382,8 +2382,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH4_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH4_CSR_PH_ADV() volatile
@@ -2394,8 +2394,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH4_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH4_CSR_PH_ADV() volatile
@@ -2453,7 +2453,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH4_DIV_FRAC() volatile
     {
-        return CH4_DIV & 0b1111u;
+        return CH4_DIV & 0xfu;
     }
 
     /**
@@ -2463,8 +2463,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH4_DIV = curr;
     }
@@ -2474,7 +2474,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH4_DIV_INT() volatile
     {
-        return (CH4_DIV >> 4u) & 0b11111111u;
+        return (CH4_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -2484,8 +2484,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH4_DIV = curr;
     }
@@ -2493,33 +2493,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH4_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH4_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH4_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH4_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH4_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH4_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH4_DIV = curr;
     }
@@ -2529,7 +2529,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH4_CTR() volatile
     {
-        return CH4_CTR & 0b1111111111111111u;
+        return CH4_CTR & 0xffffu;
     }
 
     /**
@@ -2539,8 +2539,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH4_CTR = curr;
     }
@@ -2550,7 +2550,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH4_CC_A() volatile
     {
-        return CH4_CC & 0b1111111111111111u;
+        return CH4_CC & 0xffffu;
     }
 
     /**
@@ -2560,8 +2560,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH4_CC = curr;
     }
@@ -2571,7 +2571,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH4_CC_B() volatile
     {
-        return (CH4_CC >> 16u) & 0b1111111111111111u;
+        return (CH4_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -2581,8 +2581,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH4_CC = curr;
     }
@@ -2596,8 +2596,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -2609,10 +2609,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH4_CC = curr;
     }
@@ -2622,7 +2622,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH4_TOP() volatile
     {
-        return CH4_TOP & 0b1111111111111111u;
+        return CH4_TOP & 0xffffu;
     }
 
     /**
@@ -2632,8 +2632,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH4_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH4_TOP = curr;
     }
@@ -2822,7 +2822,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH5_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH5_CSR_PH_RET() volatile
@@ -2833,7 +2833,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH5_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH5_CSR_PH_RET() volatile
@@ -2844,7 +2844,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH5_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH5_CSR_PH_RET() volatile
@@ -2855,7 +2855,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH5_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH5_CSR_PH_RET() volatile
@@ -2866,8 +2866,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH5_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH5_CSR_PH_ADV() volatile
@@ -2878,8 +2878,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH5_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH5_CSR_PH_ADV() volatile
@@ -2890,8 +2890,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH5_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH5_CSR_PH_ADV() volatile
@@ -2902,8 +2902,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH5_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH5_CSR_PH_ADV() volatile
@@ -2961,7 +2961,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH5_DIV_FRAC() volatile
     {
-        return CH5_DIV & 0b1111u;
+        return CH5_DIV & 0xfu;
     }
 
     /**
@@ -2971,8 +2971,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH5_DIV = curr;
     }
@@ -2982,7 +2982,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH5_DIV_INT() volatile
     {
-        return (CH5_DIV >> 4u) & 0b11111111u;
+        return (CH5_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -2992,8 +2992,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH5_DIV = curr;
     }
@@ -3001,33 +3001,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH5_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH5_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH5_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH5_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH5_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH5_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH5_DIV = curr;
     }
@@ -3037,7 +3037,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH5_CTR() volatile
     {
-        return CH5_CTR & 0b1111111111111111u;
+        return CH5_CTR & 0xffffu;
     }
 
     /**
@@ -3047,8 +3047,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH5_CTR = curr;
     }
@@ -3058,7 +3058,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH5_CC_A() volatile
     {
-        return CH5_CC & 0b1111111111111111u;
+        return CH5_CC & 0xffffu;
     }
 
     /**
@@ -3068,8 +3068,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH5_CC = curr;
     }
@@ -3079,7 +3079,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH5_CC_B() volatile
     {
-        return (CH5_CC >> 16u) & 0b1111111111111111u;
+        return (CH5_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -3089,8 +3089,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH5_CC = curr;
     }
@@ -3104,8 +3104,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -3117,10 +3117,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH5_CC = curr;
     }
@@ -3130,7 +3130,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH5_TOP() volatile
     {
-        return CH5_TOP & 0b1111111111111111u;
+        return CH5_TOP & 0xffffu;
     }
 
     /**
@@ -3140,8 +3140,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH5_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH5_TOP = curr;
     }
@@ -3330,7 +3330,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH6_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH6_CSR_PH_RET() volatile
@@ -3341,7 +3341,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH6_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH6_CSR_PH_RET() volatile
@@ -3352,7 +3352,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH6_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH6_CSR_PH_RET() volatile
@@ -3363,7 +3363,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH6_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH6_CSR_PH_RET() volatile
@@ -3374,8 +3374,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH6_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH6_CSR_PH_ADV() volatile
@@ -3386,8 +3386,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH6_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH6_CSR_PH_ADV() volatile
@@ -3398,8 +3398,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH6_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH6_CSR_PH_ADV() volatile
@@ -3410,8 +3410,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH6_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH6_CSR_PH_ADV() volatile
@@ -3469,7 +3469,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH6_DIV_FRAC() volatile
     {
-        return CH6_DIV & 0b1111u;
+        return CH6_DIV & 0xfu;
     }
 
     /**
@@ -3479,8 +3479,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH6_DIV = curr;
     }
@@ -3490,7 +3490,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH6_DIV_INT() volatile
     {
-        return (CH6_DIV >> 4u) & 0b11111111u;
+        return (CH6_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -3500,8 +3500,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH6_DIV = curr;
     }
@@ -3509,33 +3509,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH6_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH6_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH6_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH6_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH6_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH6_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH6_DIV = curr;
     }
@@ -3545,7 +3545,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH6_CTR() volatile
     {
-        return CH6_CTR & 0b1111111111111111u;
+        return CH6_CTR & 0xffffu;
     }
 
     /**
@@ -3555,8 +3555,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH6_CTR = curr;
     }
@@ -3566,7 +3566,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH6_CC_A() volatile
     {
-        return CH6_CC & 0b1111111111111111u;
+        return CH6_CC & 0xffffu;
     }
 
     /**
@@ -3576,8 +3576,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH6_CC = curr;
     }
@@ -3587,7 +3587,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH6_CC_B() volatile
     {
-        return (CH6_CC >> 16u) & 0b1111111111111111u;
+        return (CH6_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -3597,8 +3597,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH6_CC = curr;
     }
@@ -3612,8 +3612,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -3625,10 +3625,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH6_CC = curr;
     }
@@ -3638,7 +3638,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH6_TOP() volatile
     {
-        return CH6_TOP & 0b1111111111111111u;
+        return CH6_TOP & 0xffffu;
     }
 
     /**
@@ -3648,8 +3648,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH6_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH6_TOP = curr;
     }
@@ -3838,7 +3838,7 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH7_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline bool get_CH7_CSR_PH_RET() volatile
@@ -3849,7 +3849,7 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH7_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void set_CH7_CSR_PH_RET() volatile
@@ -3860,7 +3860,7 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH7_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void clear_CH7_CSR_PH_RET() volatile
@@ -3871,7 +3871,7 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH7_CSR's PH_RET bit.
      *
-     * Retard the phase of the counter by 1 count, while it is running.\n
+     * Retard the phase of the counter by 1 count, while it is running.
      *                 Self-clearing. Write a 1, and poll until low. Counter must be running.
      */
     inline void toggle_CH7_CSR_PH_RET() volatile
@@ -3882,8 +3882,8 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH7_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline bool get_CH7_CSR_PH_ADV() volatile
@@ -3894,8 +3894,8 @@ struct [[gnu::packed]] pwm
     /**
      * Set CH7_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void set_CH7_CSR_PH_ADV() volatile
@@ -3906,8 +3906,8 @@ struct [[gnu::packed]] pwm
     /**
      * Clear CH7_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void clear_CH7_CSR_PH_ADV() volatile
@@ -3918,8 +3918,8 @@ struct [[gnu::packed]] pwm
     /**
      * Toggle CH7_CSR's PH_ADV bit.
      *
-     * Advance the phase of the counter by 1 count, while it is running.\n
-     *                 Self-clearing. Write a 1, and poll until low. Counter must be running\n
+     * Advance the phase of the counter by 1 count, while it is running.
+     *                 Self-clearing. Write a 1, and poll until low. Counter must be running
      *                 at less than full speed (div_int + div_frac / 16 > 1)
      */
     inline void toggle_CH7_CSR_PH_ADV() volatile
@@ -3977,7 +3977,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH7_DIV_FRAC() volatile
     {
-        return CH7_DIV & 0b1111u;
+        return CH7_DIV & 0xfu;
     }
 
     /**
@@ -3987,8 +3987,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CH7_DIV = curr;
     }
@@ -3998,7 +3998,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint8_t get_CH7_DIV_INT() volatile
     {
-        return (CH7_DIV >> 4u) & 0b11111111u;
+        return (CH7_DIV >> 4u) & 0xffu;
     }
 
     /**
@@ -4008,8 +4008,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_DIV;
 
-        curr &= ~(0b11111111u << 4u);
-        curr |= (value & 0b11111111u) << 4u;
+        curr &= ~(0xffu << 4u);
+        curr |= (value & 0xffu) << 4u;
 
         CH7_DIV = curr;
     }
@@ -4017,33 +4017,33 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of CH7_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void get_CH7_DIV(uint8_t &FRAC, uint8_t &INT) volatile
     {
         uint32_t curr = CH7_DIV;
 
-        FRAC = curr & 0b1111u;
-        INT = (curr >> 4u) & 0b11111111u;
+        FRAC = curr & 0xfu;
+        INT = (curr >> 4u) & 0xffu;
     }
 
     /**
      * Set all of CH7_DIV's bit fields.
      *
-     * (read-write) INT and FRAC form a fixed-point fractional number.\n
-     *             Counting rate is system clock frequency divided by this number.\n
+     * (read-write) INT and FRAC form a fixed-point fractional number.
+     *             Counting rate is system clock frequency divided by this number.
      *             Fractional division uses simple 1st-order sigma-delta.
      */
     inline void set_CH7_DIV(uint8_t FRAC, uint8_t INT) volatile
     {
         uint32_t curr = CH7_DIV;
 
-        curr &= ~(0b1111u);
-        curr |= (FRAC & 0b1111u);
-        curr &= ~(0b11111111u << 4u);
-        curr |= (INT & 0b11111111u) << 4u;
+        curr &= ~(0xfu);
+        curr |= (FRAC & 0xfu);
+        curr &= ~(0xffu << 4u);
+        curr |= (INT & 0xffu) << 4u;
 
         CH7_DIV = curr;
     }
@@ -4053,7 +4053,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH7_CTR() volatile
     {
-        return CH7_CTR & 0b1111111111111111u;
+        return CH7_CTR & 0xffffu;
     }
 
     /**
@@ -4063,8 +4063,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_CTR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH7_CTR = curr;
     }
@@ -4074,7 +4074,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH7_CC_A() volatile
     {
-        return CH7_CC & 0b1111111111111111u;
+        return CH7_CC & 0xffffu;
     }
 
     /**
@@ -4084,8 +4084,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH7_CC = curr;
     }
@@ -4095,7 +4095,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH7_CC_B() volatile
     {
-        return (CH7_CC >> 16u) & 0b1111111111111111u;
+        return (CH7_CC >> 16u) & 0xffffu;
     }
 
     /**
@@ -4105,8 +4105,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_CC;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         CH7_CC = curr;
     }
@@ -4120,8 +4120,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_CC;
 
-        A = curr & 0b1111111111111111u;
-        B = (curr >> 16u) & 0b1111111111111111u;
+        A = curr & 0xffffu;
+        B = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -4133,10 +4133,10 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_CC;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (A & 0b1111111111111111u);
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (B & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu);
+        curr |= (A & 0xffffu);
+        curr &= ~(0xffffu << 16u);
+        curr |= (B & 0xffffu) << 16u;
 
         CH7_CC = curr;
     }
@@ -4146,7 +4146,7 @@ struct [[gnu::packed]] pwm
      */
     inline uint16_t get_CH7_TOP() volatile
     {
-        return CH7_TOP & 0b1111111111111111u;
+        return CH7_TOP & 0xffffu;
     }
 
     /**
@@ -4156,8 +4156,8 @@ struct [[gnu::packed]] pwm
     {
         uint32_t curr = CH7_TOP;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CH7_TOP = curr;
     }
@@ -4421,10 +4421,10 @@ struct [[gnu::packed]] pwm
     /**
      * Get all of EN's bit fields.
      *
-     * (read-write) This register aliases the CSR_EN bits for all channels.\n
-     *             Writing to this register allows multiple channels to be enabled\n
-     *             or disabled simultaneously, so they can run in perfect sync.\n
-     *             For each channel, there is only one physical EN register bit,\n
+     * (read-write) This register aliases the CSR_EN bits for all channels.
+     *             Writing to this register allows multiple channels to be enabled
+     *             or disabled simultaneously, so they can run in perfect sync.
+     *             For each channel, there is only one physical EN register bit,
      *             which can be accessed through here or CHx_CSR.
      */
     inline void get_EN(bool &CH0, bool &CH1, bool &CH2, bool &CH3, bool &CH4, bool &CH5, bool &CH6, bool &CH7) volatile
@@ -4444,10 +4444,10 @@ struct [[gnu::packed]] pwm
     /**
      * Set all of EN's bit fields.
      *
-     * (read-write) This register aliases the CSR_EN bits for all channels.\n
-     *             Writing to this register allows multiple channels to be enabled\n
-     *             or disabled simultaneously, so they can run in perfect sync.\n
-     *             For each channel, there is only one physical EN register bit,\n
+     * (read-write) This register aliases the CSR_EN bits for all channels.
+     *             Writing to this register allows multiple channels to be enabled
+     *             or disabled simultaneously, so they can run in perfect sync.
+     *             For each channel, there is only one physical EN register bit,
      *             which can be accessed through here or CHx_CSR.
      */
     inline void set_EN(bool CH0, bool CH1, bool CH2, bool CH3, bool CH4, bool CH5, bool CH6, bool CH7) volatile

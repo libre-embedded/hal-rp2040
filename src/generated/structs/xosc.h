@@ -27,17 +27,17 @@ struct [[gnu::packed]] xosc
     /* Fields. */
     uint32_t CTRL;                                                   /*!< (read-write) Crystal Oscillator Control */
     uint32_t STATUS;                                                 /*!< (read-write) Crystal Oscillator Status */
-    uint32_t DORMANT;                                                /*!< (read-write) Crystal Oscillator pause control\n
-                This is used to save power by pausing the XOSC\n
-                On power-up this field is initialised to WAKE\n
-                An invalid write will also select WAKE\n
-                WARNING: stop the PLLs before selecting dormant mode\n
+    uint32_t DORMANT;                                                /*!< (read-write) Crystal Oscillator pause control
+                This is used to save power by pausing the XOSC
+                On power-up this field is initialised to WAKE
+                An invalid write will also select WAKE
+                WARNING: stop the PLLs before selecting dormant mode
                 WARNING: setup the irq before selecting dormant mode */
     uint32_t STARTUP;                                                /*!< (read-write) Controls the startup delay */
     static constexpr std::size_t reserved_padding0_length = 3;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
-    uint32_t COUNT;                                                  /*!< (read-write) A down counter running at the xosc frequency which counts to zero and stops.\n
-                To start the counter write a non-zero value.\n
+    uint32_t COUNT;                                                  /*!< (read-write) A down counter running at the xosc frequency which counts to zero and stops.
+                To start the counter write a non-zero value.
                 Can be used for short software pauses when setting up time sensitive hardware. */
 
     /* Methods. */
@@ -49,7 +49,7 @@ struct [[gnu::packed]] xosc
      */
     inline XOSC_CTRL_FREQ_RANGE get_CTRL_FREQ_RANGE() volatile
     {
-        return XOSC_CTRL_FREQ_RANGE(CTRL & 0b111111111111u);
+        return XOSC_CTRL_FREQ_RANGE(CTRL & 0xfffu);
     }
 
     /**
@@ -61,8 +61,8 @@ struct [[gnu::packed]] xosc
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b111111111111u);
-        curr |= (std::to_underlying(value) & 0b111111111111u);
+        curr &= ~(0xfffu);
+        curr |= (std::to_underlying(value) & 0xfffu);
 
         CTRL = curr;
     }
@@ -70,28 +70,28 @@ struct [[gnu::packed]] xosc
     /**
      * Get CTRL's ENABLE field.
      *
-     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\n
-     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\n
+     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.
+     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.
      *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline XOSC_CTRL_ENABLE get_CTRL_ENABLE() volatile
     {
-        return XOSC_CTRL_ENABLE((CTRL >> 12u) & 0b111111111111u);
+        return XOSC_CTRL_ENABLE((CTRL >> 12u) & 0xfffu);
     }
 
     /**
      * Set CTRL's ENABLE field.
      *
-     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.\n
-     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.\n
+     * On power-up this field is initialised to DISABLE and the chip runs from the ROSC.
+     *                 If the chip has subsequently been programmed to run from the XOSC then setting this field to DISABLE may lock-up the chip. If this is a concern then run the clk_ref from the ROSC and enable the clk_sys RESUS feature.
      *                 The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
      */
     inline void set_CTRL_ENABLE(XOSC_CTRL_ENABLE value) volatile
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (std::to_underlying(value) & 0b111111111111u) << 12u;
+        curr &= ~(0xfffu << 12u);
+        curr |= (std::to_underlying(value) & 0xfffu) << 12u;
 
         CTRL = curr;
     }
@@ -105,8 +105,8 @@ struct [[gnu::packed]] xosc
     {
         uint32_t curr = CTRL;
 
-        FREQ_RANGE = XOSC_CTRL_FREQ_RANGE(curr & 0b111111111111u);
-        ENABLE = XOSC_CTRL_ENABLE((curr >> 12u) & 0b111111111111u);
+        FREQ_RANGE = XOSC_CTRL_FREQ_RANGE(curr & 0xfffu);
+        ENABLE = XOSC_CTRL_ENABLE((curr >> 12u) & 0xfffu);
     }
 
     /**
@@ -118,10 +118,10 @@ struct [[gnu::packed]] xosc
     {
         uint32_t curr = CTRL;
 
-        curr &= ~(0b111111111111u);
-        curr |= (std::to_underlying(FREQ_RANGE) & 0b111111111111u);
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (std::to_underlying(ENABLE) & 0b111111111111u) << 12u;
+        curr &= ~(0xfffu);
+        curr |= (std::to_underlying(FREQ_RANGE) & 0xfffu);
+        curr &= ~(0xfffu << 12u);
+        curr |= (std::to_underlying(ENABLE) & 0xfffu) << 12u;
 
         CTRL = curr;
     }
@@ -311,7 +311,7 @@ struct [[gnu::packed]] xosc
      */
     inline uint8_t get_COUNT() volatile
     {
-        return COUNT & 0b11111111u;
+        return COUNT & 0xffu;
     }
 
     /**
@@ -321,8 +321,8 @@ struct [[gnu::packed]] xosc
     {
         uint32_t curr = COUNT;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         COUNT = curr;
     }

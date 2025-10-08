@@ -22,23 +22,23 @@ struct [[gnu::packed]] syscfg
     static constexpr std::size_t size = 28; /*!< syscfg's size in bytes. */
 
     /* Fields. */
-    uint32_t PROC0_NMI_MASK;         /*!< (read-write) Processor core 0 NMI source mask\n
+    uint32_t PROC0_NMI_MASK;         /*!< (read-write) Processor core 0 NMI source mask
                 Set a bit high to enable NMI from that IRQ */
-    uint32_t PROC1_NMI_MASK;         /*!< (read-write) Processor core 1 NMI source mask\n
+    uint32_t PROC1_NMI_MASK;         /*!< (read-write) Processor core 1 NMI source mask
                 Set a bit high to enable NMI from that IRQ */
     uint32_t PROC_CONFIG;            /*!< (read-write) Configuration for processors */
-    uint32_t PROC_IN_SYNC_BYPASS;    /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO\n
-                and the GPIO input register in the SIO. The input synchronizers should\n
-                generally be unbypassed, to avoid injecting metastabilities into processors.\n
-                If you're feeling brave, you can bypass to save two cycles of input\n
+    uint32_t PROC_IN_SYNC_BYPASS;    /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO
+                and the GPIO input register in the SIO. The input synchronizers should
+                generally be unbypassed, to avoid injecting metastabilities into processors.
+                If you're feeling brave, you can bypass to save two cycles of input
                 latency. This register applies to GPIO 0...29. */
-    uint32_t PROC_IN_SYNC_BYPASS_HI; /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO\n
-                and the GPIO input register in the SIO. The input synchronizers should\n
-                generally be unbypassed, to avoid injecting metastabilities into processors.\n
-                If you're feeling brave, you can bypass to save two cycles of input\n
+    uint32_t PROC_IN_SYNC_BYPASS_HI; /*!< (read-write) For each bit, if 1, bypass the input synchronizer between that GPIO
+                and the GPIO input register in the SIO. The input synchronizers should
+                generally be unbypassed, to avoid injecting metastabilities into processors.
+                If you're feeling brave, you can bypass to save two cycles of input
                 latency. This register applies to GPIO 30...35 (the QSPI IOs). */
     uint32_t DBGFORCE;               /*!< (read-write) Directly control the SWD debug port of either processor */
-    uint32_t MEMPOWERDOWN;           /*!< (read-write) Control power downs to memories. Set high to power down memories.\n
+    uint32_t MEMPOWERDOWN;           /*!< (read-write) Control power downs to memories. Set high to power down memories.
                 Use with extreme caution */
 
     /* Methods. */
@@ -66,28 +66,28 @@ struct [[gnu::packed]] syscfg
     /**
      * Get PROC_CONFIG's PROC0_DAP_INSTID field.
      *
-     * Configure proc0 DAP instance ID.\n
-     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment\n
+     * Configure proc0 DAP instance ID.
+     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment
      *                 WARNING: do not set to 15 as this is reserved for RescueDP
      */
     inline uint8_t get_PROC_CONFIG_PROC0_DAP_INSTID() volatile
     {
-        return (PROC_CONFIG >> 24u) & 0b1111u;
+        return (PROC_CONFIG >> 24u) & 0xfu;
     }
 
     /**
      * Set PROC_CONFIG's PROC0_DAP_INSTID field.
      *
-     * Configure proc0 DAP instance ID.\n
-     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment\n
+     * Configure proc0 DAP instance ID.
+     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment
      *                 WARNING: do not set to 15 as this is reserved for RescueDP
      */
     inline void set_PROC_CONFIG_PROC0_DAP_INSTID(uint8_t value) volatile
     {
         uint32_t curr = PROC_CONFIG;
 
-        curr &= ~(0b1111u << 24u);
-        curr |= (value & 0b1111u) << 24u;
+        curr &= ~(0xfu << 24u);
+        curr |= (value & 0xfu) << 24u;
 
         PROC_CONFIG = curr;
     }
@@ -95,28 +95,28 @@ struct [[gnu::packed]] syscfg
     /**
      * Get PROC_CONFIG's PROC1_DAP_INSTID field.
      *
-     * Configure proc1 DAP instance ID.\n
-     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment\n
+     * Configure proc1 DAP instance ID.
+     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment
      *                 WARNING: do not set to 15 as this is reserved for RescueDP
      */
     inline uint8_t get_PROC_CONFIG_PROC1_DAP_INSTID() volatile
     {
-        return (PROC_CONFIG >> 28u) & 0b1111u;
+        return (PROC_CONFIG >> 28u) & 0xfu;
     }
 
     /**
      * Set PROC_CONFIG's PROC1_DAP_INSTID field.
      *
-     * Configure proc1 DAP instance ID.\n
-     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment\n
+     * Configure proc1 DAP instance ID.
+     *                 Recommend that this is NOT changed until you require debug access in multi-chip environment
      *                 WARNING: do not set to 15 as this is reserved for RescueDP
      */
     inline void set_PROC_CONFIG_PROC1_DAP_INSTID(uint8_t value) volatile
     {
         uint32_t curr = PROC_CONFIG;
 
-        curr &= ~(0b1111u << 28u);
-        curr |= (value & 0b1111u) << 28u;
+        curr &= ~(0xfu << 28u);
+        curr |= (value & 0xfu) << 28u;
 
         PROC_CONFIG = curr;
     }
@@ -132,8 +132,8 @@ struct [[gnu::packed]] syscfg
 
         PROC0_HALTED = curr & 1u;
         PROC1_HALTED = curr & (1u << 1u);
-        PROC0_DAP_INSTID = (curr >> 24u) & 0b1111u;
-        PROC1_DAP_INSTID = (curr >> 28u) & 0b1111u;
+        PROC0_DAP_INSTID = (curr >> 24u) & 0xfu;
+        PROC1_DAP_INSTID = (curr >> 28u) & 0xfu;
     }
 
     /**
@@ -145,10 +145,10 @@ struct [[gnu::packed]] syscfg
     {
         uint32_t curr = PROC_CONFIG;
 
-        curr &= ~(0b1111u << 24u);
-        curr |= (PROC0_DAP_INSTID & 0b1111u) << 24u;
-        curr &= ~(0b1111u << 28u);
-        curr |= (PROC1_DAP_INSTID & 0b1111u) << 28u;
+        curr &= ~(0xfu << 24u);
+        curr |= (PROC0_DAP_INSTID & 0xfu) << 24u;
+        curr &= ~(0xfu << 28u);
+        curr |= (PROC1_DAP_INSTID & 0xfu) << 28u;
 
         PROC_CONFIG = curr;
     }
@@ -758,7 +758,7 @@ struct [[gnu::packed]] syscfg
     /**
      * Get all of MEMPOWERDOWN's bit fields.
      *
-     * (read-write) Control power downs to memories. Set high to power down memories.\n
+     * (read-write) Control power downs to memories. Set high to power down memories.
      *             Use with extreme caution
      */
     inline void get_MEMPOWERDOWN(bool &SRAM0, bool &SRAM1, bool &SRAM2, bool &SRAM3, bool &SRAM4, bool &SRAM5, bool &USB, bool &ROM) volatile
@@ -778,7 +778,7 @@ struct [[gnu::packed]] syscfg
     /**
      * Set all of MEMPOWERDOWN's bit fields.
      *
-     * (read-write) Control power downs to memories. Set high to power down memories.\n
+     * (read-write) Control power downs to memories. Set high to power down memories.
      *             Use with extreme caution
      */
     inline void set_MEMPOWERDOWN(bool SRAM0, bool SRAM1, bool SRAM2, bool SRAM3, bool SRAM4, bool SRAM5, bool USB, bool ROM) volatile

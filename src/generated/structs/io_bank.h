@@ -256,7 +256,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO0_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO0_CTRL_FUNCSEL get_GPIO0_CTRL_FUNCSEL() volatile
@@ -267,7 +267,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO0_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO0_CTRL_FUNCSEL(IO_BANK_GPIO0_CTRL_FUNCSEL value) volatile
@@ -505,7 +505,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO1_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO1_CTRL_FUNCSEL get_GPIO1_CTRL_FUNCSEL() volatile
@@ -516,7 +516,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO1_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO1_CTRL_FUNCSEL(IO_BANK_GPIO1_CTRL_FUNCSEL value) volatile
@@ -754,7 +754,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO2_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO2_CTRL_FUNCSEL get_GPIO2_CTRL_FUNCSEL() volatile
@@ -765,7 +765,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO2_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO2_CTRL_FUNCSEL(IO_BANK_GPIO2_CTRL_FUNCSEL value) volatile
@@ -1003,7 +1003,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO3_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO3_CTRL_FUNCSEL get_GPIO3_CTRL_FUNCSEL() volatile
@@ -1014,7 +1014,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO3_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO3_CTRL_FUNCSEL(IO_BANK_GPIO3_CTRL_FUNCSEL value) volatile
@@ -1252,7 +1252,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO4_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO4_CTRL_FUNCSEL get_GPIO4_CTRL_FUNCSEL() volatile
@@ -1263,7 +1263,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO4_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO4_CTRL_FUNCSEL(IO_BANK_GPIO4_CTRL_FUNCSEL value) volatile
@@ -1501,7 +1501,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO5_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO5_CTRL_FUNCSEL get_GPIO5_CTRL_FUNCSEL() volatile
@@ -1512,7 +1512,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO5_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO5_CTRL_FUNCSEL(IO_BANK_GPIO5_CTRL_FUNCSEL value) volatile
@@ -1750,7 +1750,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO6_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO6_CTRL_FUNCSEL get_GPIO6_CTRL_FUNCSEL() volatile
@@ -1761,7 +1761,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO6_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO6_CTRL_FUNCSEL(IO_BANK_GPIO6_CTRL_FUNCSEL value) volatile
@@ -1999,7 +1999,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO7_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO7_CTRL_FUNCSEL get_GPIO7_CTRL_FUNCSEL() volatile
@@ -2010,7 +2010,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO7_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO7_CTRL_FUNCSEL(IO_BANK_GPIO7_CTRL_FUNCSEL value) volatile
@@ -2248,7 +2248,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO8_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO8_CTRL_FUNCSEL get_GPIO8_CTRL_FUNCSEL() volatile
@@ -2259,7 +2259,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO8_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO8_CTRL_FUNCSEL(IO_BANK_GPIO8_CTRL_FUNCSEL value) volatile
@@ -2497,7 +2497,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO9_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO9_CTRL_FUNCSEL get_GPIO9_CTRL_FUNCSEL() volatile
@@ -2508,7 +2508,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO9_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO9_CTRL_FUNCSEL(IO_BANK_GPIO9_CTRL_FUNCSEL value) volatile
@@ -2746,7 +2746,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO10_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO10_CTRL_FUNCSEL get_GPIO10_CTRL_FUNCSEL() volatile
@@ -2757,7 +2757,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO10_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO10_CTRL_FUNCSEL(IO_BANK_GPIO10_CTRL_FUNCSEL value) volatile
@@ -2995,7 +2995,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO11_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO11_CTRL_FUNCSEL get_GPIO11_CTRL_FUNCSEL() volatile
@@ -3006,7 +3006,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO11_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO11_CTRL_FUNCSEL(IO_BANK_GPIO11_CTRL_FUNCSEL value) volatile
@@ -3244,7 +3244,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO12_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO12_CTRL_FUNCSEL get_GPIO12_CTRL_FUNCSEL() volatile
@@ -3255,7 +3255,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO12_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO12_CTRL_FUNCSEL(IO_BANK_GPIO12_CTRL_FUNCSEL value) volatile
@@ -3493,7 +3493,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO13_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO13_CTRL_FUNCSEL get_GPIO13_CTRL_FUNCSEL() volatile
@@ -3504,7 +3504,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO13_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO13_CTRL_FUNCSEL(IO_BANK_GPIO13_CTRL_FUNCSEL value) volatile
@@ -3742,7 +3742,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO14_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO14_CTRL_FUNCSEL get_GPIO14_CTRL_FUNCSEL() volatile
@@ -3753,7 +3753,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO14_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO14_CTRL_FUNCSEL(IO_BANK_GPIO14_CTRL_FUNCSEL value) volatile
@@ -3991,7 +3991,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO15_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO15_CTRL_FUNCSEL get_GPIO15_CTRL_FUNCSEL() volatile
@@ -4002,7 +4002,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO15_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO15_CTRL_FUNCSEL(IO_BANK_GPIO15_CTRL_FUNCSEL value) volatile
@@ -4240,7 +4240,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO16_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO16_CTRL_FUNCSEL get_GPIO16_CTRL_FUNCSEL() volatile
@@ -4251,7 +4251,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO16_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO16_CTRL_FUNCSEL(IO_BANK_GPIO16_CTRL_FUNCSEL value) volatile
@@ -4489,7 +4489,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO17_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO17_CTRL_FUNCSEL get_GPIO17_CTRL_FUNCSEL() volatile
@@ -4500,7 +4500,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO17_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO17_CTRL_FUNCSEL(IO_BANK_GPIO17_CTRL_FUNCSEL value) volatile
@@ -4738,7 +4738,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO18_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO18_CTRL_FUNCSEL get_GPIO18_CTRL_FUNCSEL() volatile
@@ -4749,7 +4749,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO18_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO18_CTRL_FUNCSEL(IO_BANK_GPIO18_CTRL_FUNCSEL value) volatile
@@ -4987,7 +4987,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO19_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO19_CTRL_FUNCSEL get_GPIO19_CTRL_FUNCSEL() volatile
@@ -4998,7 +4998,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO19_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO19_CTRL_FUNCSEL(IO_BANK_GPIO19_CTRL_FUNCSEL value) volatile
@@ -5236,7 +5236,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO20_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO20_CTRL_FUNCSEL get_GPIO20_CTRL_FUNCSEL() volatile
@@ -5247,7 +5247,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO20_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO20_CTRL_FUNCSEL(IO_BANK_GPIO20_CTRL_FUNCSEL value) volatile
@@ -5485,7 +5485,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO21_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO21_CTRL_FUNCSEL get_GPIO21_CTRL_FUNCSEL() volatile
@@ -5496,7 +5496,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO21_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO21_CTRL_FUNCSEL(IO_BANK_GPIO21_CTRL_FUNCSEL value) volatile
@@ -5734,7 +5734,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO22_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO22_CTRL_FUNCSEL get_GPIO22_CTRL_FUNCSEL() volatile
@@ -5745,7 +5745,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO22_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO22_CTRL_FUNCSEL(IO_BANK_GPIO22_CTRL_FUNCSEL value) volatile
@@ -5983,7 +5983,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO23_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO23_CTRL_FUNCSEL get_GPIO23_CTRL_FUNCSEL() volatile
@@ -5994,7 +5994,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO23_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO23_CTRL_FUNCSEL(IO_BANK_GPIO23_CTRL_FUNCSEL value) volatile
@@ -6232,7 +6232,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO24_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO24_CTRL_FUNCSEL get_GPIO24_CTRL_FUNCSEL() volatile
@@ -6243,7 +6243,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO24_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO24_CTRL_FUNCSEL(IO_BANK_GPIO24_CTRL_FUNCSEL value) volatile
@@ -6481,7 +6481,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO25_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO25_CTRL_FUNCSEL get_GPIO25_CTRL_FUNCSEL() volatile
@@ -6492,7 +6492,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO25_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO25_CTRL_FUNCSEL(IO_BANK_GPIO25_CTRL_FUNCSEL value) volatile
@@ -6730,7 +6730,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO26_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO26_CTRL_FUNCSEL get_GPIO26_CTRL_FUNCSEL() volatile
@@ -6741,7 +6741,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO26_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO26_CTRL_FUNCSEL(IO_BANK_GPIO26_CTRL_FUNCSEL value) volatile
@@ -6979,7 +6979,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO27_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO27_CTRL_FUNCSEL get_GPIO27_CTRL_FUNCSEL() volatile
@@ -6990,7 +6990,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO27_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO27_CTRL_FUNCSEL(IO_BANK_GPIO27_CTRL_FUNCSEL value) volatile
@@ -7228,7 +7228,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO28_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO28_CTRL_FUNCSEL get_GPIO28_CTRL_FUNCSEL() volatile
@@ -7239,7 +7239,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO28_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO28_CTRL_FUNCSEL(IO_BANK_GPIO28_CTRL_FUNCSEL value) volatile
@@ -7477,7 +7477,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO29_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline IO_BANK_GPIO29_CTRL_FUNCSEL get_GPIO29_CTRL_FUNCSEL() volatile
@@ -7488,7 +7488,7 @@ struct [[gnu::packed]] io_bank
     /**
      * Set GPIO29_CTRL's FUNCSEL field.
      *
-     * 0-31 -> selects pin function according to the gpio table\n
+     * 0-31 -> selects pin function according to the gpio table
      *                 31 == NULL
      */
     inline void set_GPIO29_CTRL_FUNCSEL(IO_BANK_GPIO29_CTRL_FUNCSEL value) volatile

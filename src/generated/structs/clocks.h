@@ -33,54 +33,54 @@ struct [[gnu::packed]] clocks
     /* Fields. */
     uint32_t CLK_GPOUT0_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_GPOUT0_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT0_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_GPOUT0_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_GPOUT1_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_GPOUT1_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT1_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_GPOUT1_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_GPOUT2_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_GPOUT2_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT2_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_GPOUT2_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_GPOUT3_CTRL;                 /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_GPOUT3_DIV;                  /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_GPOUT3_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_GPOUT3_SELECTED;             /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_REF_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_REF_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_REF_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_REF_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
     uint32_t CLK_SYS_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_SYS_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_SYS_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_SYS_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s. */
     uint32_t CLK_PERI_CTRL;                   /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     const uint32_t reserved_padding0 = {};
-    uint32_t CLK_PERI_SELECTED;               /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_PERI_SELECTED;               /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_USB_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_USB_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_USB_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_USB_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_ADC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_ADC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_ADC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_ADC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_RTC_CTRL;                    /*!< (read-write) Clock control, can be changed on-the-fly (except for auxsrc) */
     uint32_t CLK_RTC_DIV;                     /*!< (read-write) Clock divisor, can be changed on-the-fly */
-    uint32_t CLK_RTC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).\n
+    uint32_t CLK_RTC_SELECTED;                /*!< (read-write) Indicates which SRC is currently selected by the glitchless mux (one-hot).
                 This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1. */
     uint32_t CLK_SYS_RESUS_CTRL;
     const uint32_t CLK_SYS_RESUS_STATUS = {};
     uint32_t FC0_REF_KHZ;                     /*!< (read-write) Reference clock frequency in kHz */
     uint32_t FC0_MIN_KHZ;                     /*!< (read-write) Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags */
     uint32_t FC0_MAX_KHZ;                     /*!< (read-write) Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags */
-    uint32_t FC0_DELAY;                       /*!< (read-write) Delays the start of frequency counting to allow the mux to settle\n
+    uint32_t FC0_DELAY;                       /*!< (read-write) Delays the start of frequency counting to allow the mux to settle
                 Delay is measured in multiples of the reference clock period */
-    uint32_t FC0_INTERVAL;                    /*!< (read-write) The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval\n
+    uint32_t FC0_INTERVAL;                    /*!< (read-write) The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval
                 The default gives a test interval of 250us */
-    uint32_t FC0_SRC;                         /*!< (read-write) Clock sent to frequency counter, set to 0 when not required\n
+    uint32_t FC0_SRC;                         /*!< (read-write) Clock sent to frequency counter, set to 0 when not required
                 Writing to this register initiates the frequency count */
     const uint32_t FC0_STATUS = {};           /*!< (read-only) Frequency counter status */
     const uint32_t FC0_RESULT = {};           /*!< (read-only) Result of frequency measurement, only valid when status_done=1 */
@@ -104,7 +104,7 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT0_CTRL_AUXSRC get_CLK_GPOUT0_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((CLK_GPOUT0_CTRL >> 5u) & 0xfu);
     }
 
     /**
@@ -116,8 +116,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(value) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(value) & 0xfu) << 5u;
 
         CLK_GPOUT0_CTRL = curr;
     }
@@ -245,7 +245,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT0_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_GPOUT0_CTRL_PHASE() volatile
@@ -256,7 +256,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT0_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_GPOUT0_CTRL_PHASE(uint8_t value) volatile
@@ -272,7 +272,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_GPOUT0_CTRL_NUDGE() volatile
@@ -283,7 +283,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_GPOUT0_CTRL_NUDGE() volatile
@@ -294,7 +294,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_GPOUT0_CTRL_NUDGE() volatile
@@ -305,7 +305,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT0_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_GPOUT0_CTRL_NUDGE() volatile
@@ -322,7 +322,7 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
-        AUXSRC = CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((curr >> 5u) & 0b1111u);
+        AUXSRC = CLOCKS_CLK_GPOUT0_CTRL_AUXSRC((curr >> 5u) & 0xfu);
         KILL = curr & (1u << 10u);
         ENABLE = curr & (1u << 11u);
         DC50 = curr & (1u << 12u);
@@ -339,8 +339,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(AUXSRC) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(AUXSRC) & 0xfu) << 5u;
         curr &= ~(0b1u << 10u);
         curr |= (KILL & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
@@ -362,7 +362,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_GPOUT0_DIV_FRAC() volatile
     {
-        return CLK_GPOUT0_DIV & 0b11111111u;
+        return CLK_GPOUT0_DIV & 0xffu;
     }
 
     /**
@@ -374,8 +374,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_GPOUT0_DIV = curr;
     }
@@ -387,7 +387,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_GPOUT0_DIV_INT() volatile
     {
-        return (CLK_GPOUT0_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_GPOUT0_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -399,8 +399,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_GPOUT0_DIV = curr;
     }
@@ -414,8 +414,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -427,10 +427,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT0_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_GPOUT0_DIV = curr;
     }
@@ -442,7 +442,7 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT1_CTRL_AUXSRC get_CLK_GPOUT1_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((CLK_GPOUT1_CTRL >> 5u) & 0xfu);
     }
 
     /**
@@ -454,8 +454,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(value) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(value) & 0xfu) << 5u;
 
         CLK_GPOUT1_CTRL = curr;
     }
@@ -583,7 +583,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT1_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_GPOUT1_CTRL_PHASE() volatile
@@ -594,7 +594,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT1_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_GPOUT1_CTRL_PHASE(uint8_t value) volatile
@@ -610,7 +610,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_GPOUT1_CTRL_NUDGE() volatile
@@ -621,7 +621,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_GPOUT1_CTRL_NUDGE() volatile
@@ -632,7 +632,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_GPOUT1_CTRL_NUDGE() volatile
@@ -643,7 +643,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT1_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_GPOUT1_CTRL_NUDGE() volatile
@@ -660,7 +660,7 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
-        AUXSRC = CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((curr >> 5u) & 0b1111u);
+        AUXSRC = CLOCKS_CLK_GPOUT1_CTRL_AUXSRC((curr >> 5u) & 0xfu);
         KILL = curr & (1u << 10u);
         ENABLE = curr & (1u << 11u);
         DC50 = curr & (1u << 12u);
@@ -677,8 +677,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(AUXSRC) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(AUXSRC) & 0xfu) << 5u;
         curr &= ~(0b1u << 10u);
         curr |= (KILL & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
@@ -700,7 +700,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_GPOUT1_DIV_FRAC() volatile
     {
-        return CLK_GPOUT1_DIV & 0b11111111u;
+        return CLK_GPOUT1_DIV & 0xffu;
     }
 
     /**
@@ -712,8 +712,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_GPOUT1_DIV = curr;
     }
@@ -725,7 +725,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_GPOUT1_DIV_INT() volatile
     {
-        return (CLK_GPOUT1_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_GPOUT1_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -737,8 +737,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_GPOUT1_DIV = curr;
     }
@@ -752,8 +752,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -765,10 +765,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT1_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_GPOUT1_DIV = curr;
     }
@@ -780,7 +780,7 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT2_CTRL_AUXSRC get_CLK_GPOUT2_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((CLK_GPOUT2_CTRL >> 5u) & 0xfu);
     }
 
     /**
@@ -792,8 +792,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(value) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(value) & 0xfu) << 5u;
 
         CLK_GPOUT2_CTRL = curr;
     }
@@ -921,7 +921,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT2_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_GPOUT2_CTRL_PHASE() volatile
@@ -932,7 +932,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT2_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_GPOUT2_CTRL_PHASE(uint8_t value) volatile
@@ -948,7 +948,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_GPOUT2_CTRL_NUDGE() volatile
@@ -959,7 +959,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_GPOUT2_CTRL_NUDGE() volatile
@@ -970,7 +970,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_GPOUT2_CTRL_NUDGE() volatile
@@ -981,7 +981,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT2_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_GPOUT2_CTRL_NUDGE() volatile
@@ -998,7 +998,7 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
-        AUXSRC = CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((curr >> 5u) & 0b1111u);
+        AUXSRC = CLOCKS_CLK_GPOUT2_CTRL_AUXSRC((curr >> 5u) & 0xfu);
         KILL = curr & (1u << 10u);
         ENABLE = curr & (1u << 11u);
         DC50 = curr & (1u << 12u);
@@ -1015,8 +1015,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(AUXSRC) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(AUXSRC) & 0xfu) << 5u;
         curr &= ~(0b1u << 10u);
         curr |= (KILL & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
@@ -1038,7 +1038,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_GPOUT2_DIV_FRAC() volatile
     {
-        return CLK_GPOUT2_DIV & 0b11111111u;
+        return CLK_GPOUT2_DIV & 0xffu;
     }
 
     /**
@@ -1050,8 +1050,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_GPOUT2_DIV = curr;
     }
@@ -1063,7 +1063,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_GPOUT2_DIV_INT() volatile
     {
-        return (CLK_GPOUT2_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_GPOUT2_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1075,8 +1075,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_GPOUT2_DIV = curr;
     }
@@ -1090,8 +1090,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1103,10 +1103,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT2_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_GPOUT2_DIV = curr;
     }
@@ -1118,7 +1118,7 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_CLK_GPOUT3_CTRL_AUXSRC get_CLK_GPOUT3_CTRL_AUXSRC() volatile
     {
-        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) & 0b1111u);
+        return CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((CLK_GPOUT3_CTRL >> 5u) & 0xfu);
     }
 
     /**
@@ -1130,8 +1130,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(value) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(value) & 0xfu) << 5u;
 
         CLK_GPOUT3_CTRL = curr;
     }
@@ -1259,7 +1259,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT3_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_GPOUT3_CTRL_PHASE() volatile
@@ -1270,7 +1270,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT3_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_GPOUT3_CTRL_PHASE(uint8_t value) volatile
@@ -1286,7 +1286,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_GPOUT3_CTRL_NUDGE() volatile
@@ -1297,7 +1297,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_GPOUT3_CTRL_NUDGE() volatile
@@ -1308,7 +1308,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_GPOUT3_CTRL_NUDGE() volatile
@@ -1319,7 +1319,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_GPOUT3_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_GPOUT3_CTRL_NUDGE() volatile
@@ -1336,7 +1336,7 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
-        AUXSRC = CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((curr >> 5u) & 0b1111u);
+        AUXSRC = CLOCKS_CLK_GPOUT3_CTRL_AUXSRC((curr >> 5u) & 0xfu);
         KILL = curr & (1u << 10u);
         ENABLE = curr & (1u << 11u);
         DC50 = curr & (1u << 12u);
@@ -1353,8 +1353,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_CTRL;
 
-        curr &= ~(0b1111u << 5u);
-        curr |= (std::to_underlying(AUXSRC) & 0b1111u) << 5u;
+        curr &= ~(0xfu << 5u);
+        curr |= (std::to_underlying(AUXSRC) & 0xfu) << 5u;
         curr &= ~(0b1u << 10u);
         curr |= (KILL & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
@@ -1376,7 +1376,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_GPOUT3_DIV_FRAC() volatile
     {
-        return CLK_GPOUT3_DIV & 0b11111111u;
+        return CLK_GPOUT3_DIV & 0xffu;
     }
 
     /**
@@ -1388,8 +1388,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_GPOUT3_DIV = curr;
     }
@@ -1401,7 +1401,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_GPOUT3_DIV_INT() volatile
     {
-        return (CLK_GPOUT3_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_GPOUT3_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1413,8 +1413,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_GPOUT3_DIV = curr;
     }
@@ -1428,8 +1428,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1441,10 +1441,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_GPOUT3_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_GPOUT3_DIV = curr;
     }
@@ -1656,7 +1656,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_SYS_DIV_FRAC() volatile
     {
-        return CLK_SYS_DIV & 0b11111111u;
+        return CLK_SYS_DIV & 0xffu;
     }
 
     /**
@@ -1668,8 +1668,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_SYS_DIV = curr;
     }
@@ -1681,7 +1681,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_SYS_DIV_INT() volatile
     {
-        return (CLK_SYS_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_SYS_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1693,8 +1693,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_SYS_DIV = curr;
     }
@@ -1708,8 +1708,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1721,10 +1721,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_SYS_DIV = curr;
     }
@@ -1975,7 +1975,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_USB_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_USB_CTRL_PHASE() volatile
@@ -1986,7 +1986,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_USB_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_USB_CTRL_PHASE(uint8_t value) volatile
@@ -2002,7 +2002,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_USB_CTRL_NUDGE() volatile
@@ -2013,7 +2013,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_USB_CTRL_NUDGE() volatile
@@ -2024,7 +2024,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_USB_CTRL_NUDGE() volatile
@@ -2035,7 +2035,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_USB_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_USB_CTRL_NUDGE() volatile
@@ -2215,7 +2215,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_ADC_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_ADC_CTRL_PHASE() volatile
@@ -2226,7 +2226,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_ADC_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_ADC_CTRL_PHASE(uint8_t value) volatile
@@ -2242,7 +2242,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_ADC_CTRL_NUDGE() volatile
@@ -2253,7 +2253,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_ADC_CTRL_NUDGE() volatile
@@ -2264,7 +2264,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_ADC_CTRL_NUDGE() volatile
@@ -2275,7 +2275,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_ADC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_ADC_CTRL_NUDGE() volatile
@@ -2455,7 +2455,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_RTC_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline uint8_t get_CLK_RTC_CTRL_PHASE() volatile
@@ -2466,7 +2466,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_RTC_CTRL's PHASE field.
      *
-     * This delays the enable signal by up to 3 cycles of the input clock\n
+     * This delays the enable signal by up to 3 cycles of the input clock
      *                 This must be set before the clock is enabled to have any effect
      */
     inline void set_CLK_RTC_CTRL_PHASE(uint8_t value) volatile
@@ -2482,7 +2482,7 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline bool get_CLK_RTC_CTRL_NUDGE() volatile
@@ -2493,7 +2493,7 @@ struct [[gnu::packed]] clocks
     /**
      * Set CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void set_CLK_RTC_CTRL_NUDGE() volatile
@@ -2504,7 +2504,7 @@ struct [[gnu::packed]] clocks
     /**
      * Clear CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void clear_CLK_RTC_CTRL_NUDGE() volatile
@@ -2515,7 +2515,7 @@ struct [[gnu::packed]] clocks
     /**
      * Toggle CLK_RTC_CTRL's NUDGE bit.
      *
-     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock\n
+     * An edge on this signal shifts the phase of the output by 1 cycle of the input clock
      *                 This can be done at any time
      */
     inline void toggle_CLK_RTC_CTRL_NUDGE() volatile
@@ -2569,7 +2569,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_CLK_RTC_DIV_FRAC() volatile
     {
-        return CLK_RTC_DIV & 0b11111111u;
+        return CLK_RTC_DIV & 0xffu;
     }
 
     /**
@@ -2581,8 +2581,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_RTC_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_RTC_DIV = curr;
     }
@@ -2594,7 +2594,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_CLK_RTC_DIV_INT() volatile
     {
-        return (CLK_RTC_DIV >> 8u) & 0b111111111111111111111111u;
+        return (CLK_RTC_DIV >> 8u) & 0xffffffu;
     }
 
     /**
@@ -2606,8 +2606,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_RTC_DIV;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         CLK_RTC_DIV = curr;
     }
@@ -2621,8 +2621,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_RTC_DIV;
 
-        FRAC = curr & 0b11111111u;
-        INT = (curr >> 8u) & 0b111111111111111111111111u;
+        FRAC = curr & 0xffu;
+        INT = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -2634,10 +2634,10 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_RTC_DIV;
 
-        curr &= ~(0b11111111u);
-        curr |= (FRAC & 0b11111111u);
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (INT & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffu);
+        curr |= (FRAC & 0xffu);
+        curr &= ~(0xffffffu << 8u);
+        curr |= (INT & 0xffffffu) << 8u;
 
         CLK_RTC_DIV = curr;
     }
@@ -2645,26 +2645,26 @@ struct [[gnu::packed]] clocks
     /**
      * Get CLK_SYS_RESUS_CTRL's TIMEOUT field.
      *
-     * This is expressed as a number of clk_ref cycles\n
+     * This is expressed as a number of clk_ref cycles
      *                 and must be >= 2x clk_ref_freq/min_clk_tst_freq
      */
     inline uint8_t get_CLK_SYS_RESUS_CTRL_TIMEOUT() volatile
     {
-        return CLK_SYS_RESUS_CTRL & 0b11111111u;
+        return CLK_SYS_RESUS_CTRL & 0xffu;
     }
 
     /**
      * Set CLK_SYS_RESUS_CTRL's TIMEOUT field.
      *
-     * This is expressed as a number of clk_ref cycles\n
+     * This is expressed as a number of clk_ref cycles
      *                 and must be >= 2x clk_ref_freq/min_clk_tst_freq
      */
     inline void set_CLK_SYS_RESUS_CTRL_TIMEOUT(uint8_t value) volatile
     {
         uint32_t curr = CLK_SYS_RESUS_CTRL;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         CLK_SYS_RESUS_CTRL = curr;
     }
@@ -2796,7 +2796,7 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_RESUS_CTRL;
 
-        TIMEOUT = curr & 0b11111111u;
+        TIMEOUT = curr & 0xffu;
         ENABLE = curr & (1u << 8u);
         FRCE = curr & (1u << 12u);
         CLEAR = curr & (1u << 16u);
@@ -2809,8 +2809,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = CLK_SYS_RESUS_CTRL;
 
-        curr &= ~(0b11111111u);
-        curr |= (TIMEOUT & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (TIMEOUT & 0xffu);
         curr &= ~(0b1u << 8u);
         curr |= (ENABLE & 0b1u) << 8u;
         curr &= ~(0b1u << 12u);
@@ -2836,7 +2836,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint32_t get_FC0_REF_KHZ() volatile
     {
-        return FC0_REF_KHZ & 0b11111111111111111111u;
+        return FC0_REF_KHZ & 0xfffffu;
     }
 
     /**
@@ -2846,8 +2846,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = FC0_REF_KHZ;
 
-        curr &= ~(0b11111111111111111111u);
-        curr |= (value & 0b11111111111111111111u);
+        curr &= ~(0xfffffu);
+        curr |= (value & 0xfffffu);
 
         FC0_REF_KHZ = curr;
     }
@@ -2920,7 +2920,7 @@ struct [[gnu::packed]] clocks
      */
     inline uint8_t get_FC0_INTERVAL() volatile
     {
-        return FC0_INTERVAL & 0b1111u;
+        return FC0_INTERVAL & 0xfu;
     }
 
     /**
@@ -2930,8 +2930,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = FC0_INTERVAL;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         FC0_INTERVAL = curr;
     }
@@ -2941,7 +2941,7 @@ struct [[gnu::packed]] clocks
      */
     inline CLOCKS_FC0_SRC_FC0_SRC get_FC0_SRC() volatile
     {
-        return CLOCKS_FC0_SRC_FC0_SRC(FC0_SRC & 0b11111111u);
+        return CLOCKS_FC0_SRC_FC0_SRC(FC0_SRC & 0xffu);
     }
 
     /**
@@ -2951,8 +2951,8 @@ struct [[gnu::packed]] clocks
     {
         uint32_t curr = FC0_SRC;
 
-        curr &= ~(0b11111111u);
-        curr |= (std::to_underlying(value) & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (std::to_underlying(value) & 0xffu);
 
         FC0_SRC = curr;
     }

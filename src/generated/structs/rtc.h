@@ -29,7 +29,7 @@ struct [[gnu::packed]] rtc
     uint32_t IRQ_SETUP_0;      /*!< (read-write) Interrupt setup register 0 */
     uint32_t IRQ_SETUP_1;      /*!< (read-write) Interrupt setup register 1 */
     const uint32_t RTC_1 = {}; /*!< (read-only) RTC register 1. */
-    const uint32_t RTC_0 = {}; /*!< (read-only) RTC register 0\n
+    const uint32_t RTC_0 = {}; /*!< (read-only) RTC register 0
                 Read this before RTC 1! */
     const uint32_t INTR = {};  /*!< (read-only) Raw Interrupts */
     uint32_t INTE;             /*!< (read-write) Interrupt Enable */
@@ -43,7 +43,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint16_t get_CLKDIV_M1() volatile
     {
-        return CLKDIV_M1 & 0b1111111111111111u;
+        return CLKDIV_M1 & 0xffffu;
     }
 
     /**
@@ -53,8 +53,8 @@ struct [[gnu::packed]] rtc
     {
         uint32_t curr = CLKDIV_M1;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CLKDIV_M1 = curr;
     }
@@ -91,7 +91,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint8_t get_SETUP_0_MONTH() volatile
     {
-        return (SETUP_0 >> 8u) & 0b1111u;
+        return (SETUP_0 >> 8u) & 0xfu;
     }
 
     /**
@@ -103,8 +103,8 @@ struct [[gnu::packed]] rtc
     {
         uint32_t curr = SETUP_0;
 
-        curr &= ~(0b1111u << 8u);
-        curr |= (value & 0b1111u) << 8u;
+        curr &= ~(0xfu << 8u);
+        curr |= (value & 0xfu) << 8u;
 
         SETUP_0 = curr;
     }
@@ -116,7 +116,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint16_t get_SETUP_0_YEAR() volatile
     {
-        return (SETUP_0 >> 12u) & 0b111111111111u;
+        return (SETUP_0 >> 12u) & 0xfffu;
     }
 
     /**
@@ -128,8 +128,8 @@ struct [[gnu::packed]] rtc
     {
         uint32_t curr = SETUP_0;
 
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (value & 0b111111111111u) << 12u;
+        curr &= ~(0xfffu << 12u);
+        curr |= (value & 0xfffu) << 12u;
 
         SETUP_0 = curr;
     }
@@ -144,8 +144,8 @@ struct [[gnu::packed]] rtc
         uint32_t curr = SETUP_0;
 
         DAY = curr & 0b11111u;
-        MONTH = (curr >> 8u) & 0b1111u;
-        YEAR = (curr >> 12u) & 0b111111111111u;
+        MONTH = (curr >> 8u) & 0xfu;
+        YEAR = (curr >> 12u) & 0xfffu;
     }
 
     /**
@@ -159,10 +159,10 @@ struct [[gnu::packed]] rtc
 
         curr &= ~(0b11111u);
         curr |= (DAY & 0b11111u);
-        curr &= ~(0b1111u << 8u);
-        curr |= (MONTH & 0b1111u) << 8u;
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (YEAR & 0b111111111111u) << 12u;
+        curr &= ~(0xfu << 8u);
+        curr |= (MONTH & 0xfu) << 8u;
+        curr &= ~(0xfffu << 12u);
+        curr |= (YEAR & 0xfffu) << 12u;
 
         SETUP_0 = curr;
     }
@@ -396,7 +396,7 @@ struct [[gnu::packed]] rtc
     /**
      * Get CTRL's FORCE_NOTLEAPYEAR bit.
      *
-     * If set, leapyear is forced off.\n
+     * If set, leapyear is forced off.
      *                 Useful for years divisible by 100 but not by 400
      */
     inline bool get_CTRL_FORCE_NOTLEAPYEAR() volatile
@@ -407,7 +407,7 @@ struct [[gnu::packed]] rtc
     /**
      * Set CTRL's FORCE_NOTLEAPYEAR bit.
      *
-     * If set, leapyear is forced off.\n
+     * If set, leapyear is forced off.
      *                 Useful for years divisible by 100 but not by 400
      */
     inline void set_CTRL_FORCE_NOTLEAPYEAR() volatile
@@ -418,7 +418,7 @@ struct [[gnu::packed]] rtc
     /**
      * Clear CTRL's FORCE_NOTLEAPYEAR bit.
      *
-     * If set, leapyear is forced off.\n
+     * If set, leapyear is forced off.
      *                 Useful for years divisible by 100 but not by 400
      */
     inline void clear_CTRL_FORCE_NOTLEAPYEAR() volatile
@@ -429,7 +429,7 @@ struct [[gnu::packed]] rtc
     /**
      * Toggle CTRL's FORCE_NOTLEAPYEAR bit.
      *
-     * If set, leapyear is forced off.\n
+     * If set, leapyear is forced off.
      *                 Useful for years divisible by 100 but not by 400
      */
     inline void toggle_CTRL_FORCE_NOTLEAPYEAR() volatile
@@ -503,7 +503,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint8_t get_IRQ_SETUP_0_MONTH() volatile
     {
-        return (IRQ_SETUP_0 >> 8u) & 0b1111u;
+        return (IRQ_SETUP_0 >> 8u) & 0xfu;
     }
 
     /**
@@ -515,8 +515,8 @@ struct [[gnu::packed]] rtc
     {
         uint32_t curr = IRQ_SETUP_0;
 
-        curr &= ~(0b1111u << 8u);
-        curr |= (value & 0b1111u) << 8u;
+        curr &= ~(0xfu << 8u);
+        curr |= (value & 0xfu) << 8u;
 
         IRQ_SETUP_0 = curr;
     }
@@ -528,7 +528,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint16_t get_IRQ_SETUP_0_YEAR() volatile
     {
-        return (IRQ_SETUP_0 >> 12u) & 0b111111111111u;
+        return (IRQ_SETUP_0 >> 12u) & 0xfffu;
     }
 
     /**
@@ -540,8 +540,8 @@ struct [[gnu::packed]] rtc
     {
         uint32_t curr = IRQ_SETUP_0;
 
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (value & 0b111111111111u) << 12u;
+        curr &= ~(0xfffu << 12u);
+        curr |= (value & 0xfffu) << 12u;
 
         IRQ_SETUP_0 = curr;
     }
@@ -724,8 +724,8 @@ struct [[gnu::packed]] rtc
         uint32_t curr = IRQ_SETUP_0;
 
         DAY = curr & 0b11111u;
-        MONTH = (curr >> 8u) & 0b1111u;
-        YEAR = (curr >> 12u) & 0b111111111111u;
+        MONTH = (curr >> 8u) & 0xfu;
+        YEAR = (curr >> 12u) & 0xfffu;
         DAY_ENA = curr & (1u << 24u);
         MONTH_ENA = curr & (1u << 25u);
         YEAR_ENA = curr & (1u << 26u);
@@ -744,10 +744,10 @@ struct [[gnu::packed]] rtc
 
         curr &= ~(0b11111u);
         curr |= (DAY & 0b11111u);
-        curr &= ~(0b1111u << 8u);
-        curr |= (MONTH & 0b1111u) << 8u;
-        curr &= ~(0b111111111111u << 12u);
-        curr |= (YEAR & 0b111111111111u) << 12u;
+        curr &= ~(0xfu << 8u);
+        curr |= (MONTH & 0xfu) << 8u;
+        curr &= ~(0xfffu << 12u);
+        curr |= (YEAR & 0xfffu) << 12u;
         curr &= ~(0b1u << 24u);
         curr |= (DAY_ENA & 0b1u) << 24u;
         curr &= ~(0b1u << 25u);
@@ -1085,7 +1085,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint8_t get_RTC_1_MONTH() volatile
     {
-        return (RTC_1 >> 8u) & 0b1111u;
+        return (RTC_1 >> 8u) & 0xfu;
     }
 
     /**
@@ -1095,7 +1095,7 @@ struct [[gnu::packed]] rtc
      */
     inline uint16_t get_RTC_1_YEAR() volatile
     {
-        return (RTC_1 >> 12u) & 0b111111111111u;
+        return (RTC_1 >> 12u) & 0xfffu;
     }
 
     /**
@@ -1108,8 +1108,8 @@ struct [[gnu::packed]] rtc
         uint32_t curr = RTC_1;
 
         DAY = curr & 0b11111u;
-        MONTH = (curr >> 8u) & 0b1111u;
-        YEAR = (curr >> 12u) & 0b111111111111u;
+        MONTH = (curr >> 8u) & 0xfu;
+        YEAR = (curr >> 12u) & 0xfffu;
     }
 
     /**
@@ -1155,7 +1155,7 @@ struct [[gnu::packed]] rtc
     /**
      * Get all of RTC_0's bit fields.
      *
-     * (read-only) RTC register 0\n
+     * (read-only) RTC register 0
      *             Read this before RTC 1!
      */
     inline void get_RTC_0(uint8_t &SEC, uint8_t &MIN, uint8_t &HOUR, uint8_t &DOTW) volatile

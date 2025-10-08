@@ -22,13 +22,13 @@ struct [[gnu::packed]] ppb
     static constexpr std::size_t reserved_padding0_length = 14340;
     const uint32_t reserved_padding0[reserved_padding0_length] = {};
     uint32_t SYST_CSR;                                               /*!< (read-write) Use the SysTick Control and Status Register to enable the SysTick features. */
-    uint32_t SYST_RVR;                                               /*!< (read-write) Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN.\n
+    uint32_t SYST_RVR;                                               /*!< (read-write) Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN.
                 To generate a multi-shot timer with a period of N processor clock cycles, use a RELOAD value of N-1. For example, if the SysTick interrupt is required every 100 clock pulses, set RELOAD to 99. */
     uint32_t SYST_CVR;                                               /*!< (read-write) Use the SysTick Current Value Register to find the current value in the register. The reset value of this register is UNKNOWN. */
     const uint32_t SYST_CALIB = {};                                  /*!< (read-only) Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply. */
     static constexpr std::size_t reserved_padding1_length = 56;
     const uint32_t reserved_padding1[reserved_padding1_length] = {};
-    uint32_t NVIC_ISER;                                              /*!< (read-write) Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled.\n
+    uint32_t NVIC_ISER;                                              /*!< (read-write) Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled.
                 If a pending interrupt is enabled, the NVIC activates the interrupt based on its priority. If an interrupt is not enabled, asserting its interrupt signal changes the interrupt state to pending, but the NVIC never activates the interrupt, regardless of its priority. */
     static constexpr std::size_t reserved_padding2_length = 31;
     const uint32_t reserved_padding2[reserved_padding2_length] = {};
@@ -41,8 +41,8 @@ struct [[gnu::packed]] ppb
     uint32_t NVIC_ICPR;                                              /*!< (read-write) Use the Interrupt Clear-Pending Register to clear pending interrupts and determine which interrupts are currently pending. */
     static constexpr std::size_t reserved_padding5_length = 95;
     const uint32_t reserved_padding5[reserved_padding5_length] = {};
-    uint32_t NVIC_IPR0;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
-                Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+    uint32_t NVIC_IPR0;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
+                Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.
                 These registers are only word-accessible */
     uint32_t NVIC_IPR1;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
     uint32_t NVIC_IPR2;                                              /*!< (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest. */
@@ -76,8 +76,8 @@ struct [[gnu::packed]] ppb
     /**
      * Get SYST_CSR's ENABLE bit.
      *
-     * Enable SysTick counter:\n
-     *                 0 = Counter disabled.\n
+     * Enable SysTick counter:
+     *                 0 = Counter disabled.
      *                 1 = Counter enabled.
      */
     inline bool get_SYST_CSR_ENABLE() volatile
@@ -88,8 +88,8 @@ struct [[gnu::packed]] ppb
     /**
      * Set SYST_CSR's ENABLE bit.
      *
-     * Enable SysTick counter:\n
-     *                 0 = Counter disabled.\n
+     * Enable SysTick counter:
+     *                 0 = Counter disabled.
      *                 1 = Counter enabled.
      */
     inline void set_SYST_CSR_ENABLE() volatile
@@ -100,8 +100,8 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SYST_CSR's ENABLE bit.
      *
-     * Enable SysTick counter:\n
-     *                 0 = Counter disabled.\n
+     * Enable SysTick counter:
+     *                 0 = Counter disabled.
      *                 1 = Counter enabled.
      */
     inline void clear_SYST_CSR_ENABLE() volatile
@@ -112,8 +112,8 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SYST_CSR's ENABLE bit.
      *
-     * Enable SysTick counter:\n
-     *                 0 = Counter disabled.\n
+     * Enable SysTick counter:
+     *                 0 = Counter disabled.
      *                 1 = Counter enabled.
      */
     inline void toggle_SYST_CSR_ENABLE() volatile
@@ -124,8 +124,8 @@ struct [[gnu::packed]] ppb
     /**
      * Get SYST_CSR's TICKINT bit.
      *
-     * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     * Enables SysTick exception request:
+     *                 0 = Counting down to zero does not assert the SysTick exception request.
      *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline bool get_SYST_CSR_TICKINT() volatile
@@ -136,8 +136,8 @@ struct [[gnu::packed]] ppb
     /**
      * Set SYST_CSR's TICKINT bit.
      *
-     * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     * Enables SysTick exception request:
+     *                 0 = Counting down to zero does not assert the SysTick exception request.
      *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void set_SYST_CSR_TICKINT() volatile
@@ -148,8 +148,8 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SYST_CSR's TICKINT bit.
      *
-     * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     * Enables SysTick exception request:
+     *                 0 = Counting down to zero does not assert the SysTick exception request.
      *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void clear_SYST_CSR_TICKINT() volatile
@@ -160,8 +160,8 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SYST_CSR's TICKINT bit.
      *
-     * Enables SysTick exception request:\n
-     *                 0 = Counting down to zero does not assert the SysTick exception request.\n
+     * Enables SysTick exception request:
+     *                 0 = Counting down to zero does not assert the SysTick exception request.
      *                 1 = Counting down to zero to asserts the SysTick exception request.
      */
     inline void toggle_SYST_CSR_TICKINT() volatile
@@ -172,9 +172,9 @@ struct [[gnu::packed]] ppb
     /**
      * Get SYST_CSR's CLKSOURCE bit.
      *
-     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.\n
-     *                 Selects the SysTick timer clock source:\n
-     *                 0 = External reference clock.\n
+     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.
+     *                 Selects the SysTick timer clock source:
+     *                 0 = External reference clock.
      *                 1 = Processor clock.
      */
     inline bool get_SYST_CSR_CLKSOURCE() volatile
@@ -185,9 +185,9 @@ struct [[gnu::packed]] ppb
     /**
      * Set SYST_CSR's CLKSOURCE bit.
      *
-     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.\n
-     *                 Selects the SysTick timer clock source:\n
-     *                 0 = External reference clock.\n
+     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.
+     *                 Selects the SysTick timer clock source:
+     *                 0 = External reference clock.
      *                 1 = Processor clock.
      */
     inline void set_SYST_CSR_CLKSOURCE() volatile
@@ -198,9 +198,9 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SYST_CSR's CLKSOURCE bit.
      *
-     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.\n
-     *                 Selects the SysTick timer clock source:\n
-     *                 0 = External reference clock.\n
+     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.
+     *                 Selects the SysTick timer clock source:
+     *                 0 = External reference clock.
      *                 1 = Processor clock.
      */
     inline void clear_SYST_CSR_CLKSOURCE() volatile
@@ -211,9 +211,9 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SYST_CSR's CLKSOURCE bit.
      *
-     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.\n
-     *                 Selects the SysTick timer clock source:\n
-     *                 0 = External reference clock.\n
+     * SysTick clock source. Always reads as one if SYST_CALIB reports NOREF.
+     *                 Selects the SysTick timer clock source:
+     *                 0 = External reference clock.
      *                 1 = Processor clock.
      */
     inline void toggle_SYST_CSR_CLKSOURCE() volatile
@@ -272,7 +272,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint32_t get_SYST_RVR() volatile
     {
-        return SYST_RVR & 0b111111111111111111111111u;
+        return SYST_RVR & 0xffffffu;
     }
 
     /**
@@ -284,8 +284,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = SYST_RVR;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         SYST_RVR = curr;
     }
@@ -297,7 +297,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint32_t get_SYST_CVR() volatile
     {
-        return SYST_CVR & 0b111111111111111111111111u;
+        return SYST_CVR & 0xffffffu;
     }
 
     /**
@@ -309,8 +309,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = SYST_CVR;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         SYST_CVR = curr;
     }
@@ -322,7 +322,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint32_t get_SYST_CALIB_TENMS() volatile
     {
-        return SYST_CALIB & 0b111111111111111111111111u;
+        return SYST_CALIB & 0xffffffu;
     }
 
     /**
@@ -354,7 +354,7 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = SYST_CALIB;
 
-        TENMS = curr & 0b111111111111111111111111u;
+        TENMS = curr & 0xffffffu;
         SKEW = curr & (1u << 30u);
         NOREF = curr & (1u << 31u);
     }
@@ -462,8 +462,8 @@ struct [[gnu::packed]] ppb
     /**
      * Get all of NVIC_IPR0's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
-     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
+     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.
      *             These registers are only word-accessible
      */
     inline void get_NVIC_IPR0(uint8_t &IP_0, uint8_t &IP_1, uint8_t &IP_2, uint8_t &IP_3) volatile
@@ -479,8 +479,8 @@ struct [[gnu::packed]] ppb
     /**
      * Set all of NVIC_IPR0's bit fields.
      *
-     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.\n
-     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.\n
+     * (read-write) Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.
+     *             Note: Writing 1 to an NVIC_ICPR bit does not affect the active state of the corresponding interrupt.
      *             These registers are only word-accessible
      */
     inline void set_NVIC_IPR0(uint8_t IP_0, uint8_t IP_1, uint8_t IP_2, uint8_t IP_3) volatile
@@ -1454,12 +1454,12 @@ struct [[gnu::packed]] ppb
     /**
      * Get CPUID's REVISION field.
      *
-     * Minor revision number m in the rnpm revision status:\n
+     * Minor revision number m in the rnpm revision status:
      *                 0x1 = Patch 1.
      */
     inline uint8_t get_CPUID_REVISION() volatile
     {
-        return CPUID & 0b1111u;
+        return CPUID & 0xfu;
     }
 
     /**
@@ -1469,29 +1469,29 @@ struct [[gnu::packed]] ppb
      */
     inline uint16_t get_CPUID_PARTNO() volatile
     {
-        return (CPUID >> 4u) & 0b111111111111u;
+        return (CPUID >> 4u) & 0xfffu;
     }
 
     /**
      * Get CPUID's ARCHITECTURE field.
      *
-     * Constant that defines the architecture of the processor:\n
+     * Constant that defines the architecture of the processor:
      *                 0xC = ARMv6-M architecture.
      */
     inline uint8_t get_CPUID_ARCHITECTURE() volatile
     {
-        return (CPUID >> 16u) & 0b1111u;
+        return (CPUID >> 16u) & 0xfu;
     }
 
     /**
      * Get CPUID's VARIANT field.
      *
-     * Major revision number n in the rnpm revision status:\n
+     * Major revision number n in the rnpm revision status:
      *                 0x0 = Revision 0.
      */
     inline uint8_t get_CPUID_VARIANT() volatile
     {
-        return (CPUID >> 20u) & 0b1111u;
+        return (CPUID >> 20u) & 0xfu;
     }
 
     /**
@@ -1501,7 +1501,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint8_t get_CPUID_IMPLEMENTER() volatile
     {
-        return (CPUID >> 24u) & 0b11111111u;
+        return (CPUID >> 24u) & 0xffu;
     }
 
     /**
@@ -1513,11 +1513,11 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = CPUID;
 
-        REVISION = curr & 0b1111u;
-        PARTNO = (curr >> 4u) & 0b111111111111u;
-        ARCHITECTURE = (curr >> 16u) & 0b1111u;
-        VARIANT = (curr >> 20u) & 0b1111u;
-        IMPLEMENTER = (curr >> 24u) & 0b11111111u;
+        REVISION = curr & 0xfu;
+        PARTNO = (curr >> 4u) & 0xfffu;
+        ARCHITECTURE = (curr >> 16u) & 0xfu;
+        VARIANT = (curr >> 20u) & 0xfu;
+        IMPLEMENTER = (curr >> 24u) & 0xffu;
     }
 
     /**
@@ -1563,10 +1563,10 @@ struct [[gnu::packed]] ppb
     /**
      * Get ICSR's PENDSTCLR bit.
      *
-     * SysTick exception clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick exception.\n
+     * SysTick exception clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Removes the pending state from the SysTick exception.
      *                 This bit is WO. On a register read its value is Unknown.
      */
     inline bool get_ICSR_PENDSTCLR() volatile
@@ -1577,10 +1577,10 @@ struct [[gnu::packed]] ppb
     /**
      * Set ICSR's PENDSTCLR bit.
      *
-     * SysTick exception clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick exception.\n
+     * SysTick exception clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Removes the pending state from the SysTick exception.
      *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void set_ICSR_PENDSTCLR() volatile
@@ -1591,10 +1591,10 @@ struct [[gnu::packed]] ppb
     /**
      * Clear ICSR's PENDSTCLR bit.
      *
-     * SysTick exception clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick exception.\n
+     * SysTick exception clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Removes the pending state from the SysTick exception.
      *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void clear_ICSR_PENDSTCLR() volatile
@@ -1605,10 +1605,10 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle ICSR's PENDSTCLR bit.
      *
-     * SysTick exception clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Removes the pending state from the SysTick exception.\n
+     * SysTick exception clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Removes the pending state from the SysTick exception.
      *                 This bit is WO. On a register read its value is Unknown.
      */
     inline void toggle_ICSR_PENDSTCLR() volatile
@@ -1619,12 +1619,12 @@ struct [[gnu::packed]] ppb
     /**
      * Get ICSR's PENDSTSET bit.
      *
-     * SysTick exception set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes SysTick exception state to pending.\n
-     *                 Read:\n
-     *                 0 = SysTick exception is not pending.\n
+     * SysTick exception set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes SysTick exception state to pending.
+     *                 Read:
+     *                 0 = SysTick exception is not pending.
      *                 1 = SysTick exception is pending.
      */
     inline bool get_ICSR_PENDSTSET() volatile
@@ -1635,12 +1635,12 @@ struct [[gnu::packed]] ppb
     /**
      * Set ICSR's PENDSTSET bit.
      *
-     * SysTick exception set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes SysTick exception state to pending.\n
-     *                 Read:\n
-     *                 0 = SysTick exception is not pending.\n
+     * SysTick exception set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes SysTick exception state to pending.
+     *                 Read:
+     *                 0 = SysTick exception is not pending.
      *                 1 = SysTick exception is pending.
      */
     inline void set_ICSR_PENDSTSET() volatile
@@ -1651,12 +1651,12 @@ struct [[gnu::packed]] ppb
     /**
      * Clear ICSR's PENDSTSET bit.
      *
-     * SysTick exception set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes SysTick exception state to pending.\n
-     *                 Read:\n
-     *                 0 = SysTick exception is not pending.\n
+     * SysTick exception set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes SysTick exception state to pending.
+     *                 Read:
+     *                 0 = SysTick exception is not pending.
      *                 1 = SysTick exception is pending.
      */
     inline void clear_ICSR_PENDSTSET() volatile
@@ -1667,12 +1667,12 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle ICSR's PENDSTSET bit.
      *
-     * SysTick exception set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes SysTick exception state to pending.\n
-     *                 Read:\n
-     *                 0 = SysTick exception is not pending.\n
+     * SysTick exception set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes SysTick exception state to pending.
+     *                 Read:
+     *                 0 = SysTick exception is not pending.
      *                 1 = SysTick exception is pending.
      */
     inline void toggle_ICSR_PENDSTSET() volatile
@@ -1683,9 +1683,9 @@ struct [[gnu::packed]] ppb
     /**
      * Get ICSR's PENDSVCLR bit.
      *
-     * PendSV clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
+     * PendSV clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
      *                 1 = Removes the pending state from the PendSV exception.
      */
     inline bool get_ICSR_PENDSVCLR() volatile
@@ -1696,9 +1696,9 @@ struct [[gnu::packed]] ppb
     /**
      * Set ICSR's PENDSVCLR bit.
      *
-     * PendSV clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
+     * PendSV clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
      *                 1 = Removes the pending state from the PendSV exception.
      */
     inline void set_ICSR_PENDSVCLR() volatile
@@ -1709,9 +1709,9 @@ struct [[gnu::packed]] ppb
     /**
      * Clear ICSR's PENDSVCLR bit.
      *
-     * PendSV clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
+     * PendSV clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
      *                 1 = Removes the pending state from the PendSV exception.
      */
     inline void clear_ICSR_PENDSVCLR() volatile
@@ -1722,9 +1722,9 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle ICSR's PENDSVCLR bit.
      *
-     * PendSV clear-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
+     * PendSV clear-pending bit.
+     *                 Write:
+     *                 0 = No effect.
      *                 1 = Removes the pending state from the PendSV exception.
      */
     inline void toggle_ICSR_PENDSVCLR() volatile
@@ -1735,13 +1735,13 @@ struct [[gnu::packed]] ppb
     /**
      * Get ICSR's PENDSVSET bit.
      *
-     * PendSV set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes PendSV exception state to pending.\n
-     *                 Read:\n
-     *                 0 = PendSV exception is not pending.\n
-     *                 1 = PendSV exception is pending.\n
+     * PendSV set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes PendSV exception state to pending.
+     *                 Read:
+     *                 0 = PendSV exception is not pending.
+     *                 1 = PendSV exception is pending.
      *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline bool get_ICSR_PENDSVSET() volatile
@@ -1752,13 +1752,13 @@ struct [[gnu::packed]] ppb
     /**
      * Set ICSR's PENDSVSET bit.
      *
-     * PendSV set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes PendSV exception state to pending.\n
-     *                 Read:\n
-     *                 0 = PendSV exception is not pending.\n
-     *                 1 = PendSV exception is pending.\n
+     * PendSV set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes PendSV exception state to pending.
+     *                 Read:
+     *                 0 = PendSV exception is not pending.
+     *                 1 = PendSV exception is pending.
      *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void set_ICSR_PENDSVSET() volatile
@@ -1769,13 +1769,13 @@ struct [[gnu::packed]] ppb
     /**
      * Clear ICSR's PENDSVSET bit.
      *
-     * PendSV set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes PendSV exception state to pending.\n
-     *                 Read:\n
-     *                 0 = PendSV exception is not pending.\n
-     *                 1 = PendSV exception is pending.\n
+     * PendSV set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes PendSV exception state to pending.
+     *                 Read:
+     *                 0 = PendSV exception is not pending.
+     *                 1 = PendSV exception is pending.
      *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void clear_ICSR_PENDSVSET() volatile
@@ -1786,13 +1786,13 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle ICSR's PENDSVSET bit.
      *
-     * PendSV set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes PendSV exception state to pending.\n
-     *                 Read:\n
-     *                 0 = PendSV exception is not pending.\n
-     *                 1 = PendSV exception is pending.\n
+     * PendSV set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes PendSV exception state to pending.
+     *                 Read:
+     *                 0 = PendSV exception is not pending.
+     *                 1 = PendSV exception is pending.
      *                 Writing 1 to this bit is the only way to set the PendSV exception state to pending.
      */
     inline void toggle_ICSR_PENDSVSET() volatile
@@ -1803,17 +1803,17 @@ struct [[gnu::packed]] ppb
     /**
      * Get ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
-     *                 NMI set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes NMI exception state to pending.\n
-     *                 Read:\n
-     *                 0 = NMI exception is not pending.\n
-     *                 1 = NMI exception is pending.\n
-     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
-     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.
+     *                 NMI set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes NMI exception state to pending.
+     *                 Read:
+     *                 0 = NMI exception is not pending.
+     *                 1 = NMI exception is pending.
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the
      *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline bool get_ICSR_NMIPENDSET() volatile
@@ -1824,17 +1824,17 @@ struct [[gnu::packed]] ppb
     /**
      * Set ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
-     *                 NMI set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes NMI exception state to pending.\n
-     *                 Read:\n
-     *                 0 = NMI exception is not pending.\n
-     *                 1 = NMI exception is pending.\n
-     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
-     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.
+     *                 NMI set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes NMI exception state to pending.
+     *                 Read:
+     *                 0 = NMI exception is not pending.
+     *                 1 = NMI exception is pending.
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the
      *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void set_ICSR_NMIPENDSET() volatile
@@ -1845,17 +1845,17 @@ struct [[gnu::packed]] ppb
     /**
      * Clear ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
-     *                 NMI set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes NMI exception state to pending.\n
-     *                 Read:\n
-     *                 0 = NMI exception is not pending.\n
-     *                 1 = NMI exception is pending.\n
-     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
-     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.
+     *                 NMI set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes NMI exception state to pending.
+     *                 Read:
+     *                 0 = NMI exception is not pending.
+     *                 1 = NMI exception is pending.
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the
      *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void clear_ICSR_NMIPENDSET() volatile
@@ -1866,17 +1866,17 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle ICSR's NMIPENDSET bit.
      *
-     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.\n
-     *                 NMI set-pending bit.\n
-     *                 Write:\n
-     *                 0 = No effect.\n
-     *                 1 = Changes NMI exception state to pending.\n
-     *                 Read:\n
-     *                 0 = NMI exception is not pending.\n
-     *                 1 = NMI exception is pending.\n
-     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI\n
-     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears\n
-     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the\n
+     * Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered.
+     *                 NMI set-pending bit.
+     *                 Write:
+     *                 0 = No effect.
+     *                 1 = Changes NMI exception state to pending.
+     *                 Read:
+     *                 0 = NMI exception is not pending.
+     *                 1 = NMI exception is pending.
+     *                 Because NMI is the highest-priority exception, normally the processor enters the NMI
+     *                 exception handler as soon as it detects a write of 1 to this bit. Entering the handler then clears
+     *                 this bit to 0. This means a read of this bit by the NMI exception handler returns 1 only if the
      *                 NMI signal is reasserted while the processor is executing that handler.
      */
     inline void toggle_ICSR_NMIPENDSET() volatile
@@ -1934,7 +1934,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint32_t get_VTOR() volatile
     {
-        return (VTOR >> 8u) & 0b111111111111111111111111u;
+        return (VTOR >> 8u) & 0xffffffu;
     }
 
     /**
@@ -1946,8 +1946,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = VTOR;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         VTOR = curr;
     }
@@ -2035,7 +2035,7 @@ struct [[gnu::packed]] ppb
     /**
      * Get AIRCR's ENDIANESS bit.
      *
-     * Data endianness implemented:\n
+     * Data endianness implemented:
      *                 0 = Little-endian.
      */
     inline bool get_AIRCR_ENDIANESS() volatile
@@ -2046,28 +2046,28 @@ struct [[gnu::packed]] ppb
     /**
      * Get AIRCR's VECTKEY field.
      *
-     * Register key:\n
-     *                 Reads as Unknown\n
+     * Register key:
+     *                 Reads as Unknown
      *                 On writes, write 0x05FA to VECTKEY, otherwise the write is ignored.
      */
     inline uint16_t get_AIRCR_VECTKEY() volatile
     {
-        return (AIRCR >> 16u) & 0b1111111111111111u;
+        return (AIRCR >> 16u) & 0xffffu;
     }
 
     /**
      * Set AIRCR's VECTKEY field.
      *
-     * Register key:\n
-     *                 Reads as Unknown\n
+     * Register key:
+     *                 Reads as Unknown
      *                 On writes, write 0x05FA to VECTKEY, otherwise the write is ignored.
      */
     inline void set_AIRCR_VECTKEY(uint16_t value) volatile
     {
         uint32_t curr = AIRCR;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         AIRCR = curr;
     }
@@ -2084,7 +2084,7 @@ struct [[gnu::packed]] ppb
         VECTCLRACTIVE = curr & (1u << 1u);
         SYSRESETREQ = curr & (1u << 2u);
         ENDIANESS = curr & (1u << 15u);
-        VECTKEY = (curr >> 16u) & 0b1111111111111111u;
+        VECTKEY = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -2100,8 +2100,8 @@ struct [[gnu::packed]] ppb
         curr |= (VECTCLRACTIVE & 0b1u) << 1u;
         curr &= ~(0b1u << 2u);
         curr |= (SYSRESETREQ & 0b1u) << 2u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (VECTKEY & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (VECTKEY & 0xffffu) << 16u;
 
         AIRCR = curr;
     }
@@ -2109,9 +2109,9 @@ struct [[gnu::packed]] ppb
     /**
      * Get SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
-     *                 0 = Do not sleep when returning to Thread mode.\n
-     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:
+     *                 0 = Do not sleep when returning to Thread mode.
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.
      *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline bool get_SCR_SLEEPONEXIT() volatile
@@ -2122,9 +2122,9 @@ struct [[gnu::packed]] ppb
     /**
      * Set SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
-     *                 0 = Do not sleep when returning to Thread mode.\n
-     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:
+     *                 0 = Do not sleep when returning to Thread mode.
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.
      *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void set_SCR_SLEEPONEXIT() volatile
@@ -2135,9 +2135,9 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
-     *                 0 = Do not sleep when returning to Thread mode.\n
-     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:
+     *                 0 = Do not sleep when returning to Thread mode.
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.
      *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void clear_SCR_SLEEPONEXIT() volatile
@@ -2148,9 +2148,9 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SCR's SLEEPONEXIT bit.
      *
-     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:\n
-     *                 0 = Do not sleep when returning to Thread mode.\n
-     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.\n
+     * Indicates sleep-on-exit when returning from Handler mode to Thread mode:
+     *                 0 = Do not sleep when returning to Thread mode.
+     *                 1 = Enter sleep, or deep sleep, on return from an ISR to Thread mode.
      *                 Setting this bit to 1 enables an interrupt driven application to avoid returning to an empty main application.
      */
     inline void toggle_SCR_SLEEPONEXIT() volatile
@@ -2161,8 +2161,8 @@ struct [[gnu::packed]] ppb
     /**
      * Get SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
-     *                 0 = Sleep.\n
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:
+     *                 0 = Sleep.
      *                 1 = Deep sleep.
      */
     inline bool get_SCR_SLEEPDEEP() volatile
@@ -2173,8 +2173,8 @@ struct [[gnu::packed]] ppb
     /**
      * Set SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
-     *                 0 = Sleep.\n
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:
+     *                 0 = Sleep.
      *                 1 = Deep sleep.
      */
     inline void set_SCR_SLEEPDEEP() volatile
@@ -2185,8 +2185,8 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
-     *                 0 = Sleep.\n
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:
+     *                 0 = Sleep.
      *                 1 = Deep sleep.
      */
     inline void clear_SCR_SLEEPDEEP() volatile
@@ -2197,8 +2197,8 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SCR's SLEEPDEEP bit.
      *
-     * Controls whether the processor uses sleep or deep sleep as its low power mode:\n
-     *                 0 = Sleep.\n
+     * Controls whether the processor uses sleep or deep sleep as its low power mode:
+     *                 0 = Sleep.
      *                 1 = Deep sleep.
      */
     inline void toggle_SCR_SLEEPDEEP() volatile
@@ -2209,11 +2209,11 @@ struct [[gnu::packed]] ppb
     /**
      * Get SCR's SEVONPEND bit.
      *
-     * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
-     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
-     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
-     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     * Send Event on Pending bit:
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.
      *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline bool get_SCR_SEVONPEND() volatile
@@ -2224,11 +2224,11 @@ struct [[gnu::packed]] ppb
     /**
      * Set SCR's SEVONPEND bit.
      *
-     * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
-     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
-     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
-     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     * Send Event on Pending bit:
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.
      *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void set_SCR_SEVONPEND() volatile
@@ -2239,11 +2239,11 @@ struct [[gnu::packed]] ppb
     /**
      * Clear SCR's SEVONPEND bit.
      *
-     * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
-     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
-     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
-     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     * Send Event on Pending bit:
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.
      *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void clear_SCR_SEVONPEND() volatile
@@ -2254,11 +2254,11 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle SCR's SEVONPEND bit.
      *
-     * Send Event on Pending bit:\n
-     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.\n
-     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.\n
-     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the\n
-     *                 processor is not waiting for an event, the event is registered and affects the next WFE.\n
+     * Send Event on Pending bit:
+     *                 0 = Only enabled interrupts or events can wakeup the processor, disabled interrupts are excluded.
+     *                 1 = Enabled events and all interrupts, including disabled interrupts, can wakeup the processor.
+     *                 When an event or interrupt becomes pending, the event signal wakes up the processor from WFE. If the
+     *                 processor is not waiting for an event, the event is registered and affects the next WFE.
      *                 The processor also wakes up on execution of an SEV instruction or an external event.
      */
     inline void toggle_SCR_SEVONPEND() volatile
@@ -2494,7 +2494,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint8_t get_MPU_TYPE_DREGION() volatile
     {
-        return (MPU_TYPE >> 8u) & 0b11111111u;
+        return (MPU_TYPE >> 8u) & 0xffu;
     }
 
     /**
@@ -2504,7 +2504,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint8_t get_MPU_TYPE_IREGION() volatile
     {
-        return (MPU_TYPE >> 16u) & 0b11111111u;
+        return (MPU_TYPE >> 16u) & 0xffu;
     }
 
     /**
@@ -2517,15 +2517,15 @@ struct [[gnu::packed]] ppb
         uint32_t curr = MPU_TYPE;
 
         SEPARATE = curr & 1u;
-        DREGION = (curr >> 8u) & 0b11111111u;
-        IREGION = (curr >> 16u) & 0b11111111u;
+        DREGION = (curr >> 8u) & 0xffu;
+        IREGION = (curr >> 16u) & 0xffu;
     }
 
     /**
      * Get MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
-     *                 0 = MPU disabled.\n
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.
+     *                 0 = MPU disabled.
      *                 1 = MPU enabled.
      */
     inline bool get_MPU_CTRL_ENABLE() volatile
@@ -2536,8 +2536,8 @@ struct [[gnu::packed]] ppb
     /**
      * Set MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
-     *                 0 = MPU disabled.\n
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.
+     *                 0 = MPU disabled.
      *                 1 = MPU enabled.
      */
     inline void set_MPU_CTRL_ENABLE() volatile
@@ -2548,8 +2548,8 @@ struct [[gnu::packed]] ppb
     /**
      * Clear MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
-     *                 0 = MPU disabled.\n
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.
+     *                 0 = MPU disabled.
      *                 1 = MPU enabled.
      */
     inline void clear_MPU_CTRL_ENABLE() volatile
@@ -2560,8 +2560,8 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle MPU_CTRL's ENABLE bit.
      *
-     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.\n
-     *                 0 = MPU disabled.\n
+     * Enables the MPU. If the MPU is disabled, privileged and unprivileged accesses use the default memory map.
+     *                 0 = MPU disabled.
      *                 1 = MPU enabled.
      */
     inline void toggle_MPU_CTRL_ENABLE() volatile
@@ -2572,9 +2572,9 @@ struct [[gnu::packed]] ppb
     /**
      * Get MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
-     *                 When the MPU is enabled:\n
-     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.
+     *                 When the MPU is enabled:
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.
      *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline bool get_MPU_CTRL_HFNMIENA() volatile
@@ -2585,9 +2585,9 @@ struct [[gnu::packed]] ppb
     /**
      * Set MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
-     *                 When the MPU is enabled:\n
-     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.
+     *                 When the MPU is enabled:
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.
      *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void set_MPU_CTRL_HFNMIENA() volatile
@@ -2598,9 +2598,9 @@ struct [[gnu::packed]] ppb
     /**
      * Clear MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
-     *                 When the MPU is enabled:\n
-     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.
+     *                 When the MPU is enabled:
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.
      *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void clear_MPU_CTRL_HFNMIENA() volatile
@@ -2611,9 +2611,9 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle MPU_CTRL's HFNMIENA bit.
      *
-     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.\n
-     *                 When the MPU is enabled:\n
-     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.\n
+     * Controls the use of the MPU for HardFaults and NMIs. Setting this bit when ENABLE is clear results in UNPREDICTABLE behaviour.
+     *                 When the MPU is enabled:
+     *                 0 = MPU is disabled during HardFault and NMI handlers, regardless of the value of the ENABLE bit.
      *                 1 = the MPU is enabled during HardFault and NMI handlers.
      */
     inline void toggle_MPU_CTRL_HFNMIENA() volatile
@@ -2624,10 +2624,10 @@ struct [[gnu::packed]] ppb
     /**
      * Get MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
-     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
-     *                 covered by any enabled region causes a fault.\n
-     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not
+     *                 covered by any enabled region causes a fault.
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.
      *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline bool get_MPU_CTRL_PRIVDEFENA() volatile
@@ -2638,10 +2638,10 @@ struct [[gnu::packed]] ppb
     /**
      * Set MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
-     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
-     *                 covered by any enabled region causes a fault.\n
-     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not
+     *                 covered by any enabled region causes a fault.
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.
      *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void set_MPU_CTRL_PRIVDEFENA() volatile
@@ -2652,10 +2652,10 @@ struct [[gnu::packed]] ppb
     /**
      * Clear MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
-     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
-     *                 covered by any enabled region causes a fault.\n
-     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not
+     *                 covered by any enabled region causes a fault.
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.
      *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void clear_MPU_CTRL_PRIVDEFENA() volatile
@@ -2666,10 +2666,10 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle MPU_CTRL's PRIVDEFENA bit.
      *
-     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.\n
-     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not\n
-     *                 covered by any enabled region causes a fault.\n
-     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.\n
+     * Controls whether the default memory map is enabled as a background region for privileged accesses. This bit is ignored when ENABLE is clear.
+     *                 0 = If the MPU is enabled, disables use of the default memory map. Any memory access to a location not
+     *                 covered by any enabled region causes a fault.
+     *                 1 = If the MPU is enabled, enables use of the default memory map as a background region for privileged software accesses.
      *                 When enabled, the background region acts as if it is region number -1. Any region that is defined and enabled has priority over this default map.
      */
     inline void toggle_MPU_CTRL_PRIVDEFENA() volatile
@@ -2713,26 +2713,26 @@ struct [[gnu::packed]] ppb
     /**
      * Get MPU_RNR's REGION field.
      *
-     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.\n
+     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.
      *                 The MPU supports 8 memory regions, so the permitted values of this field are 0-7.
      */
     inline uint8_t get_MPU_RNR() volatile
     {
-        return MPU_RNR & 0b1111u;
+        return MPU_RNR & 0xfu;
     }
 
     /**
      * Set MPU_RNR's REGION field.
      *
-     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.\n
+     * Indicates the MPU region referenced by the MPU_RBAR and MPU_RASR registers.
      *                 The MPU supports 8 memory regions, so the permitted values of this field are 0-7.
      */
     inline void set_MPU_RNR(uint8_t value) volatile
     {
         uint32_t curr = MPU_RNR;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         MPU_RNR = curr;
     }
@@ -2744,7 +2744,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint8_t get_MPU_RBAR_REGION() volatile
     {
-        return MPU_RBAR & 0b1111u;
+        return MPU_RBAR & 0xfu;
     }
 
     /**
@@ -2756,8 +2756,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = MPU_RBAR;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         MPU_RBAR = curr;
     }
@@ -2765,14 +2765,14 @@ struct [[gnu::packed]] ppb
     /**
      * Get MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
-     *                 Write:\n
-     *                 0 = MPU_RNR not changed, and the processor:\n
-     *                 Updates the base address for the region specified in the MPU_RNR.\n
-     *                 Ignores the value of the REGION field.\n
-     *                 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
-     *                 Updates the base address for the region specified in the REGION field.\n
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.
+     *                 Write:
+     *                 0 = MPU_RNR not changed, and the processor:
+     *                 Updates the base address for the region specified in the MPU_RNR.
+     *                 Ignores the value of the REGION field.
+     *                 1 = The processor:
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.
+     *                 Updates the base address for the region specified in the REGION field.
      *                 Always reads as zero.
      */
     inline bool get_MPU_RBAR_VALID() volatile
@@ -2783,14 +2783,14 @@ struct [[gnu::packed]] ppb
     /**
      * Set MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
-     *                 Write:\n
-     *                 0 = MPU_RNR not changed, and the processor:\n
-     *                 Updates the base address for the region specified in the MPU_RNR.\n
-     *                 Ignores the value of the REGION field.\n
-     *                 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
-     *                 Updates the base address for the region specified in the REGION field.\n
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.
+     *                 Write:
+     *                 0 = MPU_RNR not changed, and the processor:
+     *                 Updates the base address for the region specified in the MPU_RNR.
+     *                 Ignores the value of the REGION field.
+     *                 1 = The processor:
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.
+     *                 Updates the base address for the region specified in the REGION field.
      *                 Always reads as zero.
      */
     inline void set_MPU_RBAR_VALID() volatile
@@ -2801,14 +2801,14 @@ struct [[gnu::packed]] ppb
     /**
      * Clear MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
-     *                 Write:\n
-     *                 0 = MPU_RNR not changed, and the processor:\n
-     *                 Updates the base address for the region specified in the MPU_RNR.\n
-     *                 Ignores the value of the REGION field.\n
-     *                 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
-     *                 Updates the base address for the region specified in the REGION field.\n
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.
+     *                 Write:
+     *                 0 = MPU_RNR not changed, and the processor:
+     *                 Updates the base address for the region specified in the MPU_RNR.
+     *                 Ignores the value of the REGION field.
+     *                 1 = The processor:
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.
+     *                 Updates the base address for the region specified in the REGION field.
      *                 Always reads as zero.
      */
     inline void clear_MPU_RBAR_VALID() volatile
@@ -2819,14 +2819,14 @@ struct [[gnu::packed]] ppb
     /**
      * Toggle MPU_RBAR's VALID bit.
      *
-     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.\n
-     *                 Write:\n
-     *                 0 = MPU_RNR not changed, and the processor:\n
-     *                 Updates the base address for the region specified in the MPU_RNR.\n
-     *                 Ignores the value of the REGION field.\n
-     *                 1 = The processor:\n
-     *                 Updates the value of the MPU_RNR to the value of the REGION field.\n
-     *                 Updates the base address for the region specified in the REGION field.\n
+     * On writes, indicates whether the write must update the base address of the region identified by the REGION field, updating the MPU_RNR to indicate this new region.
+     *                 Write:
+     *                 0 = MPU_RNR not changed, and the processor:
+     *                 Updates the base address for the region specified in the MPU_RNR.
+     *                 Ignores the value of the REGION field.
+     *                 1 = The processor:
+     *                 Updates the value of the MPU_RNR to the value of the REGION field.
+     *                 Updates the base address for the region specified in the REGION field.
      *                 Always reads as zero.
      */
     inline void toggle_MPU_RBAR_VALID() volatile
@@ -2841,7 +2841,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint32_t get_MPU_RBAR_ADDR() volatile
     {
-        return (MPU_RBAR >> 8u) & 0b111111111111111111111111u;
+        return (MPU_RBAR >> 8u) & 0xffffffu;
     }
 
     /**
@@ -2853,8 +2853,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = MPU_RBAR;
 
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (value & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (value & 0xffffffu) << 8u;
 
         MPU_RBAR = curr;
     }
@@ -2868,9 +2868,9 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = MPU_RBAR;
 
-        REGION = curr & 0b1111u;
+        REGION = curr & 0xfu;
         VALID = curr & (1u << 4u);
-        ADDR = (curr >> 8u) & 0b111111111111111111111111u;
+        ADDR = (curr >> 8u) & 0xffffffu;
     }
 
     /**
@@ -2882,12 +2882,12 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = MPU_RBAR;
 
-        curr &= ~(0b1111u);
-        curr |= (REGION & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (REGION & 0xfu);
         curr &= ~(0b1u << 4u);
         curr |= (VALID & 0b1u) << 4u;
-        curr &= ~(0b111111111111111111111111u << 8u);
-        curr |= (ADDR & 0b111111111111111111111111u) << 8u;
+        curr &= ~(0xffffffu << 8u);
+        curr |= (ADDR & 0xffffffu) << 8u;
 
         MPU_RBAR = curr;
     }
@@ -2964,7 +2964,7 @@ struct [[gnu::packed]] ppb
      */
     inline uint8_t get_MPU_RASR_SRD() volatile
     {
-        return (MPU_RASR >> 8u) & 0b11111111u;
+        return (MPU_RASR >> 8u) & 0xffu;
     }
 
     /**
@@ -2976,8 +2976,8 @@ struct [[gnu::packed]] ppb
     {
         uint32_t curr = MPU_RASR;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         MPU_RASR = curr;
     }
@@ -2985,38 +2985,38 @@ struct [[gnu::packed]] ppb
     /**
      * Get MPU_RASR's ATTRS field.
      *
-     * The MPU Region Attribute field. Use to define the region attribute control.\n
-     *                 28 = XN: Instruction access disable bit:\n
-     *                 0 = Instruction fetches enabled.\n
-     *                 1 = Instruction fetches disabled.\n
-     *                 26:24 = AP: Access permission field\n
-     *                 18 = S: Shareable bit\n
-     *                 17 = C: Cacheable bit\n
+     * The MPU Region Attribute field. Use to define the region attribute control.
+     *                 28 = XN: Instruction access disable bit:
+     *                 0 = Instruction fetches enabled.
+     *                 1 = Instruction fetches disabled.
+     *                 26:24 = AP: Access permission field
+     *                 18 = S: Shareable bit
+     *                 17 = C: Cacheable bit
      *                 16 = B: Bufferable bit
      */
     inline uint16_t get_MPU_RASR_ATTRS() volatile
     {
-        return (MPU_RASR >> 16u) & 0b1111111111111111u;
+        return (MPU_RASR >> 16u) & 0xffffu;
     }
 
     /**
      * Set MPU_RASR's ATTRS field.
      *
-     * The MPU Region Attribute field. Use to define the region attribute control.\n
-     *                 28 = XN: Instruction access disable bit:\n
-     *                 0 = Instruction fetches enabled.\n
-     *                 1 = Instruction fetches disabled.\n
-     *                 26:24 = AP: Access permission field\n
-     *                 18 = S: Shareable bit\n
-     *                 17 = C: Cacheable bit\n
+     * The MPU Region Attribute field. Use to define the region attribute control.
+     *                 28 = XN: Instruction access disable bit:
+     *                 0 = Instruction fetches enabled.
+     *                 1 = Instruction fetches disabled.
+     *                 26:24 = AP: Access permission field
+     *                 18 = S: Shareable bit
+     *                 17 = C: Cacheable bit
      *                 16 = B: Bufferable bit
      */
     inline void set_MPU_RASR_ATTRS(uint16_t value) volatile
     {
         uint32_t curr = MPU_RASR;
 
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (value & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (value & 0xffffu) << 16u;
 
         MPU_RASR = curr;
     }
@@ -3032,8 +3032,8 @@ struct [[gnu::packed]] ppb
 
         ENABLE = curr & 1u;
         SIZE = (curr >> 1u) & 0b11111u;
-        SRD = (curr >> 8u) & 0b11111111u;
-        ATTRS = (curr >> 16u) & 0b1111111111111111u;
+        SRD = (curr >> 8u) & 0xffu;
+        ATTRS = (curr >> 16u) & 0xffffu;
     }
 
     /**
@@ -3049,10 +3049,10 @@ struct [[gnu::packed]] ppb
         curr |= (ENABLE & 0b1u);
         curr &= ~(0b11111u << 1u);
         curr |= (SIZE & 0b11111u) << 1u;
-        curr &= ~(0b11111111u << 8u);
-        curr |= (SRD & 0b11111111u) << 8u;
-        curr &= ~(0b1111111111111111u << 16u);
-        curr |= (ATTRS & 0b1111111111111111u) << 16u;
+        curr &= ~(0xffu << 8u);
+        curr |= (SRD & 0xffu) << 8u;
+        curr &= ~(0xffffu << 16u);
+        curr |= (ATTRS & 0xffffu) << 16u;
 
         MPU_RASR = curr;
     }

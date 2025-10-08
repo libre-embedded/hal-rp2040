@@ -32,7 +32,7 @@ struct [[gnu::packed]] sysinfo
      */
     inline uint16_t get_CHIP_ID_MANUFACTURER() volatile
     {
-        return CHIP_ID & 0b111111111111u;
+        return CHIP_ID & 0xfffu;
     }
 
     /**
@@ -40,7 +40,7 @@ struct [[gnu::packed]] sysinfo
      */
     inline uint16_t get_CHIP_ID_PART() volatile
     {
-        return (CHIP_ID >> 12u) & 0b1111111111111111u;
+        return (CHIP_ID >> 12u) & 0xffffu;
     }
 
     /**
@@ -48,7 +48,7 @@ struct [[gnu::packed]] sysinfo
      */
     inline uint8_t get_CHIP_ID_REVISION() volatile
     {
-        return (CHIP_ID >> 28u) & 0b1111u;
+        return (CHIP_ID >> 28u) & 0xfu;
     }
 
     /**
@@ -60,9 +60,9 @@ struct [[gnu::packed]] sysinfo
     {
         uint32_t curr = CHIP_ID;
 
-        MANUFACTURER = curr & 0b111111111111u;
-        PART = (curr >> 12u) & 0b1111111111111111u;
-        REVISION = (curr >> 28u) & 0b1111u;
+        MANUFACTURER = curr & 0xfffu;
+        PART = (curr >> 12u) & 0xffffu;
+        REVISION = (curr >> 28u) & 0xfu;
     }
 
     /**

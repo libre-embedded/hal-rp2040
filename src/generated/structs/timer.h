@@ -13,15 +13,15 @@ namespace RP2040
 {
 
 /**
- * Controls time and alarms\n
- *         time is a 64 bit value indicating the time in usec since power-on\n
- *         timeh is the top 32 bits of time & timel is the bottom 32 bits\n
- *         to change time write to timelw before timehw\n
- *         to read time read from timelr before timehr\n
- *         An alarm is set by setting alarm_enable and writing to the corresponding alarm register\n
- *         When an alarm is pending, the corresponding alarm_running signal will be high\n
- *         An alarm can be cancelled before it has finished by clearing the alarm_enable\n
- *         When an alarm fires, the corresponding alarm_irq is set and alarm_running is cleared\n
+ * Controls time and alarms
+ *         time is a 64 bit value indicating the time in usec since power-on
+ *         timeh is the top 32 bits of time & timel is the bottom 32 bits
+ *         to change time write to timelw before timehw
+ *         to read time read from timelr before timehr
+ *         An alarm is set by setting alarm_enable and writing to the corresponding alarm register
+ *         When an alarm is pending, the corresponding alarm_running signal will be high
+ *         An alarm can be cancelled before it has finished by clearing the alarm_enable
+ *         When an alarm fires, the corresponding alarm_irq is set and alarm_running is cleared
  *         To clear the interrupt write a 1 to the corresponding alarm_irq
  */
 struct [[gnu::packed]] timer
@@ -31,32 +31,32 @@ struct [[gnu::packed]] timer
     static constexpr std::size_t size = 68; /*!< timer's size in bytes. */
 
     /* Fields. */
-    uint32_t TIMEHW;          /*!< (read-write) Write to bits 63:32 of time\n
+    uint32_t TIMEHW;          /*!< (read-write) Write to bits 63:32 of time
                 always write timelw before timehw */
-    uint32_t TIMELW;          /*!< (read-write) Write to bits 31:0 of time\n
+    uint32_t TIMELW;          /*!< (read-write) Write to bits 31:0 of time
                 writes do not get copied to time until timehw is written */
-    uint32_t TIMEHR;          /*!< (read-write) Read from bits 63:32 of time\n
+    uint32_t TIMEHR;          /*!< (read-write) Read from bits 63:32 of time
                 always read timelr before timehr */
     uint32_t TIMELR;          /*!< (read-write) Read from bits 31:0 of time */
-    uint32_t ALARM0;          /*!< (read-write) Arm alarm 0, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
+    uint32_t ALARM0;          /*!< (read-write) Arm alarm 0, and configure the time it will fire.
+                Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.
+                The alarm will disarm itself once it fires, and can
                 be disarmed early using the ARMED status register. */
-    uint32_t ALARM1;          /*!< (read-write) Arm alarm 1, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
+    uint32_t ALARM1;          /*!< (read-write) Arm alarm 1, and configure the time it will fire.
+                Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.
+                The alarm will disarm itself once it fires, and can
                 be disarmed early using the ARMED status register. */
-    uint32_t ALARM2;          /*!< (read-write) Arm alarm 2, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
+    uint32_t ALARM2;          /*!< (read-write) Arm alarm 2, and configure the time it will fire.
+                Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.
+                The alarm will disarm itself once it fires, and can
                 be disarmed early using the ARMED status register. */
-    uint32_t ALARM3;          /*!< (read-write) Arm alarm 3, and configure the time it will fire.\n
-                Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.\n
-                The alarm will disarm itself once it fires, and can\n
+    uint32_t ALARM3;          /*!< (read-write) Arm alarm 3, and configure the time it will fire.
+                Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.
+                The alarm will disarm itself once it fires, and can
                 be disarmed early using the ARMED status register. */
-    uint32_t ARMED;           /*!< (read-write) Indicates the armed/disarmed status of each alarm.\n
-                A write to the corresponding ALARMx register arms the alarm.\n
-                Alarms automatically disarm upon firing, but writing ones here\n
+    uint32_t ARMED;           /*!< (read-write) Indicates the armed/disarmed status of each alarm.
+                A write to the corresponding ALARMx register arms the alarm.
+                Alarms automatically disarm upon firing, but writing ones here
                 will disarm immediately without waiting to fire. */
     uint32_t TIMERAWH;        /*!< (read-write) Raw read from bits 63:32 of time (no side effects) */
     uint32_t TIMERAWL;        /*!< (read-write) Raw read from bits 31:0 of time (no side effects) */
@@ -74,7 +74,7 @@ struct [[gnu::packed]] timer
      */
     inline uint8_t get_ARMED() volatile
     {
-        return ARMED & 0b1111u;
+        return ARMED & 0xfu;
     }
 
     /**
@@ -84,8 +84,8 @@ struct [[gnu::packed]] timer
     {
         uint32_t curr = ARMED;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         ARMED = curr;
     }

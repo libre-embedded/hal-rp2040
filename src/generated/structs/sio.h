@@ -13,7 +13,7 @@ namespace RP2040
 {
 
 /**
- * Single-cycle IO block\n
+ * Single-cycle IO block
  *         Provides core-local and inter-core hardware for the two processors, with single-cycle access.
  */
 struct [[gnu::packed]] sio
@@ -23,7 +23,7 @@ struct [[gnu::packed]] sio
     static constexpr std::size_t size = 384; /*!< sio's size in bytes. */
 
     /* Fields. */
-    uint32_t CPUID;                        /*!< (read-write) Processor core identifier\n
+    uint32_t CPUID;                        /*!< (read-write) Processor core identifier
                 Value is 0 when read from processor core 0, and 1 when read from processor core 1. */
     const uint32_t GPIO_IN = {};           /*!< (read-only) Input value for GPIO pins */
     const uint32_t GPIO_HI_IN = {};        /*!< (read-only) Input value for QSPI pins */
@@ -44,41 +44,41 @@ struct [[gnu::packed]] sio
     uint32_t GPIO_HI_OE_SET;               /*!< (write-only) QSPI output enable set */
     uint32_t GPIO_HI_OE_CLR;               /*!< (write-only) QSPI output enable clear */
     uint32_t GPIO_HI_OE_XOR;               /*!< (write-only) QSPI output enable XOR */
-    uint32_t FIFO_ST;                      /*!< (read-write) Status register for inter-core FIFOs (mailboxes).\n
-                There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.\n
-                Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).\n
-                Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).\n
+    uint32_t FIFO_ST;                      /*!< (read-write) Status register for inter-core FIFOs (mailboxes).
+                There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.
+                Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).
+                Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).
                 The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register. */
     uint32_t FIFO_WR;                      /*!< (read-write) Write access to this core's TX FIFO */
     uint32_t FIFO_RD;                      /*!< (read-write) Read access to this core's RX FIFO */
-    uint32_t SPINLOCK_ST;                  /*!< (read-write) Spinlock state\n
-                A bitmap containing the state of all 32 spinlocks (1=locked).\n
+    uint32_t SPINLOCK_ST;                  /*!< (read-write) Spinlock state
+                A bitmap containing the state of all 32 spinlocks (1=locked).
                 Mainly intended for debugging. */
-    uint32_t DIV_UDIVIDEND;                /*!< (read-write) Divider unsigned dividend\n
-                Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.\n
-                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.\n
-                UDIVIDEND/SDIVIDEND are aliases of the same internal register. The U alias starts an\n
+    uint32_t DIV_UDIVIDEND;                /*!< (read-write) Divider unsigned dividend
+                Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.
+                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.
+                UDIVIDEND/SDIVIDEND are aliases of the same internal register. The U alias starts an
                 unsigned calculation, and the S alias starts a signed calculation. */
-    uint32_t DIV_UDIVISOR;                 /*!< (read-write) Divider unsigned divisor\n
-                Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.\n
-                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.\n
-                UDIVISOR/SDIVISOR are aliases of the same internal register. The U alias starts an\n
+    uint32_t DIV_UDIVISOR;                 /*!< (read-write) Divider unsigned divisor
+                Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.
+                Any operand write starts a new calculation. The results appear in QUOTIENT, REMAINDER.
+                UDIVISOR/SDIVISOR are aliases of the same internal register. The U alias starts an
                 unsigned calculation, and the S alias starts a signed calculation. */
-    uint32_t DIV_SDIVIDEND;                /*!< (read-write) Divider signed dividend\n
+    uint32_t DIV_SDIVIDEND;                /*!< (read-write) Divider signed dividend
                 The same as UDIVIDEND, but starts a signed calculation, rather than unsigned. */
-    uint32_t DIV_SDIVISOR;                 /*!< (read-write) Divider signed divisor\n
+    uint32_t DIV_SDIVISOR;                 /*!< (read-write) Divider signed divisor
                 The same as UDIVISOR, but starts a signed calculation, rather than unsigned. */
-    uint32_t DIV_QUOTIENT;                 /*!< (read-write) Divider result quotient\n
-                The result of `DIVIDEND / DIVISOR` (division). Contents undefined while CSR_READY is low.\n
-                For signed calculations, QUOTIENT is negative when the signs of DIVIDEND and DIVISOR differ.\n
-                This register can be written to directly, for context save/restore purposes. This halts any\n
-                in-progress calculation and sets the CSR_READY and CSR_DIRTY flags.\n
-                Reading from QUOTIENT clears the CSR_DIRTY flag, so should read results in the order\n
+    uint32_t DIV_QUOTIENT;                 /*!< (read-write) Divider result quotient
+                The result of `DIVIDEND / DIVISOR` (division). Contents undefined while CSR_READY is low.
+                For signed calculations, QUOTIENT is negative when the signs of DIVIDEND and DIVISOR differ.
+                This register can be written to directly, for context save/restore purposes. This halts any
+                in-progress calculation and sets the CSR_READY and CSR_DIRTY flags.
+                Reading from QUOTIENT clears the CSR_DIRTY flag, so should read results in the order
                 REMAINDER, QUOTIENT if CSR_DIRTY is used. */
-    uint32_t DIV_REMAINDER;                /*!< (read-write) Divider result remainder\n
-                The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while CSR_READY is low.\n
-                For signed calculations, REMAINDER is negative only when DIVIDEND is negative.\n
-                This register can be written to directly, for context save/restore purposes. This halts any\n
+    uint32_t DIV_REMAINDER;                /*!< (read-write) Divider result remainder
+                The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while CSR_READY is low.
+                For signed calculations, REMAINDER is negative only when DIVIDEND is negative.
+                This register can be written to directly, for context save/restore purposes. This halts any
                 in-progress calculation and sets the CSR_READY and CSR_DIRTY flags. */
     const uint32_t DIV_CSR = {};           /*!< (read-only) Control and status register for divider. */
     const uint32_t reserved_padding1 = {};
@@ -95,11 +95,11 @@ struct [[gnu::packed]] sio
     uint32_t INTERP0_PEEK_FULL;            /*!< (read-write) Read FULL result, without altering any internal state (PEEK). */
     uint32_t INTERP0_CTRL_LANE0;           /*!< (read-write) Control register for lane 0 */
     uint32_t INTERP0_CTRL_LANE1;           /*!< (read-write) Control register for lane 1 */
-    uint32_t INTERP0_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0\n
+    uint32_t INTERP0_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0
                 Reading yields lane 0's raw shift and mask value (BASE0 not added). */
-    uint32_t INTERP0_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1\n
+    uint32_t INTERP0_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1
                 Reading yields lane 1's raw shift and mask value (BASE1 not added). */
-    uint32_t INTERP0_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.\n
+    uint32_t INTERP0_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
                 Each half is sign-extended to 32 bits if that lane's SIGNED flag is set. */
     uint32_t INTERP1_ACCUM0;               /*!< (read-write) Read/write access to accumulator 0 */
     uint32_t INTERP1_ACCUM1;               /*!< (read-write) Read/write access to accumulator 1 */
@@ -114,203 +114,203 @@ struct [[gnu::packed]] sio
     uint32_t INTERP1_PEEK_FULL;            /*!< (read-write) Read FULL result, without altering any internal state (PEEK). */
     uint32_t INTERP1_CTRL_LANE0;           /*!< (read-write) Control register for lane 0 */
     uint32_t INTERP1_CTRL_LANE1;           /*!< (read-write) Control register for lane 1 */
-    uint32_t INTERP1_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0\n
+    uint32_t INTERP1_ACCUM0_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM0
                 Reading yields lane 0's raw shift and mask value (BASE0 not added). */
-    uint32_t INTERP1_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1\n
+    uint32_t INTERP1_ACCUM1_ADD;           /*!< (read-write) Values written here are atomically added to ACCUM1
                 Reading yields lane 1's raw shift and mask value (BASE1 not added). */
-    uint32_t INTERP1_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.\n
+    uint32_t INTERP1_BASE_1AND0;           /*!< (read-write) On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
                 Each half is sign-extended to 32 bits if that lane's SIGNED flag is set. */
-    uint32_t SPINLOCK0;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK0;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK1;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK1;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK2;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK2;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK3;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK3;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK4;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK4;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK5;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK5;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK6;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK6;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK7;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK7;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK8;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK8;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK9;                    /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK9;                    /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK10;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK10;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK11;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK11;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK12;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK12;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK13;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK13;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK14;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK14;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK15;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK15;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK16;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK16;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK17;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK17;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK18;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK18;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK19;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK19;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK20;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK20;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK21;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK21;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK22;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK22;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK23;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK23;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK24;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK24;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK25;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK25;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK26;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK26;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK27;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK27;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK28;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK28;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK29;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK29;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK30;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK30;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
-    uint32_t SPINLOCK31;                   /*!< (read-write) Reading from a spinlock address will:\n
-                - Return 0 if lock is already locked\n
-                - Otherwise return nonzero, and simultaneously claim the lock\n\n
-                Writing (any value) releases the lock.\n
-                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.\n
+    uint32_t SPINLOCK31;                   /*!< (read-write) Reading from a spinlock address will:
+                - Return 0 if lock is already locked
+                - Otherwise return nonzero, and simultaneously claim the lock
+                Writing (any value) releases the lock.
+                If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
                 The value returned on success is 0x1 << lock number. */
 
     /* Methods. */
@@ -338,10 +338,10 @@ struct [[gnu::packed]] sio
     /**
      * Get GPIO_OUT's GPIO_OUT field.
      *
-     * Set output level (1/0 -> high/low) for GPIO0...29.\n
-     *                 Reading back gives the last value written, NOT the input value from the pins.\n
-     *                 If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output level (1/0 -> high/low) for GPIO0...29.
+     *                 Reading back gives the last value written, NOT the input value from the pins.
+     *                 If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline uint32_t get_GPIO_OUT() volatile
@@ -352,10 +352,10 @@ struct [[gnu::packed]] sio
     /**
      * Set GPIO_OUT's GPIO_OUT field.
      *
-     * Set output level (1/0 -> high/low) for GPIO0...29.\n
-     *                 Reading back gives the last value written, NOT the input value from the pins.\n
-     *                 If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output level (1/0 -> high/low) for GPIO0...29.
+     *                 Reading back gives the last value written, NOT the input value from the pins.
+     *                 If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline void set_GPIO_OUT(uint32_t value) volatile
@@ -416,10 +416,10 @@ struct [[gnu::packed]] sio
     /**
      * Get GPIO_OE's GPIO_OE field.
      *
-     * Set output enable (1/0 -> output/input) for GPIO0...29.\n
-     *                 Reading back gives the last value written.\n
-     *                 If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output enable (1/0 -> output/input) for GPIO0...29.
+     *                 Reading back gives the last value written.
+     *                 If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline uint32_t get_GPIO_OE() volatile
@@ -430,10 +430,10 @@ struct [[gnu::packed]] sio
     /**
      * Set GPIO_OE's GPIO_OE field.
      *
-     * Set output enable (1/0 -> output/input) for GPIO0...29.\n
-     *                 Reading back gives the last value written.\n
-     *                 If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output enable (1/0 -> output/input) for GPIO0...29.
+     *                 Reading back gives the last value written.
+     *                 If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline void set_GPIO_OE(uint32_t value) volatile
@@ -494,10 +494,10 @@ struct [[gnu::packed]] sio
     /**
      * Get GPIO_HI_OUT's GPIO_HI_OUT field.
      *
-     * Set output level (1/0 -> high/low) for QSPI IO0...5.\n
-     *                 Reading back gives the last value written, NOT the input value from the pins.\n
-     *                 If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output level (1/0 -> high/low) for QSPI IO0...5.
+     *                 Reading back gives the last value written, NOT the input value from the pins.
+     *                 If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline uint8_t get_GPIO_HI_OUT() volatile
@@ -508,10 +508,10 @@ struct [[gnu::packed]] sio
     /**
      * Set GPIO_HI_OUT's GPIO_HI_OUT field.
      *
-     * Set output level (1/0 -> high/low) for QSPI IO0...5.\n
-     *                 Reading back gives the last value written, NOT the input value from the pins.\n
-     *                 If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output level (1/0 -> high/low) for QSPI IO0...5.
+     *                 Reading back gives the last value written, NOT the input value from the pins.
+     *                 If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline void set_GPIO_HI_OUT(uint8_t value) volatile
@@ -572,10 +572,10 @@ struct [[gnu::packed]] sio
     /**
      * Get GPIO_HI_OE's GPIO_HI_OE field.
      *
-     * Set output enable (1/0 -> output/input) for QSPI IO0...5.\n
-     *                 Reading back gives the last value written.\n
-     *                 If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output enable (1/0 -> output/input) for QSPI IO0...5.
+     *                 Reading back gives the last value written.
+     *                 If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline uint8_t get_GPIO_HI_OE() volatile
@@ -586,10 +586,10 @@ struct [[gnu::packed]] sio
     /**
      * Set GPIO_HI_OE's GPIO_HI_OE field.
      *
-     * Set output enable (1/0 -> output/input) for QSPI IO0...5.\n
-     *                 Reading back gives the last value written.\n
-     *                 If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias),\n
-     *                 the result is as though the write from core 0 took place first,\n
+     * Set output enable (1/0 -> output/input) for QSPI IO0...5.
+     *                 Reading back gives the last value written.
+     *                 If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias),
+     *                 the result is as though the write from core 0 took place first,
      *                 and the write from core 1 was then applied to that intermediate result.
      */
     inline void set_GPIO_HI_OE(uint8_t value) volatile
@@ -750,10 +750,10 @@ struct [[gnu::packed]] sio
     /**
      * Get all of FIFO_ST's bit fields.
      *
-     * (read-write) Status register for inter-core FIFOs (mailboxes).\n
-     *             There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.\n
-     *             Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).\n
-     *             Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).\n
+     * (read-write) Status register for inter-core FIFOs (mailboxes).
+     *             There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.
+     *             Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).
+     *             Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).
      *             The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register.
      */
     inline void get_FIFO_ST(bool &VLD, bool &RDY, bool &WOF, bool &ROE) volatile
@@ -769,10 +769,10 @@ struct [[gnu::packed]] sio
     /**
      * Set all of FIFO_ST's bit fields.
      *
-     * (read-write) Status register for inter-core FIFOs (mailboxes).\n
-     *             There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.\n
-     *             Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).\n
-     *             Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).\n
+     * (read-write) Status register for inter-core FIFOs (mailboxes).
+     *             There is one FIFO in the core 0 -> core 1 direction, and one core 1 -> core 0. Both are 32 bits wide and 8 words deep.
+     *             Core 0 can see the read side of the 1->0 FIFO (RX), and the write side of 0->1 FIFO (TX).
+     *             Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).
      *             The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register.
      */
     inline void set_FIFO_ST(bool WOF, bool ROE) volatile
@@ -790,10 +790,10 @@ struct [[gnu::packed]] sio
     /**
      * Get DIV_CSR's READY bit.
      *
-     * Reads as 0 when a calculation is in progress, 1 otherwise.\n
-     *                 Writing an operand (xDIVIDEND, xDIVISOR) will immediately start a new calculation, no\n
-     *                 matter if one is already in progress.\n
-     *                 Writing to a result register will immediately terminate any in-progress calculation\n
+     * Reads as 0 when a calculation is in progress, 1 otherwise.
+     *                 Writing an operand (xDIVIDEND, xDIVISOR) will immediately start a new calculation, no
+     *                 matter if one is already in progress.
+     *                 Writing to a result register will immediately terminate any in-progress calculation
      *                 and set the READY and DIRTY flags.
      */
     inline bool get_DIV_CSR_READY() volatile
@@ -804,9 +804,9 @@ struct [[gnu::packed]] sio
     /**
      * Get DIV_CSR's DIRTY bit.
      *
-     * Changes to 1 when any register is written, and back to 0 when QUOTIENT is read.\n
-     *                 Software can use this flag to make save/restore more efficient (skip if not DIRTY).\n
-     *                 If the flag is used in this way, it's recommended to either read QUOTIENT only,\n
+     * Changes to 1 when any register is written, and back to 0 when QUOTIENT is read.
+     *                 Software can use this flag to make save/restore more efficient (skip if not DIRTY).
+     *                 If the flag is used in this way, it's recommended to either read QUOTIENT only,
      *                 or REMAINDER and then QUOTIENT, to prevent data loss on context switch.
      */
     inline bool get_DIV_CSR_DIRTY() volatile
@@ -880,7 +880,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE0's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline uint8_t get_INTERP0_CTRL_LANE0_MASK_MSB() volatile
@@ -891,7 +891,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE0's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline void set_INTERP0_CTRL_LANE0_MASK_MSB(uint8_t value) volatile
@@ -907,7 +907,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline bool get_INTERP0_CTRL_LANE0_SIGNED() volatile
@@ -918,7 +918,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void set_INTERP0_CTRL_LANE0_SIGNED() volatile
@@ -929,7 +929,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP0_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void clear_INTERP0_CTRL_LANE0_SIGNED() volatile
@@ -940,7 +940,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP0_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void toggle_INTERP0_CTRL_LANE0_SIGNED() volatile
@@ -951,7 +951,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline bool get_INTERP0_CTRL_LANE0_CROSS_INPUT() volatile
@@ -962,7 +962,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void set_INTERP0_CTRL_LANE0_CROSS_INPUT() volatile
@@ -973,7 +973,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP0_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void clear_INTERP0_CTRL_LANE0_CROSS_INPUT() volatile
@@ -984,7 +984,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP0_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void toggle_INTERP0_CTRL_LANE0_CROSS_INPUT() volatile
@@ -1075,8 +1075,8 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE0's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline uint8_t get_INTERP0_CTRL_LANE0_FORCE_MSB() volatile
@@ -1087,8 +1087,8 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE0's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline void set_INTERP0_CTRL_LANE0_FORCE_MSB(uint8_t value) volatile
@@ -1104,12 +1104,12 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE0's BLEND bit.
      *
-     * Only present on INTERP0 on each core. If BLEND mode is enabled:\n
-     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled\n
-     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between\n
-     *                 0 and 255/256ths)\n
-     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)\n
-     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)\n
+     * Only present on INTERP0 on each core. If BLEND mode is enabled:
+     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
+     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between
+     *                 0 and 255/256ths)
+     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)
+     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
      *                 LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
      */
     inline bool get_INTERP0_CTRL_LANE0_BLEND() volatile
@@ -1120,12 +1120,12 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE0's BLEND bit.
      *
-     * Only present on INTERP0 on each core. If BLEND mode is enabled:\n
-     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled\n
-     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between\n
-     *                 0 and 255/256ths)\n
-     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)\n
-     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)\n
+     * Only present on INTERP0 on each core. If BLEND mode is enabled:
+     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
+     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between
+     *                 0 and 255/256ths)
+     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)
+     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
      *                 LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
      */
     inline void set_INTERP0_CTRL_LANE0_BLEND() volatile
@@ -1136,12 +1136,12 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP0_CTRL_LANE0's BLEND bit.
      *
-     * Only present on INTERP0 on each core. If BLEND mode is enabled:\n
-     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled\n
-     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between\n
-     *                 0 and 255/256ths)\n
-     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)\n
-     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)\n
+     * Only present on INTERP0 on each core. If BLEND mode is enabled:
+     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
+     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between
+     *                 0 and 255/256ths)
+     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)
+     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
      *                 LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
      */
     inline void clear_INTERP0_CTRL_LANE0_BLEND() volatile
@@ -1152,12 +1152,12 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP0_CTRL_LANE0's BLEND bit.
      *
-     * Only present on INTERP0 on each core. If BLEND mode is enabled:\n
-     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled\n
-     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between\n
-     *                 0 and 255/256ths)\n
-     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)\n
-     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)\n
+     * Only present on INTERP0 on each core. If BLEND mode is enabled:
+     *                 - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
+     *                 by the 8 LSBs of lane 1 shift and mask value (a fractional number between
+     *                 0 and 255/256ths)
+     *                 - LANE0 result does not have BASE0 added (yields only the 8 LSBs of lane 1 shift+mask value)
+     *                 - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
      *                 LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
      */
     inline void toggle_INTERP0_CTRL_LANE0_BLEND() volatile
@@ -1302,7 +1302,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE1's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline uint8_t get_INTERP0_CTRL_LANE1_MASK_MSB() volatile
@@ -1313,7 +1313,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE1's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline void set_INTERP0_CTRL_LANE1_MASK_MSB(uint8_t value) volatile
@@ -1329,7 +1329,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline bool get_INTERP0_CTRL_LANE1_SIGNED() volatile
@@ -1340,7 +1340,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void set_INTERP0_CTRL_LANE1_SIGNED() volatile
@@ -1351,7 +1351,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP0_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void clear_INTERP0_CTRL_LANE1_SIGNED() volatile
@@ -1362,7 +1362,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP0_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void toggle_INTERP0_CTRL_LANE1_SIGNED() volatile
@@ -1373,7 +1373,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline bool get_INTERP0_CTRL_LANE1_CROSS_INPUT() volatile
@@ -1384,7 +1384,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void set_INTERP0_CTRL_LANE1_CROSS_INPUT() volatile
@@ -1395,7 +1395,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP0_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void clear_INTERP0_CTRL_LANE1_CROSS_INPUT() volatile
@@ -1406,7 +1406,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP0_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void toggle_INTERP0_CTRL_LANE1_CROSS_INPUT() volatile
@@ -1497,8 +1497,8 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP0_CTRL_LANE1's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline uint8_t get_INTERP0_CTRL_LANE1_FORCE_MSB() volatile
@@ -1509,8 +1509,8 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP0_CTRL_LANE1's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline void set_INTERP0_CTRL_LANE1_FORCE_MSB(uint8_t value) volatile
@@ -1576,7 +1576,7 @@ struct [[gnu::packed]] sio
      */
     inline uint32_t get_INTERP0_ACCUM0_ADD() volatile
     {
-        return INTERP0_ACCUM0_ADD & 0b111111111111111111111111u;
+        return INTERP0_ACCUM0_ADD & 0xffffffu;
     }
 
     /**
@@ -1586,8 +1586,8 @@ struct [[gnu::packed]] sio
     {
         uint32_t curr = INTERP0_ACCUM0_ADD;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         INTERP0_ACCUM0_ADD = curr;
     }
@@ -1597,7 +1597,7 @@ struct [[gnu::packed]] sio
      */
     inline uint32_t get_INTERP0_ACCUM1_ADD() volatile
     {
-        return INTERP0_ACCUM1_ADD & 0b111111111111111111111111u;
+        return INTERP0_ACCUM1_ADD & 0xffffffu;
     }
 
     /**
@@ -1607,8 +1607,8 @@ struct [[gnu::packed]] sio
     {
         uint32_t curr = INTERP0_ACCUM1_ADD;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         INTERP0_ACCUM1_ADD = curr;
     }
@@ -1666,7 +1666,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE0's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline uint8_t get_INTERP1_CTRL_LANE0_MASK_MSB() volatile
@@ -1677,7 +1677,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE0's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline void set_INTERP1_CTRL_LANE0_MASK_MSB(uint8_t value) volatile
@@ -1693,7 +1693,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline bool get_INTERP1_CTRL_LANE0_SIGNED() volatile
@@ -1704,7 +1704,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void set_INTERP1_CTRL_LANE0_SIGNED() volatile
@@ -1715,7 +1715,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP1_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void clear_INTERP1_CTRL_LANE0_SIGNED() volatile
@@ -1726,7 +1726,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP1_CTRL_LANE0's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void toggle_INTERP1_CTRL_LANE0_SIGNED() volatile
@@ -1737,7 +1737,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline bool get_INTERP1_CTRL_LANE0_CROSS_INPUT() volatile
@@ -1748,7 +1748,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void set_INTERP1_CTRL_LANE0_CROSS_INPUT() volatile
@@ -1759,7 +1759,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP1_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void clear_INTERP1_CTRL_LANE0_CROSS_INPUT() volatile
@@ -1770,7 +1770,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP1_CTRL_LANE0's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void toggle_INTERP1_CTRL_LANE0_CROSS_INPUT() volatile
@@ -1861,8 +1861,8 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE0's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline uint8_t get_INTERP1_CTRL_LANE0_FORCE_MSB() volatile
@@ -1873,8 +1873,8 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE0's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline void set_INTERP1_CTRL_LANE0_FORCE_MSB(uint8_t value) volatile
@@ -1890,9 +1890,9 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE0's CLAMP bit.
      *
-     * Only present on INTERP1 on each core. If CLAMP mode is enabled:\n
-     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of\n
-     *                 BASE0 and an upper bound of BASE1.\n
+     * Only present on INTERP1 on each core. If CLAMP mode is enabled:
+     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
+     *                 BASE0 and an upper bound of BASE1.
      *                 - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
      */
     inline bool get_INTERP1_CTRL_LANE0_CLAMP() volatile
@@ -1903,9 +1903,9 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE0's CLAMP bit.
      *
-     * Only present on INTERP1 on each core. If CLAMP mode is enabled:\n
-     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of\n
-     *                 BASE0 and an upper bound of BASE1.\n
+     * Only present on INTERP1 on each core. If CLAMP mode is enabled:
+     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
+     *                 BASE0 and an upper bound of BASE1.
      *                 - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
      */
     inline void set_INTERP1_CTRL_LANE0_CLAMP() volatile
@@ -1916,9 +1916,9 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP1_CTRL_LANE0's CLAMP bit.
      *
-     * Only present on INTERP1 on each core. If CLAMP mode is enabled:\n
-     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of\n
-     *                 BASE0 and an upper bound of BASE1.\n
+     * Only present on INTERP1 on each core. If CLAMP mode is enabled:
+     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
+     *                 BASE0 and an upper bound of BASE1.
      *                 - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
      */
     inline void clear_INTERP1_CTRL_LANE0_CLAMP() volatile
@@ -1929,9 +1929,9 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP1_CTRL_LANE0's CLAMP bit.
      *
-     * Only present on INTERP1 on each core. If CLAMP mode is enabled:\n
-     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of\n
-     *                 BASE0 and an upper bound of BASE1.\n
+     * Only present on INTERP1 on each core. If CLAMP mode is enabled:
+     *                 - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
+     *                 BASE0 and an upper bound of BASE1.
      *                 - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
      */
     inline void toggle_INTERP1_CTRL_LANE0_CLAMP() volatile
@@ -2076,7 +2076,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE1's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline uint8_t get_INTERP1_CTRL_LANE1_MASK_MSB() volatile
@@ -2087,7 +2087,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE1's MASK_MSB field.
      *
-     * The most-significant bit allowed to pass by the mask (inclusive)\n
+     * The most-significant bit allowed to pass by the mask (inclusive)
      *                 Setting MSB < LSB may cause chip to turn inside-out
      */
     inline void set_INTERP1_CTRL_LANE1_MASK_MSB(uint8_t value) volatile
@@ -2103,7 +2103,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline bool get_INTERP1_CTRL_LANE1_SIGNED() volatile
@@ -2114,7 +2114,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void set_INTERP1_CTRL_LANE1_SIGNED() volatile
@@ -2125,7 +2125,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP1_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void clear_INTERP1_CTRL_LANE1_SIGNED() volatile
@@ -2136,7 +2136,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP1_CTRL_LANE1's SIGNED bit.
      *
-     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits\n
+     * If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
      *                 before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
      */
     inline void toggle_INTERP1_CTRL_LANE1_SIGNED() volatile
@@ -2147,7 +2147,7 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline bool get_INTERP1_CTRL_LANE1_CROSS_INPUT() volatile
@@ -2158,7 +2158,7 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void set_INTERP1_CTRL_LANE1_CROSS_INPUT() volatile
@@ -2169,7 +2169,7 @@ struct [[gnu::packed]] sio
     /**
      * Clear INTERP1_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void clear_INTERP1_CTRL_LANE1_CROSS_INPUT() volatile
@@ -2180,7 +2180,7 @@ struct [[gnu::packed]] sio
     /**
      * Toggle INTERP1_CTRL_LANE1's CROSS_INPUT bit.
      *
-     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.\n
+     * If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
      *                 Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
      */
     inline void toggle_INTERP1_CTRL_LANE1_CROSS_INPUT() volatile
@@ -2271,8 +2271,8 @@ struct [[gnu::packed]] sio
     /**
      * Get INTERP1_CTRL_LANE1's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline uint8_t get_INTERP1_CTRL_LANE1_FORCE_MSB() volatile
@@ -2283,8 +2283,8 @@ struct [[gnu::packed]] sio
     /**
      * Set INTERP1_CTRL_LANE1's FORCE_MSB field.
      *
-     * ORed into bits 29:28 of the lane result presented to the processor on the bus.\n
-     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence\n
+     * ORed into bits 29:28 of the lane result presented to the processor on the bus.
+     *                 No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
      *                 of pointers into flash or SRAM.
      */
     inline void set_INTERP1_CTRL_LANE1_FORCE_MSB(uint8_t value) volatile
@@ -2350,7 +2350,7 @@ struct [[gnu::packed]] sio
      */
     inline uint32_t get_INTERP1_ACCUM0_ADD() volatile
     {
-        return INTERP1_ACCUM0_ADD & 0b111111111111111111111111u;
+        return INTERP1_ACCUM0_ADD & 0xffffffu;
     }
 
     /**
@@ -2360,8 +2360,8 @@ struct [[gnu::packed]] sio
     {
         uint32_t curr = INTERP1_ACCUM0_ADD;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         INTERP1_ACCUM0_ADD = curr;
     }
@@ -2371,7 +2371,7 @@ struct [[gnu::packed]] sio
      */
     inline uint32_t get_INTERP1_ACCUM1_ADD() volatile
     {
-        return INTERP1_ACCUM1_ADD & 0b111111111111111111111111u;
+        return INTERP1_ACCUM1_ADD & 0xffffffu;
     }
 
     /**
@@ -2381,8 +2381,8 @@ struct [[gnu::packed]] sio
     {
         uint32_t curr = INTERP1_ACCUM1_ADD;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         INTERP1_ACCUM1_ADD = curr;
     }

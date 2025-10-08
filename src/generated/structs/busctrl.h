@@ -235,8 +235,8 @@ struct [[gnu::packed]] busctrl
     /**
      * Get BUS_PRIORITY_ACK's BUS_PRIORITY_ACK bit.
      *
-     * Goes to 1 once all arbiters have registered the new global priority levels.\n
-     *                 Arbiters update their local priority when servicing a new nonsequential access.\n
+     * Goes to 1 once all arbiters have registered the new global priority levels.
+     *                 Arbiters update their local priority when servicing a new nonsequential access.
      *                 In normal circumstances this will happen almost immediately.
      */
     inline bool get_BUS_PRIORITY_ACK() volatile
@@ -247,28 +247,28 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFCTR0's PERFCTR0 field.
      *
-     * Busfabric saturating performance counter 0\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 0
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL0
      */
     inline uint32_t get_PERFCTR0() volatile
     {
-        return PERFCTR0 & 0b111111111111111111111111u;
+        return PERFCTR0 & 0xffffffu;
     }
 
     /**
      * Set PERFCTR0's PERFCTR0 field.
      *
-     * Busfabric saturating performance counter 0\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 0
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL0
      */
     inline void set_PERFCTR0(uint32_t value) volatile
     {
         uint32_t curr = PERFCTR0;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         PERFCTR0 = curr;
     }
@@ -301,28 +301,28 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFCTR1's PERFCTR1 field.
      *
-     * Busfabric saturating performance counter 1\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 1
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL1
      */
     inline uint32_t get_PERFCTR1() volatile
     {
-        return PERFCTR1 & 0b111111111111111111111111u;
+        return PERFCTR1 & 0xffffffu;
     }
 
     /**
      * Set PERFCTR1's PERFCTR1 field.
      *
-     * Busfabric saturating performance counter 1\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 1
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL1
      */
     inline void set_PERFCTR1(uint32_t value) volatile
     {
         uint32_t curr = PERFCTR1;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         PERFCTR1 = curr;
     }
@@ -355,28 +355,28 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFCTR2's PERFCTR2 field.
      *
-     * Busfabric saturating performance counter 2\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 2
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL2
      */
     inline uint32_t get_PERFCTR2() volatile
     {
-        return PERFCTR2 & 0b111111111111111111111111u;
+        return PERFCTR2 & 0xffffffu;
     }
 
     /**
      * Set PERFCTR2's PERFCTR2 field.
      *
-     * Busfabric saturating performance counter 2\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 2
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL2
      */
     inline void set_PERFCTR2(uint32_t value) volatile
     {
         uint32_t curr = PERFCTR2;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         PERFCTR2 = curr;
     }
@@ -409,28 +409,28 @@ struct [[gnu::packed]] busctrl
     /**
      * Get PERFCTR3's PERFCTR3 field.
      *
-     * Busfabric saturating performance counter 3\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 3
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL3
      */
     inline uint32_t get_PERFCTR3() volatile
     {
-        return PERFCTR3 & 0b111111111111111111111111u;
+        return PERFCTR3 & 0xffffffu;
     }
 
     /**
      * Set PERFCTR3's PERFCTR3 field.
      *
-     * Busfabric saturating performance counter 3\n
-     *                 Count some event signal from the busfabric arbiters.\n
+     * Busfabric saturating performance counter 3
+     *                 Count some event signal from the busfabric arbiters.
      *                 Write any value to clear. Select an event to count using PERFSEL3
      */
     inline void set_PERFCTR3(uint32_t value) volatile
     {
         uint32_t curr = PERFCTR3;
 
-        curr &= ~(0b111111111111111111111111u);
-        curr |= (value & 0b111111111111111111111111u);
+        curr &= ~(0xffffffu);
+        curr |= (value & 0xffffffu);
 
         PERFCTR3 = curr;
     }

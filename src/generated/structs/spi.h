@@ -49,7 +49,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPCR0_DSS() volatile
     {
-        return SSPCR0 & 0b1111u;
+        return SSPCR0 & 0xfu;
     }
 
     /**
@@ -61,8 +61,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPCR0;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         SSPCR0 = curr;
     }
@@ -179,7 +179,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPCR0_SCR() volatile
     {
-        return (SSPCR0 >> 8u) & 0b11111111u;
+        return (SSPCR0 >> 8u) & 0xffu;
     }
 
     /**
@@ -191,8 +191,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPCR0;
 
-        curr &= ~(0b11111111u << 8u);
-        curr |= (value & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (value & 0xffu) << 8u;
 
         SSPCR0 = curr;
     }
@@ -206,11 +206,11 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPCR0;
 
-        DSS = curr & 0b1111u;
+        DSS = curr & 0xfu;
         FRF = (curr >> 4u) & 0b11u;
         SPO = curr & (1u << 6u);
         SPH = curr & (1u << 7u);
-        SCR = (curr >> 8u) & 0b11111111u;
+        SCR = (curr >> 8u) & 0xffu;
     }
 
     /**
@@ -222,16 +222,16 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPCR0;
 
-        curr &= ~(0b1111u);
-        curr |= (DSS & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (DSS & 0xfu);
         curr &= ~(0b11u << 4u);
         curr |= (FRF & 0b11u) << 4u;
         curr &= ~(0b1u << 6u);
         curr |= (SPO & 0b1u) << 6u;
         curr &= ~(0b1u << 7u);
         curr |= (SPH & 0b1u) << 7u;
-        curr &= ~(0b11111111u << 8u);
-        curr |= (SCR & 0b11111111u) << 8u;
+        curr &= ~(0xffu << 8u);
+        curr |= (SCR & 0xffu) << 8u;
 
         SSPCR0 = curr;
     }
@@ -439,7 +439,7 @@ struct [[gnu::packed]] spi
      */
     inline uint16_t get_SSPDR() volatile
     {
-        return SSPDR & 0b1111111111111111u;
+        return SSPDR & 0xffffu;
     }
 
     /**
@@ -451,8 +451,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPDR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         SSPDR = curr;
     }
@@ -530,7 +530,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPCPSR() volatile
     {
-        return SSPCPSR & 0b11111111u;
+        return SSPCPSR & 0xffu;
     }
 
     /**
@@ -542,8 +542,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPCPSR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         SSPCPSR = curr;
     }
@@ -1081,7 +1081,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID0() volatile
     {
-        return SSPPERIPHID0 & 0b11111111u;
+        return SSPPERIPHID0 & 0xffu;
     }
 
     /**
@@ -1091,7 +1091,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID1_PARTNUMBER1() volatile
     {
-        return SSPPERIPHID1 & 0b1111u;
+        return SSPPERIPHID1 & 0xfu;
     }
 
     /**
@@ -1101,7 +1101,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID1_DESIGNER0() volatile
     {
-        return (SSPPERIPHID1 >> 4u) & 0b1111u;
+        return (SSPPERIPHID1 >> 4u) & 0xfu;
     }
 
     /**
@@ -1113,8 +1113,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPPERIPHID1;
 
-        PARTNUMBER1 = curr & 0b1111u;
-        DESIGNER0 = (curr >> 4u) & 0b1111u;
+        PARTNUMBER1 = curr & 0xfu;
+        DESIGNER0 = (curr >> 4u) & 0xfu;
     }
 
     /**
@@ -1124,7 +1124,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID2_DESIGNER1() volatile
     {
-        return SSPPERIPHID2 & 0b1111u;
+        return SSPPERIPHID2 & 0xfu;
     }
 
     /**
@@ -1134,7 +1134,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID2_REVISION() volatile
     {
-        return (SSPPERIPHID2 >> 4u) & 0b1111u;
+        return (SSPPERIPHID2 >> 4u) & 0xfu;
     }
 
     /**
@@ -1146,8 +1146,8 @@ struct [[gnu::packed]] spi
     {
         uint32_t curr = SSPPERIPHID2;
 
-        DESIGNER1 = curr & 0b1111u;
-        REVISION = (curr >> 4u) & 0b1111u;
+        DESIGNER1 = curr & 0xfu;
+        REVISION = (curr >> 4u) & 0xfu;
     }
 
     /**
@@ -1157,7 +1157,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPERIPHID3() volatile
     {
-        return SSPPERIPHID3 & 0b11111111u;
+        return SSPPERIPHID3 & 0xffu;
     }
 
     /**
@@ -1167,7 +1167,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPCELLID0() volatile
     {
-        return SSPPCELLID0 & 0b11111111u;
+        return SSPPCELLID0 & 0xffu;
     }
 
     /**
@@ -1177,7 +1177,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPCELLID1() volatile
     {
-        return SSPPCELLID1 & 0b11111111u;
+        return SSPPCELLID1 & 0xffu;
     }
 
     /**
@@ -1187,7 +1187,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPCELLID2() volatile
     {
-        return SSPPCELLID2 & 0b11111111u;
+        return SSPPCELLID2 & 0xffu;
     }
 
     /**
@@ -1197,7 +1197,7 @@ struct [[gnu::packed]] spi
      */
     inline uint8_t get_SSPPCELLID3() volatile
     {
-        return SSPPCELLID3 & 0b11111111u;
+        return SSPPCELLID3 & 0xffu;
     }
 };
 

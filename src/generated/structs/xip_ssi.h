@@ -17,31 +17,31 @@ namespace RP2040
 {
 
 /**
- * DW_apb_ssi has the following features:\n
- *         * APB interface - Allows for easy integration into a DesignWare Synthesizable Components for AMBA 2 implementation.\n
- *         * APB3 and APB4 protocol support.\n
- *         * Scalable APB data bus width - Supports APB data bus widths of 8, 16, and 32 bits.\n
- *         * Serial-master or serial-slave operation - Enables serial communication with serial-master or serial-slave peripheral devices.\n
- *         * Programmable Dual/Quad/Octal SPI support in Master Mode.\n
- *         * Dual Data Rate (DDR) and Read Data Strobe (RDS) Support - Enables the DW_apb_ssi master to perform operations with the device in DDR and RDS modes when working in Dual/Quad/Octal mode of operation.\n
- *         * Data Mask Support - Enables the DW_apb_ssi to selectively update the bytes in the device. This feature is applicable only in enhanced SPI modes.\n
- *         * eXecute-In-Place (XIP) support - Enables the DW_apb_ssi master to behave as a memory mapped I/O and fetches the data from the device based on the APB read request. This feature is applicable only in enhanced SPI modes.\n
- *         * DMA Controller Interface - Enables the DW_apb_ssi to interface to a DMA controller over the bus using a handshaking interface for transfer requests.\n
- *         * Independent masking of interrupts - Master collision, transmit FIFO overflow, transmit FIFO empty, receive FIFO full, receive FIFO underflow, and receive FIFO overflow interrupts can all be masked independently.\n
- *         * Multi-master contention detection - Informs the processor of multiple serial-master accesses on the serial bus.\n
- *         * Bypass of meta-stability flip-flops for synchronous clocks - When the APB clock (pclk) and the DW_apb_ssi serial clock (ssi_clk) are synchronous, meta-stable flip-flops are not used when transferring control signals across these clock domains.\n
- *         * Programmable delay on the sample time of the received serial data bit (rxd); enables programmable control of routing delays resulting in higher serial data-bit rates.\n
- *         * Programmable features:\n
- *         - Serial interface operation - Choice of Motorola SPI, Texas Instruments Synchronous Serial Protocol or National Semiconductor Microwire.\n
- *         - Clock bit-rate - Dynamic control of the serial bit rate of the data transfer; used in only serial-master mode of operation.\n
- *         - Data Item size (4 to 32 bits) - Item size of each data transfer under the control of the programmer.\n
- *         * Configured features:\n
- *         - FIFO depth - 16 words deep. The FIFO width is fixed at 32 bits.\n
- *         - 1 slave select output.\n
- *         - Hardware slave-select - Dedicated hardware slave-select line.\n
- *         - Combined interrupt line - one combined interrupt line from the DW_apb_ssi to the interrupt controller.\n
- *         - Interrupt polarity - active high interrupt lines.\n
- *         - Serial clock polarity - low serial-clock polarity directly after reset.\n
+ * DW_apb_ssi has the following features:
+ *         * APB interface - Allows for easy integration into a DesignWare Synthesizable Components for AMBA 2 implementation.
+ *         * APB3 and APB4 protocol support.
+ *         * Scalable APB data bus width - Supports APB data bus widths of 8, 16, and 32 bits.
+ *         * Serial-master or serial-slave operation - Enables serial communication with serial-master or serial-slave peripheral devices.
+ *         * Programmable Dual/Quad/Octal SPI support in Master Mode.
+ *         * Dual Data Rate (DDR) and Read Data Strobe (RDS) Support - Enables the DW_apb_ssi master to perform operations with the device in DDR and RDS modes when working in Dual/Quad/Octal mode of operation.
+ *         * Data Mask Support - Enables the DW_apb_ssi to selectively update the bytes in the device. This feature is applicable only in enhanced SPI modes.
+ *         * eXecute-In-Place (XIP) support - Enables the DW_apb_ssi master to behave as a memory mapped I/O and fetches the data from the device based on the APB read request. This feature is applicable only in enhanced SPI modes.
+ *         * DMA Controller Interface - Enables the DW_apb_ssi to interface to a DMA controller over the bus using a handshaking interface for transfer requests.
+ *         * Independent masking of interrupts - Master collision, transmit FIFO overflow, transmit FIFO empty, receive FIFO full, receive FIFO underflow, and receive FIFO overflow interrupts can all be masked independently.
+ *         * Multi-master contention detection - Informs the processor of multiple serial-master accesses on the serial bus.
+ *         * Bypass of meta-stability flip-flops for synchronous clocks - When the APB clock (pclk) and the DW_apb_ssi serial clock (ssi_clk) are synchronous, meta-stable flip-flops are not used when transferring control signals across these clock domains.
+ *         * Programmable delay on the sample time of the received serial data bit (rxd); enables programmable control of routing delays resulting in higher serial data-bit rates.
+ *         * Programmable features:
+ *         - Serial interface operation - Choice of Motorola SPI, Texas Instruments Synchronous Serial Protocol or National Semiconductor Microwire.
+ *         - Clock bit-rate - Dynamic control of the serial bit rate of the data transfer; used in only serial-master mode of operation.
+ *         - Data Item size (4 to 32 bits) - Item size of each data transfer under the control of the programmer.
+ *         * Configured features:
+ *         - FIFO depth - 16 words deep. The FIFO width is fixed at 32 bits.
+ *         - 1 slave select output.
+ *         - Hardware slave-select - Dedicated hardware slave-select line.
+ *         - Combined interrupt line - one combined interrupt line from the DW_apb_ssi to the interrupt controller.
+ *         - Interrupt polarity - active high interrupt lines.
+ *         - Serial clock polarity - low serial-clock polarity directly after reset.
  *         - Serial clock phase - capture on first edge of serial-clock directly after reset.
  */
 struct [[gnu::packed]] xip_ssi
@@ -91,7 +91,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_CTRLR0_DFS() volatile
     {
-        return CTRLR0 & 0b1111u;
+        return CTRLR0 & 0xfu;
     }
 
     /**
@@ -103,8 +103,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = CTRLR0;
 
-        curr &= ~(0b1111u);
-        curr |= (value & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (value & 0xfu);
 
         CTRLR0 = curr;
     }
@@ -322,26 +322,26 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Get CTRLR0's CFS field.
      *
-     * Control frame size\n
+     * Control frame size
      *                 Value of n -> n+1 clocks per frame.
      */
     inline uint8_t get_CTRLR0_CFS() volatile
     {
-        return (CTRLR0 >> 12u) & 0b1111u;
+        return (CTRLR0 >> 12u) & 0xfu;
     }
 
     /**
      * Set CTRLR0's CFS field.
      *
-     * Control frame size\n
+     * Control frame size
      *                 Value of n -> n+1 clocks per frame.
      */
     inline void set_CTRLR0_CFS(uint8_t value) volatile
     {
         uint32_t curr = CTRLR0;
 
-        curr &= ~(0b1111u << 12u);
-        curr |= (value & 0b1111u) << 12u;
+        curr &= ~(0xfu << 12u);
+        curr |= (value & 0xfu) << 12u;
 
         CTRLR0 = curr;
     }
@@ -349,7 +349,7 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Get CTRLR0's DFS_32 field.
      *
-     * Data frame size in 32b transfer mode\n
+     * Data frame size in 32b transfer mode
      *                 Value of n -> n+1 clocks per frame.
      */
     inline uint8_t get_CTRLR0_DFS_32() volatile
@@ -360,7 +360,7 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Set CTRLR0's DFS_32 field.
      *
-     * Data frame size in 32b transfer mode\n
+     * Data frame size in 32b transfer mode
      *                 Value of n -> n+1 clocks per frame.
      */
     inline void set_CTRLR0_DFS_32(uint8_t value) volatile
@@ -447,14 +447,14 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = CTRLR0;
 
-        DFS = curr & 0b1111u;
+        DFS = curr & 0xfu;
         FRF = (curr >> 4u) & 0b11u;
         SCPH = curr & (1u << 6u);
         SCPOL = curr & (1u << 7u);
         TMOD = XIP_SSI_CTRLR0_TMOD((curr >> 8u) & 0b11u);
         SLV_OE = curr & (1u << 10u);
         SRL = curr & (1u << 11u);
-        CFS = (curr >> 12u) & 0b1111u;
+        CFS = (curr >> 12u) & 0xfu;
         DFS_32 = (curr >> 16u) & 0b11111u;
         SPI_FRF = XIP_SSI_CTRLR0_SPI_FRF((curr >> 21u) & 0b11u);
         SSTE = curr & (1u << 24u);
@@ -469,8 +469,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = CTRLR0;
 
-        curr &= ~(0b1111u);
-        curr |= (DFS & 0b1111u);
+        curr &= ~(0xfu);
+        curr |= (DFS & 0xfu);
         curr &= ~(0b11u << 4u);
         curr |= (FRF & 0b11u) << 4u;
         curr &= ~(0b1u << 6u);
@@ -483,8 +483,8 @@ struct [[gnu::packed]] xip_ssi
         curr |= (SLV_OE & 0b1u) << 10u;
         curr &= ~(0b1u << 11u);
         curr |= (SRL & 0b1u) << 11u;
-        curr &= ~(0b1111u << 12u);
-        curr |= (CFS & 0b1111u) << 12u;
+        curr &= ~(0xfu << 12u);
+        curr |= (CFS & 0xfu) << 12u;
         curr &= ~(0b11111u << 16u);
         curr |= (DFS_32 & 0b11111u) << 16u;
         curr &= ~(0b11u << 21u);
@@ -502,7 +502,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint16_t get_CTRLR1() volatile
     {
-        return CTRLR1 & 0b1111111111111111u;
+        return CTRLR1 & 0xffffu;
     }
 
     /**
@@ -514,8 +514,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = CTRLR1;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         CTRLR1 = curr;
     }
@@ -716,8 +716,8 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Get SER's SER bit.
      *
-     * For each bit:\n
-     *                 0 -> slave not selected\n
+     * For each bit:
+     *                 0 -> slave not selected
      *                 1 -> slave selected
      */
     inline bool get_SER() volatile
@@ -728,8 +728,8 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Set SER's SER bit.
      *
-     * For each bit:\n
-     *                 0 -> slave not selected\n
+     * For each bit:
+     *                 0 -> slave not selected
      *                 1 -> slave selected
      */
     inline void set_SER() volatile
@@ -740,8 +740,8 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Clear SER's SER bit.
      *
-     * For each bit:\n
-     *                 0 -> slave not selected\n
+     * For each bit:
+     *                 0 -> slave not selected
      *                 1 -> slave selected
      */
     inline void clear_SER() volatile
@@ -752,8 +752,8 @@ struct [[gnu::packed]] xip_ssi
     /**
      * Toggle SER's SER bit.
      *
-     * For each bit:\n
-     *                 0 -> slave not selected\n
+     * For each bit:
+     *                 0 -> slave not selected
      *                 1 -> slave selected
      */
     inline void toggle_SER() volatile
@@ -768,7 +768,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint16_t get_BAUDR() volatile
     {
-        return BAUDR & 0b1111111111111111u;
+        return BAUDR & 0xffffu;
     }
 
     /**
@@ -780,8 +780,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = BAUDR;
 
-        curr &= ~(0b1111111111111111u);
-        curr |= (value & 0b1111111111111111u);
+        curr &= ~(0xffffu);
+        curr |= (value & 0xffffu);
 
         BAUDR = curr;
     }
@@ -793,7 +793,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_TXFTLR() volatile
     {
-        return TXFTLR & 0b11111111u;
+        return TXFTLR & 0xffu;
     }
 
     /**
@@ -805,8 +805,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = TXFTLR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         TXFTLR = curr;
     }
@@ -818,7 +818,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_RXFTLR() volatile
     {
-        return RXFTLR & 0b11111111u;
+        return RXFTLR & 0xffu;
     }
 
     /**
@@ -830,8 +830,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = RXFTLR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         RXFTLR = curr;
     }
@@ -843,7 +843,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_TXFLR() volatile
     {
-        return TXFLR & 0b11111111u;
+        return TXFLR & 0xffu;
     }
 
     /**
@@ -853,7 +853,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_RXFLR() volatile
     {
-        return RXFLR & 0b11111111u;
+        return RXFLR & 0xffu;
     }
 
     /**
@@ -1547,7 +1547,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_DMATDLR() volatile
     {
-        return DMATDLR & 0b11111111u;
+        return DMATDLR & 0xffu;
     }
 
     /**
@@ -1559,8 +1559,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = DMATDLR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         DMATDLR = curr;
     }
@@ -1572,7 +1572,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_DMARDLR() volatile
     {
-        return DMARDLR & 0b11111111u;
+        return DMARDLR & 0xffu;
     }
 
     /**
@@ -1584,8 +1584,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = DMARDLR;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         DMARDLR = curr;
     }
@@ -1597,7 +1597,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_RX_SAMPLE_DLY() volatile
     {
-        return RX_SAMPLE_DLY & 0b11111111u;
+        return RX_SAMPLE_DLY & 0xffu;
     }
 
     /**
@@ -1609,8 +1609,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = RX_SAMPLE_DLY;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         RX_SAMPLE_DLY = curr;
     }
@@ -1647,7 +1647,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_SPI_CTRLR0_ADDR_L() volatile
     {
-        return (SPI_CTRLR0 >> 2u) & 0b1111u;
+        return (SPI_CTRLR0 >> 2u) & 0xfu;
     }
 
     /**
@@ -1659,8 +1659,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = SPI_CTRLR0;
 
-        curr &= ~(0b1111u << 2u);
-        curr |= (value & 0b1111u) << 2u;
+        curr &= ~(0xfu << 2u);
+        curr |= (value & 0xfu) << 2u;
 
         SPI_CTRLR0 = curr;
     }
@@ -1842,7 +1842,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_SPI_CTRLR0_XIP_CMD() volatile
     {
-        return (SPI_CTRLR0 >> 24u) & 0b11111111u;
+        return (SPI_CTRLR0 >> 24u) & 0xffu;
     }
 
     /**
@@ -1854,8 +1854,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = SPI_CTRLR0;
 
-        curr &= ~(0b11111111u << 24u);
-        curr |= (value & 0b11111111u) << 24u;
+        curr &= ~(0xffu << 24u);
+        curr |= (value & 0xffu) << 24u;
 
         SPI_CTRLR0 = curr;
     }
@@ -1870,13 +1870,13 @@ struct [[gnu::packed]] xip_ssi
         uint32_t curr = SPI_CTRLR0;
 
         TRANS_TYPE = XIP_SSI_SPI_CTRLR0_TRANS_TYPE(curr & 0b11u);
-        ADDR_L = (curr >> 2u) & 0b1111u;
+        ADDR_L = (curr >> 2u) & 0xfu;
         INST_L = XIP_SSI_SPI_CTRLR0_INST_L((curr >> 8u) & 0b11u);
         WAIT_CYCLES = (curr >> 11u) & 0b11111u;
         SPI_DDR_EN = curr & (1u << 16u);
         INST_DDR_EN = curr & (1u << 17u);
         SPI_RXDS_EN = curr & (1u << 18u);
-        XIP_CMD = (curr >> 24u) & 0b11111111u;
+        XIP_CMD = (curr >> 24u) & 0xffu;
     }
 
     /**
@@ -1890,8 +1890,8 @@ struct [[gnu::packed]] xip_ssi
 
         curr &= ~(0b11u);
         curr |= (std::to_underlying(TRANS_TYPE) & 0b11u);
-        curr &= ~(0b1111u << 2u);
-        curr |= (ADDR_L & 0b1111u) << 2u;
+        curr &= ~(0xfu << 2u);
+        curr |= (ADDR_L & 0xfu) << 2u;
         curr &= ~(0b11u << 8u);
         curr |= (std::to_underlying(INST_L) & 0b11u) << 8u;
         curr &= ~(0b11111u << 11u);
@@ -1902,8 +1902,8 @@ struct [[gnu::packed]] xip_ssi
         curr |= (INST_DDR_EN & 0b1u) << 17u;
         curr &= ~(0b1u << 18u);
         curr |= (SPI_RXDS_EN & 0b1u) << 18u;
-        curr &= ~(0b11111111u << 24u);
-        curr |= (XIP_CMD & 0b11111111u) << 24u;
+        curr &= ~(0xffu << 24u);
+        curr |= (XIP_CMD & 0xffu) << 24u;
 
         SPI_CTRLR0 = curr;
     }
@@ -1915,7 +1915,7 @@ struct [[gnu::packed]] xip_ssi
      */
     inline uint8_t get_TXD_DRIVE_EDGE() volatile
     {
-        return TXD_DRIVE_EDGE & 0b11111111u;
+        return TXD_DRIVE_EDGE & 0xffu;
     }
 
     /**
@@ -1927,8 +1927,8 @@ struct [[gnu::packed]] xip_ssi
     {
         uint32_t curr = TXD_DRIVE_EDGE;
 
-        curr &= ~(0b11111111u);
-        curr |= (value & 0b11111111u);
+        curr &= ~(0xffu);
+        curr |= (value & 0xffu);
 
         TXD_DRIVE_EDGE = curr;
     }
