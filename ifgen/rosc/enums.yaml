@@ -1,0 +1,55 @@
+---
+enums:
+  ROSC_CTRL_FREQ_RANGE:
+    enum:
+      LOW:
+        value: 4004
+      MEDIUM:
+        value: 4005
+      TOOHIGH:
+        value: 4006
+      HIGH:
+        value: 4007
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  ROSC_CTRL_ENABLE:
+    enum:
+      DISABLE:
+        value: 3358
+      ENABLE:
+        value: 4011
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  ROSC_FREQA_PASSWD:
+    enum:
+      PASS:
+        value: 38550
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  ROSC_FREQB_PASSWD:
+    enum:
+      PASS:
+        value: 38550
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  ROSC_DIV_DIV:
+    enum:
+      PASS:
+        value: 2720
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t

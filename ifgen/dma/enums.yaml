@@ -1,0 +1,78 @@
+---
+enums:
+  DMA_SNIFF_CTRL_CALC:
+    enum:
+      CRC32:
+        description: |-
+          Calculate a CRC-32 (IEEE802.3 polynomial)
+        value: 0
+      CRC32R:
+        description: |-
+          Calculate a CRC-32 (IEEE802.3 polynomial) with bit reversed data
+        value: 1
+      CRC16:
+        description: |-
+          Calculate a CRC-16-CCITT
+        value: 2
+      CRC16R:
+        description: |-
+          Calculate a CRC-16-CCITT with bit reversed data
+        value: 3
+      EVEN:
+        description: |-
+          XOR reduction over all data. == 1 if the total 1 population count is odd.
+        value: 14
+      SUM:
+        description: |-
+          Calculate a simple 32-bit checksum (addition with a 32 bit accumulator)
+        value: 15
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_TREQ_SEL:
+    enum:
+      TIMER0:
+        description: |-
+          Select Timer 0 as TREQ
+        value: 59
+      TIMER1:
+        description: |-
+          Select Timer 1 as TREQ
+        value: 60
+      TIMER2:
+        description: |-
+          Select Timer 2 as TREQ (Optional)
+        value: 61
+      TIMER3:
+        description: |-
+          Select Timer 3 as TREQ (Optional)
+        value: 62
+      PERMANENT:
+        description: |-
+          Permanent request, for unpaced transfers.
+        value: 63
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_DATA_SIZE:
+    enum:
+      BYTE:
+        value: 0
+      HALFWORD:
+        value: 1
+      WORD:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  DMA_RING_SIZE:
+    enum:
+      RING_NONE:
+        value: 0
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

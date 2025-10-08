@@ -1,0 +1,42 @@
+---
+enums:
+  XOSC_CTRL_FREQ_RANGE:
+    enum:
+      _1_15MHZ:
+        value: 2720
+      RESERVED_1:
+        value: 2721
+      RESERVED_2:
+        value: 2722
+      RESERVED_3:
+        value: 2723
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  XOSC_CTRL_ENABLE:
+    enum:
+      DISABLE:
+        value: 3358
+      ENABLE:
+        value: 4011
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+    underlying: uint16_t
+  XOSC_STATUS_FREQ_RANGE:
+    enum:
+      _1_15MHZ:
+        value: 0
+      RESERVED_1:
+        value: 1
+      RESERVED_2:
+        value: 2
+      RESERVED_3:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

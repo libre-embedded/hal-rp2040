@@ -9,8 +9,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 0
-        description: (read-write) Reset control. If a bit is set it means the 
-          peripheral is in reset. 0 means the peripheral's reset is deasserted.
+        description: |-
+          (read-write) Reset control. If a bit is set it means the peripheral is in reset. 0 means the peripheral's reset is deasserted.
         fields:
           - name: adc
             index: 0
@@ -141,8 +141,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (read-write) Watchdog select. If a bit is set then the 
-          watchdog will reset this peripheral when the watchdog fires.
+        description: |-
+          (read-write) Watchdog select. If a bit is set then the watchdog will reset this peripheral when the watchdog fires.
         fields:
           - name: adc
             index: 0
@@ -274,9 +274,8 @@ structs:
         expected_size: 4
         expected_offset: 8
         const: true
-        description: (read-only) Reset done. If a bit is set then a reset done 
-          signal has been returned by the peripheral. This indicates that the 
-          peripheral's registers are ready to be accessed.
+        description: |-
+          (read-only) Reset done. If a bit is set then a reset done signal has been returned by the peripheral. This indicates that the peripheral's registers are ready to be accessed.
         fields:
           - name: adc
             index: 0
@@ -403,4 +402,3 @@ structs:
             width: 1
             read: true
             write: false
-enums: {}

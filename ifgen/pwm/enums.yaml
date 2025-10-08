@@ -1,0 +1,24 @@
+---
+enums:
+  PWM_DIVMODE:
+    enum:
+      div:
+        description: |-
+          Free-running counting at rate dictated by fractional divider
+        value: 0
+      level:
+        description: |-
+          Fractional divider operation is gated by the PWM B pin.
+        value: 1
+      rise:
+        description: |-
+          Counter advances with each rising edge of the PWM B pin.
+        value: 2
+      fall:
+        description: |-
+          Counter advances with each falling edge of the PWM B pin.
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

@@ -1,8 +1,8 @@
 ---
 structs:
   tbman:
-    description: Testbench manager. Allows the programmer to know what platform 
-      their software is running on.
+    description: |-
+      Testbench manager. Allows the programmer to know what platform their software is running on.
     instances:
       - name: TBMAN
         address: '0x4006c000'
@@ -12,18 +12,20 @@ structs:
         expected_size: 4
         expected_offset: 0
         const: true
-        description: (read-only) Indicates the type of platform in use
+        description: |-
+          (read-only) Indicates the type of platform in use
         fields:
           - name: ASIC
-            description: Indicates the platform is an ASIC
+            description: |-
+              Indicates the platform is an ASIC
             index: 0
             width: 1
             read: true
             write: false
           - name: FPGA
-            description: Indicates the platform is an FPGA
+            description: |-
+              Indicates the platform is an FPGA
             index: 1
             width: 1
             read: true
             write: false
-enums: {}

@@ -9,7 +9,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 0
-        description: (read-write) Force block out of reset (i.e. power it on)
+        description: |-
+          (read-write) Force block out of reset (i.e. power it on)
         fields:
           - name: rosc
             index: 0
@@ -100,7 +101,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 4
-        description: (read-write) Force into reset (i.e. power it off)
+        description: |-
+          (read-write) Force into reset (i.e. power it off)
         fields:
           - name: rosc
             index: 0
@@ -191,8 +193,8 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 8
-        description: (read-write) Set to 1 if this peripheral should be reset 
-          when the watchdog fires.
+        description: |-
+          (read-write) Set to 1 if this peripheral should be reset when the watchdog fires.
         fields:
           - name: rosc
             index: 0
@@ -284,8 +286,8 @@ structs:
         expected_size: 4
         expected_offset: 12
         const: true
-        description: (read-only) Indicates the peripheral's registers are ready 
-          to access.
+        description: |-
+          (read-only) Indicates the peripheral's registers are ready to access.
         fields:
           - name: rosc
             index: 0
@@ -372,4 +374,3 @@ structs:
             width: 1
             read: true
             write: false
-enums: {}

@@ -1,0 +1,118 @@
+---
+enums:
+  IO_QSPI_GPIO_QSPI_SCLK_CTRL_FUNCSEL:
+    enum:
+      xip_sclk:
+        value: 0
+      sio_30:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_GPIO_QSPI_SS_CTRL_FUNCSEL:
+    enum:
+      xip_ss_n:
+        value: 0
+      sio_31:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_GPIO_QSPI_SD0_CTRL_FUNCSEL:
+    enum:
+      xip_sd0:
+        value: 0
+      sio_32:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_GPIO_QSPI_SD1_CTRL_FUNCSEL:
+    enum:
+      xip_sd1:
+        value: 0
+      sio_33:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_GPIO_QSPI_SD2_CTRL_FUNCSEL:
+    enum:
+      xip_sd2:
+        value: 0
+      sio_34:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_GPIO_QSPI_SD3_CTRL_FUNCSEL:
+    enum:
+      xip_sd3:
+        value: 0
+      sio_35:
+        value: 5
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_OEOVER:
+    enum:
+      NORMAL:
+        description: |-
+          drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: |-
+          drive output enable from inverse of peripheral signal selected by funcsel
+        value: 1
+      DISABLE:
+        description: |-
+          disable output
+        value: 2
+      ENABLE:
+        description: |-
+          enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_QSPI_OVER:
+    enum:
+      NORMAL:
+        description: |-
+          drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: |-
+          drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: |-
+          drive output low
+        value: 2
+      HIGH:
+        description: |-
+          drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

@@ -10,7 +10,8 @@ structs:
         expected_size: 4
         expected_offset: 0
         const: true
-        description: (read-only) JEDEC JEP-106 compliant chip identifier.
+        description: |-
+          (read-only) JEDEC JEP-106 compliant chip identifier.
         fields:
           - name: MANUFACTURER
             index: 0
@@ -32,8 +33,8 @@ structs:
         expected_size: 4
         expected_offset: 4
         const: true
-        description: (read-only) Platform register. Allows software to know what
-          environment it is running in.
+        description: |-
+          (read-only) Platform register. Allows software to know what environment it is running in.
         fields:
           - name: FPGA
             index: 0
@@ -49,6 +50,5 @@ structs:
         type: uint32_t
         expected_size: 4
         expected_offset: 64
-        description: (read-write) Git hash of the chip source. Used to identify 
-          chip version.
-enums: {}
+        description: |-
+          (read-write) Git hash of the chip source. Used to identify chip version.

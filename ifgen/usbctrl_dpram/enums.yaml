@@ -1,0 +1,30 @@
+---
+enums:
+  USBCTRL_DPRAM_ENDPOINT_TYPE:
+    enum:
+      Control:
+        value: 0
+      Isochronous:
+        value: 1
+      Bulk:
+        value: 2
+      Interrupt:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  USBCTRL_DPRAM_ISO_OFFSET:
+    enum:
+      _128:
+        value: 0
+      _256:
+        value: 1
+      _512:
+        value: 2
+      _1024:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
