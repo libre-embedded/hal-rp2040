@@ -7,38 +7,7 @@
 #ifndef RP2040_STRUCTS_PADS_BANK_H
 #define RP2040_STRUCTS_PADS_BANK_H
 
-#include "../enums/PADS_BANK_GPIO0_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO10_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO11_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO12_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO13_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO14_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO15_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO16_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO17_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO18_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO19_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO1_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO20_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO21_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO22_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO23_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO24_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO25_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO26_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO27_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO28_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO29_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO2_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO3_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO4_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO5_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO6_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO7_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO8_DRIVE.h"
-#include "../enums/PADS_BANK_GPIO9_DRIVE.h"
-#include "../enums/PADS_BANK_SWCLK_DRIVE.h"
-#include "../enums/PADS_BANK_SWD_DRIVE.h"
+#include "../enums/PADS_BANK_DRIVE.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -284,9 +253,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO0_DRIVE get_GPIO0_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO0_DRIVE() volatile
     {
-        return PADS_BANK_GPIO0_DRIVE((GPIO0 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO0 >> 4u) & 0b11u);
     }
 
     /**
@@ -294,7 +263,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO0_DRIVE(PADS_BANK_GPIO0_DRIVE value) volatile
+    inline void set_GPIO0_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO0;
 
@@ -389,7 +358,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO0(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO0_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO0(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO0;
 
@@ -397,7 +366,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO0_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -407,7 +376,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO0(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO0_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO0(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO0;
 
@@ -594,9 +563,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO1_DRIVE get_GPIO1_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO1_DRIVE() volatile
     {
-        return PADS_BANK_GPIO1_DRIVE((GPIO1 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO1 >> 4u) & 0b11u);
     }
 
     /**
@@ -604,7 +573,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO1_DRIVE(PADS_BANK_GPIO1_DRIVE value) volatile
+    inline void set_GPIO1_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO1;
 
@@ -699,7 +668,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO1(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO1_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO1(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO1;
 
@@ -707,7 +676,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO1_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -717,7 +686,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO1(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO1_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO1(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO1;
 
@@ -904,9 +873,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO2_DRIVE get_GPIO2_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO2_DRIVE() volatile
     {
-        return PADS_BANK_GPIO2_DRIVE((GPIO2 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO2 >> 4u) & 0b11u);
     }
 
     /**
@@ -914,7 +883,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO2_DRIVE(PADS_BANK_GPIO2_DRIVE value) volatile
+    inline void set_GPIO2_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO2;
 
@@ -1009,7 +978,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO2(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO2_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO2(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO2;
 
@@ -1017,7 +986,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO2_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -1027,7 +996,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO2(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO2_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO2(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO2;
 
@@ -1214,9 +1183,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO3_DRIVE get_GPIO3_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO3_DRIVE() volatile
     {
-        return PADS_BANK_GPIO3_DRIVE((GPIO3 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO3 >> 4u) & 0b11u);
     }
 
     /**
@@ -1224,7 +1193,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO3_DRIVE(PADS_BANK_GPIO3_DRIVE value) volatile
+    inline void set_GPIO3_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO3;
 
@@ -1319,7 +1288,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO3(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO3_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO3(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO3;
 
@@ -1327,7 +1296,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO3_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -1337,7 +1306,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO3(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO3_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO3(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO3;
 
@@ -1524,9 +1493,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO4_DRIVE get_GPIO4_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO4_DRIVE() volatile
     {
-        return PADS_BANK_GPIO4_DRIVE((GPIO4 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO4 >> 4u) & 0b11u);
     }
 
     /**
@@ -1534,7 +1503,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO4_DRIVE(PADS_BANK_GPIO4_DRIVE value) volatile
+    inline void set_GPIO4_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO4;
 
@@ -1629,7 +1598,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO4(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO4_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO4(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO4;
 
@@ -1637,7 +1606,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO4_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -1647,7 +1616,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO4(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO4_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO4(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO4;
 
@@ -1834,9 +1803,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO5_DRIVE get_GPIO5_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO5_DRIVE() volatile
     {
-        return PADS_BANK_GPIO5_DRIVE((GPIO5 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO5 >> 4u) & 0b11u);
     }
 
     /**
@@ -1844,7 +1813,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO5_DRIVE(PADS_BANK_GPIO5_DRIVE value) volatile
+    inline void set_GPIO5_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO5;
 
@@ -1939,7 +1908,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO5(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO5_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO5(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO5;
 
@@ -1947,7 +1916,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO5_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -1957,7 +1926,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO5(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO5_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO5(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO5;
 
@@ -2144,9 +2113,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO6_DRIVE get_GPIO6_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO6_DRIVE() volatile
     {
-        return PADS_BANK_GPIO6_DRIVE((GPIO6 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO6 >> 4u) & 0b11u);
     }
 
     /**
@@ -2154,7 +2123,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO6_DRIVE(PADS_BANK_GPIO6_DRIVE value) volatile
+    inline void set_GPIO6_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO6;
 
@@ -2249,7 +2218,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO6(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO6_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO6(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO6;
 
@@ -2257,7 +2226,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO6_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -2267,7 +2236,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO6(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO6_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO6(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO6;
 
@@ -2454,9 +2423,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO7_DRIVE get_GPIO7_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO7_DRIVE() volatile
     {
-        return PADS_BANK_GPIO7_DRIVE((GPIO7 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO7 >> 4u) & 0b11u);
     }
 
     /**
@@ -2464,7 +2433,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO7_DRIVE(PADS_BANK_GPIO7_DRIVE value) volatile
+    inline void set_GPIO7_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO7;
 
@@ -2559,7 +2528,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO7(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO7_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO7(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO7;
 
@@ -2567,7 +2536,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO7_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -2577,7 +2546,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO7(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO7_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO7(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO7;
 
@@ -2764,9 +2733,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO8_DRIVE get_GPIO8_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO8_DRIVE() volatile
     {
-        return PADS_BANK_GPIO8_DRIVE((GPIO8 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO8 >> 4u) & 0b11u);
     }
 
     /**
@@ -2774,7 +2743,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO8_DRIVE(PADS_BANK_GPIO8_DRIVE value) volatile
+    inline void set_GPIO8_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO8;
 
@@ -2869,7 +2838,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO8(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO8_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO8(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO8;
 
@@ -2877,7 +2846,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO8_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -2887,7 +2856,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO8(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO8_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO8(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO8;
 
@@ -3074,9 +3043,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO9_DRIVE get_GPIO9_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO9_DRIVE() volatile
     {
-        return PADS_BANK_GPIO9_DRIVE((GPIO9 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO9 >> 4u) & 0b11u);
     }
 
     /**
@@ -3084,7 +3053,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO9_DRIVE(PADS_BANK_GPIO9_DRIVE value) volatile
+    inline void set_GPIO9_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO9;
 
@@ -3179,7 +3148,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO9(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO9_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO9(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO9;
 
@@ -3187,7 +3156,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO9_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -3197,7 +3166,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO9(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO9_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO9(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO9;
 
@@ -3384,9 +3353,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO10_DRIVE get_GPIO10_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO10_DRIVE() volatile
     {
-        return PADS_BANK_GPIO10_DRIVE((GPIO10 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO10 >> 4u) & 0b11u);
     }
 
     /**
@@ -3394,7 +3363,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO10_DRIVE(PADS_BANK_GPIO10_DRIVE value) volatile
+    inline void set_GPIO10_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO10;
 
@@ -3489,7 +3458,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO10(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO10_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO10(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO10;
 
@@ -3497,7 +3466,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO10_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -3507,7 +3476,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO10(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO10_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO10(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO10;
 
@@ -3694,9 +3663,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO11_DRIVE get_GPIO11_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO11_DRIVE() volatile
     {
-        return PADS_BANK_GPIO11_DRIVE((GPIO11 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO11 >> 4u) & 0b11u);
     }
 
     /**
@@ -3704,7 +3673,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO11_DRIVE(PADS_BANK_GPIO11_DRIVE value) volatile
+    inline void set_GPIO11_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO11;
 
@@ -3799,7 +3768,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO11(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO11_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO11(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO11;
 
@@ -3807,7 +3776,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO11_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -3817,7 +3786,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO11(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO11_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO11(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO11;
 
@@ -4004,9 +3973,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO12_DRIVE get_GPIO12_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO12_DRIVE() volatile
     {
-        return PADS_BANK_GPIO12_DRIVE((GPIO12 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO12 >> 4u) & 0b11u);
     }
 
     /**
@@ -4014,7 +3983,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO12_DRIVE(PADS_BANK_GPIO12_DRIVE value) volatile
+    inline void set_GPIO12_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO12;
 
@@ -4109,7 +4078,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO12(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO12_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO12(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO12;
 
@@ -4117,7 +4086,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO12_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -4127,7 +4096,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO12(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO12_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO12(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO12;
 
@@ -4314,9 +4283,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO13_DRIVE get_GPIO13_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO13_DRIVE() volatile
     {
-        return PADS_BANK_GPIO13_DRIVE((GPIO13 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO13 >> 4u) & 0b11u);
     }
 
     /**
@@ -4324,7 +4293,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO13_DRIVE(PADS_BANK_GPIO13_DRIVE value) volatile
+    inline void set_GPIO13_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO13;
 
@@ -4419,7 +4388,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO13(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO13_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO13(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO13;
 
@@ -4427,7 +4396,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO13_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -4437,7 +4406,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO13(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO13_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO13(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO13;
 
@@ -4624,9 +4593,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO14_DRIVE get_GPIO14_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO14_DRIVE() volatile
     {
-        return PADS_BANK_GPIO14_DRIVE((GPIO14 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO14 >> 4u) & 0b11u);
     }
 
     /**
@@ -4634,7 +4603,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO14_DRIVE(PADS_BANK_GPIO14_DRIVE value) volatile
+    inline void set_GPIO14_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO14;
 
@@ -4729,7 +4698,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO14(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO14_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO14(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO14;
 
@@ -4737,7 +4706,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO14_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -4747,7 +4716,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO14(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO14_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO14(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO14;
 
@@ -4934,9 +4903,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO15_DRIVE get_GPIO15_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO15_DRIVE() volatile
     {
-        return PADS_BANK_GPIO15_DRIVE((GPIO15 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO15 >> 4u) & 0b11u);
     }
 
     /**
@@ -4944,7 +4913,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO15_DRIVE(PADS_BANK_GPIO15_DRIVE value) volatile
+    inline void set_GPIO15_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO15;
 
@@ -5039,7 +5008,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO15(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO15_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO15(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO15;
 
@@ -5047,7 +5016,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO15_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -5057,7 +5026,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO15(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO15_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO15(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO15;
 
@@ -5244,9 +5213,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO16_DRIVE get_GPIO16_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO16_DRIVE() volatile
     {
-        return PADS_BANK_GPIO16_DRIVE((GPIO16 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO16 >> 4u) & 0b11u);
     }
 
     /**
@@ -5254,7 +5223,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO16_DRIVE(PADS_BANK_GPIO16_DRIVE value) volatile
+    inline void set_GPIO16_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO16;
 
@@ -5349,7 +5318,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO16(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO16_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO16(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO16;
 
@@ -5357,7 +5326,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO16_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -5367,7 +5336,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO16(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO16_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO16(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO16;
 
@@ -5554,9 +5523,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO17_DRIVE get_GPIO17_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO17_DRIVE() volatile
     {
-        return PADS_BANK_GPIO17_DRIVE((GPIO17 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO17 >> 4u) & 0b11u);
     }
 
     /**
@@ -5564,7 +5533,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO17_DRIVE(PADS_BANK_GPIO17_DRIVE value) volatile
+    inline void set_GPIO17_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO17;
 
@@ -5659,7 +5628,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO17(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO17_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO17(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO17;
 
@@ -5667,7 +5636,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO17_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -5677,7 +5646,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO17(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO17_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO17(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO17;
 
@@ -5864,9 +5833,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO18_DRIVE get_GPIO18_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO18_DRIVE() volatile
     {
-        return PADS_BANK_GPIO18_DRIVE((GPIO18 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO18 >> 4u) & 0b11u);
     }
 
     /**
@@ -5874,7 +5843,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO18_DRIVE(PADS_BANK_GPIO18_DRIVE value) volatile
+    inline void set_GPIO18_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO18;
 
@@ -5969,7 +5938,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO18(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO18_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO18(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO18;
 
@@ -5977,7 +5946,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO18_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -5987,7 +5956,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO18(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO18_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO18(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO18;
 
@@ -6174,9 +6143,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO19_DRIVE get_GPIO19_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO19_DRIVE() volatile
     {
-        return PADS_BANK_GPIO19_DRIVE((GPIO19 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO19 >> 4u) & 0b11u);
     }
 
     /**
@@ -6184,7 +6153,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO19_DRIVE(PADS_BANK_GPIO19_DRIVE value) volatile
+    inline void set_GPIO19_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO19;
 
@@ -6279,7 +6248,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO19(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO19_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO19(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO19;
 
@@ -6287,7 +6256,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO19_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -6297,7 +6266,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO19(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO19_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO19(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO19;
 
@@ -6484,9 +6453,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO20_DRIVE get_GPIO20_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO20_DRIVE() volatile
     {
-        return PADS_BANK_GPIO20_DRIVE((GPIO20 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO20 >> 4u) & 0b11u);
     }
 
     /**
@@ -6494,7 +6463,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO20_DRIVE(PADS_BANK_GPIO20_DRIVE value) volatile
+    inline void set_GPIO20_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO20;
 
@@ -6589,7 +6558,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO20(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO20_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO20(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO20;
 
@@ -6597,7 +6566,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO20_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -6607,7 +6576,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO20(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO20_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO20(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO20;
 
@@ -6794,9 +6763,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO21_DRIVE get_GPIO21_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO21_DRIVE() volatile
     {
-        return PADS_BANK_GPIO21_DRIVE((GPIO21 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO21 >> 4u) & 0b11u);
     }
 
     /**
@@ -6804,7 +6773,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO21_DRIVE(PADS_BANK_GPIO21_DRIVE value) volatile
+    inline void set_GPIO21_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO21;
 
@@ -6899,7 +6868,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO21(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO21_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO21(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO21;
 
@@ -6907,7 +6876,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO21_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -6917,7 +6886,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO21(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO21_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO21(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO21;
 
@@ -7104,9 +7073,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO22_DRIVE get_GPIO22_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO22_DRIVE() volatile
     {
-        return PADS_BANK_GPIO22_DRIVE((GPIO22 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO22 >> 4u) & 0b11u);
     }
 
     /**
@@ -7114,7 +7083,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO22_DRIVE(PADS_BANK_GPIO22_DRIVE value) volatile
+    inline void set_GPIO22_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO22;
 
@@ -7209,7 +7178,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO22(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO22_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO22(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO22;
 
@@ -7217,7 +7186,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO22_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -7227,7 +7196,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO22(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO22_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO22(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO22;
 
@@ -7414,9 +7383,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO23_DRIVE get_GPIO23_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO23_DRIVE() volatile
     {
-        return PADS_BANK_GPIO23_DRIVE((GPIO23 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO23 >> 4u) & 0b11u);
     }
 
     /**
@@ -7424,7 +7393,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO23_DRIVE(PADS_BANK_GPIO23_DRIVE value) volatile
+    inline void set_GPIO23_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO23;
 
@@ -7519,7 +7488,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO23(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO23_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO23(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO23;
 
@@ -7527,7 +7496,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO23_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -7537,7 +7506,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO23(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO23_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO23(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO23;
 
@@ -7724,9 +7693,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO24_DRIVE get_GPIO24_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO24_DRIVE() volatile
     {
-        return PADS_BANK_GPIO24_DRIVE((GPIO24 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO24 >> 4u) & 0b11u);
     }
 
     /**
@@ -7734,7 +7703,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO24_DRIVE(PADS_BANK_GPIO24_DRIVE value) volatile
+    inline void set_GPIO24_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO24;
 
@@ -7829,7 +7798,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO24(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO24_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO24(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO24;
 
@@ -7837,7 +7806,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO24_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -7847,7 +7816,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO24(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO24_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO24(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO24;
 
@@ -8034,9 +8003,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO25_DRIVE get_GPIO25_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO25_DRIVE() volatile
     {
-        return PADS_BANK_GPIO25_DRIVE((GPIO25 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO25 >> 4u) & 0b11u);
     }
 
     /**
@@ -8044,7 +8013,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO25_DRIVE(PADS_BANK_GPIO25_DRIVE value) volatile
+    inline void set_GPIO25_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO25;
 
@@ -8139,7 +8108,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO25(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO25_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO25(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO25;
 
@@ -8147,7 +8116,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO25_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -8157,7 +8126,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO25(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO25_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO25(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO25;
 
@@ -8344,9 +8313,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO26_DRIVE get_GPIO26_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO26_DRIVE() volatile
     {
-        return PADS_BANK_GPIO26_DRIVE((GPIO26 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO26 >> 4u) & 0b11u);
     }
 
     /**
@@ -8354,7 +8323,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO26_DRIVE(PADS_BANK_GPIO26_DRIVE value) volatile
+    inline void set_GPIO26_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO26;
 
@@ -8449,7 +8418,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO26(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO26_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO26(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO26;
 
@@ -8457,7 +8426,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO26_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -8467,7 +8436,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO26(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO26_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO26(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO26;
 
@@ -8654,9 +8623,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO27_DRIVE get_GPIO27_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO27_DRIVE() volatile
     {
-        return PADS_BANK_GPIO27_DRIVE((GPIO27 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO27 >> 4u) & 0b11u);
     }
 
     /**
@@ -8664,7 +8633,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO27_DRIVE(PADS_BANK_GPIO27_DRIVE value) volatile
+    inline void set_GPIO27_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO27;
 
@@ -8759,7 +8728,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO27(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO27_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO27(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO27;
 
@@ -8767,7 +8736,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO27_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -8777,7 +8746,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO27(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO27_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO27(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO27;
 
@@ -8964,9 +8933,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO28_DRIVE get_GPIO28_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO28_DRIVE() volatile
     {
-        return PADS_BANK_GPIO28_DRIVE((GPIO28 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO28 >> 4u) & 0b11u);
     }
 
     /**
@@ -8974,7 +8943,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO28_DRIVE(PADS_BANK_GPIO28_DRIVE value) volatile
+    inline void set_GPIO28_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO28;
 
@@ -9069,7 +9038,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO28(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO28_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO28(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO28;
 
@@ -9077,7 +9046,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO28_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -9087,7 +9056,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO28(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO28_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO28(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO28;
 
@@ -9274,9 +9243,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_GPIO29_DRIVE get_GPIO29_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_GPIO29_DRIVE() volatile
     {
-        return PADS_BANK_GPIO29_DRIVE((GPIO29 >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((GPIO29 >> 4u) & 0b11u);
     }
 
     /**
@@ -9284,7 +9253,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_GPIO29_DRIVE(PADS_BANK_GPIO29_DRIVE value) volatile
+    inline void set_GPIO29_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = GPIO29;
 
@@ -9379,7 +9348,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_GPIO29(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_GPIO29_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_GPIO29(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = GPIO29;
 
@@ -9387,7 +9356,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_GPIO29_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -9397,7 +9366,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_GPIO29(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_GPIO29_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_GPIO29(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = GPIO29;
 
@@ -9584,9 +9553,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_SWCLK_DRIVE get_SWCLK_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_SWCLK_DRIVE() volatile
     {
-        return PADS_BANK_SWCLK_DRIVE((SWCLK >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((SWCLK >> 4u) & 0b11u);
     }
 
     /**
@@ -9594,7 +9563,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_SWCLK_DRIVE(PADS_BANK_SWCLK_DRIVE value) volatile
+    inline void set_SWCLK_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = SWCLK;
 
@@ -9689,7 +9658,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_SWCLK(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_SWCLK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_SWCLK(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = SWCLK;
 
@@ -9697,7 +9666,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_SWCLK_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -9707,7 +9676,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_SWCLK(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_SWCLK_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_SWCLK(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = SWCLK;
 
@@ -9894,9 +9863,9 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline PADS_BANK_SWD_DRIVE get_SWD_DRIVE() volatile
+    inline PADS_BANK_DRIVE get_SWD_DRIVE() volatile
     {
-        return PADS_BANK_SWD_DRIVE((SWD >> 4u) & 0b11u);
+        return PADS_BANK_DRIVE((SWD >> 4u) & 0b11u);
     }
 
     /**
@@ -9904,7 +9873,7 @@ struct [[gnu::packed]] pads_bank
      *
      * Drive strength.
      */
-    inline void set_SWD_DRIVE(PADS_BANK_SWD_DRIVE value) volatile
+    inline void set_SWD_DRIVE(PADS_BANK_DRIVE value) volatile
     {
         uint32_t curr = SWD;
 
@@ -9999,7 +9968,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void get_SWD(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_SWD_DRIVE &DRIVE, bool &IE, bool &OD) volatile
+    inline void get_SWD(bool &SLEWFAST, bool &SCHMITT, bool &PDE, bool &PUE, PADS_BANK_DRIVE &DRIVE, bool &IE, bool &OD) volatile
     {
         uint32_t curr = SWD;
 
@@ -10007,7 +9976,7 @@ struct [[gnu::packed]] pads_bank
         SCHMITT = curr & (1u << 1u);
         PDE = curr & (1u << 2u);
         PUE = curr & (1u << 3u);
-        DRIVE = PADS_BANK_SWD_DRIVE((curr >> 4u) & 0b11u);
+        DRIVE = PADS_BANK_DRIVE((curr >> 4u) & 0b11u);
         IE = curr & (1u << 6u);
         OD = curr & (1u << 7u);
     }
@@ -10017,7 +9986,7 @@ struct [[gnu::packed]] pads_bank
      *
      * (read-write) Pad control register
      */
-    inline void set_SWD(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_SWD_DRIVE DRIVE, bool IE, bool OD) volatile
+    inline void set_SWD(bool SLEWFAST, bool SCHMITT, bool PDE, bool PUE, PADS_BANK_DRIVE DRIVE, bool IE, bool OD) volatile
     {
         uint32_t curr = SWD;
 

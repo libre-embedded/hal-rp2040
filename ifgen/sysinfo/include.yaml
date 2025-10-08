@@ -52,4 +52,3 @@ structs:
         expected_offset: 64
         description: |-
           (read-write) Git hash of the chip source. Used to identify chip version.
-enums: {}

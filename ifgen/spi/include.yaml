@@ -438,4 +438,3 @@ structs:
             width: 8
             read: true
             write: false
-enums: {}

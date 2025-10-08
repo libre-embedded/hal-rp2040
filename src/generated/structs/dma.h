@@ -7,10 +7,10 @@
 #ifndef RP2040_STRUCTS_DMA_H
 #define RP2040_STRUCTS_DMA_H
 
-#include "../enums/DMA_CH_CTRL_TRIG_DATA_SIZE.h"
-#include "../enums/DMA_CH_CTRL_TRIG_RING_SIZE.h"
-#include "../enums/DMA_CH_CTRL_TRIG_TREQ_SEL.h"
+#include "../enums/DMA_DATA_SIZE.h"
+#include "../enums/DMA_RING_SIZE.h"
 #include "../enums/DMA_SNIFF_CTRL_CALC.h"
+#include "../enums/DMA_TREQ_SEL.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -532,9 +532,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH0_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH0_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH0_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH0_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -542,7 +542,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH0_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH0_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -646,9 +646,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH0_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH0_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH0_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH0_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -657,7 +657,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH0_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH0_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -743,9 +743,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH0_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH0_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH0_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH0_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -755,7 +755,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH0_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH0_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -1011,19 +1011,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 0 Control and Status
      */
-    inline void get_CH0_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH0_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -1038,7 +1038,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 0 Control and Status
      */
-    inline void set_CH0_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH0_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH0_CTRL_TRIG;
 
@@ -1167,9 +1167,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH1_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH1_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH1_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH1_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -1177,7 +1177,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH1_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH1_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1281,9 +1281,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH1_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH1_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH1_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH1_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -1292,7 +1292,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH1_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH1_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1378,9 +1378,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH1_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH1_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH1_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH1_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -1390,7 +1390,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH1_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH1_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1646,19 +1646,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 1 Control and Status
      */
-    inline void get_CH1_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH1_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -1673,7 +1673,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 1 Control and Status
      */
-    inline void set_CH1_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH1_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH1_CTRL_TRIG;
 
@@ -1802,9 +1802,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH2_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH2_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH2_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH2_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -1812,7 +1812,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH2_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH2_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -1916,9 +1916,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH2_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH2_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH2_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH2_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -1927,7 +1927,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH2_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH2_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2013,9 +2013,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH2_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH2_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH2_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH2_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -2025,7 +2025,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH2_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH2_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2281,19 +2281,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 2 Control and Status
      */
-    inline void get_CH2_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH2_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -2308,7 +2308,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 2 Control and Status
      */
-    inline void set_CH2_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH2_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH2_CTRL_TRIG;
 
@@ -2437,9 +2437,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH3_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH3_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH3_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH3_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -2447,7 +2447,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH3_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH3_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2551,9 +2551,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH3_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH3_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH3_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH3_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -2562,7 +2562,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH3_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH3_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2648,9 +2648,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH3_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH3_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH3_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH3_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -2660,7 +2660,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH3_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH3_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -2916,19 +2916,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 3 Control and Status
      */
-    inline void get_CH3_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH3_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -2943,7 +2943,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 3 Control and Status
      */
-    inline void set_CH3_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH3_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH3_CTRL_TRIG;
 
@@ -3072,9 +3072,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH4_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH4_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH4_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH4_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -3082,7 +3082,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH4_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH4_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3186,9 +3186,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH4_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH4_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH4_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH4_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -3197,7 +3197,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH4_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH4_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3283,9 +3283,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH4_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH4_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH4_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH4_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -3295,7 +3295,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH4_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH4_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3551,19 +3551,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 4 Control and Status
      */
-    inline void get_CH4_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH4_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -3578,7 +3578,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 4 Control and Status
      */
-    inline void set_CH4_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH4_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH4_CTRL_TRIG;
 
@@ -3707,9 +3707,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH5_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH5_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH5_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH5_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -3717,7 +3717,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH5_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH5_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -3821,9 +3821,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH5_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH5_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH5_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH5_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -3832,7 +3832,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH5_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH5_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -3918,9 +3918,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH5_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH5_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH5_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH5_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -3930,7 +3930,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH5_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH5_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -4186,19 +4186,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 5 Control and Status
      */
-    inline void get_CH5_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH5_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -4213,7 +4213,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 5 Control and Status
      */
-    inline void set_CH5_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH5_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH5_CTRL_TRIG;
 
@@ -4342,9 +4342,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH6_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH6_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH6_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH6_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -4352,7 +4352,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH6_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH6_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4456,9 +4456,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH6_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH6_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH6_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH6_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -4467,7 +4467,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH6_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH6_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4553,9 +4553,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH6_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH6_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH6_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH6_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -4565,7 +4565,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH6_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH6_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4821,19 +4821,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 6 Control and Status
      */
-    inline void get_CH6_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH6_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -4848,7 +4848,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 6 Control and Status
      */
-    inline void set_CH6_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH6_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH6_CTRL_TRIG;
 
@@ -4977,9 +4977,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH7_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH7_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH7_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH7_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -4987,7 +4987,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH7_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH7_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5091,9 +5091,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH7_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH7_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH7_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH7_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -5102,7 +5102,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH7_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH7_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5188,9 +5188,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH7_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH7_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH7_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH7_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -5200,7 +5200,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH7_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH7_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5456,19 +5456,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 7 Control and Status
      */
-    inline void get_CH7_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH7_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -5483,7 +5483,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 7 Control and Status
      */
-    inline void set_CH7_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH7_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH7_CTRL_TRIG;
 
@@ -5612,9 +5612,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH8_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH8_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH8_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH8_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -5622,7 +5622,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH8_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH8_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -5726,9 +5726,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH8_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH8_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH8_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH8_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -5737,7 +5737,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH8_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH8_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -5823,9 +5823,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH8_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH8_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH8_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH8_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -5835,7 +5835,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH8_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH8_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -6091,19 +6091,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 8 Control and Status
      */
-    inline void get_CH8_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH8_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -6118,7 +6118,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 8 Control and Status
      */
-    inline void set_CH8_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH8_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH8_CTRL_TRIG;
 
@@ -6247,9 +6247,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH9_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH9_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH9_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH9_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -6257,7 +6257,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH9_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH9_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6361,9 +6361,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH9_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH9_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH9_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH9_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -6372,7 +6372,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH9_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH9_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6458,9 +6458,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH9_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH9_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH9_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH9_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -6470,7 +6470,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH9_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH9_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6726,19 +6726,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 9 Control and Status
      */
-    inline void get_CH9_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH9_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -6753,7 +6753,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 9 Control and Status
      */
-    inline void set_CH9_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH9_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH9_CTRL_TRIG;
 
@@ -6882,9 +6882,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH10_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH10_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH10_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH10_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -6892,7 +6892,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH10_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH10_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -6996,9 +6996,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH10_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH10_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH10_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH10_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -7007,7 +7007,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH10_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH10_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7093,9 +7093,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH10_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH10_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH10_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH10_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -7105,7 +7105,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH10_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH10_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7361,19 +7361,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 10 Control and Status
      */
-    inline void get_CH10_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH10_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -7388,7 +7388,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 10 Control and Status
      */
-    inline void set_CH10_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH10_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH10_CTRL_TRIG;
 
@@ -7517,9 +7517,9 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_CH_CTRL_TRIG_DATA_SIZE get_CH11_CTRL_TRIG_DATA_SIZE() volatile
+    inline DMA_DATA_SIZE get_CH11_CTRL_TRIG_DATA_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_DATA_SIZE((CH11_CTRL_TRIG >> 2u) & 0b11u);
+        return DMA_DATA_SIZE((CH11_CTRL_TRIG >> 2u) & 0b11u);
     }
 
     /**
@@ -7527,7 +7527,7 @@ struct [[gnu::packed]] dma
      *
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CH11_CTRL_TRIG_DATA_SIZE(DMA_CH_CTRL_TRIG_DATA_SIZE value) volatile
+    inline void set_CH11_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7631,9 +7631,9 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_CH_CTRL_TRIG_RING_SIZE get_CH11_CTRL_TRIG_RING_SIZE() volatile
+    inline DMA_RING_SIZE get_CH11_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_CH_CTRL_TRIG_RING_SIZE((CH11_CTRL_TRIG >> 6u) & 0xfu);
+        return DMA_RING_SIZE((CH11_CTRL_TRIG >> 6u) & 0xfu);
     }
 
     /**
@@ -7642,7 +7642,7 @@ struct [[gnu::packed]] dma
      * Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
      *                 Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CH11_CTRL_TRIG_RING_SIZE(DMA_CH_CTRL_TRIG_RING_SIZE value) volatile
+    inline void set_CH11_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7728,9 +7728,9 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline DMA_CH_CTRL_TRIG_TREQ_SEL get_CH11_CTRL_TRIG_TREQ_SEL() volatile
+    inline DMA_TREQ_SEL get_CH11_CTRL_TRIG_TREQ_SEL() volatile
     {
-        return DMA_CH_CTRL_TRIG_TREQ_SEL((CH11_CTRL_TRIG >> 15u) & 0b111111u);
+        return DMA_TREQ_SEL((CH11_CTRL_TRIG >> 15u) & 0b111111u);
     }
 
     /**
@@ -7740,7 +7740,7 @@ struct [[gnu::packed]] dma
      *                 The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
      *                 0x0 to 0x3a -> select DREQ n as TREQ
      */
-    inline void set_CH11_CTRL_TRIG_TREQ_SEL(DMA_CH_CTRL_TRIG_TREQ_SEL value) volatile
+    inline void set_CH11_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
@@ -7996,19 +7996,19 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 11 Control and Status
      */
-    inline void get_CH11_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
+    inline void get_CH11_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY, DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ, bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE, bool &RING_SEL, uint8_t &CHAIN_TO, DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET, bool &BSWAP, bool &SNIFF_EN, bool &BUSY, bool &WRITE_ERROR, bool &READ_ERROR, bool &AHB_ERROR) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 
         EN = curr & 1u;
         HIGH_PRIORITY = curr & (1u << 1u);
-        DATA_SIZE = DMA_CH_CTRL_TRIG_DATA_SIZE((curr >> 2u) & 0b11u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_CH_CTRL_TRIG_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
-        TREQ_SEL = DMA_CH_CTRL_TRIG_TREQ_SEL((curr >> 15u) & 0b111111u);
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
         IRQ_QUIET = curr & (1u << 21u);
         BSWAP = curr & (1u << 22u);
         SNIFF_EN = curr & (1u << 23u);
@@ -8023,7 +8023,7 @@ struct [[gnu::packed]] dma
      *
      * (read-write) DMA Channel 11 Control and Status
      */
-    inline void set_CH11_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_CH_CTRL_TRIG_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_CH_CTRL_TRIG_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_CH_CTRL_TRIG_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
+    inline void set_CH11_CTRL_TRIG(bool EN, bool HIGH_PRIORITY, DMA_DATA_SIZE DATA_SIZE, bool INCR_READ, bool INCR_WRITE, DMA_RING_SIZE RING_SIZE, bool RING_SEL, uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = CH11_CTRL_TRIG;
 

@@ -7,8 +7,6 @@
 #ifndef RP2040_STRUCTS_IO_BANK_H
 #define RP2040_STRUCTS_IO_BANK_H
 
-#include "../enums/IO_BANK_CTRL_OEOVER.h"
-#include "../enums/IO_BANK_CTRL_OVER.h"
 #include "../enums/IO_BANK_GPIO0_CTRL_FUNCSEL.h"
 #include "../enums/IO_BANK_GPIO10_CTRL_FUNCSEL.h"
 #include "../enums/IO_BANK_GPIO11_CTRL_FUNCSEL.h"
@@ -39,6 +37,8 @@
 #include "../enums/IO_BANK_GPIO7_CTRL_FUNCSEL.h"
 #include "../enums/IO_BANK_GPIO8_CTRL_FUNCSEL.h"
 #include "../enums/IO_BANK_GPIO9_CTRL_FUNCSEL.h"
+#include "../enums/IO_BANK_OEOVER.h"
+#include "../enums/IO_BANK_OVER.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -283,15 +283,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO0_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO0_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO0_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO0_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO0_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's OUTOVER field.
      */
-    inline void set_GPIO0_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO0_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -304,15 +304,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO0_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO0_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO0_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO0_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO0_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's OEOVER field.
      */
-    inline void set_GPIO0_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO0_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -325,15 +325,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO0_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO0_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO0_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO0_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO0_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's INOVER field.
      */
-    inline void set_GPIO0_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO0_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -346,15 +346,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO0_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO0_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO0_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO0_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO0_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO0_CTRL's IRQOVER field.
      */
-    inline void set_GPIO0_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO0_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -369,15 +369,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
         FUNCSEL = IO_BANK_GPIO0_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -385,7 +385,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO0_CTRL(IO_BANK_GPIO0_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO0_CTRL;
 
@@ -532,15 +532,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO1_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO1_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO1_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO1_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO1_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's OUTOVER field.
      */
-    inline void set_GPIO1_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO1_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -553,15 +553,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO1_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO1_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO1_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO1_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO1_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's OEOVER field.
      */
-    inline void set_GPIO1_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO1_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -574,15 +574,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO1_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO1_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO1_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO1_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO1_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's INOVER field.
      */
-    inline void set_GPIO1_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO1_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -595,15 +595,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO1_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO1_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO1_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO1_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO1_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO1_CTRL's IRQOVER field.
      */
-    inline void set_GPIO1_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO1_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -618,15 +618,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
         FUNCSEL = IO_BANK_GPIO1_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -634,7 +634,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO1_CTRL(IO_BANK_GPIO1_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO1_CTRL;
 
@@ -781,15 +781,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO2_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO2_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO2_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO2_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO2_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's OUTOVER field.
      */
-    inline void set_GPIO2_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO2_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -802,15 +802,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO2_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO2_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO2_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO2_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO2_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's OEOVER field.
      */
-    inline void set_GPIO2_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO2_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -823,15 +823,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO2_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO2_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO2_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO2_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO2_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's INOVER field.
      */
-    inline void set_GPIO2_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO2_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -844,15 +844,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO2_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO2_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO2_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO2_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO2_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO2_CTRL's IRQOVER field.
      */
-    inline void set_GPIO2_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO2_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -867,15 +867,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
         FUNCSEL = IO_BANK_GPIO2_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -883,7 +883,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO2_CTRL(IO_BANK_GPIO2_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO2_CTRL;
 
@@ -1030,15 +1030,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO3_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO3_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO3_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO3_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO3_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's OUTOVER field.
      */
-    inline void set_GPIO3_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO3_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1051,15 +1051,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO3_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO3_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO3_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO3_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO3_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's OEOVER field.
      */
-    inline void set_GPIO3_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO3_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1072,15 +1072,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO3_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO3_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO3_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO3_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO3_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's INOVER field.
      */
-    inline void set_GPIO3_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO3_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1093,15 +1093,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO3_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO3_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO3_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO3_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO3_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO3_CTRL's IRQOVER field.
      */
-    inline void set_GPIO3_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO3_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1116,15 +1116,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
         FUNCSEL = IO_BANK_GPIO3_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -1132,7 +1132,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO3_CTRL(IO_BANK_GPIO3_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO3_CTRL;
 
@@ -1279,15 +1279,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO4_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO4_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO4_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO4_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO4_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's OUTOVER field.
      */
-    inline void set_GPIO4_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO4_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1300,15 +1300,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO4_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO4_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO4_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO4_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO4_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's OEOVER field.
      */
-    inline void set_GPIO4_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO4_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1321,15 +1321,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO4_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO4_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO4_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO4_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO4_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's INOVER field.
      */
-    inline void set_GPIO4_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO4_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1342,15 +1342,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO4_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO4_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO4_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO4_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO4_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO4_CTRL's IRQOVER field.
      */
-    inline void set_GPIO4_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO4_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1365,15 +1365,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
         FUNCSEL = IO_BANK_GPIO4_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -1381,7 +1381,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO4_CTRL(IO_BANK_GPIO4_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO4_CTRL;
 
@@ -1528,15 +1528,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO5_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO5_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO5_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO5_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO5_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's OUTOVER field.
      */
-    inline void set_GPIO5_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO5_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1549,15 +1549,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO5_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO5_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO5_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO5_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO5_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's OEOVER field.
      */
-    inline void set_GPIO5_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO5_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1570,15 +1570,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO5_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO5_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO5_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO5_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO5_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's INOVER field.
      */
-    inline void set_GPIO5_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO5_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1591,15 +1591,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO5_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO5_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO5_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO5_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO5_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO5_CTRL's IRQOVER field.
      */
-    inline void set_GPIO5_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO5_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1614,15 +1614,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
         FUNCSEL = IO_BANK_GPIO5_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -1630,7 +1630,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO5_CTRL(IO_BANK_GPIO5_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO5_CTRL;
 
@@ -1777,15 +1777,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO6_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO6_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO6_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO6_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO6_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's OUTOVER field.
      */
-    inline void set_GPIO6_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO6_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1798,15 +1798,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO6_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO6_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO6_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO6_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO6_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's OEOVER field.
      */
-    inline void set_GPIO6_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO6_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1819,15 +1819,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO6_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO6_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO6_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO6_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO6_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's INOVER field.
      */
-    inline void set_GPIO6_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO6_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1840,15 +1840,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO6_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO6_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO6_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO6_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO6_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO6_CTRL's IRQOVER field.
      */
-    inline void set_GPIO6_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO6_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -1863,15 +1863,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
         FUNCSEL = IO_BANK_GPIO6_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -1879,7 +1879,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO6_CTRL(IO_BANK_GPIO6_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO6_CTRL;
 
@@ -2026,15 +2026,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO7_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO7_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO7_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO7_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO7_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's OUTOVER field.
      */
-    inline void set_GPIO7_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO7_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2047,15 +2047,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO7_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO7_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO7_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO7_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO7_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's OEOVER field.
      */
-    inline void set_GPIO7_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO7_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2068,15 +2068,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO7_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO7_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO7_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO7_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO7_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's INOVER field.
      */
-    inline void set_GPIO7_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO7_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2089,15 +2089,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO7_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO7_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO7_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO7_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO7_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO7_CTRL's IRQOVER field.
      */
-    inline void set_GPIO7_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO7_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2112,15 +2112,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
         FUNCSEL = IO_BANK_GPIO7_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -2128,7 +2128,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO7_CTRL(IO_BANK_GPIO7_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO7_CTRL;
 
@@ -2275,15 +2275,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO8_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO8_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO8_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO8_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO8_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's OUTOVER field.
      */
-    inline void set_GPIO8_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO8_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2296,15 +2296,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO8_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO8_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO8_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO8_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO8_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's OEOVER field.
      */
-    inline void set_GPIO8_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO8_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2317,15 +2317,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO8_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO8_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO8_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO8_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO8_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's INOVER field.
      */
-    inline void set_GPIO8_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO8_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2338,15 +2338,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO8_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO8_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO8_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO8_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO8_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO8_CTRL's IRQOVER field.
      */
-    inline void set_GPIO8_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO8_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2361,15 +2361,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
         FUNCSEL = IO_BANK_GPIO8_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -2377,7 +2377,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO8_CTRL(IO_BANK_GPIO8_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO8_CTRL;
 
@@ -2524,15 +2524,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO9_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO9_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO9_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO9_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO9_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's OUTOVER field.
      */
-    inline void set_GPIO9_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO9_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2545,15 +2545,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO9_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO9_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO9_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO9_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO9_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's OEOVER field.
      */
-    inline void set_GPIO9_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO9_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2566,15 +2566,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO9_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO9_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO9_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO9_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO9_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's INOVER field.
      */
-    inline void set_GPIO9_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO9_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2587,15 +2587,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO9_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO9_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO9_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO9_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO9_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO9_CTRL's IRQOVER field.
      */
-    inline void set_GPIO9_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO9_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2610,15 +2610,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
         FUNCSEL = IO_BANK_GPIO9_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -2626,7 +2626,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO9_CTRL(IO_BANK_GPIO9_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO9_CTRL;
 
@@ -2773,15 +2773,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO10_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO10_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO10_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO10_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO10_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's OUTOVER field.
      */
-    inline void set_GPIO10_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO10_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2794,15 +2794,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO10_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO10_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO10_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO10_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO10_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's OEOVER field.
      */
-    inline void set_GPIO10_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO10_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2815,15 +2815,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO10_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO10_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO10_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO10_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO10_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's INOVER field.
      */
-    inline void set_GPIO10_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO10_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2836,15 +2836,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO10_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO10_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO10_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO10_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO10_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO10_CTRL's IRQOVER field.
      */
-    inline void set_GPIO10_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO10_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -2859,15 +2859,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
         FUNCSEL = IO_BANK_GPIO10_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -2875,7 +2875,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO10_CTRL(IO_BANK_GPIO10_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO10_CTRL;
 
@@ -3022,15 +3022,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO11_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO11_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO11_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO11_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO11_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's OUTOVER field.
      */
-    inline void set_GPIO11_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO11_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3043,15 +3043,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO11_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO11_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO11_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO11_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO11_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's OEOVER field.
      */
-    inline void set_GPIO11_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO11_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3064,15 +3064,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO11_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO11_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO11_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO11_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO11_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's INOVER field.
      */
-    inline void set_GPIO11_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO11_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3085,15 +3085,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO11_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO11_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO11_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO11_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO11_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO11_CTRL's IRQOVER field.
      */
-    inline void set_GPIO11_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO11_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3108,15 +3108,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
         FUNCSEL = IO_BANK_GPIO11_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -3124,7 +3124,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO11_CTRL(IO_BANK_GPIO11_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO11_CTRL;
 
@@ -3271,15 +3271,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO12_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO12_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO12_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO12_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO12_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's OUTOVER field.
      */
-    inline void set_GPIO12_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO12_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3292,15 +3292,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO12_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO12_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO12_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO12_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO12_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's OEOVER field.
      */
-    inline void set_GPIO12_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO12_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3313,15 +3313,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO12_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO12_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO12_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO12_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO12_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's INOVER field.
      */
-    inline void set_GPIO12_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO12_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3334,15 +3334,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO12_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO12_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO12_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO12_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO12_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO12_CTRL's IRQOVER field.
      */
-    inline void set_GPIO12_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO12_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3357,15 +3357,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
         FUNCSEL = IO_BANK_GPIO12_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -3373,7 +3373,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO12_CTRL(IO_BANK_GPIO12_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO12_CTRL;
 
@@ -3520,15 +3520,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO13_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO13_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO13_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO13_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO13_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's OUTOVER field.
      */
-    inline void set_GPIO13_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO13_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3541,15 +3541,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO13_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO13_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO13_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO13_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO13_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's OEOVER field.
      */
-    inline void set_GPIO13_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO13_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3562,15 +3562,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO13_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO13_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO13_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO13_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO13_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's INOVER field.
      */
-    inline void set_GPIO13_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO13_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3583,15 +3583,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO13_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO13_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO13_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO13_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO13_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO13_CTRL's IRQOVER field.
      */
-    inline void set_GPIO13_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO13_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3606,15 +3606,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
         FUNCSEL = IO_BANK_GPIO13_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -3622,7 +3622,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO13_CTRL(IO_BANK_GPIO13_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO13_CTRL;
 
@@ -3769,15 +3769,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO14_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO14_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO14_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO14_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO14_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's OUTOVER field.
      */
-    inline void set_GPIO14_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO14_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3790,15 +3790,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO14_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO14_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO14_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO14_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO14_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's OEOVER field.
      */
-    inline void set_GPIO14_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO14_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3811,15 +3811,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO14_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO14_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO14_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO14_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO14_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's INOVER field.
      */
-    inline void set_GPIO14_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO14_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3832,15 +3832,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO14_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO14_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO14_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO14_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO14_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO14_CTRL's IRQOVER field.
      */
-    inline void set_GPIO14_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO14_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -3855,15 +3855,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
         FUNCSEL = IO_BANK_GPIO14_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -3871,7 +3871,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO14_CTRL(IO_BANK_GPIO14_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO14_CTRL;
 
@@ -4018,15 +4018,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO15_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO15_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO15_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO15_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO15_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's OUTOVER field.
      */
-    inline void set_GPIO15_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO15_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -4039,15 +4039,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO15_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO15_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO15_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO15_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO15_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's OEOVER field.
      */
-    inline void set_GPIO15_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO15_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -4060,15 +4060,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO15_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO15_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO15_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO15_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO15_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's INOVER field.
      */
-    inline void set_GPIO15_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO15_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -4081,15 +4081,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO15_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO15_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO15_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO15_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO15_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO15_CTRL's IRQOVER field.
      */
-    inline void set_GPIO15_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO15_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -4104,15 +4104,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
         FUNCSEL = IO_BANK_GPIO15_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -4120,7 +4120,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO15_CTRL(IO_BANK_GPIO15_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO15_CTRL;
 
@@ -4267,15 +4267,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO16_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO16_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO16_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO16_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO16_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's OUTOVER field.
      */
-    inline void set_GPIO16_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO16_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4288,15 +4288,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO16_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO16_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO16_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO16_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO16_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's OEOVER field.
      */
-    inline void set_GPIO16_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO16_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4309,15 +4309,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO16_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO16_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO16_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO16_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO16_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's INOVER field.
      */
-    inline void set_GPIO16_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO16_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4330,15 +4330,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO16_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO16_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO16_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO16_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO16_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO16_CTRL's IRQOVER field.
      */
-    inline void set_GPIO16_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO16_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4353,15 +4353,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
         FUNCSEL = IO_BANK_GPIO16_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -4369,7 +4369,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO16_CTRL(IO_BANK_GPIO16_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO16_CTRL;
 
@@ -4516,15 +4516,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO17_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO17_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO17_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO17_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO17_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's OUTOVER field.
      */
-    inline void set_GPIO17_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO17_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4537,15 +4537,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO17_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO17_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO17_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO17_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO17_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's OEOVER field.
      */
-    inline void set_GPIO17_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO17_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4558,15 +4558,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO17_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO17_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO17_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO17_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO17_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's INOVER field.
      */
-    inline void set_GPIO17_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO17_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4579,15 +4579,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO17_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO17_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO17_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO17_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO17_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO17_CTRL's IRQOVER field.
      */
-    inline void set_GPIO17_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO17_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4602,15 +4602,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
         FUNCSEL = IO_BANK_GPIO17_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -4618,7 +4618,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO17_CTRL(IO_BANK_GPIO17_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO17_CTRL;
 
@@ -4765,15 +4765,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO18_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO18_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO18_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO18_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO18_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's OUTOVER field.
      */
-    inline void set_GPIO18_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO18_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4786,15 +4786,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO18_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO18_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO18_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO18_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO18_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's OEOVER field.
      */
-    inline void set_GPIO18_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO18_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4807,15 +4807,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO18_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO18_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO18_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO18_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO18_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's INOVER field.
      */
-    inline void set_GPIO18_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO18_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4828,15 +4828,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO18_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO18_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO18_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO18_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO18_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO18_CTRL's IRQOVER field.
      */
-    inline void set_GPIO18_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO18_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -4851,15 +4851,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
         FUNCSEL = IO_BANK_GPIO18_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -4867,7 +4867,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO18_CTRL(IO_BANK_GPIO18_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO18_CTRL;
 
@@ -5014,15 +5014,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO19_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO19_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO19_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO19_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO19_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's OUTOVER field.
      */
-    inline void set_GPIO19_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO19_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -5035,15 +5035,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO19_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO19_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO19_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO19_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO19_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's OEOVER field.
      */
-    inline void set_GPIO19_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO19_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -5056,15 +5056,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO19_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO19_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO19_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO19_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO19_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's INOVER field.
      */
-    inline void set_GPIO19_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO19_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -5077,15 +5077,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO19_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO19_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO19_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO19_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO19_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO19_CTRL's IRQOVER field.
      */
-    inline void set_GPIO19_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO19_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -5100,15 +5100,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
         FUNCSEL = IO_BANK_GPIO19_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -5116,7 +5116,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO19_CTRL(IO_BANK_GPIO19_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO19_CTRL;
 
@@ -5263,15 +5263,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO20_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO20_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO20_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO20_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO20_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's OUTOVER field.
      */
-    inline void set_GPIO20_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO20_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5284,15 +5284,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO20_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO20_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO20_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO20_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO20_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's OEOVER field.
      */
-    inline void set_GPIO20_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO20_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5305,15 +5305,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO20_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO20_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO20_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO20_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO20_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's INOVER field.
      */
-    inline void set_GPIO20_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO20_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5326,15 +5326,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO20_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO20_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO20_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO20_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO20_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO20_CTRL's IRQOVER field.
      */
-    inline void set_GPIO20_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO20_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5349,15 +5349,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
         FUNCSEL = IO_BANK_GPIO20_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -5365,7 +5365,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO20_CTRL(IO_BANK_GPIO20_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO20_CTRL;
 
@@ -5512,15 +5512,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO21_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO21_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO21_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO21_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO21_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's OUTOVER field.
      */
-    inline void set_GPIO21_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO21_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5533,15 +5533,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO21_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO21_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO21_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO21_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO21_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's OEOVER field.
      */
-    inline void set_GPIO21_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO21_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5554,15 +5554,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO21_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO21_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO21_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO21_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO21_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's INOVER field.
      */
-    inline void set_GPIO21_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO21_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5575,15 +5575,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO21_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO21_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO21_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO21_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO21_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO21_CTRL's IRQOVER field.
      */
-    inline void set_GPIO21_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO21_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5598,15 +5598,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
         FUNCSEL = IO_BANK_GPIO21_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -5614,7 +5614,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO21_CTRL(IO_BANK_GPIO21_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO21_CTRL;
 
@@ -5761,15 +5761,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO22_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO22_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO22_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO22_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO22_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's OUTOVER field.
      */
-    inline void set_GPIO22_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO22_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5782,15 +5782,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO22_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO22_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO22_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO22_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO22_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's OEOVER field.
      */
-    inline void set_GPIO22_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO22_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5803,15 +5803,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO22_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO22_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO22_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO22_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO22_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's INOVER field.
      */
-    inline void set_GPIO22_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO22_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5824,15 +5824,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO22_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO22_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO22_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO22_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO22_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO22_CTRL's IRQOVER field.
      */
-    inline void set_GPIO22_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO22_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -5847,15 +5847,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
         FUNCSEL = IO_BANK_GPIO22_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -5863,7 +5863,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO22_CTRL(IO_BANK_GPIO22_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO22_CTRL;
 
@@ -6010,15 +6010,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO23_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO23_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO23_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO23_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO23_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's OUTOVER field.
      */
-    inline void set_GPIO23_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO23_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -6031,15 +6031,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO23_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO23_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO23_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO23_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO23_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's OEOVER field.
      */
-    inline void set_GPIO23_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO23_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -6052,15 +6052,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO23_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO23_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO23_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO23_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO23_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's INOVER field.
      */
-    inline void set_GPIO23_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO23_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -6073,15 +6073,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO23_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO23_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO23_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO23_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO23_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO23_CTRL's IRQOVER field.
      */
-    inline void set_GPIO23_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO23_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -6096,15 +6096,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
         FUNCSEL = IO_BANK_GPIO23_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -6112,7 +6112,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO23_CTRL(IO_BANK_GPIO23_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO23_CTRL;
 
@@ -6259,15 +6259,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO24_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO24_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO24_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO24_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO24_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's OUTOVER field.
      */
-    inline void set_GPIO24_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO24_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -6280,15 +6280,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO24_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO24_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO24_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO24_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO24_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's OEOVER field.
      */
-    inline void set_GPIO24_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO24_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -6301,15 +6301,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO24_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO24_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO24_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO24_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO24_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's INOVER field.
      */
-    inline void set_GPIO24_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO24_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -6322,15 +6322,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO24_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO24_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO24_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO24_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO24_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO24_CTRL's IRQOVER field.
      */
-    inline void set_GPIO24_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO24_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -6345,15 +6345,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
         FUNCSEL = IO_BANK_GPIO24_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -6361,7 +6361,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO24_CTRL(IO_BANK_GPIO24_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO24_CTRL;
 
@@ -6508,15 +6508,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO25_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO25_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO25_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO25_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO25_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's OUTOVER field.
      */
-    inline void set_GPIO25_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO25_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6529,15 +6529,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO25_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO25_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO25_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO25_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO25_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's OEOVER field.
      */
-    inline void set_GPIO25_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO25_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6550,15 +6550,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO25_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO25_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO25_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO25_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO25_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's INOVER field.
      */
-    inline void set_GPIO25_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO25_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6571,15 +6571,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO25_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO25_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO25_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO25_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO25_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO25_CTRL's IRQOVER field.
      */
-    inline void set_GPIO25_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO25_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6594,15 +6594,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
         FUNCSEL = IO_BANK_GPIO25_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -6610,7 +6610,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO25_CTRL(IO_BANK_GPIO25_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO25_CTRL;
 
@@ -6757,15 +6757,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO26_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO26_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO26_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO26_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO26_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's OUTOVER field.
      */
-    inline void set_GPIO26_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO26_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6778,15 +6778,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO26_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO26_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO26_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO26_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO26_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's OEOVER field.
      */
-    inline void set_GPIO26_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO26_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6799,15 +6799,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO26_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO26_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO26_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO26_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO26_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's INOVER field.
      */
-    inline void set_GPIO26_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO26_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6820,15 +6820,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO26_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO26_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO26_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO26_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO26_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO26_CTRL's IRQOVER field.
      */
-    inline void set_GPIO26_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO26_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -6843,15 +6843,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
         FUNCSEL = IO_BANK_GPIO26_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -6859,7 +6859,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO26_CTRL(IO_BANK_GPIO26_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO26_CTRL;
 
@@ -7006,15 +7006,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO27_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO27_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO27_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO27_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO27_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's OUTOVER field.
      */
-    inline void set_GPIO27_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO27_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -7027,15 +7027,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO27_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO27_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO27_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO27_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO27_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's OEOVER field.
      */
-    inline void set_GPIO27_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO27_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -7048,15 +7048,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO27_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO27_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO27_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO27_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO27_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's INOVER field.
      */
-    inline void set_GPIO27_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO27_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -7069,15 +7069,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO27_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO27_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO27_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO27_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO27_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO27_CTRL's IRQOVER field.
      */
-    inline void set_GPIO27_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO27_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -7092,15 +7092,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
         FUNCSEL = IO_BANK_GPIO27_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -7108,7 +7108,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO27_CTRL(IO_BANK_GPIO27_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO27_CTRL;
 
@@ -7255,15 +7255,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO28_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO28_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO28_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO28_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO28_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's OUTOVER field.
      */
-    inline void set_GPIO28_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO28_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -7276,15 +7276,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO28_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO28_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO28_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO28_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO28_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's OEOVER field.
      */
-    inline void set_GPIO28_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO28_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -7297,15 +7297,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO28_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO28_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO28_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO28_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO28_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's INOVER field.
      */
-    inline void set_GPIO28_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO28_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -7318,15 +7318,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO28_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO28_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO28_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO28_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO28_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO28_CTRL's IRQOVER field.
      */
-    inline void set_GPIO28_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO28_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -7341,15 +7341,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
         FUNCSEL = IO_BANK_GPIO28_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -7357,7 +7357,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO28_CTRL(IO_BANK_GPIO28_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO28_CTRL;
 
@@ -7504,15 +7504,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO29_CTRL's OUTOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO29_CTRL_OUTOVER() volatile
+    inline IO_BANK_OVER get_GPIO29_CTRL_OUTOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO29_CTRL >> 8u) & 0b11u);
+        return IO_BANK_OVER((GPIO29_CTRL >> 8u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's OUTOVER field.
      */
-    inline void set_GPIO29_CTRL_OUTOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO29_CTRL_OUTOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -7525,15 +7525,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO29_CTRL's OEOVER field.
      */
-    inline IO_BANK_CTRL_OEOVER get_GPIO29_CTRL_OEOVER() volatile
+    inline IO_BANK_OEOVER get_GPIO29_CTRL_OEOVER() volatile
     {
-        return IO_BANK_CTRL_OEOVER((GPIO29_CTRL >> 12u) & 0b11u);
+        return IO_BANK_OEOVER((GPIO29_CTRL >> 12u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's OEOVER field.
      */
-    inline void set_GPIO29_CTRL_OEOVER(IO_BANK_CTRL_OEOVER value) volatile
+    inline void set_GPIO29_CTRL_OEOVER(IO_BANK_OEOVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -7546,15 +7546,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO29_CTRL's INOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO29_CTRL_INOVER() volatile
+    inline IO_BANK_OVER get_GPIO29_CTRL_INOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO29_CTRL >> 16u) & 0b11u);
+        return IO_BANK_OVER((GPIO29_CTRL >> 16u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's INOVER field.
      */
-    inline void set_GPIO29_CTRL_INOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO29_CTRL_INOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -7567,15 +7567,15 @@ struct [[gnu::packed]] io_bank
     /**
      * Get GPIO29_CTRL's IRQOVER field.
      */
-    inline IO_BANK_CTRL_OVER get_GPIO29_CTRL_IRQOVER() volatile
+    inline IO_BANK_OVER get_GPIO29_CTRL_IRQOVER() volatile
     {
-        return IO_BANK_CTRL_OVER((GPIO29_CTRL >> 28u) & 0b11u);
+        return IO_BANK_OVER((GPIO29_CTRL >> 28u) & 0b11u);
     }
 
     /**
      * Set GPIO29_CTRL's IRQOVER field.
      */
-    inline void set_GPIO29_CTRL_IRQOVER(IO_BANK_CTRL_OVER value) volatile
+    inline void set_GPIO29_CTRL_IRQOVER(IO_BANK_OVER value) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
@@ -7590,15 +7590,15 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void get_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL &FUNCSEL, IO_BANK_CTRL_OVER &OUTOVER, IO_BANK_CTRL_OEOVER &OEOVER, IO_BANK_CTRL_OVER &INOVER, IO_BANK_CTRL_OVER &IRQOVER) volatile
+    inline void get_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL &FUNCSEL, IO_BANK_OVER &OUTOVER, IO_BANK_OEOVER &OEOVER, IO_BANK_OVER &INOVER, IO_BANK_OVER &IRQOVER) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 
         FUNCSEL = IO_BANK_GPIO29_CTRL_FUNCSEL(curr & 0b11111u);
-        OUTOVER = IO_BANK_CTRL_OVER((curr >> 8u) & 0b11u);
-        OEOVER = IO_BANK_CTRL_OEOVER((curr >> 12u) & 0b11u);
-        INOVER = IO_BANK_CTRL_OVER((curr >> 16u) & 0b11u);
-        IRQOVER = IO_BANK_CTRL_OVER((curr >> 28u) & 0b11u);
+        OUTOVER = IO_BANK_OVER((curr >> 8u) & 0b11u);
+        OEOVER = IO_BANK_OEOVER((curr >> 12u) & 0b11u);
+        INOVER = IO_BANK_OVER((curr >> 16u) & 0b11u);
+        IRQOVER = IO_BANK_OVER((curr >> 28u) & 0b11u);
     }
 
     /**
@@ -7606,7 +7606,7 @@ struct [[gnu::packed]] io_bank
      *
      * (read-write) GPIO control including function select and overrides.
      */
-    inline void set_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL FUNCSEL, IO_BANK_CTRL_OVER OUTOVER, IO_BANK_CTRL_OEOVER OEOVER, IO_BANK_CTRL_OVER INOVER, IO_BANK_CTRL_OVER IRQOVER) volatile
+    inline void set_GPIO29_CTRL(IO_BANK_GPIO29_CTRL_FUNCSEL FUNCSEL, IO_BANK_OVER OUTOVER, IO_BANK_OEOVER OEOVER, IO_BANK_OVER INOVER, IO_BANK_OVER IRQOVER) volatile
     {
         uint32_t curr = GPIO29_CTRL;
 

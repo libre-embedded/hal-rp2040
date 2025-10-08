@@ -7,14 +7,7 @@
 #ifndef RP2040_STRUCTS_PWM_H
 #define RP2040_STRUCTS_PWM_H
 
-#include "../enums/PWM_CH0_CSR_DIVMODE.h"
-#include "../enums/PWM_CH1_CSR_DIVMODE.h"
-#include "../enums/PWM_CH2_CSR_DIVMODE.h"
-#include "../enums/PWM_CH3_CSR_DIVMODE.h"
-#include "../enums/PWM_CH4_CSR_DIVMODE.h"
-#include "../enums/PWM_CH5_CSR_DIVMODE.h"
-#include "../enums/PWM_CH6_CSR_DIVMODE.h"
-#include "../enums/PWM_CH7_CSR_DIVMODE.h"
+#include "../enums/PWM_DIVMODE.h"
 #include "../ifgen/common.h"
 
 namespace RP2040
@@ -261,15 +254,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH0_CSR's DIVMODE field.
      */
-    inline PWM_CH0_CSR_DIVMODE get_CH0_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH0_CSR_DIVMODE() volatile
     {
-        return PWM_CH0_CSR_DIVMODE((CH0_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH0_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH0_CSR's DIVMODE field.
      */
-    inline void set_CH0_CSR_DIVMODE(PWM_CH0_CSR_DIVMODE value) volatile
+    inline void set_CH0_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH0_CSR;
 
@@ -376,7 +369,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH0_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH0_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH0_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH0_CSR;
 
@@ -384,7 +377,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH0_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -394,7 +387,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH0_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH0_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH0_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH0_CSR;
 
@@ -769,15 +762,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH1_CSR's DIVMODE field.
      */
-    inline PWM_CH1_CSR_DIVMODE get_CH1_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH1_CSR_DIVMODE() volatile
     {
-        return PWM_CH1_CSR_DIVMODE((CH1_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH1_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH1_CSR's DIVMODE field.
      */
-    inline void set_CH1_CSR_DIVMODE(PWM_CH1_CSR_DIVMODE value) volatile
+    inline void set_CH1_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH1_CSR;
 
@@ -884,7 +877,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH1_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH1_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH1_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH1_CSR;
 
@@ -892,7 +885,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH1_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -902,7 +895,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH1_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH1_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH1_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH1_CSR;
 
@@ -1277,15 +1270,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH2_CSR's DIVMODE field.
      */
-    inline PWM_CH2_CSR_DIVMODE get_CH2_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH2_CSR_DIVMODE() volatile
     {
-        return PWM_CH2_CSR_DIVMODE((CH2_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH2_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH2_CSR's DIVMODE field.
      */
-    inline void set_CH2_CSR_DIVMODE(PWM_CH2_CSR_DIVMODE value) volatile
+    inline void set_CH2_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH2_CSR;
 
@@ -1392,7 +1385,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH2_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH2_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH2_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH2_CSR;
 
@@ -1400,7 +1393,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH2_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -1410,7 +1403,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH2_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH2_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH2_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH2_CSR;
 
@@ -1785,15 +1778,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH3_CSR's DIVMODE field.
      */
-    inline PWM_CH3_CSR_DIVMODE get_CH3_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH3_CSR_DIVMODE() volatile
     {
-        return PWM_CH3_CSR_DIVMODE((CH3_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH3_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH3_CSR's DIVMODE field.
      */
-    inline void set_CH3_CSR_DIVMODE(PWM_CH3_CSR_DIVMODE value) volatile
+    inline void set_CH3_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH3_CSR;
 
@@ -1900,7 +1893,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH3_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH3_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH3_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH3_CSR;
 
@@ -1908,7 +1901,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH3_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -1918,7 +1911,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH3_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH3_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH3_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH3_CSR;
 
@@ -2293,15 +2286,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH4_CSR's DIVMODE field.
      */
-    inline PWM_CH4_CSR_DIVMODE get_CH4_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH4_CSR_DIVMODE() volatile
     {
-        return PWM_CH4_CSR_DIVMODE((CH4_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH4_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH4_CSR's DIVMODE field.
      */
-    inline void set_CH4_CSR_DIVMODE(PWM_CH4_CSR_DIVMODE value) volatile
+    inline void set_CH4_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH4_CSR;
 
@@ -2408,7 +2401,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH4_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH4_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH4_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH4_CSR;
 
@@ -2416,7 +2409,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH4_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -2426,7 +2419,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH4_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH4_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH4_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH4_CSR;
 
@@ -2801,15 +2794,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH5_CSR's DIVMODE field.
      */
-    inline PWM_CH5_CSR_DIVMODE get_CH5_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH5_CSR_DIVMODE() volatile
     {
-        return PWM_CH5_CSR_DIVMODE((CH5_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH5_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH5_CSR's DIVMODE field.
      */
-    inline void set_CH5_CSR_DIVMODE(PWM_CH5_CSR_DIVMODE value) volatile
+    inline void set_CH5_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH5_CSR;
 
@@ -2916,7 +2909,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH5_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH5_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH5_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH5_CSR;
 
@@ -2924,7 +2917,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH5_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -2934,7 +2927,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH5_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH5_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH5_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH5_CSR;
 
@@ -3309,15 +3302,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH6_CSR's DIVMODE field.
      */
-    inline PWM_CH6_CSR_DIVMODE get_CH6_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH6_CSR_DIVMODE() volatile
     {
-        return PWM_CH6_CSR_DIVMODE((CH6_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH6_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH6_CSR's DIVMODE field.
      */
-    inline void set_CH6_CSR_DIVMODE(PWM_CH6_CSR_DIVMODE value) volatile
+    inline void set_CH6_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH6_CSR;
 
@@ -3424,7 +3417,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH6_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH6_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH6_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH6_CSR;
 
@@ -3432,7 +3425,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH6_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -3442,7 +3435,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH6_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH6_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH6_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH6_CSR;
 
@@ -3817,15 +3810,15 @@ struct [[gnu::packed]] pwm
     /**
      * Get CH7_CSR's DIVMODE field.
      */
-    inline PWM_CH7_CSR_DIVMODE get_CH7_CSR_DIVMODE() volatile
+    inline PWM_DIVMODE get_CH7_CSR_DIVMODE() volatile
     {
-        return PWM_CH7_CSR_DIVMODE((CH7_CSR >> 4u) & 0b11u);
+        return PWM_DIVMODE((CH7_CSR >> 4u) & 0b11u);
     }
 
     /**
      * Set CH7_CSR's DIVMODE field.
      */
-    inline void set_CH7_CSR_DIVMODE(PWM_CH7_CSR_DIVMODE value) volatile
+    inline void set_CH7_CSR_DIVMODE(PWM_DIVMODE value) volatile
     {
         uint32_t curr = CH7_CSR;
 
@@ -3932,7 +3925,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void get_CH7_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_CH7_CSR_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
+    inline void get_CH7_CSR(bool &EN, bool &PH_CORRECT, bool &A_INV, bool &B_INV, PWM_DIVMODE &DIVMODE, bool &PH_RET, bool &PH_ADV) volatile
     {
         uint32_t curr = CH7_CSR;
 
@@ -3940,7 +3933,7 @@ struct [[gnu::packed]] pwm
         PH_CORRECT = curr & (1u << 1u);
         A_INV = curr & (1u << 2u);
         B_INV = curr & (1u << 3u);
-        DIVMODE = PWM_CH7_CSR_DIVMODE((curr >> 4u) & 0b11u);
+        DIVMODE = PWM_DIVMODE((curr >> 4u) & 0b11u);
         PH_RET = curr & (1u << 6u);
         PH_ADV = curr & (1u << 7u);
     }
@@ -3950,7 +3943,7 @@ struct [[gnu::packed]] pwm
      *
      * (read-write) Control and status register
      */
-    inline void set_CH7_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_CH7_CSR_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
+    inline void set_CH7_CSR(bool EN, bool PH_CORRECT, bool A_INV, bool B_INV, PWM_DIVMODE DIVMODE, bool PH_RET, bool PH_ADV) volatile
     {
         uint32_t curr = CH7_CSR;
 

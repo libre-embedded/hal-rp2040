@@ -1,0 +1,20 @@
+---
+enums:
+  I2C_IC_CON_SPEED:
+    enum:
+      STANDARD:
+        description: |-
+          Standard Speed mode of operation
+        value: 1
+      FAST:
+        description: |-
+          Fast or Fast Plus mode of operation
+        value: 2
+      HIGH:
+        description: |-
+          High Speed mode of operation
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

@@ -1,0 +1,264 @@
+---
+enums:
+  CLOCKS_CLK_GPOUT0_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      rosc_clksrc:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clk_sys:
+        value: 6
+      clk_usb:
+        value: 7
+      clk_adc:
+        value: 8
+      clk_rtc:
+        value: 9
+      clk_ref:
+        value: 10
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT1_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      rosc_clksrc:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clk_sys:
+        value: 6
+      clk_usb:
+        value: 7
+      clk_adc:
+        value: 8
+      clk_rtc:
+        value: 9
+      clk_ref:
+        value: 10
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT2_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      rosc_clksrc_ph:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clk_sys:
+        value: 6
+      clk_usb:
+        value: 7
+      clk_adc:
+        value: 8
+      clk_rtc:
+        value: 9
+      clk_ref:
+        value: 10
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_GPOUT3_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_gpin0:
+        value: 1
+      clksrc_gpin1:
+        value: 2
+      clksrc_pll_usb:
+        value: 3
+      rosc_clksrc_ph:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clk_sys:
+        value: 6
+      clk_usb:
+        value: 7
+      clk_adc:
+        value: 8
+      clk_rtc:
+        value: 9
+      clk_ref:
+        value: 10
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_REF_CTRL_SRC:
+    enum:
+      rosc_clksrc_ph:
+        value: 0
+      clksrc_clk_ref_aux:
+        value: 1
+      xosc_clksrc:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_REF_CTRL_AUXSRC:
+    enum:
+      pll_usb:
+        value: 0
+      gpin0:
+        value: 1
+      gpin1:
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_SYS_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_sys:
+        value: 0
+      clksrc_pll_usb:
+        value: 1
+      rosc_clksrc:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_PERI_CTRL_AUXSRC:
+    enum:
+      clk_sys:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      clksrc_pll_usb:
+        value: 2
+      rosc_clksrc_ph:
+        value: 3
+      xosc_clksrc:
+        value: 4
+      clksrc_gpin0:
+        value: 5
+      clksrc_gpin1:
+        value: 6
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_USB_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_usb:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      rosc_clksrc_ph:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_ADC_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_usb:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      rosc_clksrc_ph:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_CLK_RTC_CTRL_AUXSRC:
+    enum:
+      clksrc_pll_usb:
+        value: 0
+      clksrc_pll_sys:
+        value: 1
+      rosc_clksrc_ph:
+        value: 2
+      xosc_clksrc:
+        value: 3
+      clksrc_gpin0:
+        value: 4
+      clksrc_gpin1:
+        value: 5
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  CLOCKS_FC0_SRC_FC0_SRC:
+    enum:
+      NULL_:
+        value: 0
+      pll_sys_clksrc_primary:
+        value: 1
+      pll_usb_clksrc_primary:
+        value: 2
+      rosc_clksrc:
+        value: 3
+      rosc_clksrc_ph:
+        value: 4
+      xosc_clksrc:
+        value: 5
+      clksrc_gpin0:
+        value: 6
+      clksrc_gpin1:
+        value: 7
+      clk_ref:
+        value: 8
+      clk_sys:
+        value: 9
+      clk_peri:
+        value: 10
+      clk_usb:
+        value: 11
+      clk_adc:
+        value: 12
+      clk_rtc:
+        value: 13
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

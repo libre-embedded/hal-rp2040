@@ -1,0 +1,82 @@
+---
+enums:
+  XIP_SSI_CTRLR0_TMOD:
+    enum:
+      TX_AND_RX:
+        description: |-
+          Both transmit and receive
+        value: 0
+      TX_ONLY:
+        description: |-
+          Transmit only (not for FRF == 0, standard SPI mode)
+        value: 1
+      RX_ONLY:
+        description: |-
+          Receive only (not for FRF == 0, standard SPI mode)
+        value: 2
+      EEPROM_READ:
+        description: |-
+          EEPROM read mode (TX then RX; RX starts after control data TX'd)
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  XIP_SSI_CTRLR0_SPI_FRF:
+    enum:
+      STD:
+        description: |-
+          Standard 1-bit SPI frame format; 1 bit per SCK, full-duplex
+        value: 0
+      DUAL:
+        description: |-
+          Dual-SPI frame format; two bits per SCK, half-duplex
+        value: 1
+      QUAD:
+        description: |-
+          Quad-SPI frame format; four bits per SCK, half-duplex
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  XIP_SSI_SPI_CTRLR0_TRANS_TYPE:
+    enum:
+      _1C1A:
+        description: |-
+          Command and address both in standard SPI frame format
+        value: 0
+      _1C2A:
+        description: |-
+          Command in standard SPI format, address in format specified by FRF
+        value: 1
+      _2C2A:
+        description: |-
+          Command and address both in format specified by FRF (e.g. Dual-SPI)
+        value: 2
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  XIP_SSI_SPI_CTRLR0_INST_L:
+    enum:
+      NONE:
+        description: |-
+          No instruction
+        value: 0
+      _4B:
+        description: |-
+          4-bit instruction
+        value: 1
+      _8B:
+        description: |-
+          8-bit instruction
+        value: 2
+      _16B:
+        description: |-
+          16-bit instruction
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

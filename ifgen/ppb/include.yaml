@@ -938,4 +938,3 @@ structs:
             width: 16
             read: true
             write: true
-enums: {}

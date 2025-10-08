@@ -1,0 +1,48 @@
+---
+enums:
+  BUSCTRL_PERFSEL:
+    enum:
+      apb_contested:
+        value: 0
+      apb:
+        value: 1
+      fastperi_contested:
+        value: 2
+      fastperi:
+        value: 3
+      sram5_contested:
+        value: 4
+      sram5:
+        value: 5
+      sram4_contested:
+        value: 6
+      sram4:
+        value: 7
+      sram3_contested:
+        value: 8
+      sram3:
+        value: 9
+      sram2_contested:
+        value: 10
+      sram2:
+        value: 11
+      sram1_contested:
+        value: 12
+      sram1:
+        value: 13
+      sram0_contested:
+        value: 14
+      sram0:
+        value: 15
+      xip_main_contested:
+        value: 16
+      xip_main:
+        value: 17
+      rom_contested:
+        value: 18
+      rom:
+        value: 19
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

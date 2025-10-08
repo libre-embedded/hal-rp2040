@@ -1,0 +1,808 @@
+---
+enums:
+  IO_BANK_GPIO0_CTRL_FUNCSEL:
+    enum:
+      jtag_tck:
+        value: 0
+      spi0_rx:
+        value: 1
+      uart0_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_0:
+        value: 4
+      sio_0:
+        value: 5
+      pio0_0:
+        value: 6
+      pio1_0:
+        value: 7
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO1_CTRL_FUNCSEL:
+    enum:
+      jtag_tms:
+        value: 0
+      spi0_ss_n:
+        value: 1
+      uart0_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_0:
+        value: 4
+      sio_1:
+        value: 5
+      pio0_1:
+        value: 6
+      pio1_1:
+        value: 7
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO2_CTRL_FUNCSEL:
+    enum:
+      jtag_tdi:
+        value: 0
+      spi0_sclk:
+        value: 1
+      uart0_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_1:
+        value: 4
+      sio_2:
+        value: 5
+      pio0_2:
+        value: 6
+      pio1_2:
+        value: 7
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO3_CTRL_FUNCSEL:
+    enum:
+      jtag_tdo:
+        value: 0
+      spi0_tx:
+        value: 1
+      uart0_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_1:
+        value: 4
+      sio_3:
+        value: 5
+      pio0_3:
+        value: 6
+      pio1_3:
+        value: 7
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO4_CTRL_FUNCSEL:
+    enum:
+      spi0_rx:
+        value: 1
+      uart1_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_2:
+        value: 4
+      sio_4:
+        value: 5
+      pio0_4:
+        value: 6
+      pio1_4:
+        value: 7
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO5_CTRL_FUNCSEL:
+    enum:
+      spi0_ss_n:
+        value: 1
+      uart1_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_2:
+        value: 4
+      sio_5:
+        value: 5
+      pio0_5:
+        value: 6
+      pio1_5:
+        value: 7
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO6_CTRL_FUNCSEL:
+    enum:
+      spi0_sclk:
+        value: 1
+      uart1_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_3:
+        value: 4
+      sio_6:
+        value: 5
+      pio0_6:
+        value: 6
+      pio1_6:
+        value: 7
+      usb_muxing_extphy_softcon:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO7_CTRL_FUNCSEL:
+    enum:
+      spi0_tx:
+        value: 1
+      uart1_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_3:
+        value: 4
+      sio_7:
+        value: 5
+      pio0_7:
+        value: 6
+      pio1_7:
+        value: 7
+      usb_muxing_extphy_oe_n:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO8_CTRL_FUNCSEL:
+    enum:
+      spi1_rx:
+        value: 1
+      uart1_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_4:
+        value: 4
+      sio_8:
+        value: 5
+      pio0_8:
+        value: 6
+      pio1_8:
+        value: 7
+      usb_muxing_extphy_rcv:
+        value: 8
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO9_CTRL_FUNCSEL:
+    enum:
+      spi1_ss_n:
+        value: 1
+      uart1_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_4:
+        value: 4
+      sio_9:
+        value: 5
+      pio0_9:
+        value: 6
+      pio1_9:
+        value: 7
+      usb_muxing_extphy_vp:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO10_CTRL_FUNCSEL:
+    enum:
+      spi1_sclk:
+        value: 1
+      uart1_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_5:
+        value: 4
+      sio_10:
+        value: 5
+      pio0_10:
+        value: 6
+      pio1_10:
+        value: 7
+      usb_muxing_extphy_vm:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO11_CTRL_FUNCSEL:
+    enum:
+      spi1_tx:
+        value: 1
+      uart1_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_5:
+        value: 4
+      sio_11:
+        value: 5
+      pio0_11:
+        value: 6
+      pio1_11:
+        value: 7
+      usb_muxing_extphy_suspnd:
+        value: 8
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO12_CTRL_FUNCSEL:
+    enum:
+      spi1_rx:
+        value: 1
+      uart0_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_6:
+        value: 4
+      sio_12:
+        value: 5
+      pio0_12:
+        value: 6
+      pio1_12:
+        value: 7
+      usb_muxing_extphy_speed:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO13_CTRL_FUNCSEL:
+    enum:
+      spi1_ss_n:
+        value: 1
+      uart0_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_6:
+        value: 4
+      sio_13:
+        value: 5
+      pio0_13:
+        value: 6
+      pio1_13:
+        value: 7
+      usb_muxing_extphy_vpo:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO14_CTRL_FUNCSEL:
+    enum:
+      spi1_sclk:
+        value: 1
+      uart0_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_7:
+        value: 4
+      sio_14:
+        value: 5
+      pio0_14:
+        value: 6
+      pio1_14:
+        value: 7
+      usb_muxing_extphy_vmo:
+        value: 8
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO15_CTRL_FUNCSEL:
+    enum:
+      spi1_tx:
+        value: 1
+      uart0_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_7:
+        value: 4
+      sio_15:
+        value: 5
+      pio0_15:
+        value: 6
+      pio1_15:
+        value: 7
+      usb_muxing_digital_dp:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO16_CTRL_FUNCSEL:
+    enum:
+      spi0_rx:
+        value: 1
+      uart0_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_0:
+        value: 4
+      sio_16:
+        value: 5
+      pio0_16:
+        value: 6
+      pio1_16:
+        value: 7
+      usb_muxing_digital_dm:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO17_CTRL_FUNCSEL:
+    enum:
+      spi0_ss_n:
+        value: 1
+      uart0_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_0:
+        value: 4
+      sio_17:
+        value: 5
+      pio0_17:
+        value: 6
+      pio1_17:
+        value: 7
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO18_CTRL_FUNCSEL:
+    enum:
+      spi0_sclk:
+        value: 1
+      uart0_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_1:
+        value: 4
+      sio_18:
+        value: 5
+      pio0_18:
+        value: 6
+      pio1_18:
+        value: 7
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO19_CTRL_FUNCSEL:
+    enum:
+      spi0_tx:
+        value: 1
+      uart0_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_1:
+        value: 4
+      sio_19:
+        value: 5
+      pio0_19:
+        value: 6
+      pio1_19:
+        value: 7
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO20_CTRL_FUNCSEL:
+    enum:
+      spi0_rx:
+        value: 1
+      uart1_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_2:
+        value: 4
+      sio_20:
+        value: 5
+      pio0_20:
+        value: 6
+      pio1_20:
+        value: 7
+      clocks_gpin_0:
+        value: 8
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO21_CTRL_FUNCSEL:
+    enum:
+      spi0_ss_n:
+        value: 1
+      uart1_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_2:
+        value: 4
+      sio_21:
+        value: 5
+      pio0_21:
+        value: 6
+      pio1_21:
+        value: 7
+      clocks_gpout_0:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO22_CTRL_FUNCSEL:
+    enum:
+      spi0_sclk:
+        value: 1
+      uart1_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_3:
+        value: 4
+      sio_22:
+        value: 5
+      pio0_22:
+        value: 6
+      pio1_22:
+        value: 7
+      clocks_gpin_1:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO23_CTRL_FUNCSEL:
+    enum:
+      spi0_tx:
+        value: 1
+      uart1_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_3:
+        value: 4
+      sio_23:
+        value: 5
+      pio0_23:
+        value: 6
+      pio1_23:
+        value: 7
+      clocks_gpout_1:
+        value: 8
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO24_CTRL_FUNCSEL:
+    enum:
+      spi1_rx:
+        value: 1
+      uart1_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_4:
+        value: 4
+      sio_24:
+        value: 5
+      pio0_24:
+        value: 6
+      pio1_24:
+        value: 7
+      clocks_gpout_2:
+        value: 8
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO25_CTRL_FUNCSEL:
+    enum:
+      spi1_ss_n:
+        value: 1
+      uart1_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_4:
+        value: 4
+      sio_25:
+        value: 5
+      pio0_25:
+        value: 6
+      pio1_25:
+        value: 7
+      clocks_gpout_3:
+        value: 8
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO26_CTRL_FUNCSEL:
+    enum:
+      spi1_sclk:
+        value: 1
+      uart1_cts:
+        value: 2
+      i2c1_sda:
+        value: 3
+      pwm_a_5:
+        value: 4
+      sio_26:
+        value: 5
+      pio0_26:
+        value: 6
+      pio1_26:
+        value: 7
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO27_CTRL_FUNCSEL:
+    enum:
+      spi1_tx:
+        value: 1
+      uart1_rts:
+        value: 2
+      i2c1_scl:
+        value: 3
+      pwm_b_5:
+        value: 4
+      sio_27:
+        value: 5
+      pio0_27:
+        value: 6
+      pio1_27:
+        value: 7
+      usb_muxing_overcurr_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO28_CTRL_FUNCSEL:
+    enum:
+      spi1_rx:
+        value: 1
+      uart0_tx:
+        value: 2
+      i2c0_sda:
+        value: 3
+      pwm_a_6:
+        value: 4
+      sio_28:
+        value: 5
+      pio0_28:
+        value: 6
+      pio1_28:
+        value: 7
+      usb_muxing_vbus_detect:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_GPIO29_CTRL_FUNCSEL:
+    enum:
+      spi1_ss_n:
+        value: 1
+      uart0_rx:
+        value: 2
+      i2c0_scl:
+        value: 3
+      pwm_b_6:
+        value: 4
+      sio_29:
+        value: 5
+      pio0_29:
+        value: 6
+      pio1_29:
+        value: 7
+      usb_muxing_vbus_en:
+        value: 9
+      null_:
+        value: 31
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_OVER:
+    enum:
+      NORMAL:
+        description: |-
+          drive output from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: |-
+          drive output from inverse of peripheral signal selected by funcsel
+        value: 1
+      LOW:
+        description: |-
+          drive output low
+        value: 2
+      HIGH:
+        description: |-
+          drive output high
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
+  IO_BANK_OEOVER:
+    enum:
+      NORMAL:
+        description: |-
+          drive output enable from peripheral signal selected by funcsel
+        value: 0
+      INVERT:
+        description: |-
+          drive output enable from inverse of peripheral signal selected by funcsel
+        value: 1
+      DISABLE:
+        description: |-
+          disable output
+        value: 2
+      ENABLE:
+        description: |-
+          enable output
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false

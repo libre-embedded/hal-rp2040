@@ -1,0 +1,16 @@
+---
+enums:
+  PADS_QSPI_DRIVE:
+    enum:
+      _2mA:
+        value: 0
+      _4mA:
+        value: 1
+      _8mA:
+        value: 2
+      _12mA:
+        value: 3
+    unit_test: false
+    json: false
+    use_map: false
+    identifier: false
