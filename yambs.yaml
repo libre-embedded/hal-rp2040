@@ -1,14 +1,14 @@
 # =====================================
 # generator=datazen
 # version=3.2.3
-# hash=d80ca63ec0745877f1a0851042898b4b
+# hash=679ca4e72cdb6c3b1298b4c45a5c0caf
 # =====================================
 ---
 project:
   name: hal-rp2040
 
   github: {owner: &self vkottler}
-  version: {major: 1, minor: 2, patch: 1}
+  version: {major: 1, minor: 2, patch: 3}
 variants:
   clang:
     suffix: &clang_version "-19"
