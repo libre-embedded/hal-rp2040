@@ -1,3 +1,5 @@
 ---
 includes:
   - ifgen/ifgen.yaml
+
+clang_format: clang-format-19
