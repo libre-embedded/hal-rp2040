@@ -2,6 +2,8 @@
 name: Yambs Project
 
 on:
+  workflow_dispatch:
+    inputs: {}
   push:
     branches: [master]
   pull_request:
