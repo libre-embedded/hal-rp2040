@@ -16,6 +16,46 @@ namespace RP2040
 
 enum class DMA_TREQ_SEL : uint8_t
 {
+    PIO0_TX0,
+    PIO0_TX1 = 1,
+    PIO0_TX2 = 2,
+    PIO0_TX3 = 3,
+    PIO0_RX0 = 4,
+    PIO0_RX1 = 5,
+    PIO0_RX2 = 6,
+    PIO0_RX3 = 7,
+    PIO1_TX0 = 8,
+    PIO1_TX1 = 9,
+    PIO1_TX2 = 10,
+    PIO1_TX3 = 11,
+    PIO1_RX0 = 12,
+    PIO1_RX1 = 13,
+    PIO1_RX2 = 14,
+    PIO1_RX3 = 15,
+    SPI0_TX = 16,
+    SPI0_RX = 17,
+    SPI1_TX = 18,
+    SPI1_RX = 19,
+    UART0_TX = 20,
+    UART0_RX = 21,
+    UART1_TX = 22,
+    UART1_RX = 23,
+    PWM_WRAP0 = 24,
+    PWM_WRAP1 = 25,
+    PWM_WRAP2 = 26,
+    PWM_WRAP3 = 27,
+    PWM_WRAP4 = 28,
+    PWM_WRAP5 = 29,
+    PWM_WRAP6 = 30,
+    PWM_WRAP7 = 31,
+    I2C0_TX = 32,
+    I2C0_RX = 33,
+    I2C1_TX = 34,
+    I2C1_RX = 35,
+    ADC = 36,
+    XIP_STREAM = 37,
+    XIP_SSITX = 38,
+    XIP_SSIRX = 39,
     TIMER0 = 59 /*!< Select Timer 0 as TREQ */,
     TIMER1 = 60 /*!< Select Timer 1 as TREQ */,
     TIMER2 = 61 /*!< Select Timer 2 as TREQ (Optional) */,
@@ -36,6 +76,126 @@ inline const char *to_string(DMA_TREQ_SEL instance)
 
     switch (instance)
     {
+    case DMA_TREQ_SEL::PIO0_TX0:
+        result = "PIO0_TX0";
+        break;
+    case DMA_TREQ_SEL::PIO0_TX1:
+        result = "PIO0_TX1";
+        break;
+    case DMA_TREQ_SEL::PIO0_TX2:
+        result = "PIO0_TX2";
+        break;
+    case DMA_TREQ_SEL::PIO0_TX3:
+        result = "PIO0_TX3";
+        break;
+    case DMA_TREQ_SEL::PIO0_RX0:
+        result = "PIO0_RX0";
+        break;
+    case DMA_TREQ_SEL::PIO0_RX1:
+        result = "PIO0_RX1";
+        break;
+    case DMA_TREQ_SEL::PIO0_RX2:
+        result = "PIO0_RX2";
+        break;
+    case DMA_TREQ_SEL::PIO0_RX3:
+        result = "PIO0_RX3";
+        break;
+    case DMA_TREQ_SEL::PIO1_TX0:
+        result = "PIO1_TX0";
+        break;
+    case DMA_TREQ_SEL::PIO1_TX1:
+        result = "PIO1_TX1";
+        break;
+    case DMA_TREQ_SEL::PIO1_TX2:
+        result = "PIO1_TX2";
+        break;
+    case DMA_TREQ_SEL::PIO1_TX3:
+        result = "PIO1_TX3";
+        break;
+    case DMA_TREQ_SEL::PIO1_RX0:
+        result = "PIO1_RX0";
+        break;
+    case DMA_TREQ_SEL::PIO1_RX1:
+        result = "PIO1_RX1";
+        break;
+    case DMA_TREQ_SEL::PIO1_RX2:
+        result = "PIO1_RX2";
+        break;
+    case DMA_TREQ_SEL::PIO1_RX3:
+        result = "PIO1_RX3";
+        break;
+    case DMA_TREQ_SEL::SPI0_TX:
+        result = "SPI0_TX";
+        break;
+    case DMA_TREQ_SEL::SPI0_RX:
+        result = "SPI0_RX";
+        break;
+    case DMA_TREQ_SEL::SPI1_TX:
+        result = "SPI1_TX";
+        break;
+    case DMA_TREQ_SEL::SPI1_RX:
+        result = "SPI1_RX";
+        break;
+    case DMA_TREQ_SEL::UART0_TX:
+        result = "UART0_TX";
+        break;
+    case DMA_TREQ_SEL::UART0_RX:
+        result = "UART0_RX";
+        break;
+    case DMA_TREQ_SEL::UART1_TX:
+        result = "UART1_TX";
+        break;
+    case DMA_TREQ_SEL::UART1_RX:
+        result = "UART1_RX";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP0:
+        result = "PWM_WRAP0";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP1:
+        result = "PWM_WRAP1";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP2:
+        result = "PWM_WRAP2";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP3:
+        result = "PWM_WRAP3";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP4:
+        result = "PWM_WRAP4";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP5:
+        result = "PWM_WRAP5";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP6:
+        result = "PWM_WRAP6";
+        break;
+    case DMA_TREQ_SEL::PWM_WRAP7:
+        result = "PWM_WRAP7";
+        break;
+    case DMA_TREQ_SEL::I2C0_TX:
+        result = "I2C0_TX";
+        break;
+    case DMA_TREQ_SEL::I2C0_RX:
+        result = "I2C0_RX";
+        break;
+    case DMA_TREQ_SEL::I2C1_TX:
+        result = "I2C1_TX";
+        break;
+    case DMA_TREQ_SEL::I2C1_RX:
+        result = "I2C1_RX";
+        break;
+    case DMA_TREQ_SEL::ADC:
+        result = "ADC";
+        break;
+    case DMA_TREQ_SEL::XIP_STREAM:
+        result = "XIP_STREAM";
+        break;
+    case DMA_TREQ_SEL::XIP_SSITX:
+        result = "XIP_SSITX";
+        break;
+    case DMA_TREQ_SEL::XIP_SSIRX:
+        result = "XIP_SSIRX";
+        break;
     case DMA_TREQ_SEL::TIMER0:
         result = "TIMER0";
         break;
@@ -73,7 +233,167 @@ inline bool from_string(const char *data, DMA_TREQ_SEL &output)
 {
     bool result = false;
 
-    if ((result = !strncmp(data, "TIMER0", 6)))
+    if ((result = !strncmp(data, "PIO0_TX0", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_TX0;
+    }
+    else if ((result = !strncmp(data, "PIO0_TX1", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_TX1;
+    }
+    else if ((result = !strncmp(data, "PIO0_TX2", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_TX2;
+    }
+    else if ((result = !strncmp(data, "PIO0_TX3", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_TX3;
+    }
+    else if ((result = !strncmp(data, "PIO0_RX0", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_RX0;
+    }
+    else if ((result = !strncmp(data, "PIO0_RX1", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_RX1;
+    }
+    else if ((result = !strncmp(data, "PIO0_RX2", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_RX2;
+    }
+    else if ((result = !strncmp(data, "PIO0_RX3", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO0_RX3;
+    }
+    else if ((result = !strncmp(data, "PIO1_TX0", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_TX0;
+    }
+    else if ((result = !strncmp(data, "PIO1_TX1", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_TX1;
+    }
+    else if ((result = !strncmp(data, "PIO1_TX2", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_TX2;
+    }
+    else if ((result = !strncmp(data, "PIO1_TX3", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_TX3;
+    }
+    else if ((result = !strncmp(data, "PIO1_RX0", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_RX0;
+    }
+    else if ((result = !strncmp(data, "PIO1_RX1", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_RX1;
+    }
+    else if ((result = !strncmp(data, "PIO1_RX2", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_RX2;
+    }
+    else if ((result = !strncmp(data, "PIO1_RX3", 8)))
+    {
+        output = DMA_TREQ_SEL::PIO1_RX3;
+    }
+    else if ((result = !strncmp(data, "SPI0_TX", 7)))
+    {
+        output = DMA_TREQ_SEL::SPI0_TX;
+    }
+    else if ((result = !strncmp(data, "SPI0_RX", 7)))
+    {
+        output = DMA_TREQ_SEL::SPI0_RX;
+    }
+    else if ((result = !strncmp(data, "SPI1_TX", 7)))
+    {
+        output = DMA_TREQ_SEL::SPI1_TX;
+    }
+    else if ((result = !strncmp(data, "SPI1_RX", 7)))
+    {
+        output = DMA_TREQ_SEL::SPI1_RX;
+    }
+    else if ((result = !strncmp(data, "UART0_TX", 8)))
+    {
+        output = DMA_TREQ_SEL::UART0_TX;
+    }
+    else if ((result = !strncmp(data, "UART0_RX", 8)))
+    {
+        output = DMA_TREQ_SEL::UART0_RX;
+    }
+    else if ((result = !strncmp(data, "UART1_TX", 8)))
+    {
+        output = DMA_TREQ_SEL::UART1_TX;
+    }
+    else if ((result = !strncmp(data, "UART1_RX", 8)))
+    {
+        output = DMA_TREQ_SEL::UART1_RX;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP0", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP0;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP1", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP1;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP2", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP2;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP3", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP3;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP4", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP4;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP5", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP5;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP6", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP6;
+    }
+    else if ((result = !strncmp(data, "PWM_WRAP7", 9)))
+    {
+        output = DMA_TREQ_SEL::PWM_WRAP7;
+    }
+    else if ((result = !strncmp(data, "I2C0_TX", 7)))
+    {
+        output = DMA_TREQ_SEL::I2C0_TX;
+    }
+    else if ((result = !strncmp(data, "I2C0_RX", 7)))
+    {
+        output = DMA_TREQ_SEL::I2C0_RX;
+    }
+    else if ((result = !strncmp(data, "I2C1_TX", 7)))
+    {
+        output = DMA_TREQ_SEL::I2C1_TX;
+    }
+    else if ((result = !strncmp(data, "I2C1_RX", 7)))
+    {
+        output = DMA_TREQ_SEL::I2C1_RX;
+    }
+    else if ((result = !strncmp(data, "ADC", 3)))
+    {
+        output = DMA_TREQ_SEL::ADC;
+    }
+    else if ((result = !strncmp(data, "XIP_STREAM", 10)))
+    {
+        output = DMA_TREQ_SEL::XIP_STREAM;
+    }
+    else if ((result = !strncmp(data, "XIP_SSITX", 9)))
+    {
+        output = DMA_TREQ_SEL::XIP_SSITX;
+    }
+    else if ((result = !strncmp(data, "XIP_SSIRX", 9)))
+    {
+        output = DMA_TREQ_SEL::XIP_SSIRX;
+    }
+    else if ((result = !strncmp(data, "TIMER0", 6)))
     {
         output = DMA_TREQ_SEL::TIMER0;
     }

@@ -32,6 +32,86 @@ enums:
     identifier: false
   DMA_TREQ_SEL:
     enum:
+      PIO0_TX0:
+        value: 0
+      PIO0_TX1:
+        value: 1
+      PIO0_TX2:
+        value: 2
+      PIO0_TX3:
+        value: 3
+      PIO0_RX0:
+        value: 4
+      PIO0_RX1:
+        value: 5
+      PIO0_RX2:
+        value: 6
+      PIO0_RX3:
+        value: 7
+      PIO1_TX0:
+        value: 8
+      PIO1_TX1:
+        value: 9
+      PIO1_TX2:
+        value: 10
+      PIO1_TX3:
+        value: 11
+      PIO1_RX0:
+        value: 12
+      PIO1_RX1:
+        value: 13
+      PIO1_RX2:
+        value: 14
+      PIO1_RX3:
+        value: 15
+      SPI0_TX:
+        value: 16
+      SPI0_RX:
+        value: 17
+      SPI1_TX:
+        value: 18
+      SPI1_RX:
+        value: 19
+      UART0_TX:
+        value: 20
+      UART0_RX:
+        value: 21
+      UART1_TX:
+        value: 22
+      UART1_RX:
+        value: 23
+      PWM_WRAP0:
+        value: 24
+      PWM_WRAP1:
+        value: 25
+      PWM_WRAP2:
+        value: 26
+      PWM_WRAP3:
+        value: 27
+      PWM_WRAP4:
+        value: 28
+      PWM_WRAP5:
+        value: 29
+      PWM_WRAP6:
+        value: 30
+      PWM_WRAP7:
+        value: 31
+      I2C0_TX:
+        value: 32
+      I2C0_RX:
+        value: 33
+      I2C1_TX:
+        value: 34
+      I2C1_RX:
+        value: 35
+      ADC:
+        value: 36
+      XIP_STREAM:
+        value: 37
+      XIP_SSITX:
+        value: 38
+      XIP_SSIRX:
+        value: 39
       TIMER0:
         description: |-
           Select Timer 0 as TREQ
