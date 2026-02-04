@@ -58,7 +58,7 @@ structs:
         expected_offset: 12
         description: |-
           (read-write) DMA Channel Control and Status
-        fields:
+        fields: &ctrl_fields
           - name: EN
             description: |-
               DMA Channel Enable.
@@ -194,6 +194,7 @@ structs:
         expected_offset: 16
         description: |-
           (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
       - name: AL1_READ_ADDR
         type: uint32_t
         expected_size: 4
@@ -220,6 +221,7 @@ structs:
         expected_offset: 32
         description: |-
           (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
       - name: AL2_TRANS_COUNT
         type: uint32_t
         expected_size: 4
@@ -246,6 +248,7 @@ structs:
         expected_offset: 48
         description: |-
           (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
       - name: AL3_WRITE_ADDR
         type: uint32_t
         expected_size: 4
