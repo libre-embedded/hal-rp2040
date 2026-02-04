@@ -831,6 +831,2280 @@ struct dma_control
 
         CTRL_TRIG = curr;
     }
+
+    /**
+     * Get AL1_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline bool get_AL1_CTRL_EN()
+    {
+        return AL1_CTRL & 1u;
+    }
+
+    /**
+     * Set AL1_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void set_AL1_CTRL_EN()
+    {
+        AL1_CTRL |= 1u;
+    }
+
+    /**
+     * Clear AL1_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void clear_AL1_CTRL_EN()
+    {
+        AL1_CTRL &= ~(1u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void toggle_AL1_CTRL_EN()
+    {
+        AL1_CTRL ^= 1u;
+    }
+
+    /**
+     * Get AL1_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline bool get_AL1_CTRL_HIGH_PRIORITY()
+    {
+        return AL1_CTRL & (1u << 1u);
+    }
+
+    /**
+     * Set AL1_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void set_AL1_CTRL_HIGH_PRIORITY()
+    {
+        AL1_CTRL |= 1u << 1u;
+    }
+
+    /**
+     * Clear AL1_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void clear_AL1_CTRL_HIGH_PRIORITY()
+    {
+        AL1_CTRL &= ~(1u << 1u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void toggle_AL1_CTRL_HIGH_PRIORITY()
+    {
+        AL1_CTRL ^= 1u << 1u;
+    }
+
+    /**
+     * Get AL1_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline DMA_DATA_SIZE get_AL1_CTRL_DATA_SIZE()
+    {
+        return DMA_DATA_SIZE((AL1_CTRL >> 2u) & 0b11u);
+    }
+
+    /**
+     * Set AL1_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline void set_AL1_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(value) & 0b11u) << 2u;
+
+        AL1_CTRL = curr;
+    }
+
+    /**
+     * Get AL1_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline bool get_AL1_CTRL_INCR_READ()
+    {
+        return AL1_CTRL & (1u << 4u);
+    }
+
+    /**
+     * Set AL1_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void set_AL1_CTRL_INCR_READ()
+    {
+        AL1_CTRL |= 1u << 4u;
+    }
+
+    /**
+     * Clear AL1_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void clear_AL1_CTRL_INCR_READ()
+    {
+        AL1_CTRL &= ~(1u << 4u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void toggle_AL1_CTRL_INCR_READ()
+    {
+        AL1_CTRL ^= 1u << 4u;
+    }
+
+    /**
+     * Get AL1_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline bool get_AL1_CTRL_INCR_WRITE()
+    {
+        return AL1_CTRL & (1u << 5u);
+    }
+
+    /**
+     * Set AL1_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void set_AL1_CTRL_INCR_WRITE()
+    {
+        AL1_CTRL |= 1u << 5u;
+    }
+
+    /**
+     * Clear AL1_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void clear_AL1_CTRL_INCR_WRITE()
+    {
+        AL1_CTRL &= ~(1u << 5u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void toggle_AL1_CTRL_INCR_WRITE()
+    {
+        AL1_CTRL ^= 1u << 5u;
+    }
+
+    /**
+     * Get AL1_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline DMA_RING_SIZE get_AL1_CTRL_RING_SIZE()
+    {
+        return DMA_RING_SIZE((AL1_CTRL >> 6u) & 0xfu);
+    }
+
+    /**
+     * Set AL1_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline void set_AL1_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+
+        AL1_CTRL = curr;
+    }
+
+    /**
+     * Get AL1_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline bool get_AL1_CTRL_RING_SEL()
+    {
+        return AL1_CTRL & (1u << 10u);
+    }
+
+    /**
+     * Set AL1_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void set_AL1_CTRL_RING_SEL()
+    {
+        AL1_CTRL |= 1u << 10u;
+    }
+
+    /**
+     * Clear AL1_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void clear_AL1_CTRL_RING_SEL()
+    {
+        AL1_CTRL &= ~(1u << 10u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void toggle_AL1_CTRL_RING_SEL()
+    {
+        AL1_CTRL ^= 1u << 10u;
+    }
+
+    /**
+     * Get AL1_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline uint8_t get_AL1_CTRL_CHAIN_TO()
+    {
+        return (AL1_CTRL >> 11u) & 0xfu;
+    }
+
+    /**
+     * Set AL1_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline void set_AL1_CTRL_CHAIN_TO(uint8_t value)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        curr &= ~(0xfu << 11u);
+        curr |= (value & 0xfu) << 11u;
+
+        AL1_CTRL = curr;
+    }
+
+    /**
+     * Get AL1_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline DMA_TREQ_SEL get_AL1_CTRL_TREQ_SEL()
+    {
+        return DMA_TREQ_SEL((AL1_CTRL >> 15u) & 0b111111u);
+    }
+
+    /**
+     * Set AL1_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline void set_AL1_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(value) & 0b111111u) << 15u;
+
+        AL1_CTRL = curr;
+    }
+
+    /**
+     * Get AL1_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline bool get_AL1_CTRL_IRQ_QUIET()
+    {
+        return AL1_CTRL & (1u << 21u);
+    }
+
+    /**
+     * Set AL1_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void set_AL1_CTRL_IRQ_QUIET()
+    {
+        AL1_CTRL |= 1u << 21u;
+    }
+
+    /**
+     * Clear AL1_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void clear_AL1_CTRL_IRQ_QUIET()
+    {
+        AL1_CTRL &= ~(1u << 21u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void toggle_AL1_CTRL_IRQ_QUIET()
+    {
+        AL1_CTRL ^= 1u << 21u;
+    }
+
+    /**
+     * Get AL1_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline bool get_AL1_CTRL_BSWAP()
+    {
+        return AL1_CTRL & (1u << 22u);
+    }
+
+    /**
+     * Set AL1_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void set_AL1_CTRL_BSWAP()
+    {
+        AL1_CTRL |= 1u << 22u;
+    }
+
+    /**
+     * Clear AL1_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void clear_AL1_CTRL_BSWAP()
+    {
+        AL1_CTRL &= ~(1u << 22u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void toggle_AL1_CTRL_BSWAP()
+    {
+        AL1_CTRL ^= 1u << 22u;
+    }
+
+    /**
+     * Get AL1_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline bool get_AL1_CTRL_SNIFF_EN()
+    {
+        return AL1_CTRL & (1u << 23u);
+    }
+
+    /**
+     * Set AL1_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void set_AL1_CTRL_SNIFF_EN()
+    {
+        AL1_CTRL |= 1u << 23u;
+    }
+
+    /**
+     * Clear AL1_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void clear_AL1_CTRL_SNIFF_EN()
+    {
+        AL1_CTRL &= ~(1u << 23u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void toggle_AL1_CTRL_SNIFF_EN()
+    {
+        AL1_CTRL ^= 1u << 23u;
+    }
+
+    /**
+     * Get AL1_CTRL's BUSY bit.
+     *
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while paused.
+     *                 To terminate a sequence early (and clear the BUSY flag),
+     * see CHAN_ABORT.
+     */
+    inline bool get_AL1_CTRL_BUSY()
+    {
+        return AL1_CTRL & (1u << 24u);
+    }
+
+    /**
+     * Get AL1_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline bool get_AL1_CTRL_WRITE_ERROR()
+    {
+        return AL1_CTRL & (1u << 29u);
+    }
+
+    /**
+     * Set AL1_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void set_AL1_CTRL_WRITE_ERROR()
+    {
+        AL1_CTRL |= 1u << 29u;
+    }
+
+    /**
+     * Clear AL1_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void clear_AL1_CTRL_WRITE_ERROR()
+    {
+        AL1_CTRL &= ~(1u << 29u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void toggle_AL1_CTRL_WRITE_ERROR()
+    {
+        AL1_CTRL ^= 1u << 29u;
+    }
+
+    /**
+     * Get AL1_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline bool get_AL1_CTRL_READ_ERROR()
+    {
+        return AL1_CTRL & (1u << 30u);
+    }
+
+    /**
+     * Set AL1_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void set_AL1_CTRL_READ_ERROR()
+    {
+        AL1_CTRL |= 1u << 30u;
+    }
+
+    /**
+     * Clear AL1_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void clear_AL1_CTRL_READ_ERROR()
+    {
+        AL1_CTRL &= ~(1u << 30u);
+    }
+
+    /**
+     * Toggle AL1_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void toggle_AL1_CTRL_READ_ERROR()
+    {
+        AL1_CTRL ^= 1u << 30u;
+    }
+
+    /**
+     * Get AL1_CTRL's AHB_ERROR bit.
+     *
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
+     */
+    inline bool get_AL1_CTRL_AHB_ERROR()
+    {
+        return AL1_CTRL & (1u << 31u);
+    }
+
+    /**
+     * Get all of AL1_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void get_AL1_CTRL(bool &EN, bool &HIGH_PRIORITY,
+                             DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
+                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &RING_SEL, uint8_t &CHAIN_TO,
+                             DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
+                             bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
+                             bool &WRITE_ERROR, bool &READ_ERROR,
+                             bool &AHB_ERROR)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        EN = curr & 1u;
+        HIGH_PRIORITY = curr & (1u << 1u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
+        INCR_READ = curr & (1u << 4u);
+        INCR_WRITE = curr & (1u << 5u);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SEL = curr & (1u << 10u);
+        CHAIN_TO = (curr >> 11u) & 0xfu;
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
+        IRQ_QUIET = curr & (1u << 21u);
+        BSWAP = curr & (1u << 22u);
+        SNIFF_EN = curr & (1u << 23u);
+        BUSY = curr & (1u << 24u);
+        WRITE_ERROR = curr & (1u << 29u);
+        READ_ERROR = curr & (1u << 30u);
+        AHB_ERROR = curr & (1u << 31u);
+    }
+
+    /**
+     * Set all of AL1_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void set_AL1_CTRL(bool EN, bool HIGH_PRIORITY,
+                             DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
+                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
+                             bool RING_SEL, uint8_t CHAIN_TO,
+                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
+                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+    {
+        uint32_t curr = AL1_CTRL;
+
+        curr &= ~(0b1u);
+        curr |= (EN & 0b1u);
+        curr &= ~(0b1u << 1u);
+        curr |= (HIGH_PRIORITY & 0b1u) << 1u;
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(DATA_SIZE) & 0b11u) << 2u;
+        curr &= ~(0b1u << 4u);
+        curr |= (INCR_READ & 0b1u) << 4u;
+        curr &= ~(0b1u << 5u);
+        curr |= (INCR_WRITE & 0b1u) << 5u;
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr &= ~(0b1u << 10u);
+        curr |= (RING_SEL & 0b1u) << 10u;
+        curr &= ~(0xfu << 11u);
+        curr |= (CHAIN_TO & 0xfu) << 11u;
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(TREQ_SEL) & 0b111111u) << 15u;
+        curr &= ~(0b1u << 21u);
+        curr |= (IRQ_QUIET & 0b1u) << 21u;
+        curr &= ~(0b1u << 22u);
+        curr |= (BSWAP & 0b1u) << 22u;
+        curr &= ~(0b1u << 23u);
+        curr |= (SNIFF_EN & 0b1u) << 23u;
+        curr &= ~(0b1u << 29u);
+        curr |= (WRITE_ERROR & 0b1u) << 29u;
+        curr &= ~(0b1u << 30u);
+        curr |= (READ_ERROR & 0b1u) << 30u;
+
+        AL1_CTRL = curr;
+    }
+
+    /**
+     * Get AL2_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline bool get_AL2_CTRL_EN()
+    {
+        return AL2_CTRL & 1u;
+    }
+
+    /**
+     * Set AL2_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void set_AL2_CTRL_EN()
+    {
+        AL2_CTRL |= 1u;
+    }
+
+    /**
+     * Clear AL2_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void clear_AL2_CTRL_EN()
+    {
+        AL2_CTRL &= ~(1u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void toggle_AL2_CTRL_EN()
+    {
+        AL2_CTRL ^= 1u;
+    }
+
+    /**
+     * Get AL2_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline bool get_AL2_CTRL_HIGH_PRIORITY()
+    {
+        return AL2_CTRL & (1u << 1u);
+    }
+
+    /**
+     * Set AL2_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void set_AL2_CTRL_HIGH_PRIORITY()
+    {
+        AL2_CTRL |= 1u << 1u;
+    }
+
+    /**
+     * Clear AL2_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void clear_AL2_CTRL_HIGH_PRIORITY()
+    {
+        AL2_CTRL &= ~(1u << 1u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void toggle_AL2_CTRL_HIGH_PRIORITY()
+    {
+        AL2_CTRL ^= 1u << 1u;
+    }
+
+    /**
+     * Get AL2_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline DMA_DATA_SIZE get_AL2_CTRL_DATA_SIZE()
+    {
+        return DMA_DATA_SIZE((AL2_CTRL >> 2u) & 0b11u);
+    }
+
+    /**
+     * Set AL2_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline void set_AL2_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(value) & 0b11u) << 2u;
+
+        AL2_CTRL = curr;
+    }
+
+    /**
+     * Get AL2_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline bool get_AL2_CTRL_INCR_READ()
+    {
+        return AL2_CTRL & (1u << 4u);
+    }
+
+    /**
+     * Set AL2_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void set_AL2_CTRL_INCR_READ()
+    {
+        AL2_CTRL |= 1u << 4u;
+    }
+
+    /**
+     * Clear AL2_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void clear_AL2_CTRL_INCR_READ()
+    {
+        AL2_CTRL &= ~(1u << 4u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void toggle_AL2_CTRL_INCR_READ()
+    {
+        AL2_CTRL ^= 1u << 4u;
+    }
+
+    /**
+     * Get AL2_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline bool get_AL2_CTRL_INCR_WRITE()
+    {
+        return AL2_CTRL & (1u << 5u);
+    }
+
+    /**
+     * Set AL2_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void set_AL2_CTRL_INCR_WRITE()
+    {
+        AL2_CTRL |= 1u << 5u;
+    }
+
+    /**
+     * Clear AL2_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void clear_AL2_CTRL_INCR_WRITE()
+    {
+        AL2_CTRL &= ~(1u << 5u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void toggle_AL2_CTRL_INCR_WRITE()
+    {
+        AL2_CTRL ^= 1u << 5u;
+    }
+
+    /**
+     * Get AL2_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline DMA_RING_SIZE get_AL2_CTRL_RING_SIZE()
+    {
+        return DMA_RING_SIZE((AL2_CTRL >> 6u) & 0xfu);
+    }
+
+    /**
+     * Set AL2_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline void set_AL2_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+
+        AL2_CTRL = curr;
+    }
+
+    /**
+     * Get AL2_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline bool get_AL2_CTRL_RING_SEL()
+    {
+        return AL2_CTRL & (1u << 10u);
+    }
+
+    /**
+     * Set AL2_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void set_AL2_CTRL_RING_SEL()
+    {
+        AL2_CTRL |= 1u << 10u;
+    }
+
+    /**
+     * Clear AL2_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void clear_AL2_CTRL_RING_SEL()
+    {
+        AL2_CTRL &= ~(1u << 10u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void toggle_AL2_CTRL_RING_SEL()
+    {
+        AL2_CTRL ^= 1u << 10u;
+    }
+
+    /**
+     * Get AL2_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline uint8_t get_AL2_CTRL_CHAIN_TO()
+    {
+        return (AL2_CTRL >> 11u) & 0xfu;
+    }
+
+    /**
+     * Set AL2_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline void set_AL2_CTRL_CHAIN_TO(uint8_t value)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        curr &= ~(0xfu << 11u);
+        curr |= (value & 0xfu) << 11u;
+
+        AL2_CTRL = curr;
+    }
+
+    /**
+     * Get AL2_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline DMA_TREQ_SEL get_AL2_CTRL_TREQ_SEL()
+    {
+        return DMA_TREQ_SEL((AL2_CTRL >> 15u) & 0b111111u);
+    }
+
+    /**
+     * Set AL2_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline void set_AL2_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(value) & 0b111111u) << 15u;
+
+        AL2_CTRL = curr;
+    }
+
+    /**
+     * Get AL2_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline bool get_AL2_CTRL_IRQ_QUIET()
+    {
+        return AL2_CTRL & (1u << 21u);
+    }
+
+    /**
+     * Set AL2_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void set_AL2_CTRL_IRQ_QUIET()
+    {
+        AL2_CTRL |= 1u << 21u;
+    }
+
+    /**
+     * Clear AL2_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void clear_AL2_CTRL_IRQ_QUIET()
+    {
+        AL2_CTRL &= ~(1u << 21u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void toggle_AL2_CTRL_IRQ_QUIET()
+    {
+        AL2_CTRL ^= 1u << 21u;
+    }
+
+    /**
+     * Get AL2_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline bool get_AL2_CTRL_BSWAP()
+    {
+        return AL2_CTRL & (1u << 22u);
+    }
+
+    /**
+     * Set AL2_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void set_AL2_CTRL_BSWAP()
+    {
+        AL2_CTRL |= 1u << 22u;
+    }
+
+    /**
+     * Clear AL2_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void clear_AL2_CTRL_BSWAP()
+    {
+        AL2_CTRL &= ~(1u << 22u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void toggle_AL2_CTRL_BSWAP()
+    {
+        AL2_CTRL ^= 1u << 22u;
+    }
+
+    /**
+     * Get AL2_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline bool get_AL2_CTRL_SNIFF_EN()
+    {
+        return AL2_CTRL & (1u << 23u);
+    }
+
+    /**
+     * Set AL2_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void set_AL2_CTRL_SNIFF_EN()
+    {
+        AL2_CTRL |= 1u << 23u;
+    }
+
+    /**
+     * Clear AL2_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void clear_AL2_CTRL_SNIFF_EN()
+    {
+        AL2_CTRL &= ~(1u << 23u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void toggle_AL2_CTRL_SNIFF_EN()
+    {
+        AL2_CTRL ^= 1u << 23u;
+    }
+
+    /**
+     * Get AL2_CTRL's BUSY bit.
+     *
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while paused.
+     *                 To terminate a sequence early (and clear the BUSY flag),
+     * see CHAN_ABORT.
+     */
+    inline bool get_AL2_CTRL_BUSY()
+    {
+        return AL2_CTRL & (1u << 24u);
+    }
+
+    /**
+     * Get AL2_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline bool get_AL2_CTRL_WRITE_ERROR()
+    {
+        return AL2_CTRL & (1u << 29u);
+    }
+
+    /**
+     * Set AL2_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void set_AL2_CTRL_WRITE_ERROR()
+    {
+        AL2_CTRL |= 1u << 29u;
+    }
+
+    /**
+     * Clear AL2_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void clear_AL2_CTRL_WRITE_ERROR()
+    {
+        AL2_CTRL &= ~(1u << 29u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void toggle_AL2_CTRL_WRITE_ERROR()
+    {
+        AL2_CTRL ^= 1u << 29u;
+    }
+
+    /**
+     * Get AL2_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline bool get_AL2_CTRL_READ_ERROR()
+    {
+        return AL2_CTRL & (1u << 30u);
+    }
+
+    /**
+     * Set AL2_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void set_AL2_CTRL_READ_ERROR()
+    {
+        AL2_CTRL |= 1u << 30u;
+    }
+
+    /**
+     * Clear AL2_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void clear_AL2_CTRL_READ_ERROR()
+    {
+        AL2_CTRL &= ~(1u << 30u);
+    }
+
+    /**
+     * Toggle AL2_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void toggle_AL2_CTRL_READ_ERROR()
+    {
+        AL2_CTRL ^= 1u << 30u;
+    }
+
+    /**
+     * Get AL2_CTRL's AHB_ERROR bit.
+     *
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
+     */
+    inline bool get_AL2_CTRL_AHB_ERROR()
+    {
+        return AL2_CTRL & (1u << 31u);
+    }
+
+    /**
+     * Get all of AL2_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void get_AL2_CTRL(bool &EN, bool &HIGH_PRIORITY,
+                             DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
+                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &RING_SEL, uint8_t &CHAIN_TO,
+                             DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
+                             bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
+                             bool &WRITE_ERROR, bool &READ_ERROR,
+                             bool &AHB_ERROR)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        EN = curr & 1u;
+        HIGH_PRIORITY = curr & (1u << 1u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
+        INCR_READ = curr & (1u << 4u);
+        INCR_WRITE = curr & (1u << 5u);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SEL = curr & (1u << 10u);
+        CHAIN_TO = (curr >> 11u) & 0xfu;
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
+        IRQ_QUIET = curr & (1u << 21u);
+        BSWAP = curr & (1u << 22u);
+        SNIFF_EN = curr & (1u << 23u);
+        BUSY = curr & (1u << 24u);
+        WRITE_ERROR = curr & (1u << 29u);
+        READ_ERROR = curr & (1u << 30u);
+        AHB_ERROR = curr & (1u << 31u);
+    }
+
+    /**
+     * Set all of AL2_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void set_AL2_CTRL(bool EN, bool HIGH_PRIORITY,
+                             DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
+                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
+                             bool RING_SEL, uint8_t CHAIN_TO,
+                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
+                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+    {
+        uint32_t curr = AL2_CTRL;
+
+        curr &= ~(0b1u);
+        curr |= (EN & 0b1u);
+        curr &= ~(0b1u << 1u);
+        curr |= (HIGH_PRIORITY & 0b1u) << 1u;
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(DATA_SIZE) & 0b11u) << 2u;
+        curr &= ~(0b1u << 4u);
+        curr |= (INCR_READ & 0b1u) << 4u;
+        curr &= ~(0b1u << 5u);
+        curr |= (INCR_WRITE & 0b1u) << 5u;
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr &= ~(0b1u << 10u);
+        curr |= (RING_SEL & 0b1u) << 10u;
+        curr &= ~(0xfu << 11u);
+        curr |= (CHAIN_TO & 0xfu) << 11u;
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(TREQ_SEL) & 0b111111u) << 15u;
+        curr &= ~(0b1u << 21u);
+        curr |= (IRQ_QUIET & 0b1u) << 21u;
+        curr &= ~(0b1u << 22u);
+        curr |= (BSWAP & 0b1u) << 22u;
+        curr &= ~(0b1u << 23u);
+        curr |= (SNIFF_EN & 0b1u) << 23u;
+        curr &= ~(0b1u << 29u);
+        curr |= (WRITE_ERROR & 0b1u) << 29u;
+        curr &= ~(0b1u << 30u);
+        curr |= (READ_ERROR & 0b1u) << 30u;
+
+        AL2_CTRL = curr;
+    }
+
+    /**
+     * Get AL3_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline bool get_AL3_CTRL_EN()
+    {
+        return AL3_CTRL & 1u;
+    }
+
+    /**
+     * Set AL3_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void set_AL3_CTRL_EN()
+    {
+        AL3_CTRL |= 1u;
+    }
+
+    /**
+     * Clear AL3_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void clear_AL3_CTRL_EN()
+    {
+        AL3_CTRL &= ~(1u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's EN bit.
+     *
+     * DMA Channel Enable.
+     *                 When 1, the channel will respond to triggering events,
+     * which will cause it to become BUSY and start transferring data. When 0,
+     * the channel will ignore triggers, stop issuing transfers, and pause the
+     * current transfer sequence (i.e. BUSY will remain high if already high)
+     */
+    inline void toggle_AL3_CTRL_EN()
+    {
+        AL3_CTRL ^= 1u;
+    }
+
+    /**
+     * Get AL3_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline bool get_AL3_CTRL_HIGH_PRIORITY()
+    {
+        return AL3_CTRL & (1u << 1u);
+    }
+
+    /**
+     * Set AL3_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void set_AL3_CTRL_HIGH_PRIORITY()
+    {
+        AL3_CTRL |= 1u << 1u;
+    }
+
+    /**
+     * Clear AL3_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void clear_AL3_CTRL_HIGH_PRIORITY()
+    {
+        AL3_CTRL &= ~(1u << 1u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's HIGH_PRIORITY bit.
+     *
+     * HIGH_PRIORITY gives a channel preferential treatment in issue
+     * scheduling: in each scheduling round, all high priority channels are
+     * considered first, and then only a single low priority channel, before
+     * returning to the high priority channels. This only affects the order in
+     * which the DMA schedules channels. The DMA's bus priority is not changed.
+     * If the DMA is not saturated then a low priority channel will see no loss
+     * of throughput.
+     */
+    inline void toggle_AL3_CTRL_HIGH_PRIORITY()
+    {
+        AL3_CTRL ^= 1u << 1u;
+    }
+
+    /**
+     * Get AL3_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline DMA_DATA_SIZE get_AL3_CTRL_DATA_SIZE()
+    {
+        return DMA_DATA_SIZE((AL3_CTRL >> 2u) & 0b11u);
+    }
+
+    /**
+     * Set AL3_CTRL's DATA_SIZE field.
+     *
+     * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
+     * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+     */
+    inline void set_AL3_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(value) & 0b11u) << 2u;
+
+        AL3_CTRL = curr;
+    }
+
+    /**
+     * Get AL3_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline bool get_AL3_CTRL_INCR_READ()
+    {
+        return AL3_CTRL & (1u << 4u);
+    }
+
+    /**
+     * Set AL3_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void set_AL3_CTRL_INCR_READ()
+    {
+        AL3_CTRL |= 1u << 4u;
+    }
+
+    /**
+     * Clear AL3_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void clear_AL3_CTRL_INCR_READ()
+    {
+        AL3_CTRL &= ~(1u << 4u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's INCR_READ bit.
+     *
+     * If 1, the read address increments with each transfer. If 0, each read is
+     * directed to the same, initial address. Generally this should be disabled
+     * for peripheral-to-memory transfers.
+     */
+    inline void toggle_AL3_CTRL_INCR_READ()
+    {
+        AL3_CTRL ^= 1u << 4u;
+    }
+
+    /**
+     * Get AL3_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline bool get_AL3_CTRL_INCR_WRITE()
+    {
+        return AL3_CTRL & (1u << 5u);
+    }
+
+    /**
+     * Set AL3_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void set_AL3_CTRL_INCR_WRITE()
+    {
+        AL3_CTRL |= 1u << 5u;
+    }
+
+    /**
+     * Clear AL3_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void clear_AL3_CTRL_INCR_WRITE()
+    {
+        AL3_CTRL &= ~(1u << 5u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's INCR_WRITE bit.
+     *
+     * If 1, the write address increments with each transfer. If 0, each write
+     * is directed to the same, initial address. Generally this should be
+     * disabled for memory-to-peripheral transfers.
+     */
+    inline void toggle_AL3_CTRL_INCR_WRITE()
+    {
+        AL3_CTRL ^= 1u << 5u;
+    }
+
+    /**
+     * Get AL3_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline DMA_RING_SIZE get_AL3_CTRL_RING_SIZE()
+    {
+        return DMA_RING_SIZE((AL3_CTRL >> 6u) & 0xfu);
+    }
+
+    /**
+     * Set AL3_CTRL's RING_SIZE field.
+     *
+     * Size of address wrap region. If 0, don't wrap. For values n > 0, only
+     * the lower n bits of the address will change. This wraps the address on a
+     * (1 << n) byte boundary, facilitating access to naturally-aligned ring
+     * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
+     * apply to either read or write addresses, based on value of RING_SEL.
+     */
+    inline void set_AL3_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+
+        AL3_CTRL = curr;
+    }
+
+    /**
+     * Get AL3_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline bool get_AL3_CTRL_RING_SEL()
+    {
+        return AL3_CTRL & (1u << 10u);
+    }
+
+    /**
+     * Set AL3_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void set_AL3_CTRL_RING_SEL()
+    {
+        AL3_CTRL |= 1u << 10u;
+    }
+
+    /**
+     * Clear AL3_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void clear_AL3_CTRL_RING_SEL()
+    {
+        AL3_CTRL &= ~(1u << 10u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's RING_SEL bit.
+     *
+     * Select whether RING_SIZE applies to read or write addresses.
+     *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
+     * boundary. If 1, write addresses are wrapped.
+     */
+    inline void toggle_AL3_CTRL_RING_SEL()
+    {
+        AL3_CTRL ^= 1u << 10u;
+    }
+
+    /**
+     * Get AL3_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline uint8_t get_AL3_CTRL_CHAIN_TO()
+    {
+        return (AL3_CTRL >> 11u) & 0xfu;
+    }
+
+    /**
+     * Set AL3_CTRL's CHAIN_TO field.
+     *
+     * When this channel completes, it will trigger the channel indicated by
+     * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+     */
+    inline void set_AL3_CTRL_CHAIN_TO(uint8_t value)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        curr &= ~(0xfu << 11u);
+        curr |= (value & 0xfu) << 11u;
+
+        AL3_CTRL = curr;
+    }
+
+    /**
+     * Get AL3_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline DMA_TREQ_SEL get_AL3_CTRL_TREQ_SEL()
+    {
+        return DMA_TREQ_SEL((AL3_CTRL >> 15u) & 0b111111u);
+    }
+
+    /**
+     * Set AL3_CTRL's TREQ_SEL field.
+     *
+     * Select a Transfer Request signal.
+     *                 The channel uses the transfer request signal to pace its
+     * data transfer rate. Sources for TREQ signals are internal (TIMERS) or
+     * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
+     * DREQ n as TREQ
+     */
+    inline void set_AL3_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(value) & 0b111111u) << 15u;
+
+        AL3_CTRL = curr;
+    }
+
+    /**
+     * Get AL3_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline bool get_AL3_CTRL_IRQ_QUIET()
+    {
+        return AL3_CTRL & (1u << 21u);
+    }
+
+    /**
+     * Set AL3_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void set_AL3_CTRL_IRQ_QUIET()
+    {
+        AL3_CTRL |= 1u << 21u;
+    }
+
+    /**
+     * Clear AL3_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void clear_AL3_CTRL_IRQ_QUIET()
+    {
+        AL3_CTRL &= ~(1u << 21u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's IRQ_QUIET bit.
+     *
+     * In QUIET mode, the channel does not generate IRQs at the end of every
+     * transfer block. Instead, an IRQ is raised when NULL is written to a
+     * trigger register, indicating the end of a control block chain. This
+     * reduces the number of interrupts to be serviced by the CPU when
+     * transferring a DMA chain of many small control blocks.
+     */
+    inline void toggle_AL3_CTRL_IRQ_QUIET()
+    {
+        AL3_CTRL ^= 1u << 21u;
+    }
+
+    /**
+     * Get AL3_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline bool get_AL3_CTRL_BSWAP()
+    {
+        return AL3_CTRL & (1u << 22u);
+    }
+
+    /**
+     * Set AL3_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void set_AL3_CTRL_BSWAP()
+    {
+        AL3_CTRL |= 1u << 22u;
+    }
+
+    /**
+     * Clear AL3_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void clear_AL3_CTRL_BSWAP()
+    {
+        AL3_CTRL &= ~(1u << 22u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's BSWAP bit.
+     *
+     * Apply byte-swap transformation to DMA data.
+     *                 For byte data, this has no effect. For halfword data,
+     * the two bytes of each halfword are swapped. For word data, the four
+     * bytes of each word are swapped to reverse order.
+     */
+    inline void toggle_AL3_CTRL_BSWAP()
+    {
+        AL3_CTRL ^= 1u << 22u;
+    }
+
+    /**
+     * Get AL3_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline bool get_AL3_CTRL_SNIFF_EN()
+    {
+        return AL3_CTRL & (1u << 23u);
+    }
+
+    /**
+     * Set AL3_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void set_AL3_CTRL_SNIFF_EN()
+    {
+        AL3_CTRL |= 1u << 23u;
+    }
+
+    /**
+     * Clear AL3_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void clear_AL3_CTRL_SNIFF_EN()
+    {
+        AL3_CTRL &= ~(1u << 23u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's SNIFF_EN bit.
+     *
+     * If 1, this channel's data transfers are visible to the sniff hardware,
+     * and each transfer will advance the state of the checksum. This only
+     * applies if the sniff hardware is enabled, and has this channel selected.
+     *                 This allows checksum to be enabled or disabled on a
+     * per-control- block basis.
+     */
+    inline void toggle_AL3_CTRL_SNIFF_EN()
+    {
+        AL3_CTRL ^= 1u << 23u;
+    }
+
+    /**
+     * Get AL3_CTRL's BUSY bit.
+     *
+     * This flag goes high when the channel starts a new transfer sequence, and
+     * low when the last transfer of that sequence completes. Clearing EN while
+     * BUSY is high pauses the channel, and BUSY will stay high while paused.
+     *                 To terminate a sequence early (and clear the BUSY flag),
+     * see CHAN_ABORT.
+     */
+    inline bool get_AL3_CTRL_BUSY()
+    {
+        return AL3_CTRL & (1u << 24u);
+    }
+
+    /**
+     * Get AL3_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline bool get_AL3_CTRL_WRITE_ERROR()
+    {
+        return AL3_CTRL & (1u << 29u);
+    }
+
+    /**
+     * Set AL3_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void set_AL3_CTRL_WRITE_ERROR()
+    {
+        AL3_CTRL |= 1u << 29u;
+    }
+
+    /**
+     * Clear AL3_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void clear_AL3_CTRL_WRITE_ERROR()
+    {
+        AL3_CTRL &= ~(1u << 29u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's WRITE_ERROR bit.
+     *
+     * If 1, the channel received a write bus error. Write one to clear.
+     *                 WRITE_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 5 transfers
+     * later)
+     */
+    inline void toggle_AL3_CTRL_WRITE_ERROR()
+    {
+        AL3_CTRL ^= 1u << 29u;
+    }
+
+    /**
+     * Get AL3_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline bool get_AL3_CTRL_READ_ERROR()
+    {
+        return AL3_CTRL & (1u << 30u);
+    }
+
+    /**
+     * Set AL3_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void set_AL3_CTRL_READ_ERROR()
+    {
+        AL3_CTRL |= 1u << 30u;
+    }
+
+    /**
+     * Clear AL3_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void clear_AL3_CTRL_READ_ERROR()
+    {
+        AL3_CTRL &= ~(1u << 30u);
+    }
+
+    /**
+     * Toggle AL3_CTRL's READ_ERROR bit.
+     *
+     * If 1, the channel received a read bus error. Write one to clear.
+     *                 READ_ADDR shows the approximate address where the bus
+     * error was encountered (will not be earlier, or more than 3 transfers
+     * later)
+     */
+    inline void toggle_AL3_CTRL_READ_ERROR()
+    {
+        AL3_CTRL ^= 1u << 30u;
+    }
+
+    /**
+     * Get AL3_CTRL's AHB_ERROR bit.
+     *
+     * Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts
+     * when it encounters any bus error, and always raises its channel IRQ
+     * flag.
+     */
+    inline bool get_AL3_CTRL_AHB_ERROR()
+    {
+        return AL3_CTRL & (1u << 31u);
+    }
+
+    /**
+     * Get all of AL3_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void get_AL3_CTRL(bool &EN, bool &HIGH_PRIORITY,
+                             DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
+                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &RING_SEL, uint8_t &CHAIN_TO,
+                             DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
+                             bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
+                             bool &WRITE_ERROR, bool &READ_ERROR,
+                             bool &AHB_ERROR)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        EN = curr & 1u;
+        HIGH_PRIORITY = curr & (1u << 1u);
+        DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
+        INCR_READ = curr & (1u << 4u);
+        INCR_WRITE = curr & (1u << 5u);
+        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SEL = curr & (1u << 10u);
+        CHAIN_TO = (curr >> 11u) & 0xfu;
+        TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
+        IRQ_QUIET = curr & (1u << 21u);
+        BSWAP = curr & (1u << 22u);
+        SNIFF_EN = curr & (1u << 23u);
+        BUSY = curr & (1u << 24u);
+        WRITE_ERROR = curr & (1u << 29u);
+        READ_ERROR = curr & (1u << 30u);
+        AHB_ERROR = curr & (1u << 31u);
+    }
+
+    /**
+     * Set all of AL3_CTRL's bit fields.
+     *
+     * (read-write) Alias for channel CTRL register
+     */
+    inline void set_AL3_CTRL(bool EN, bool HIGH_PRIORITY,
+                             DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
+                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
+                             bool RING_SEL, uint8_t CHAIN_TO,
+                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
+                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+    {
+        uint32_t curr = AL3_CTRL;
+
+        curr &= ~(0b1u);
+        curr |= (EN & 0b1u);
+        curr &= ~(0b1u << 1u);
+        curr |= (HIGH_PRIORITY & 0b1u) << 1u;
+        curr &= ~(0b11u << 2u);
+        curr |= (std::to_underlying(DATA_SIZE) & 0b11u) << 2u;
+        curr &= ~(0b1u << 4u);
+        curr |= (INCR_READ & 0b1u) << 4u;
+        curr &= ~(0b1u << 5u);
+        curr |= (INCR_WRITE & 0b1u) << 5u;
+        curr &= ~(0xfu << 6u);
+        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr &= ~(0b1u << 10u);
+        curr |= (RING_SEL & 0b1u) << 10u;
+        curr &= ~(0xfu << 11u);
+        curr |= (CHAIN_TO & 0xfu) << 11u;
+        curr &= ~(0b111111u << 15u);
+        curr |= (std::to_underlying(TREQ_SEL) & 0b111111u) << 15u;
+        curr &= ~(0b1u << 21u);
+        curr |= (IRQ_QUIET & 0b1u) << 21u;
+        curr &= ~(0b1u << 22u);
+        curr |= (BSWAP & 0b1u) << 22u;
+        curr &= ~(0b1u << 23u);
+        curr |= (SNIFF_EN & 0b1u) << 23u;
+        curr &= ~(0b1u << 29u);
+        curr |= (WRITE_ERROR & 0b1u) << 29u;
+        curr &= ~(0b1u << 30u);
+        curr |= (READ_ERROR & 0b1u) << 30u;
+
+        AL3_CTRL = curr;
+    }
 };
 
 static_assert(sizeof(dma_control) == dma_control::size);
