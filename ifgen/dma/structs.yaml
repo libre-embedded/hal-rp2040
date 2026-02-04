@@ -1,6 +1,9 @@
 ---
 structs:
   dma_debug:
+    instances:
+      - name: DMA_DEBUG_NULL
+        address: '0x00000000'
     fields:
       - name: DBG_CTDREQ
         type: uint32_t
@@ -27,6 +30,9 @@ structs:
         array_length: 14
 
   dma_control:
+    instances:
+      - name: DMA_CONTROL_NULL
+        address: '0x00000000'
     fields:
       - name: READ_ADDR
         type: uint32_t

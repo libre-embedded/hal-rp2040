@@ -82,7 +82,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline bool get_CTRL_TRIG_EN()
+    inline bool get_CTRL_TRIG_EN() volatile
     {
         return CTRL_TRIG & 1u;
     }
@@ -96,7 +96,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void set_CTRL_TRIG_EN()
+    inline void set_CTRL_TRIG_EN() volatile
     {
         CTRL_TRIG |= 1u;
     }
@@ -110,7 +110,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void clear_CTRL_TRIG_EN()
+    inline void clear_CTRL_TRIG_EN() volatile
     {
         CTRL_TRIG &= ~(1u);
     }
@@ -124,7 +124,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void toggle_CTRL_TRIG_EN()
+    inline void toggle_CTRL_TRIG_EN() volatile
     {
         CTRL_TRIG ^= 1u;
     }
@@ -140,7 +140,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline bool get_CTRL_TRIG_HIGH_PRIORITY()
+    inline bool get_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
         return CTRL_TRIG & (1u << 1u);
     }
@@ -156,7 +156,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void set_CTRL_TRIG_HIGH_PRIORITY()
+    inline void set_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
         CTRL_TRIG |= 1u << 1u;
     }
@@ -172,7 +172,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void clear_CTRL_TRIG_HIGH_PRIORITY()
+    inline void clear_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
         CTRL_TRIG &= ~(1u << 1u);
     }
@@ -188,7 +188,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void toggle_CTRL_TRIG_HIGH_PRIORITY()
+    inline void toggle_CTRL_TRIG_HIGH_PRIORITY() volatile
     {
         CTRL_TRIG ^= 1u << 1u;
     }
@@ -199,7 +199,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_DATA_SIZE get_CTRL_TRIG_DATA_SIZE()
+    inline DMA_DATA_SIZE get_CTRL_TRIG_DATA_SIZE() volatile
     {
         return DMA_DATA_SIZE((CTRL_TRIG >> 2u) & 0b11u);
     }
@@ -210,7 +210,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value)
+    inline void set_CTRL_TRIG_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -227,7 +227,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline bool get_CTRL_TRIG_INCR_READ()
+    inline bool get_CTRL_TRIG_INCR_READ() volatile
     {
         return CTRL_TRIG & (1u << 4u);
     }
@@ -239,7 +239,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void set_CTRL_TRIG_INCR_READ()
+    inline void set_CTRL_TRIG_INCR_READ() volatile
     {
         CTRL_TRIG |= 1u << 4u;
     }
@@ -251,7 +251,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void clear_CTRL_TRIG_INCR_READ()
+    inline void clear_CTRL_TRIG_INCR_READ() volatile
     {
         CTRL_TRIG &= ~(1u << 4u);
     }
@@ -263,7 +263,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void toggle_CTRL_TRIG_INCR_READ()
+    inline void toggle_CTRL_TRIG_INCR_READ() volatile
     {
         CTRL_TRIG ^= 1u << 4u;
     }
@@ -275,7 +275,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline bool get_CTRL_TRIG_INCR_WRITE()
+    inline bool get_CTRL_TRIG_INCR_WRITE() volatile
     {
         return CTRL_TRIG & (1u << 5u);
     }
@@ -287,7 +287,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void set_CTRL_TRIG_INCR_WRITE()
+    inline void set_CTRL_TRIG_INCR_WRITE() volatile
     {
         CTRL_TRIG |= 1u << 5u;
     }
@@ -299,7 +299,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void clear_CTRL_TRIG_INCR_WRITE()
+    inline void clear_CTRL_TRIG_INCR_WRITE() volatile
     {
         CTRL_TRIG &= ~(1u << 5u);
     }
@@ -311,7 +311,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void toggle_CTRL_TRIG_INCR_WRITE()
+    inline void toggle_CTRL_TRIG_INCR_WRITE() volatile
     {
         CTRL_TRIG ^= 1u << 5u;
     }
@@ -325,7 +325,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_CTRL_TRIG_RING_SIZE()
+    inline DMA_RING_SIZE get_CTRL_TRIG_RING_SIZE() volatile
     {
         return DMA_RING_SIZE((CTRL_TRIG >> 6u) & 0xfu);
     }
@@ -339,7 +339,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value)
+    inline void set_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -356,7 +356,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline bool get_CTRL_TRIG_RING_SEL()
+    inline bool get_CTRL_TRIG_RING_SEL() volatile
     {
         return CTRL_TRIG & (1u << 10u);
     }
@@ -368,7 +368,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void set_CTRL_TRIG_RING_SEL()
+    inline void set_CTRL_TRIG_RING_SEL() volatile
     {
         CTRL_TRIG |= 1u << 10u;
     }
@@ -380,7 +380,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void clear_CTRL_TRIG_RING_SEL()
+    inline void clear_CTRL_TRIG_RING_SEL() volatile
     {
         CTRL_TRIG &= ~(1u << 10u);
     }
@@ -392,7 +392,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void toggle_CTRL_TRIG_RING_SEL()
+    inline void toggle_CTRL_TRIG_RING_SEL() volatile
     {
         CTRL_TRIG ^= 1u << 10u;
     }
@@ -403,7 +403,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline uint8_t get_CTRL_TRIG_CHAIN_TO()
+    inline uint8_t get_CTRL_TRIG_CHAIN_TO() volatile
     {
         return (CTRL_TRIG >> 11u) & 0xfu;
     }
@@ -414,7 +414,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline void set_CTRL_TRIG_CHAIN_TO(uint8_t value)
+    inline void set_CTRL_TRIG_CHAIN_TO(uint8_t value) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -433,7 +433,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline DMA_TREQ_SEL get_CTRL_TRIG_TREQ_SEL()
+    inline DMA_TREQ_SEL get_CTRL_TRIG_TREQ_SEL() volatile
     {
         return DMA_TREQ_SEL((CTRL_TRIG >> 15u) & 0b111111u);
     }
@@ -447,7 +447,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline void set_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value)
+    inline void set_CTRL_TRIG_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -466,7 +466,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline bool get_CTRL_TRIG_IRQ_QUIET()
+    inline bool get_CTRL_TRIG_IRQ_QUIET() volatile
     {
         return CTRL_TRIG & (1u << 21u);
     }
@@ -480,7 +480,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void set_CTRL_TRIG_IRQ_QUIET()
+    inline void set_CTRL_TRIG_IRQ_QUIET() volatile
     {
         CTRL_TRIG |= 1u << 21u;
     }
@@ -494,7 +494,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void clear_CTRL_TRIG_IRQ_QUIET()
+    inline void clear_CTRL_TRIG_IRQ_QUIET() volatile
     {
         CTRL_TRIG &= ~(1u << 21u);
     }
@@ -508,7 +508,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void toggle_CTRL_TRIG_IRQ_QUIET()
+    inline void toggle_CTRL_TRIG_IRQ_QUIET() volatile
     {
         CTRL_TRIG ^= 1u << 21u;
     }
@@ -521,7 +521,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline bool get_CTRL_TRIG_BSWAP()
+    inline bool get_CTRL_TRIG_BSWAP() volatile
     {
         return CTRL_TRIG & (1u << 22u);
     }
@@ -534,7 +534,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void set_CTRL_TRIG_BSWAP()
+    inline void set_CTRL_TRIG_BSWAP() volatile
     {
         CTRL_TRIG |= 1u << 22u;
     }
@@ -547,7 +547,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void clear_CTRL_TRIG_BSWAP()
+    inline void clear_CTRL_TRIG_BSWAP() volatile
     {
         CTRL_TRIG &= ~(1u << 22u);
     }
@@ -560,7 +560,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void toggle_CTRL_TRIG_BSWAP()
+    inline void toggle_CTRL_TRIG_BSWAP() volatile
     {
         CTRL_TRIG ^= 1u << 22u;
     }
@@ -574,7 +574,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline bool get_CTRL_TRIG_SNIFF_EN()
+    inline bool get_CTRL_TRIG_SNIFF_EN() volatile
     {
         return CTRL_TRIG & (1u << 23u);
     }
@@ -588,7 +588,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void set_CTRL_TRIG_SNIFF_EN()
+    inline void set_CTRL_TRIG_SNIFF_EN() volatile
     {
         CTRL_TRIG |= 1u << 23u;
     }
@@ -602,7 +602,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void clear_CTRL_TRIG_SNIFF_EN()
+    inline void clear_CTRL_TRIG_SNIFF_EN() volatile
     {
         CTRL_TRIG &= ~(1u << 23u);
     }
@@ -616,7 +616,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void toggle_CTRL_TRIG_SNIFF_EN()
+    inline void toggle_CTRL_TRIG_SNIFF_EN() volatile
     {
         CTRL_TRIG ^= 1u << 23u;
     }
@@ -630,7 +630,7 @@ struct dma_control
      *                 To terminate a sequence early (and clear the BUSY flag),
      * see CHAN_ABORT.
      */
-    inline bool get_CTRL_TRIG_BUSY()
+    inline bool get_CTRL_TRIG_BUSY() volatile
     {
         return CTRL_TRIG & (1u << 24u);
     }
@@ -643,7 +643,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline bool get_CTRL_TRIG_WRITE_ERROR()
+    inline bool get_CTRL_TRIG_WRITE_ERROR() volatile
     {
         return CTRL_TRIG & (1u << 29u);
     }
@@ -656,7 +656,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void set_CTRL_TRIG_WRITE_ERROR()
+    inline void set_CTRL_TRIG_WRITE_ERROR() volatile
     {
         CTRL_TRIG |= 1u << 29u;
     }
@@ -669,7 +669,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void clear_CTRL_TRIG_WRITE_ERROR()
+    inline void clear_CTRL_TRIG_WRITE_ERROR() volatile
     {
         CTRL_TRIG &= ~(1u << 29u);
     }
@@ -682,7 +682,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void toggle_CTRL_TRIG_WRITE_ERROR()
+    inline void toggle_CTRL_TRIG_WRITE_ERROR() volatile
     {
         CTRL_TRIG ^= 1u << 29u;
     }
@@ -695,7 +695,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline bool get_CTRL_TRIG_READ_ERROR()
+    inline bool get_CTRL_TRIG_READ_ERROR() volatile
     {
         return CTRL_TRIG & (1u << 30u);
     }
@@ -708,7 +708,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void set_CTRL_TRIG_READ_ERROR()
+    inline void set_CTRL_TRIG_READ_ERROR() volatile
     {
         CTRL_TRIG |= 1u << 30u;
     }
@@ -721,7 +721,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void clear_CTRL_TRIG_READ_ERROR()
+    inline void clear_CTRL_TRIG_READ_ERROR() volatile
     {
         CTRL_TRIG &= ~(1u << 30u);
     }
@@ -734,7 +734,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void toggle_CTRL_TRIG_READ_ERROR()
+    inline void toggle_CTRL_TRIG_READ_ERROR() volatile
     {
         CTRL_TRIG ^= 1u << 30u;
     }
@@ -746,7 +746,7 @@ struct dma_control
      * when it encounters any bus error, and always raises its channel IRQ
      * flag.
      */
-    inline bool get_CTRL_TRIG_AHB_ERROR()
+    inline bool get_CTRL_TRIG_AHB_ERROR() volatile
     {
         return CTRL_TRIG & (1u << 31u);
     }
@@ -763,7 +763,7 @@ struct dma_control
                               DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                               bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
                               bool &WRITE_ERROR, bool &READ_ERROR,
-                              bool &AHB_ERROR)
+                              bool &AHB_ERROR) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -796,7 +796,7 @@ struct dma_control
                               bool RING_SEL, uint8_t CHAIN_TO,
                               DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET,
                               bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR,
-                              bool READ_ERROR)
+                              bool READ_ERROR) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
@@ -841,7 +841,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline bool get_AL1_CTRL_EN()
+    inline bool get_AL1_CTRL_EN() volatile
     {
         return AL1_CTRL & 1u;
     }
@@ -855,7 +855,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void set_AL1_CTRL_EN()
+    inline void set_AL1_CTRL_EN() volatile
     {
         AL1_CTRL |= 1u;
     }
@@ -869,7 +869,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void clear_AL1_CTRL_EN()
+    inline void clear_AL1_CTRL_EN() volatile
     {
         AL1_CTRL &= ~(1u);
     }
@@ -883,7 +883,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void toggle_AL1_CTRL_EN()
+    inline void toggle_AL1_CTRL_EN() volatile
     {
         AL1_CTRL ^= 1u;
     }
@@ -899,7 +899,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline bool get_AL1_CTRL_HIGH_PRIORITY()
+    inline bool get_AL1_CTRL_HIGH_PRIORITY() volatile
     {
         return AL1_CTRL & (1u << 1u);
     }
@@ -915,7 +915,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void set_AL1_CTRL_HIGH_PRIORITY()
+    inline void set_AL1_CTRL_HIGH_PRIORITY() volatile
     {
         AL1_CTRL |= 1u << 1u;
     }
@@ -931,7 +931,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void clear_AL1_CTRL_HIGH_PRIORITY()
+    inline void clear_AL1_CTRL_HIGH_PRIORITY() volatile
     {
         AL1_CTRL &= ~(1u << 1u);
     }
@@ -947,7 +947,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void toggle_AL1_CTRL_HIGH_PRIORITY()
+    inline void toggle_AL1_CTRL_HIGH_PRIORITY() volatile
     {
         AL1_CTRL ^= 1u << 1u;
     }
@@ -958,7 +958,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_DATA_SIZE get_AL1_CTRL_DATA_SIZE()
+    inline DMA_DATA_SIZE get_AL1_CTRL_DATA_SIZE() volatile
     {
         return DMA_DATA_SIZE((AL1_CTRL >> 2u) & 0b11u);
     }
@@ -969,7 +969,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_AL1_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    inline void set_AL1_CTRL_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -986,7 +986,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline bool get_AL1_CTRL_INCR_READ()
+    inline bool get_AL1_CTRL_INCR_READ() volatile
     {
         return AL1_CTRL & (1u << 4u);
     }
@@ -998,7 +998,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void set_AL1_CTRL_INCR_READ()
+    inline void set_AL1_CTRL_INCR_READ() volatile
     {
         AL1_CTRL |= 1u << 4u;
     }
@@ -1010,7 +1010,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void clear_AL1_CTRL_INCR_READ()
+    inline void clear_AL1_CTRL_INCR_READ() volatile
     {
         AL1_CTRL &= ~(1u << 4u);
     }
@@ -1022,7 +1022,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void toggle_AL1_CTRL_INCR_READ()
+    inline void toggle_AL1_CTRL_INCR_READ() volatile
     {
         AL1_CTRL ^= 1u << 4u;
     }
@@ -1034,7 +1034,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline bool get_AL1_CTRL_INCR_WRITE()
+    inline bool get_AL1_CTRL_INCR_WRITE() volatile
     {
         return AL1_CTRL & (1u << 5u);
     }
@@ -1046,7 +1046,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void set_AL1_CTRL_INCR_WRITE()
+    inline void set_AL1_CTRL_INCR_WRITE() volatile
     {
         AL1_CTRL |= 1u << 5u;
     }
@@ -1058,7 +1058,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void clear_AL1_CTRL_INCR_WRITE()
+    inline void clear_AL1_CTRL_INCR_WRITE() volatile
     {
         AL1_CTRL &= ~(1u << 5u);
     }
@@ -1070,7 +1070,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void toggle_AL1_CTRL_INCR_WRITE()
+    inline void toggle_AL1_CTRL_INCR_WRITE() volatile
     {
         AL1_CTRL ^= 1u << 5u;
     }
@@ -1084,7 +1084,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL1_CTRL_RING_SIZE()
+    inline DMA_RING_SIZE get_AL1_CTRL_RING_SIZE() volatile
     {
         return DMA_RING_SIZE((AL1_CTRL >> 6u) & 0xfu);
     }
@@ -1098,7 +1098,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL1_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    inline void set_AL1_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1115,7 +1115,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline bool get_AL1_CTRL_RING_SEL()
+    inline bool get_AL1_CTRL_RING_SEL() volatile
     {
         return AL1_CTRL & (1u << 10u);
     }
@@ -1127,7 +1127,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void set_AL1_CTRL_RING_SEL()
+    inline void set_AL1_CTRL_RING_SEL() volatile
     {
         AL1_CTRL |= 1u << 10u;
     }
@@ -1139,7 +1139,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void clear_AL1_CTRL_RING_SEL()
+    inline void clear_AL1_CTRL_RING_SEL() volatile
     {
         AL1_CTRL &= ~(1u << 10u);
     }
@@ -1151,7 +1151,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void toggle_AL1_CTRL_RING_SEL()
+    inline void toggle_AL1_CTRL_RING_SEL() volatile
     {
         AL1_CTRL ^= 1u << 10u;
     }
@@ -1162,7 +1162,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline uint8_t get_AL1_CTRL_CHAIN_TO()
+    inline uint8_t get_AL1_CTRL_CHAIN_TO() volatile
     {
         return (AL1_CTRL >> 11u) & 0xfu;
     }
@@ -1173,7 +1173,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline void set_AL1_CTRL_CHAIN_TO(uint8_t value)
+    inline void set_AL1_CTRL_CHAIN_TO(uint8_t value) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1192,7 +1192,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline DMA_TREQ_SEL get_AL1_CTRL_TREQ_SEL()
+    inline DMA_TREQ_SEL get_AL1_CTRL_TREQ_SEL() volatile
     {
         return DMA_TREQ_SEL((AL1_CTRL >> 15u) & 0b111111u);
     }
@@ -1206,7 +1206,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline void set_AL1_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    inline void set_AL1_CTRL_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1225,7 +1225,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline bool get_AL1_CTRL_IRQ_QUIET()
+    inline bool get_AL1_CTRL_IRQ_QUIET() volatile
     {
         return AL1_CTRL & (1u << 21u);
     }
@@ -1239,7 +1239,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void set_AL1_CTRL_IRQ_QUIET()
+    inline void set_AL1_CTRL_IRQ_QUIET() volatile
     {
         AL1_CTRL |= 1u << 21u;
     }
@@ -1253,7 +1253,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void clear_AL1_CTRL_IRQ_QUIET()
+    inline void clear_AL1_CTRL_IRQ_QUIET() volatile
     {
         AL1_CTRL &= ~(1u << 21u);
     }
@@ -1267,7 +1267,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void toggle_AL1_CTRL_IRQ_QUIET()
+    inline void toggle_AL1_CTRL_IRQ_QUIET() volatile
     {
         AL1_CTRL ^= 1u << 21u;
     }
@@ -1280,7 +1280,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline bool get_AL1_CTRL_BSWAP()
+    inline bool get_AL1_CTRL_BSWAP() volatile
     {
         return AL1_CTRL & (1u << 22u);
     }
@@ -1293,7 +1293,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void set_AL1_CTRL_BSWAP()
+    inline void set_AL1_CTRL_BSWAP() volatile
     {
         AL1_CTRL |= 1u << 22u;
     }
@@ -1306,7 +1306,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void clear_AL1_CTRL_BSWAP()
+    inline void clear_AL1_CTRL_BSWAP() volatile
     {
         AL1_CTRL &= ~(1u << 22u);
     }
@@ -1319,7 +1319,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void toggle_AL1_CTRL_BSWAP()
+    inline void toggle_AL1_CTRL_BSWAP() volatile
     {
         AL1_CTRL ^= 1u << 22u;
     }
@@ -1333,7 +1333,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline bool get_AL1_CTRL_SNIFF_EN()
+    inline bool get_AL1_CTRL_SNIFF_EN() volatile
     {
         return AL1_CTRL & (1u << 23u);
     }
@@ -1347,7 +1347,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void set_AL1_CTRL_SNIFF_EN()
+    inline void set_AL1_CTRL_SNIFF_EN() volatile
     {
         AL1_CTRL |= 1u << 23u;
     }
@@ -1361,7 +1361,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void clear_AL1_CTRL_SNIFF_EN()
+    inline void clear_AL1_CTRL_SNIFF_EN() volatile
     {
         AL1_CTRL &= ~(1u << 23u);
     }
@@ -1375,7 +1375,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void toggle_AL1_CTRL_SNIFF_EN()
+    inline void toggle_AL1_CTRL_SNIFF_EN() volatile
     {
         AL1_CTRL ^= 1u << 23u;
     }
@@ -1389,7 +1389,7 @@ struct dma_control
      *                 To terminate a sequence early (and clear the BUSY flag),
      * see CHAN_ABORT.
      */
-    inline bool get_AL1_CTRL_BUSY()
+    inline bool get_AL1_CTRL_BUSY() volatile
     {
         return AL1_CTRL & (1u << 24u);
     }
@@ -1402,7 +1402,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline bool get_AL1_CTRL_WRITE_ERROR()
+    inline bool get_AL1_CTRL_WRITE_ERROR() volatile
     {
         return AL1_CTRL & (1u << 29u);
     }
@@ -1415,7 +1415,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void set_AL1_CTRL_WRITE_ERROR()
+    inline void set_AL1_CTRL_WRITE_ERROR() volatile
     {
         AL1_CTRL |= 1u << 29u;
     }
@@ -1428,7 +1428,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void clear_AL1_CTRL_WRITE_ERROR()
+    inline void clear_AL1_CTRL_WRITE_ERROR() volatile
     {
         AL1_CTRL &= ~(1u << 29u);
     }
@@ -1441,7 +1441,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void toggle_AL1_CTRL_WRITE_ERROR()
+    inline void toggle_AL1_CTRL_WRITE_ERROR() volatile
     {
         AL1_CTRL ^= 1u << 29u;
     }
@@ -1454,7 +1454,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline bool get_AL1_CTRL_READ_ERROR()
+    inline bool get_AL1_CTRL_READ_ERROR() volatile
     {
         return AL1_CTRL & (1u << 30u);
     }
@@ -1467,7 +1467,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void set_AL1_CTRL_READ_ERROR()
+    inline void set_AL1_CTRL_READ_ERROR() volatile
     {
         AL1_CTRL |= 1u << 30u;
     }
@@ -1480,7 +1480,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void clear_AL1_CTRL_READ_ERROR()
+    inline void clear_AL1_CTRL_READ_ERROR() volatile
     {
         AL1_CTRL &= ~(1u << 30u);
     }
@@ -1493,7 +1493,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void toggle_AL1_CTRL_READ_ERROR()
+    inline void toggle_AL1_CTRL_READ_ERROR() volatile
     {
         AL1_CTRL ^= 1u << 30u;
     }
@@ -1505,7 +1505,7 @@ struct dma_control
      * when it encounters any bus error, and always raises its channel IRQ
      * flag.
      */
-    inline bool get_AL1_CTRL_AHB_ERROR()
+    inline bool get_AL1_CTRL_AHB_ERROR() volatile
     {
         return AL1_CTRL & (1u << 31u);
     }
@@ -1522,7 +1522,7 @@ struct dma_control
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
                              bool &WRITE_ERROR, bool &READ_ERROR,
-                             bool &AHB_ERROR)
+                             bool &AHB_ERROR) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1554,7 +1554,8 @@ struct dma_control
                              bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
                              bool RING_SEL, uint8_t CHAIN_TO,
                              DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+                             bool SNIFF_EN, bool WRITE_ERROR,
+                             bool READ_ERROR) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1599,7 +1600,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline bool get_AL2_CTRL_EN()
+    inline bool get_AL2_CTRL_EN() volatile
     {
         return AL2_CTRL & 1u;
     }
@@ -1613,7 +1614,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void set_AL2_CTRL_EN()
+    inline void set_AL2_CTRL_EN() volatile
     {
         AL2_CTRL |= 1u;
     }
@@ -1627,7 +1628,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void clear_AL2_CTRL_EN()
+    inline void clear_AL2_CTRL_EN() volatile
     {
         AL2_CTRL &= ~(1u);
     }
@@ -1641,7 +1642,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void toggle_AL2_CTRL_EN()
+    inline void toggle_AL2_CTRL_EN() volatile
     {
         AL2_CTRL ^= 1u;
     }
@@ -1657,7 +1658,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline bool get_AL2_CTRL_HIGH_PRIORITY()
+    inline bool get_AL2_CTRL_HIGH_PRIORITY() volatile
     {
         return AL2_CTRL & (1u << 1u);
     }
@@ -1673,7 +1674,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void set_AL2_CTRL_HIGH_PRIORITY()
+    inline void set_AL2_CTRL_HIGH_PRIORITY() volatile
     {
         AL2_CTRL |= 1u << 1u;
     }
@@ -1689,7 +1690,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void clear_AL2_CTRL_HIGH_PRIORITY()
+    inline void clear_AL2_CTRL_HIGH_PRIORITY() volatile
     {
         AL2_CTRL &= ~(1u << 1u);
     }
@@ -1705,7 +1706,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void toggle_AL2_CTRL_HIGH_PRIORITY()
+    inline void toggle_AL2_CTRL_HIGH_PRIORITY() volatile
     {
         AL2_CTRL ^= 1u << 1u;
     }
@@ -1716,7 +1717,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_DATA_SIZE get_AL2_CTRL_DATA_SIZE()
+    inline DMA_DATA_SIZE get_AL2_CTRL_DATA_SIZE() volatile
     {
         return DMA_DATA_SIZE((AL2_CTRL >> 2u) & 0b11u);
     }
@@ -1727,7 +1728,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_AL2_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    inline void set_AL2_CTRL_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -1744,7 +1745,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline bool get_AL2_CTRL_INCR_READ()
+    inline bool get_AL2_CTRL_INCR_READ() volatile
     {
         return AL2_CTRL & (1u << 4u);
     }
@@ -1756,7 +1757,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void set_AL2_CTRL_INCR_READ()
+    inline void set_AL2_CTRL_INCR_READ() volatile
     {
         AL2_CTRL |= 1u << 4u;
     }
@@ -1768,7 +1769,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void clear_AL2_CTRL_INCR_READ()
+    inline void clear_AL2_CTRL_INCR_READ() volatile
     {
         AL2_CTRL &= ~(1u << 4u);
     }
@@ -1780,7 +1781,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void toggle_AL2_CTRL_INCR_READ()
+    inline void toggle_AL2_CTRL_INCR_READ() volatile
     {
         AL2_CTRL ^= 1u << 4u;
     }
@@ -1792,7 +1793,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline bool get_AL2_CTRL_INCR_WRITE()
+    inline bool get_AL2_CTRL_INCR_WRITE() volatile
     {
         return AL2_CTRL & (1u << 5u);
     }
@@ -1804,7 +1805,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void set_AL2_CTRL_INCR_WRITE()
+    inline void set_AL2_CTRL_INCR_WRITE() volatile
     {
         AL2_CTRL |= 1u << 5u;
     }
@@ -1816,7 +1817,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void clear_AL2_CTRL_INCR_WRITE()
+    inline void clear_AL2_CTRL_INCR_WRITE() volatile
     {
         AL2_CTRL &= ~(1u << 5u);
     }
@@ -1828,7 +1829,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void toggle_AL2_CTRL_INCR_WRITE()
+    inline void toggle_AL2_CTRL_INCR_WRITE() volatile
     {
         AL2_CTRL ^= 1u << 5u;
     }
@@ -1842,7 +1843,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL2_CTRL_RING_SIZE()
+    inline DMA_RING_SIZE get_AL2_CTRL_RING_SIZE() volatile
     {
         return DMA_RING_SIZE((AL2_CTRL >> 6u) & 0xfu);
     }
@@ -1856,7 +1857,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL2_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    inline void set_AL2_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -1873,7 +1874,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline bool get_AL2_CTRL_RING_SEL()
+    inline bool get_AL2_CTRL_RING_SEL() volatile
     {
         return AL2_CTRL & (1u << 10u);
     }
@@ -1885,7 +1886,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void set_AL2_CTRL_RING_SEL()
+    inline void set_AL2_CTRL_RING_SEL() volatile
     {
         AL2_CTRL |= 1u << 10u;
     }
@@ -1897,7 +1898,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void clear_AL2_CTRL_RING_SEL()
+    inline void clear_AL2_CTRL_RING_SEL() volatile
     {
         AL2_CTRL &= ~(1u << 10u);
     }
@@ -1909,7 +1910,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void toggle_AL2_CTRL_RING_SEL()
+    inline void toggle_AL2_CTRL_RING_SEL() volatile
     {
         AL2_CTRL ^= 1u << 10u;
     }
@@ -1920,7 +1921,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline uint8_t get_AL2_CTRL_CHAIN_TO()
+    inline uint8_t get_AL2_CTRL_CHAIN_TO() volatile
     {
         return (AL2_CTRL >> 11u) & 0xfu;
     }
@@ -1931,7 +1932,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline void set_AL2_CTRL_CHAIN_TO(uint8_t value)
+    inline void set_AL2_CTRL_CHAIN_TO(uint8_t value) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -1950,7 +1951,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline DMA_TREQ_SEL get_AL2_CTRL_TREQ_SEL()
+    inline DMA_TREQ_SEL get_AL2_CTRL_TREQ_SEL() volatile
     {
         return DMA_TREQ_SEL((AL2_CTRL >> 15u) & 0b111111u);
     }
@@ -1964,7 +1965,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline void set_AL2_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    inline void set_AL2_CTRL_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -1983,7 +1984,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline bool get_AL2_CTRL_IRQ_QUIET()
+    inline bool get_AL2_CTRL_IRQ_QUIET() volatile
     {
         return AL2_CTRL & (1u << 21u);
     }
@@ -1997,7 +1998,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void set_AL2_CTRL_IRQ_QUIET()
+    inline void set_AL2_CTRL_IRQ_QUIET() volatile
     {
         AL2_CTRL |= 1u << 21u;
     }
@@ -2011,7 +2012,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void clear_AL2_CTRL_IRQ_QUIET()
+    inline void clear_AL2_CTRL_IRQ_QUIET() volatile
     {
         AL2_CTRL &= ~(1u << 21u);
     }
@@ -2025,7 +2026,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void toggle_AL2_CTRL_IRQ_QUIET()
+    inline void toggle_AL2_CTRL_IRQ_QUIET() volatile
     {
         AL2_CTRL ^= 1u << 21u;
     }
@@ -2038,7 +2039,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline bool get_AL2_CTRL_BSWAP()
+    inline bool get_AL2_CTRL_BSWAP() volatile
     {
         return AL2_CTRL & (1u << 22u);
     }
@@ -2051,7 +2052,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void set_AL2_CTRL_BSWAP()
+    inline void set_AL2_CTRL_BSWAP() volatile
     {
         AL2_CTRL |= 1u << 22u;
     }
@@ -2064,7 +2065,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void clear_AL2_CTRL_BSWAP()
+    inline void clear_AL2_CTRL_BSWAP() volatile
     {
         AL2_CTRL &= ~(1u << 22u);
     }
@@ -2077,7 +2078,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void toggle_AL2_CTRL_BSWAP()
+    inline void toggle_AL2_CTRL_BSWAP() volatile
     {
         AL2_CTRL ^= 1u << 22u;
     }
@@ -2091,7 +2092,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline bool get_AL2_CTRL_SNIFF_EN()
+    inline bool get_AL2_CTRL_SNIFF_EN() volatile
     {
         return AL2_CTRL & (1u << 23u);
     }
@@ -2105,7 +2106,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void set_AL2_CTRL_SNIFF_EN()
+    inline void set_AL2_CTRL_SNIFF_EN() volatile
     {
         AL2_CTRL |= 1u << 23u;
     }
@@ -2119,7 +2120,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void clear_AL2_CTRL_SNIFF_EN()
+    inline void clear_AL2_CTRL_SNIFF_EN() volatile
     {
         AL2_CTRL &= ~(1u << 23u);
     }
@@ -2133,7 +2134,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void toggle_AL2_CTRL_SNIFF_EN()
+    inline void toggle_AL2_CTRL_SNIFF_EN() volatile
     {
         AL2_CTRL ^= 1u << 23u;
     }
@@ -2147,7 +2148,7 @@ struct dma_control
      *                 To terminate a sequence early (and clear the BUSY flag),
      * see CHAN_ABORT.
      */
-    inline bool get_AL2_CTRL_BUSY()
+    inline bool get_AL2_CTRL_BUSY() volatile
     {
         return AL2_CTRL & (1u << 24u);
     }
@@ -2160,7 +2161,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline bool get_AL2_CTRL_WRITE_ERROR()
+    inline bool get_AL2_CTRL_WRITE_ERROR() volatile
     {
         return AL2_CTRL & (1u << 29u);
     }
@@ -2173,7 +2174,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void set_AL2_CTRL_WRITE_ERROR()
+    inline void set_AL2_CTRL_WRITE_ERROR() volatile
     {
         AL2_CTRL |= 1u << 29u;
     }
@@ -2186,7 +2187,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void clear_AL2_CTRL_WRITE_ERROR()
+    inline void clear_AL2_CTRL_WRITE_ERROR() volatile
     {
         AL2_CTRL &= ~(1u << 29u);
     }
@@ -2199,7 +2200,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void toggle_AL2_CTRL_WRITE_ERROR()
+    inline void toggle_AL2_CTRL_WRITE_ERROR() volatile
     {
         AL2_CTRL ^= 1u << 29u;
     }
@@ -2212,7 +2213,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline bool get_AL2_CTRL_READ_ERROR()
+    inline bool get_AL2_CTRL_READ_ERROR() volatile
     {
         return AL2_CTRL & (1u << 30u);
     }
@@ -2225,7 +2226,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void set_AL2_CTRL_READ_ERROR()
+    inline void set_AL2_CTRL_READ_ERROR() volatile
     {
         AL2_CTRL |= 1u << 30u;
     }
@@ -2238,7 +2239,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void clear_AL2_CTRL_READ_ERROR()
+    inline void clear_AL2_CTRL_READ_ERROR() volatile
     {
         AL2_CTRL &= ~(1u << 30u);
     }
@@ -2251,7 +2252,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void toggle_AL2_CTRL_READ_ERROR()
+    inline void toggle_AL2_CTRL_READ_ERROR() volatile
     {
         AL2_CTRL ^= 1u << 30u;
     }
@@ -2263,7 +2264,7 @@ struct dma_control
      * when it encounters any bus error, and always raises its channel IRQ
      * flag.
      */
-    inline bool get_AL2_CTRL_AHB_ERROR()
+    inline bool get_AL2_CTRL_AHB_ERROR() volatile
     {
         return AL2_CTRL & (1u << 31u);
     }
@@ -2280,7 +2281,7 @@ struct dma_control
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
                              bool &WRITE_ERROR, bool &READ_ERROR,
-                             bool &AHB_ERROR)
+                             bool &AHB_ERROR) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -2312,7 +2313,8 @@ struct dma_control
                              bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
                              bool RING_SEL, uint8_t CHAIN_TO,
                              DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+                             bool SNIFF_EN, bool WRITE_ERROR,
+                             bool READ_ERROR) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -2357,7 +2359,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline bool get_AL3_CTRL_EN()
+    inline bool get_AL3_CTRL_EN() volatile
     {
         return AL3_CTRL & 1u;
     }
@@ -2371,7 +2373,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void set_AL3_CTRL_EN()
+    inline void set_AL3_CTRL_EN() volatile
     {
         AL3_CTRL |= 1u;
     }
@@ -2385,7 +2387,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void clear_AL3_CTRL_EN()
+    inline void clear_AL3_CTRL_EN() volatile
     {
         AL3_CTRL &= ~(1u);
     }
@@ -2399,7 +2401,7 @@ struct dma_control
      * the channel will ignore triggers, stop issuing transfers, and pause the
      * current transfer sequence (i.e. BUSY will remain high if already high)
      */
-    inline void toggle_AL3_CTRL_EN()
+    inline void toggle_AL3_CTRL_EN() volatile
     {
         AL3_CTRL ^= 1u;
     }
@@ -2415,7 +2417,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline bool get_AL3_CTRL_HIGH_PRIORITY()
+    inline bool get_AL3_CTRL_HIGH_PRIORITY() volatile
     {
         return AL3_CTRL & (1u << 1u);
     }
@@ -2431,7 +2433,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void set_AL3_CTRL_HIGH_PRIORITY()
+    inline void set_AL3_CTRL_HIGH_PRIORITY() volatile
     {
         AL3_CTRL |= 1u << 1u;
     }
@@ -2447,7 +2449,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void clear_AL3_CTRL_HIGH_PRIORITY()
+    inline void clear_AL3_CTRL_HIGH_PRIORITY() volatile
     {
         AL3_CTRL &= ~(1u << 1u);
     }
@@ -2463,7 +2465,7 @@ struct dma_control
      * If the DMA is not saturated then a low priority channel will see no loss
      * of throughput.
      */
-    inline void toggle_AL3_CTRL_HIGH_PRIORITY()
+    inline void toggle_AL3_CTRL_HIGH_PRIORITY() volatile
     {
         AL3_CTRL ^= 1u << 1u;
     }
@@ -2474,7 +2476,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline DMA_DATA_SIZE get_AL3_CTRL_DATA_SIZE()
+    inline DMA_DATA_SIZE get_AL3_CTRL_DATA_SIZE() volatile
     {
         return DMA_DATA_SIZE((AL3_CTRL >> 2u) & 0b11u);
     }
@@ -2485,7 +2487,7 @@ struct dma_control
      * Set the size of each bus transfer (byte/halfword/word). READ_ADDR and
      * WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
      */
-    inline void set_AL3_CTRL_DATA_SIZE(DMA_DATA_SIZE value)
+    inline void set_AL3_CTRL_DATA_SIZE(DMA_DATA_SIZE value) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -2502,7 +2504,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline bool get_AL3_CTRL_INCR_READ()
+    inline bool get_AL3_CTRL_INCR_READ() volatile
     {
         return AL3_CTRL & (1u << 4u);
     }
@@ -2514,7 +2516,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void set_AL3_CTRL_INCR_READ()
+    inline void set_AL3_CTRL_INCR_READ() volatile
     {
         AL3_CTRL |= 1u << 4u;
     }
@@ -2526,7 +2528,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void clear_AL3_CTRL_INCR_READ()
+    inline void clear_AL3_CTRL_INCR_READ() volatile
     {
         AL3_CTRL &= ~(1u << 4u);
     }
@@ -2538,7 +2540,7 @@ struct dma_control
      * directed to the same, initial address. Generally this should be disabled
      * for peripheral-to-memory transfers.
      */
-    inline void toggle_AL3_CTRL_INCR_READ()
+    inline void toggle_AL3_CTRL_INCR_READ() volatile
     {
         AL3_CTRL ^= 1u << 4u;
     }
@@ -2550,7 +2552,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline bool get_AL3_CTRL_INCR_WRITE()
+    inline bool get_AL3_CTRL_INCR_WRITE() volatile
     {
         return AL3_CTRL & (1u << 5u);
     }
@@ -2562,7 +2564,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void set_AL3_CTRL_INCR_WRITE()
+    inline void set_AL3_CTRL_INCR_WRITE() volatile
     {
         AL3_CTRL |= 1u << 5u;
     }
@@ -2574,7 +2576,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void clear_AL3_CTRL_INCR_WRITE()
+    inline void clear_AL3_CTRL_INCR_WRITE() volatile
     {
         AL3_CTRL &= ~(1u << 5u);
     }
@@ -2586,7 +2588,7 @@ struct dma_control
      * is directed to the same, initial address. Generally this should be
      * disabled for memory-to-peripheral transfers.
      */
-    inline void toggle_AL3_CTRL_INCR_WRITE()
+    inline void toggle_AL3_CTRL_INCR_WRITE() volatile
     {
         AL3_CTRL ^= 1u << 5u;
     }
@@ -2600,7 +2602,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL3_CTRL_RING_SIZE()
+    inline DMA_RING_SIZE get_AL3_CTRL_RING_SIZE() volatile
     {
         return DMA_RING_SIZE((AL3_CTRL >> 6u) & 0xfu);
     }
@@ -2614,7 +2616,7 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL3_CTRL_RING_SIZE(DMA_RING_SIZE value)
+    inline void set_AL3_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -2631,7 +2633,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline bool get_AL3_CTRL_RING_SEL()
+    inline bool get_AL3_CTRL_RING_SEL() volatile
     {
         return AL3_CTRL & (1u << 10u);
     }
@@ -2643,7 +2645,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void set_AL3_CTRL_RING_SEL()
+    inline void set_AL3_CTRL_RING_SEL() volatile
     {
         AL3_CTRL |= 1u << 10u;
     }
@@ -2655,7 +2657,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void clear_AL3_CTRL_RING_SEL()
+    inline void clear_AL3_CTRL_RING_SEL() volatile
     {
         AL3_CTRL &= ~(1u << 10u);
     }
@@ -2667,7 +2669,7 @@ struct dma_control
      *                 If 0, read addresses are wrapped on a (1 << RING_SIZE)
      * boundary. If 1, write addresses are wrapped.
      */
-    inline void toggle_AL3_CTRL_RING_SEL()
+    inline void toggle_AL3_CTRL_RING_SEL() volatile
     {
         AL3_CTRL ^= 1u << 10u;
     }
@@ -2678,7 +2680,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline uint8_t get_AL3_CTRL_CHAIN_TO()
+    inline uint8_t get_AL3_CTRL_CHAIN_TO() volatile
     {
         return (AL3_CTRL >> 11u) & 0xfu;
     }
@@ -2689,7 +2691,7 @@ struct dma_control
      * When this channel completes, it will trigger the channel indicated by
      * CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
      */
-    inline void set_AL3_CTRL_CHAIN_TO(uint8_t value)
+    inline void set_AL3_CTRL_CHAIN_TO(uint8_t value) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -2708,7 +2710,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline DMA_TREQ_SEL get_AL3_CTRL_TREQ_SEL()
+    inline DMA_TREQ_SEL get_AL3_CTRL_TREQ_SEL() volatile
     {
         return DMA_TREQ_SEL((AL3_CTRL >> 15u) & 0b111111u);
     }
@@ -2722,7 +2724,7 @@ struct dma_control
      * external (DREQ, a Data Request from the system). 0x0 to 0x3a -> select
      * DREQ n as TREQ
      */
-    inline void set_AL3_CTRL_TREQ_SEL(DMA_TREQ_SEL value)
+    inline void set_AL3_CTRL_TREQ_SEL(DMA_TREQ_SEL value) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -2741,7 +2743,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline bool get_AL3_CTRL_IRQ_QUIET()
+    inline bool get_AL3_CTRL_IRQ_QUIET() volatile
     {
         return AL3_CTRL & (1u << 21u);
     }
@@ -2755,7 +2757,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void set_AL3_CTRL_IRQ_QUIET()
+    inline void set_AL3_CTRL_IRQ_QUIET() volatile
     {
         AL3_CTRL |= 1u << 21u;
     }
@@ -2769,7 +2771,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void clear_AL3_CTRL_IRQ_QUIET()
+    inline void clear_AL3_CTRL_IRQ_QUIET() volatile
     {
         AL3_CTRL &= ~(1u << 21u);
     }
@@ -2783,7 +2785,7 @@ struct dma_control
      * reduces the number of interrupts to be serviced by the CPU when
      * transferring a DMA chain of many small control blocks.
      */
-    inline void toggle_AL3_CTRL_IRQ_QUIET()
+    inline void toggle_AL3_CTRL_IRQ_QUIET() volatile
     {
         AL3_CTRL ^= 1u << 21u;
     }
@@ -2796,7 +2798,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline bool get_AL3_CTRL_BSWAP()
+    inline bool get_AL3_CTRL_BSWAP() volatile
     {
         return AL3_CTRL & (1u << 22u);
     }
@@ -2809,7 +2811,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void set_AL3_CTRL_BSWAP()
+    inline void set_AL3_CTRL_BSWAP() volatile
     {
         AL3_CTRL |= 1u << 22u;
     }
@@ -2822,7 +2824,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void clear_AL3_CTRL_BSWAP()
+    inline void clear_AL3_CTRL_BSWAP() volatile
     {
         AL3_CTRL &= ~(1u << 22u);
     }
@@ -2835,7 +2837,7 @@ struct dma_control
      * the two bytes of each halfword are swapped. For word data, the four
      * bytes of each word are swapped to reverse order.
      */
-    inline void toggle_AL3_CTRL_BSWAP()
+    inline void toggle_AL3_CTRL_BSWAP() volatile
     {
         AL3_CTRL ^= 1u << 22u;
     }
@@ -2849,7 +2851,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline bool get_AL3_CTRL_SNIFF_EN()
+    inline bool get_AL3_CTRL_SNIFF_EN() volatile
     {
         return AL3_CTRL & (1u << 23u);
     }
@@ -2863,7 +2865,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void set_AL3_CTRL_SNIFF_EN()
+    inline void set_AL3_CTRL_SNIFF_EN() volatile
     {
         AL3_CTRL |= 1u << 23u;
     }
@@ -2877,7 +2879,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void clear_AL3_CTRL_SNIFF_EN()
+    inline void clear_AL3_CTRL_SNIFF_EN() volatile
     {
         AL3_CTRL &= ~(1u << 23u);
     }
@@ -2891,7 +2893,7 @@ struct dma_control
      *                 This allows checksum to be enabled or disabled on a
      * per-control- block basis.
      */
-    inline void toggle_AL3_CTRL_SNIFF_EN()
+    inline void toggle_AL3_CTRL_SNIFF_EN() volatile
     {
         AL3_CTRL ^= 1u << 23u;
     }
@@ -2905,7 +2907,7 @@ struct dma_control
      *                 To terminate a sequence early (and clear the BUSY flag),
      * see CHAN_ABORT.
      */
-    inline bool get_AL3_CTRL_BUSY()
+    inline bool get_AL3_CTRL_BUSY() volatile
     {
         return AL3_CTRL & (1u << 24u);
     }
@@ -2918,7 +2920,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline bool get_AL3_CTRL_WRITE_ERROR()
+    inline bool get_AL3_CTRL_WRITE_ERROR() volatile
     {
         return AL3_CTRL & (1u << 29u);
     }
@@ -2931,7 +2933,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void set_AL3_CTRL_WRITE_ERROR()
+    inline void set_AL3_CTRL_WRITE_ERROR() volatile
     {
         AL3_CTRL |= 1u << 29u;
     }
@@ -2944,7 +2946,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void clear_AL3_CTRL_WRITE_ERROR()
+    inline void clear_AL3_CTRL_WRITE_ERROR() volatile
     {
         AL3_CTRL &= ~(1u << 29u);
     }
@@ -2957,7 +2959,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 5 transfers
      * later)
      */
-    inline void toggle_AL3_CTRL_WRITE_ERROR()
+    inline void toggle_AL3_CTRL_WRITE_ERROR() volatile
     {
         AL3_CTRL ^= 1u << 29u;
     }
@@ -2970,7 +2972,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline bool get_AL3_CTRL_READ_ERROR()
+    inline bool get_AL3_CTRL_READ_ERROR() volatile
     {
         return AL3_CTRL & (1u << 30u);
     }
@@ -2983,7 +2985,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void set_AL3_CTRL_READ_ERROR()
+    inline void set_AL3_CTRL_READ_ERROR() volatile
     {
         AL3_CTRL |= 1u << 30u;
     }
@@ -2996,7 +2998,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void clear_AL3_CTRL_READ_ERROR()
+    inline void clear_AL3_CTRL_READ_ERROR() volatile
     {
         AL3_CTRL &= ~(1u << 30u);
     }
@@ -3009,7 +3011,7 @@ struct dma_control
      * error was encountered (will not be earlier, or more than 3 transfers
      * later)
      */
-    inline void toggle_AL3_CTRL_READ_ERROR()
+    inline void toggle_AL3_CTRL_READ_ERROR() volatile
     {
         AL3_CTRL ^= 1u << 30u;
     }
@@ -3021,7 +3023,7 @@ struct dma_control
      * when it encounters any bus error, and always raises its channel IRQ
      * flag.
      */
-    inline bool get_AL3_CTRL_AHB_ERROR()
+    inline bool get_AL3_CTRL_AHB_ERROR() volatile
     {
         return AL3_CTRL & (1u << 31u);
     }
@@ -3038,7 +3040,7 @@ struct dma_control
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
                              bool &WRITE_ERROR, bool &READ_ERROR,
-                             bool &AHB_ERROR)
+                             bool &AHB_ERROR) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -3070,7 +3072,8 @@ struct dma_control
                              bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
                              bool RING_SEL, uint8_t CHAIN_TO,
                              DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR, bool READ_ERROR)
+                             bool SNIFF_EN, bool WRITE_ERROR,
+                             bool READ_ERROR) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -3109,6 +3112,9 @@ struct dma_control
 
 static_assert(sizeof(dma_control) == dma_control::size);
 static_assert(ifgen_struct<dma_control>);
+
+static volatile dma_control *const DMA_CONTROL_NULL =
+    reinterpret_cast<dma_control *>(0x00000000);
 
 }; // namespace RP2040
 

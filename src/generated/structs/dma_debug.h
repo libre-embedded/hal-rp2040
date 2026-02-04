@@ -34,7 +34,7 @@ struct dma_debug
     /**
      * Get DBG_CTDREQ's DBG_CTDREQ field.
      */
-    inline uint8_t get_DBG_CTDREQ()
+    inline uint8_t get_DBG_CTDREQ() volatile
     {
         return DBG_CTDREQ & 0b111111u;
     }
@@ -42,7 +42,7 @@ struct dma_debug
     /**
      * Set DBG_CTDREQ's DBG_CTDREQ field.
      */
-    inline void set_DBG_CTDREQ(uint8_t value)
+    inline void set_DBG_CTDREQ(uint8_t value) volatile
     {
         uint32_t curr = DBG_CTDREQ;
 
@@ -55,6 +55,9 @@ struct dma_debug
 
 static_assert(sizeof(dma_debug) == dma_debug::size);
 static_assert(ifgen_struct<dma_debug>);
+
+static volatile dma_debug *const DMA_DEBUG_NULL =
+    reinterpret_cast<dma_debug *>(0x00000000);
 
 }; // namespace RP2040
 
