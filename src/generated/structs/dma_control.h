@@ -8,7 +8,6 @@
 #define RP2040_STRUCTS_DMA_CONTROL_H
 
 #include "../enums/DMA_DATA_SIZE.h"
-#include "../enums/DMA_RING_SIZE.h"
 #include "../enums/DMA_TREQ_SEL.h"
 #include "../ifgen/common.h"
 
@@ -325,9 +324,9 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_CTRL_TRIG_RING_SIZE() volatile
+    inline uint8_t get_CTRL_TRIG_RING_SIZE() volatile
     {
-        return DMA_RING_SIZE((CTRL_TRIG >> 6u) & 0xfu);
+        return (CTRL_TRIG >> 6u) & 0xfu;
     }
 
     /**
@@ -339,12 +338,12 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_CTRL_TRIG_RING_SIZE(DMA_RING_SIZE value) volatile
+    inline void set_CTRL_TRIG_RING_SIZE(uint8_t value) volatile
     {
         uint32_t curr = CTRL_TRIG;
 
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+        curr |= (value & 0xfu) << 6u;
 
         CTRL_TRIG = curr;
     }
@@ -758,7 +757,7 @@ struct dma_control
      */
     inline void get_CTRL_TRIG(bool &EN, bool &HIGH_PRIORITY,
                               DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
-                              bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                              bool &INCR_WRITE, uint8_t &RING_SIZE,
                               bool &RING_SEL, uint8_t &CHAIN_TO,
                               DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                               bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
@@ -772,7 +771,7 @@ struct dma_control
         DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = (curr >> 6u) & 0xfu;
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
         TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
@@ -792,7 +791,7 @@ struct dma_control
      */
     inline void set_CTRL_TRIG(bool EN, bool HIGH_PRIORITY,
                               DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
-                              bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
+                              bool INCR_WRITE, uint8_t RING_SIZE,
                               bool RING_SEL, uint8_t CHAIN_TO,
                               DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET,
                               bool BSWAP, bool SNIFF_EN, bool WRITE_ERROR,
@@ -811,7 +810,7 @@ struct dma_control
         curr &= ~(0b1u << 5u);
         curr |= (INCR_WRITE & 0b1u) << 5u;
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr |= (RING_SIZE & 0xfu) << 6u;
         curr &= ~(0b1u << 10u);
         curr |= (RING_SEL & 0b1u) << 10u;
         curr &= ~(0xfu << 11u);
@@ -1084,9 +1083,9 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL1_CTRL_RING_SIZE() volatile
+    inline uint8_t get_AL1_CTRL_RING_SIZE() volatile
     {
-        return DMA_RING_SIZE((AL1_CTRL >> 6u) & 0xfu);
+        return (AL1_CTRL >> 6u) & 0xfu;
     }
 
     /**
@@ -1098,12 +1097,12 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL1_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
+    inline void set_AL1_CTRL_RING_SIZE(uint8_t value) volatile
     {
         uint32_t curr = AL1_CTRL;
 
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+        curr |= (value & 0xfu) << 6u;
 
         AL1_CTRL = curr;
     }
@@ -1517,7 +1516,7 @@ struct dma_control
      */
     inline void get_AL1_CTRL(bool &EN, bool &HIGH_PRIORITY,
                              DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
-                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &INCR_WRITE, uint8_t &RING_SIZE,
                              bool &RING_SEL, uint8_t &CHAIN_TO,
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
@@ -1531,7 +1530,7 @@ struct dma_control
         DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = (curr >> 6u) & 0xfu;
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
         TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
@@ -1551,11 +1550,10 @@ struct dma_control
      */
     inline void set_AL1_CTRL(bool EN, bool HIGH_PRIORITY,
                              DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
-                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
-                             bool RING_SEL, uint8_t CHAIN_TO,
-                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR,
-                             bool READ_ERROR) volatile
+                             bool INCR_WRITE, uint8_t RING_SIZE, bool RING_SEL,
+                             uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL,
+                             bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                             bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = AL1_CTRL;
 
@@ -1570,7 +1568,7 @@ struct dma_control
         curr &= ~(0b1u << 5u);
         curr |= (INCR_WRITE & 0b1u) << 5u;
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr |= (RING_SIZE & 0xfu) << 6u;
         curr &= ~(0b1u << 10u);
         curr |= (RING_SEL & 0b1u) << 10u;
         curr &= ~(0xfu << 11u);
@@ -1843,9 +1841,9 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL2_CTRL_RING_SIZE() volatile
+    inline uint8_t get_AL2_CTRL_RING_SIZE() volatile
     {
-        return DMA_RING_SIZE((AL2_CTRL >> 6u) & 0xfu);
+        return (AL2_CTRL >> 6u) & 0xfu;
     }
 
     /**
@@ -1857,12 +1855,12 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL2_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
+    inline void set_AL2_CTRL_RING_SIZE(uint8_t value) volatile
     {
         uint32_t curr = AL2_CTRL;
 
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+        curr |= (value & 0xfu) << 6u;
 
         AL2_CTRL = curr;
     }
@@ -2276,7 +2274,7 @@ struct dma_control
      */
     inline void get_AL2_CTRL(bool &EN, bool &HIGH_PRIORITY,
                              DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
-                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &INCR_WRITE, uint8_t &RING_SIZE,
                              bool &RING_SEL, uint8_t &CHAIN_TO,
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
@@ -2290,7 +2288,7 @@ struct dma_control
         DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = (curr >> 6u) & 0xfu;
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
         TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
@@ -2310,11 +2308,10 @@ struct dma_control
      */
     inline void set_AL2_CTRL(bool EN, bool HIGH_PRIORITY,
                              DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
-                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
-                             bool RING_SEL, uint8_t CHAIN_TO,
-                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR,
-                             bool READ_ERROR) volatile
+                             bool INCR_WRITE, uint8_t RING_SIZE, bool RING_SEL,
+                             uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL,
+                             bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                             bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = AL2_CTRL;
 
@@ -2329,7 +2326,7 @@ struct dma_control
         curr &= ~(0b1u << 5u);
         curr |= (INCR_WRITE & 0b1u) << 5u;
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr |= (RING_SIZE & 0xfu) << 6u;
         curr &= ~(0b1u << 10u);
         curr |= (RING_SEL & 0b1u) << 10u;
         curr &= ~(0xfu << 11u);
@@ -2602,9 +2599,9 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline DMA_RING_SIZE get_AL3_CTRL_RING_SIZE() volatile
+    inline uint8_t get_AL3_CTRL_RING_SIZE() volatile
     {
-        return DMA_RING_SIZE((AL3_CTRL >> 6u) & 0xfu);
+        return (AL3_CTRL >> 6u) & 0xfu;
     }
 
     /**
@@ -2616,12 +2613,12 @@ struct dma_control
      * buffers. Ring sizes between 2 and 32768 bytes are possible. This can
      * apply to either read or write addresses, based on value of RING_SEL.
      */
-    inline void set_AL3_CTRL_RING_SIZE(DMA_RING_SIZE value) volatile
+    inline void set_AL3_CTRL_RING_SIZE(uint8_t value) volatile
     {
         uint32_t curr = AL3_CTRL;
 
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(value) & 0xfu) << 6u;
+        curr |= (value & 0xfu) << 6u;
 
         AL3_CTRL = curr;
     }
@@ -3035,7 +3032,7 @@ struct dma_control
      */
     inline void get_AL3_CTRL(bool &EN, bool &HIGH_PRIORITY,
                              DMA_DATA_SIZE &DATA_SIZE, bool &INCR_READ,
-                             bool &INCR_WRITE, DMA_RING_SIZE &RING_SIZE,
+                             bool &INCR_WRITE, uint8_t &RING_SIZE,
                              bool &RING_SEL, uint8_t &CHAIN_TO,
                              DMA_TREQ_SEL &TREQ_SEL, bool &IRQ_QUIET,
                              bool &BSWAP, bool &SNIFF_EN, bool &BUSY,
@@ -3049,7 +3046,7 @@ struct dma_control
         DATA_SIZE = DMA_DATA_SIZE((curr >> 2u) & 0b11u);
         INCR_READ = curr & (1u << 4u);
         INCR_WRITE = curr & (1u << 5u);
-        RING_SIZE = DMA_RING_SIZE((curr >> 6u) & 0xfu);
+        RING_SIZE = (curr >> 6u) & 0xfu;
         RING_SEL = curr & (1u << 10u);
         CHAIN_TO = (curr >> 11u) & 0xfu;
         TREQ_SEL = DMA_TREQ_SEL((curr >> 15u) & 0b111111u);
@@ -3069,11 +3066,10 @@ struct dma_control
      */
     inline void set_AL3_CTRL(bool EN, bool HIGH_PRIORITY,
                              DMA_DATA_SIZE DATA_SIZE, bool INCR_READ,
-                             bool INCR_WRITE, DMA_RING_SIZE RING_SIZE,
-                             bool RING_SEL, uint8_t CHAIN_TO,
-                             DMA_TREQ_SEL TREQ_SEL, bool IRQ_QUIET, bool BSWAP,
-                             bool SNIFF_EN, bool WRITE_ERROR,
-                             bool READ_ERROR) volatile
+                             bool INCR_WRITE, uint8_t RING_SIZE, bool RING_SEL,
+                             uint8_t CHAIN_TO, DMA_TREQ_SEL TREQ_SEL,
+                             bool IRQ_QUIET, bool BSWAP, bool SNIFF_EN,
+                             bool WRITE_ERROR, bool READ_ERROR) volatile
     {
         uint32_t curr = AL3_CTRL;
 
@@ -3088,7 +3084,7 @@ struct dma_control
         curr &= ~(0b1u << 5u);
         curr |= (INCR_WRITE & 0b1u) << 5u;
         curr &= ~(0xfu << 6u);
-        curr |= (std::to_underlying(RING_SIZE) & 0xfu) << 6u;
+        curr |= (RING_SIZE & 0xfu) << 6u;
         curr &= ~(0b1u << 10u);
         curr |= (RING_SEL & 0b1u) << 10u;
         curr &= ~(0xfu << 11u);

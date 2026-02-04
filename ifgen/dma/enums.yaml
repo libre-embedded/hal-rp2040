@@ -148,11 +148,3 @@ enums:
     json: false
     use_map: false
     identifier: false
-  DMA_RING_SIZE:
-    enum:
-      RING_NONE:
-        value: 0
-    unit_test: false
-    json: false
-    use_map: false
-    identifier: false

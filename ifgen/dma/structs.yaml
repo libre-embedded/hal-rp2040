@@ -113,7 +113,6 @@ structs:
             width: 4
             read: true
             write: true
-            type: DMA_RING_SIZE
           - name: RING_SEL
             description: |-
               Select whether RING_SIZE applies to read or write addresses.
