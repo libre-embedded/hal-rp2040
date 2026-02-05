@@ -2,11 +2,11 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=623c4031ef0979d0c84a963f09ef606f
+    hash=2ac99f64c722251db7fddaa85a9db318
     =====================================
 -->
 
-# hal-rp2040 ([2.2.1](https://github.com/vkottler/hal-rp2040/releases/tag/2.2.1))
+# hal-rp2040 ([2.3.0](https://github.com/vkottler/hal-rp2040/releases/tag/2.3.0))
 
 [![codecov](https://codecov.io/gh/vkottler/hal-rp2040/branch/master/graph/badge.svg)](https://codecov.io/gh/vkottler/hal-rp2040)
 ![Build Status](https://github.com/vkottler/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
