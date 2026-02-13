@@ -1,5 +1,4 @@
 ---
 includes:
   - ifgen/ifgen.yaml
-
-clang_format: clang-format-19
+  - config/python/ifgen/settings.yaml

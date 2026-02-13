@@ -24,7 +24,7 @@ static_assert(std::endian::native == std::endian::big or
               std::endian::native == std::endian::little);
 
 /* Default endianness configured. */
-static constexpr auto default_endian = std::endian::native;
+static constexpr auto default_endian = std::endian::little;
 
 /* Detect primitives that don't need byte swapping. */
 template <typename T>
@@ -112,8 +112,8 @@ inline T handle_endian(T elem)
 }
 
 /* Configured primitives for identifiers. */
-using struct_id_t = uint16_t;
-using enum_id_t = uint16_t;
+using struct_id_t = uint8_t;
+using enum_id_t = uint8_t;
 
 /* Create useful aliases for bytes. */
 template <std::size_t Extent = std::dynamic_extent>
