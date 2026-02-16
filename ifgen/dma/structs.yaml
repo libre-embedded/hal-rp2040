@@ -1,5 +1,47 @@
 ---
 structs:
+  dma_interrupt:
+    instances:
+      - name: DMA_INTERRUPT_NULL
+        address: '0x00000000'
+    fields:
+      - name: INTE
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Enables for IRQ 0/1
+        fields:
+          - name: INTE
+            description: |-
+              Set bit n to pass interrupts from channel n to DMA IRQ 0/1.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        description: |-
+          (read-write) Force Interrupts
+        fields:
+          - name: INTF
+            description: |-
+              Write 1s to force the corresponding bits in INTE0/1. The interrupt remains asserted until INTF0/1 is cleared.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Status for IRQ 0/1
+        fields:
+          - name: INTS
+            description: |-
+              Indicates active channel interrupt requests which are currently causing IRQ 0/1 to be asserted.
+                              Channel interrupts can be cleared by writing a bit mask here.
+            index: 0
+            width: 16
+            read: true
+            write: true
   dma_debug:
     instances:
       - name: DMA_DEBUG_NULL
@@ -7,7 +49,6 @@ structs:
     fields:
       - name: DBG_CTDREQ
         type: uint32_t
-        expected_size: 4
         expected_offset: 0
         description: |-
           (read-write) Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
@@ -19,7 +60,6 @@ structs:
             write: true
       - name: DBG_TCR
         type: uint32_t
-        expected_size: 4
         expected_offset: 4
         description: |-
           (read-write) Read to get channel TRANS_COUNT reload value, i.e. the length of the next transfer
@@ -305,92 +345,13 @@ structs:
             width: 16
             read: true
             write: true
-      - name: INTE0
-        type: uint32_t
-        expected_size: 4
+
+      - name: INT
+        type: dma_interrupt
+        expected_size: 24
+        array_length: 2
         expected_offset: 1028
-        description: |-
-          (read-write) Interrupt Enables for IRQ 0
-        fields:
-          - name: INTE0
-            description: |-
-              Set bit n to pass interrupts from channel n to DMA IRQ 0.
-            index: 0
-            width: 16
-            read: true
-            write: true
-      - name: INTF0
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 1032
-        description: |-
-          (read-write) Force Interrupts
-        fields:
-          - name: INTF0
-            description: |-
-              Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
-            index: 0
-            width: 16
-            read: true
-            write: true
-      - name: INTS0
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 1036
-        description: |-
-          (read-write) Interrupt Status for IRQ 0
-        fields:
-          - name: INTS0
-            description: |-
-              Indicates active channel interrupt requests which are currently causing IRQ 0 to be asserted.
-                              Channel interrupts can be cleared by writing a bit mask here.
-            index: 0
-            width: 16
-            read: true
-            write: true
-      - name: INTE1
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 1044
-        description: |-
-          (read-write) Interrupt Enables for IRQ 1
-        fields:
-          - name: INTE1
-            description: |-
-              Set bit n to pass interrupts from channel n to DMA IRQ 1.
-            index: 0
-            width: 16
-            read: true
-            write: true
-      - name: INTF1
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 1048
-        description: |-
-          (read-write) Force Interrupts for IRQ 1
-        fields:
-          - name: INTF1
-            description: |-
-              Write 1s to force the corresponding bits in INTE0. The interrupt remains asserted until INTF0 is cleared.
-            index: 0
-            width: 16
-            read: true
-            write: true
-      - name: INTS1
-        type: uint32_t
-        expected_size: 4
-        expected_offset: 1052
-        description: |-
-          (read-write) Interrupt Status (masked) for IRQ 1
-        fields:
-          - name: INTS1
-            description: |-
-              Indicates active channel interrupt requests which are currently causing IRQ 1 to be asserted.
-                              Channel interrupts can be cleared by writing a bit mask here.
-            index: 0
-            width: 16
-            read: true
-            write: true
+
       - name: TIMER0
         type: uint32_t
         expected_size: 4

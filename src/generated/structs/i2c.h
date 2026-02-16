@@ -87,7 +87,7 @@ namespace RP2040
 struct i2c
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 7;     /*!< i2c's identifier. */
+    static constexpr struct_id_t id = 8;     /*!< i2c's identifier. */
     static constexpr std::size_t size = 256; /*!< i2c's size in bytes. */
 
     /* Fields. */
