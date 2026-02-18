@@ -1411,7 +1411,7 @@ structs:
             width: 1
             read: true
             write: false
-      - name: IRQ
+      - name: IRQS
         type: pio_interrupt_cluster
         expected_offset: 300
         expected_size: 24

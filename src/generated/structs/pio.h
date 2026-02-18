@@ -158,8 +158,8 @@ addressed by state machine 3's program counter Write to execute an instruction
 immediately (including jumps) and then resume execution. */
     uint32_t SM3_PINCTRL;     /*!< (read-write) State machine pin control */
     const uint32_t INTR = {}; /*!< (read-only) Raw Interrupts */
-    static constexpr std::size_t IRQ_length = 2;
-    pio_interrupt_cluster IRQ[IRQ_length];
+    static constexpr std::size_t IRQS_length = 2;
+    pio_interrupt_cluster IRQS[IRQS_length];
 
     /* Methods. */
 
