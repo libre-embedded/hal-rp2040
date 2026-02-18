@@ -18,7 +18,7 @@ namespace RP2040
 struct adc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 1;    /*!< adc's identifier. */
+    static constexpr struct_id_t id = 2;    /*!< adc's identifier. */
     static constexpr std::size_t size = 36; /*!< adc's size in bytes. */
 
     /* Fields. */

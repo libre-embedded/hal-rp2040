@@ -1,4 +1,6 @@
 ---
 includes:
+  - dma_debug.yaml
+  - dma_control.yaml
   - structs.yaml
   - enums.yaml

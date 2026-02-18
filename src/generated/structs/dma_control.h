@@ -17,7 +17,7 @@ namespace RP2040
 struct dma_control
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 5; /*!< dma_control's identifier. */
+    static constexpr struct_id_t id = 6; /*!< dma_control's identifier. */
     static constexpr std::size_t size =
         64; /*!< dma_control's size in bytes. */
 

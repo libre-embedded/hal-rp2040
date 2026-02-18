@@ -9,5 +9,5 @@ ci_docs: false
 
 version:
   major: 2
-  minor: 4
+  minor: 5
   patch: 0

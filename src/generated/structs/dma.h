@@ -11,6 +11,7 @@
 #include "../ifgen/common.h"
 #include "dma_control.h"
 #include "dma_debug.h"
+#include "interrupt_cluster.h"
 
 namespace RP2040
 {
@@ -21,20 +22,16 @@ namespace RP2040
 struct dma
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 6;      /*!< dma's identifier. */
+    static constexpr struct_id_t id = 7;      /*!< dma's identifier. */
     static constexpr std::size_t size = 3072; /*!< dma's size in bytes. */
 
     /* Fields. */
     static constexpr std::size_t CONTROL_length = 16;
     dma_control CONTROL[CONTROL_length];
-    uint32_t INTR;  /*!< (read-write) Interrupt Status (raw) */
-    uint32_t INTE0; /*!< (read-write) Interrupt Enables for IRQ 0 */
-    uint32_t INTF0; /*!< (read-write) Force Interrupts */
-    uint32_t INTS0; /*!< (read-write) Interrupt Status for IRQ 0 */
+    uint32_t INTR; /*!< (read-write) Interrupt Status (raw) */
+    interrupt_cluster INT0;
     const uint32_t reserved_padding0 = {};
-    uint32_t INTE1;  /*!< (read-write) Interrupt Enables for IRQ 1 */
-    uint32_t INTF1;  /*!< (read-write) Force Interrupts for IRQ 1 */
-    uint32_t INTS1;  /*!< (read-write) Interrupt Status (masked) for IRQ 1 */
+    interrupt_cluster INT1;
     uint32_t TIMER0; /*!< (read-write) Pacing (X/Y) Fractional Timer
 The pacing timer produces TREQ assertions at a rate set by ((X/Y) * sys_clk).
 This equation is evaluated every sys_clk cycles and therefore can only generate
@@ -113,168 +110,6 @@ final result can be read from this register. */
         curr |= (value & 0xffffu);
 
         INTR = curr;
-    }
-
-    /**
-     * Get INTE0's INTE0 field.
-     *
-     * Set bit n to pass interrupts from channel n to DMA IRQ 0.
-     */
-    inline uint16_t get_INTE0() volatile
-    {
-        return INTE0 & 0xffffu;
-    }
-
-    /**
-     * Set INTE0's INTE0 field.
-     *
-     * Set bit n to pass interrupts from channel n to DMA IRQ 0.
-     */
-    inline void set_INTE0(uint16_t value) volatile
-    {
-        uint32_t curr = INTE0;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTE0 = curr;
-    }
-
-    /**
-     * Get INTF0's INTF0 field.
-     *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
-     * asserted until INTF0 is cleared.
-     */
-    inline uint16_t get_INTF0() volatile
-    {
-        return INTF0 & 0xffffu;
-    }
-
-    /**
-     * Set INTF0's INTF0 field.
-     *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
-     * asserted until INTF0 is cleared.
-     */
-    inline void set_INTF0(uint16_t value) volatile
-    {
-        uint32_t curr = INTF0;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTF0 = curr;
-    }
-
-    /**
-     * Get INTS0's INTS0 field.
-     *
-     * Indicates active channel interrupt requests which are currently causing
-     * IRQ 0 to be asserted. Channel interrupts can be cleared by writing a bit
-     * mask here.
-     */
-    inline uint16_t get_INTS0() volatile
-    {
-        return INTS0 & 0xffffu;
-    }
-
-    /**
-     * Set INTS0's INTS0 field.
-     *
-     * Indicates active channel interrupt requests which are currently causing
-     * IRQ 0 to be asserted. Channel interrupts can be cleared by writing a bit
-     * mask here.
-     */
-    inline void set_INTS0(uint16_t value) volatile
-    {
-        uint32_t curr = INTS0;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTS0 = curr;
-    }
-
-    /**
-     * Get INTE1's INTE1 field.
-     *
-     * Set bit n to pass interrupts from channel n to DMA IRQ 1.
-     */
-    inline uint16_t get_INTE1() volatile
-    {
-        return INTE1 & 0xffffu;
-    }
-
-    /**
-     * Set INTE1's INTE1 field.
-     *
-     * Set bit n to pass interrupts from channel n to DMA IRQ 1.
-     */
-    inline void set_INTE1(uint16_t value) volatile
-    {
-        uint32_t curr = INTE1;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTE1 = curr;
-    }
-
-    /**
-     * Get INTF1's INTF1 field.
-     *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
-     * asserted until INTF0 is cleared.
-     */
-    inline uint16_t get_INTF1() volatile
-    {
-        return INTF1 & 0xffffu;
-    }
-
-    /**
-     * Set INTF1's INTF1 field.
-     *
-     * Write 1s to force the corresponding bits in INTE0. The interrupt remains
-     * asserted until INTF0 is cleared.
-     */
-    inline void set_INTF1(uint16_t value) volatile
-    {
-        uint32_t curr = INTF1;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTF1 = curr;
-    }
-
-    /**
-     * Get INTS1's INTS1 field.
-     *
-     * Indicates active channel interrupt requests which are currently causing
-     * IRQ 1 to be asserted. Channel interrupts can be cleared by writing a bit
-     * mask here.
-     */
-    inline uint16_t get_INTS1() volatile
-    {
-        return INTS1 & 0xffffu;
-    }
-
-    /**
-     * Set INTS1's INTS1 field.
-     *
-     * Indicates active channel interrupt requests which are currently causing
-     * IRQ 1 to be asserted. Channel interrupts can be cleared by writing a bit
-     * mask here.
-     */
-    inline void set_INTS1(uint16_t value) volatile
-    {
-        uint32_t curr = INTS1;
-
-        curr &= ~(0xffffu);
-        curr |= (value & 0xffffu);
-
-        INTS1 = curr;
     }
 
     /**

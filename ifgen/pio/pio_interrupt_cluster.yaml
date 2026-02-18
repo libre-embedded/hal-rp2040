@@ -1,0 +1,203 @@
+---
+structs:
+  pio_interrupt_cluster:
+    fields:
+      - name: INTE
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Enable for irq0/1
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: true
+      - name: INTF
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Force for irq0/1
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: true
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: true
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: true
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: true
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: true
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: true
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: true
+      - name: INTS
+        type: uint32_t
+        const: true
+        description: |-
+          (read-only) Interrupt status after masking & forcing for irq0/1
+        fields:
+          - name: SM0_RXNEMPTY
+            index: 0
+            width: 1
+            read: true
+            write: false
+          - name: SM1_RXNEMPTY
+            index: 1
+            width: 1
+            read: true
+            write: false
+          - name: SM2_RXNEMPTY
+            index: 2
+            width: 1
+            read: true
+            write: false
+          - name: SM3_RXNEMPTY
+            index: 3
+            width: 1
+            read: true
+            write: false
+          - name: SM0_TXNFULL
+            index: 4
+            width: 1
+            read: true
+            write: false
+          - name: SM1_TXNFULL
+            index: 5
+            width: 1
+            read: true
+            write: false
+          - name: SM2_TXNFULL
+            index: 6
+            width: 1
+            read: true
+            write: false
+          - name: SM3_TXNFULL
+            index: 7
+            width: 1
+            read: true
+            write: false
+          - name: SM0
+            index: 8
+            width: 1
+            read: true
+            write: false
+          - name: SM1
+            index: 9
+            width: 1
+            read: true
+            write: false
+          - name: SM2
+            index: 10
+            width: 1
+            read: true
+            write: false
+          - name: SM3
+            index: 11
+            width: 1
+            read: true
+            write: false
+    instances:
+      - name: PIO_INTERRUPT_CLUSTER_NULL
+        address: '0x00000000'
