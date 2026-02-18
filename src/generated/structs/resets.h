@@ -15,7 +15,7 @@ namespace RP2040
 struct resets
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 19;   /*!< resets's identifier. */
+    static constexpr struct_id_t id = 20;   /*!< resets's identifier. */
     static constexpr std::size_t size = 12; /*!< resets's size in bytes. */
 
     /* Fields. */

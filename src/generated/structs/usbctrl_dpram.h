@@ -20,7 +20,7 @@ namespace RP2040
 struct usbctrl_dpram
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 29; /*!< usbctrl_dpram's identifier. */
+    static constexpr struct_id_t id = 30; /*!< usbctrl_dpram's identifier. */
     static constexpr std::size_t size =
         256; /*!< usbctrl_dpram's size in bytes. */
 
