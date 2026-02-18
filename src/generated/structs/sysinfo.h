@@ -15,7 +15,7 @@ namespace RP2040
 struct sysinfo
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 23;   /*!< sysinfo's identifier. */
+    static constexpr struct_id_t id = 24;   /*!< sysinfo's identifier. */
     static constexpr std::size_t size = 68; /*!< sysinfo's size in bytes. */
 
     /* Fields. */

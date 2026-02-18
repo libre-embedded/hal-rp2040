@@ -1,0 +1,248 @@
+---
+structs:
+  dma_control:
+    fields:
+      - name: READ_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 0
+        description: |-
+          (read-write) DMA Channel Read Address pointer
+                      This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
+      - name: WRITE_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 4
+        description: |-
+          (read-write) DMA Channel Write Address pointer
+                      This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
+      - name: TRANS_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 8
+        description: |-
+          (read-write) DMA Channel Transfer Count
+                      Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
+                      When the channel is active, reading this register shows the number of transfers remaining, updating automatically each time a write transfer completes.
+                      Writing this register sets the RELOAD value for the transfer counter. Each time this channel is triggered, the RELOAD value is copied into the live transfer counter. The channel can be started multiple times, and will perform the same number of transfers each time, as programmed by most recent write.
+                      The RELOAD value can be observed at CHx_DBG_TCR. If TRANS_COUNT is used as a trigger, the written value is used immediately as the length of the new transfer sequence, as well as being written to RELOAD.
+      - name: CTRL_TRIG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 12
+        description: |-
+          (read-write) DMA Channel Control and Status
+        fields: &ctrl_fields
+          - name: EN
+            description: |-
+              DMA Channel Enable.
+                              When 1, the channel will respond to triggering events, which will cause it to become BUSY and start transferring data. When 0, the channel will ignore triggers, stop issuing transfers, and pause the current transfer sequence (i.e. BUSY will remain high if already high)
+            index: 0
+            width: 1
+            read: true
+            write: true
+          - name: HIGH_PRIORITY
+            description: |-
+              HIGH_PRIORITY gives a channel preferential treatment in issue scheduling: in each scheduling round, all high priority channels are considered first, and then only a single low priority channel, before returning to the high priority channels.
+                              This only affects the order in which the DMA schedules channels. The DMA's bus priority is not changed. If the DMA is not saturated then a low priority channel will see no loss of throughput.
+            index: 1
+            width: 1
+            read: true
+            write: true
+          - name: DATA_SIZE
+            description: |-
+              Set the size of each bus transfer (byte/halfword/word). READ_ADDR and WRITE_ADDR advance by this amount (1/2/4 bytes) with each transfer.
+            index: 2
+            width: 2
+            read: true
+            write: true
+            type: DMA_DATA_SIZE
+          - name: INCR_READ
+            description: |-
+              If 1, the read address increments with each transfer. If 0, each read is directed to the same, initial address.
+                              Generally this should be disabled for peripheral-to-memory transfers.
+            index: 4
+            width: 1
+            read: true
+            write: true
+          - name: INCR_WRITE
+            description: |-
+              If 1, the write address increments with each transfer. If 0, each write is directed to the same, initial address.
+                              Generally this should be disabled for memory-to-peripheral transfers.
+            index: 5
+            width: 1
+            read: true
+            write: true
+          - name: RING_SIZE
+            description: |-
+              Size of address wrap region. If 0, don't wrap. For values n > 0, only the lower n bits of the address will change. This wraps the address on a (1 << n) byte boundary, facilitating access to naturally-aligned ring buffers.
+                              Ring sizes between 2 and 32768 bytes are possible. This can apply to either read or write addresses, based on value of RING_SEL.
+            index: 6
+            width: 4
+            read: true
+            write: true
+          - name: RING_SEL
+            description: |-
+              Select whether RING_SIZE applies to read or write addresses.
+                              If 0, read addresses are wrapped on a (1 << RING_SIZE) boundary. If 1, write addresses are wrapped.
+            index: 10
+            width: 1
+            read: true
+            write: true
+          - name: CHAIN_TO
+            description: |-
+              When this channel completes, it will trigger the channel indicated by CHAIN_TO. Disable by setting CHAIN_TO = _(this channel)_.
+            index: 11
+            width: 4
+            read: true
+            write: true
+          - name: TREQ_SEL
+            description: |-
+              Select a Transfer Request signal.
+                              The channel uses the transfer request signal to pace its data transfer rate. Sources for TREQ signals are internal (TIMERS) or external (DREQ, a Data Request from the system).
+                              0x0 to 0x3a -> select DREQ n as TREQ
+            index: 15
+            width: 6
+            read: true
+            write: true
+            type: DMA_TREQ_SEL
+          - name: IRQ_QUIET
+            description: |-
+              In QUIET mode, the channel does not generate IRQs at the end of every transfer block. Instead, an IRQ is raised when NULL is written to a trigger register, indicating the end of a control block chain.
+                              This reduces the number of interrupts to be serviced by the CPU when transferring a DMA chain of many small control blocks.
+            index: 21
+            width: 1
+            read: true
+            write: true
+          - name: BSWAP
+            description: |-
+              Apply byte-swap transformation to DMA data.
+                              For byte data, this has no effect. For halfword data, the two bytes of each halfword are swapped. For word data, the four bytes of each word are swapped to reverse order.
+            index: 22
+            width: 1
+            read: true
+            write: true
+          - name: SNIFF_EN
+            description: |-
+              If 1, this channel's data transfers are visible to the sniff hardware, and each transfer will advance the state of the checksum. This only applies if the sniff hardware is enabled, and has this channel selected.
+                              This allows checksum to be enabled or disabled on a per-control- block basis.
+            index: 23
+            width: 1
+            read: true
+            write: true
+          - name: BUSY
+            description: |-
+              This flag goes high when the channel starts a new transfer sequence, and low when the last transfer of that sequence completes. Clearing EN while BUSY is high pauses the channel, and BUSY will stay high while paused.
+                              To terminate a sequence early (and clear the BUSY flag), see CHAN_ABORT.
+            index: 24
+            width: 1
+            read: true
+            write: false
+          - name: WRITE_ERROR
+            description: |-
+              If 1, the channel received a write bus error. Write one to clear.
+                              WRITE_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 5 transfers later)
+            index: 29
+            width: 1
+            read: true
+            write: true
+          - name: READ_ERROR
+            description: |-
+              If 1, the channel received a read bus error. Write one to clear.
+                              READ_ADDR shows the approximate address where the bus error was encountered (will not be earlier, or more than 3 transfers later)
+            index: 30
+            width: 1
+            read: true
+            write: true
+          - name: AHB_ERROR
+            description: |-
+              Logical OR of the READ_ERROR and WRITE_ERROR flags. The channel halts when it encounters any bus error, and always raises its channel IRQ flag.
+            index: 31
+            width: 1
+            read: true
+            write: false
+      - name: AL1_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 16
+        description: |-
+          (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
+      - name: AL1_READ_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 20
+        description: |-
+          (read-write) Alias for channel READ_ADDR register
+      - name: AL1_WRITE_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 24
+        description: |-
+          (read-write) Alias for channel WRITE_ADDR register
+      - name: AL1_TRANS_COUNT_TRIG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 28
+        description: |-
+          (read-write) Alias for channel TRANS_COUNT register
+                      This is a trigger register (0xc). Writing a nonzero value will
+                      reload the channel counter and start the channel.
+      - name: AL2_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 32
+        description: |-
+          (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
+      - name: AL2_TRANS_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 36
+        description: |-
+          (read-write) Alias for channel TRANS_COUNT register
+      - name: AL2_READ_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 40
+        description: |-
+          (read-write) Alias for channel READ_ADDR register
+      - name: AL2_WRITE_ADDR_TRIG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 44
+        description: |-
+          (read-write) Alias for channel WRITE_ADDR register
+                      This is a trigger register (0xc). Writing a nonzero value will
+                      reload the channel counter and start the channel.
+      - name: AL3_CTRL
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 48
+        description: |-
+          (read-write) Alias for channel CTRL register
+        fields: *ctrl_fields
+      - name: AL3_WRITE_ADDR
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 52
+        description: |-
+          (read-write) Alias for channel WRITE_ADDR register
+      - name: AL3_TRANS_COUNT
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 56
+        description: |-
+          (read-write) Alias for channel TRANS_COUNT register
+      - name: AL3_READ_ADDR_TRIG
+        type: uint32_t
+        expected_size: 4
+        expected_offset: 60
+        description: |-
+          (read-write) Alias for channel READ_ADDR register
+                      This is a trigger register (0xc). Writing a nonzero value will
+                      reload the channel counter and start the channel.
+
+    instances:
+      - name: DMA_CONTROL_NULL
+        address: '0x00000000'

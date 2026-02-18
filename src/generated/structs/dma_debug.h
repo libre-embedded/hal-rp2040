@@ -15,7 +15,7 @@ namespace RP2040
 struct dma_debug
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 4;    /*!< dma_debug's identifier. */
+    static constexpr struct_id_t id = 5;    /*!< dma_debug's identifier. */
     static constexpr std::size_t size = 64; /*!< dma_debug's size in bytes. */
 
     /* Fields. */

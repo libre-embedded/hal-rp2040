@@ -1,5 +1,6 @@
 ---
 includes:
+  - interrupt_cluster.yaml
   - adc/include.yaml
   - busctrl/include.yaml
   - clocks/include.yaml

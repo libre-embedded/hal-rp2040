@@ -47,7 +47,7 @@ namespace RP2040
 struct io_bank
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 8;     /*!< io_bank's identifier. */
+    static constexpr struct_id_t id = 9;     /*!< io_bank's identifier. */
     static constexpr std::size_t size = 400; /*!< io_bank's size in bytes. */
 
     /* Fields. */

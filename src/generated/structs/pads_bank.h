@@ -16,7 +16,7 @@ namespace RP2040
 struct pads_bank
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 10;    /*!< pads_bank's identifier. */
+    static constexpr struct_id_t id = 11;    /*!< pads_bank's identifier. */
     static constexpr std::size_t size = 132; /*!< pads_bank's size in bytes. */
 
     /* Fields. */

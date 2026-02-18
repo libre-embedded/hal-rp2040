@@ -1,0 +1,45 @@
+---
+structs:
+  interrupt_cluster:
+    fields:
+      - name: E
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Enables for IRQ 0/1
+        fields:
+          - name: E
+            description: |-
+              Set bit n to pass interrupts from channel n to DMA IRQ 0/1.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: F
+        type: uint32_t
+        description: |-
+          (read-write) Force Interrupts
+        fields:
+          - name: F
+            description: |-
+              Write 1s to force the corresponding bits in INTE. The interrupt remains asserted until INTF is cleared.
+            index: 0
+            width: 16
+            read: true
+            write: true
+      - name: S
+        type: uint32_t
+        description: |-
+          (read-write) Interrupt Status for IRQ 0/1
+        fields:
+          - name: S
+            description: |-
+              Indicates active channel interrupt requests which are currently causing IRQ 0/1 to be asserted.
+                              Channel interrupts can be cleared by writing a bit mask here.
+            index: 0
+            width: 16
+            read: true
+            write: true
+
+    instances:
+      - name: INTERRUPT_CLUSTER_NULL
+        address: '0x00000000'

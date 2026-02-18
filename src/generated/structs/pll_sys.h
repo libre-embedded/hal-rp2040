@@ -15,7 +15,7 @@ namespace RP2040
 struct pll_sys
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 13;   /*!< pll_sys's identifier. */
+    static constexpr struct_id_t id = 14;   /*!< pll_sys's identifier. */
     static constexpr std::size_t size = 16; /*!< pll_sys's size in bytes. */
 
     /* Fields. */

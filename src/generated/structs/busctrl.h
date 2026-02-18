@@ -19,7 +19,7 @@ namespace RP2040
 struct busctrl
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 2;    /*!< busctrl's identifier. */
+    static constexpr struct_id_t id = 3;    /*!< busctrl's identifier. */
     static constexpr std::size_t size = 40; /*!< busctrl's size in bytes. */
 
     /* Fields. */

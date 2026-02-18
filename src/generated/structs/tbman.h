@@ -19,7 +19,7 @@ namespace RP2040
 struct tbman
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 24;  /*!< tbman's identifier. */
+    static constexpr struct_id_t id = 25;  /*!< tbman's identifier. */
     static constexpr std::size_t size = 4; /*!< tbman's size in bytes. */
 
     /* Fields. */
