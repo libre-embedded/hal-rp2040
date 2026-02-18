@@ -15,7 +15,7 @@ namespace RP2040
 struct spi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 22;     /*!< spi's identifier. */
+    static constexpr struct_id_t id = 23;     /*!< spi's identifier. */
     static constexpr std::size_t size = 4096; /*!< spi's size in bytes. */
 
     /* Fields. */

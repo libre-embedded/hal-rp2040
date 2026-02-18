@@ -73,7 +73,7 @@ namespace RP2040
 struct xip_ssi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 33;    /*!< xip_ssi's identifier. */
+    static constexpr struct_id_t id = 34;    /*!< xip_ssi's identifier. */
     static constexpr std::size_t size = 252; /*!< xip_ssi's size in bytes. */
 
     /* Fields. */

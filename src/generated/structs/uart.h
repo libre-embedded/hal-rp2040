@@ -15,7 +15,7 @@ namespace RP2040
 struct uart
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 27;     /*!< uart's identifier. */
+    static constexpr struct_id_t id = 28;     /*!< uart's identifier. */
     static constexpr std::size_t size = 4096; /*!< uart's size in bytes. */
 
     /* Fields. */

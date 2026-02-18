@@ -20,7 +20,7 @@ namespace RP2040
 struct sio
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 21;    /*!< sio's identifier. */
+    static constexpr struct_id_t id = 22;    /*!< sio's identifier. */
     static constexpr std::size_t size = 384; /*!< sio's size in bytes. */
 
     /* Fields. */

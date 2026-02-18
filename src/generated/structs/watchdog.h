@@ -15,7 +15,7 @@ namespace RP2040
 struct watchdog
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 31;   /*!< watchdog's identifier. */
+    static constexpr struct_id_t id = 32;   /*!< watchdog's identifier. */
     static constexpr std::size_t size = 48; /*!< watchdog's size in bytes. */
 
     /* Fields. */

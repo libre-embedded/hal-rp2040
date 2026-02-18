@@ -19,7 +19,7 @@ namespace RP2040
 struct pwm
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 17;    /*!< pwm's identifier. */
+    static constexpr struct_id_t id = 18;    /*!< pwm's identifier. */
     static constexpr std::size_t size = 180; /*!< pwm's size in bytes. */
 
     /* Fields. */

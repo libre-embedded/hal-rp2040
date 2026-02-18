@@ -18,7 +18,7 @@ namespace RP2040
 struct rtc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 20;   /*!< rtc's identifier. */
+    static constexpr struct_id_t id = 21;   /*!< rtc's identifier. */
     static constexpr std::size_t size = 48; /*!< rtc's size in bytes. */
 
     /* Fields. */

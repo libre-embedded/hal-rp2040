@@ -21,7 +21,7 @@ namespace RP2040
 struct xosc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 34;   /*!< xosc's identifier. */
+    static constexpr struct_id_t id = 35;   /*!< xosc's identifier. */
     static constexpr std::size_t size = 32; /*!< xosc's size in bytes. */
 
     /* Fields. */
