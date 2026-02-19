@@ -252,3 +252,6 @@ structs:
             width: 3
             read: true
             write: true
+    instances:
+      - name: PIO_SM_NULL
+        address: '0x00000000'
