@@ -2,14 +2,14 @@
     =====================================
     generator=datazen
     version=3.2.3
-    hash=587879b9dfcb906eccee6d469f581bf7
+    hash=af193d4bf5ec957c909c375b6e8a3c40
     =====================================
 -->
 
-# hal-rp2040 ([2.5.1](https://github.com/vkottler/hal-rp2040/releases/tag/2.5.1))
+# hal-rp2040 ([2.5.2](https://github.com/libre-embedded/hal-rp2040/releases/tag/2.5.2))
 
-[![codecov](https://codecov.io/gh/vkottler/hal-rp2040/branch/master/graph/badge.svg)](https://codecov.io/gh/vkottler/hal-rp2040)
-![Build Status](https://github.com/vkottler/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
+[![codecov](https://codecov.io/gh/libre-embedded/hal-rp2040/branch/master/graph/badge.svg)](https://codecov.io/gh/libre-embedded/hal-rp2040)
+![Build Status](https://github.com/libre-embedded/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
 
 *A hardware abstraction layer generated from the RP2040's SVD.*
 

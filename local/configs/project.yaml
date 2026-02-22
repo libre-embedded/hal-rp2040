@@ -2,12 +2,9 @@
 name: hal-rp2040
 description: A hardware abstraction layer generated from the RP2040's SVD.
 main_branch: master
-owner: vkottler
-
-# Documentation takes an extremely long time to generate! (longer than timeout)
-ci_docs: false
+owner: libre-embedded
 
 version:
   major: 2
   minor: 5
-  patch: 1
+  patch: 2

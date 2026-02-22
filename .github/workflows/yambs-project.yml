@@ -79,6 +79,7 @@ jobs:
           fail_ci_if_error: true
           verbose: true
           token: ${{secrets.CODECOV_TOKEN}}
+          slug: libre-embedded/hal-rp2040
 
       - run: mk release
         if: |
