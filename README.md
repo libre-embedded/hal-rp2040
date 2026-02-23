@@ -1,12 +1,12 @@
 <!--
     =====================================
     generator=datazen
-    version=3.2.3
-    hash=af193d4bf5ec957c909c375b6e8a3c40
+    version=3.2.4
+    hash=c1c56722784b904950ca6d4eb58258fc
     =====================================
 -->
 
-# hal-rp2040 ([2.5.2](https://github.com/libre-embedded/hal-rp2040/releases/tag/2.5.2))
+# hal-rp2040 ([2.5.3](https://github.com/libre-embedded/hal-rp2040/releases/tag/2.5.3))
 
 [![codecov](https://codecov.io/gh/libre-embedded/hal-rp2040/branch/master/graph/badge.svg)](https://codecov.io/gh/libre-embedded/hal-rp2040)
 ![Build Status](https://github.com/libre-embedded/hal-rp2040/actions/workflows/yambs-project.yml/badge.svg)
