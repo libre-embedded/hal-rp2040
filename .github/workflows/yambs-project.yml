@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        python-version: [3.13]
+        python-version: [3.14]
 
     env:
       PYTHON_VERSION: ${{matrix.python-version}}
@@ -36,7 +36,7 @@ jobs:
           python-version: ${{matrix.python-version}}
           cache: pip
 
-      - run: pip${{matrix.python-version}} install vmklib>=2.0.8 yambs>=3.1.3 ifgen>=4.7.1
+      - run: pip${{matrix.python-version}} install vmklib>=2.0.12 yambs>=3.1.5 ifgen>=4.7.3
 
       - run: mk --version
       - run: mbs --version
@@ -64,6 +64,7 @@ jobs:
 
       - run: mk t variant=clang coverage=false
       - run: ninja all format-check
+      - run: mk docs
       - run: mk dist
         if: github.ref_name != 'master'
 
