@@ -24,7 +24,6 @@ includes:
   - sysinfo/include.yaml
   - tbman/include.yaml
   - timer/include.yaml
-  - uart/include.yaml
   - usbctrl_dpram/include.yaml
   - usbctrl_regs/include.yaml
   - vreg_and_chip_reset/include.yaml
