@@ -18,7 +18,7 @@ namespace RP2040
 struct usbctrl_regs
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 31; /*!< usbctrl_regs's identifier. */
+    static constexpr struct_id_t id = 30; /*!< usbctrl_regs's identifier. */
     static constexpr std::size_t size =
         156; /*!< usbctrl_regs's size in bytes. */
 

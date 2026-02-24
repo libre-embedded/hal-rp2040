@@ -6,7 +6,6 @@
 #include "../generated/structs/sysinfo.h"
 #include "../generated/structs/tbman.h"
 #include "../generated/structs/timer.h"
-#include "../generated/structs/uart.h"
 #include "../generated/structs/usbctrl_dpram.h"
 #include "../generated/structs/usbctrl_regs.h"
 #include "../generated/structs/vreg_and_chip_reset.h"
@@ -23,8 +22,6 @@ int main(void)
     (void)SYSINFO;
     (void)TBMAN;
     (void)TIMER;
-    (void)UART0;
-    (void)UART1;
     (void)USBCTRL_DPRAM;
     (void)USBCTRL_REGS;
     (void)VREG_AND_CHIP_RESET;
