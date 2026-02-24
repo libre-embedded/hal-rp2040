@@ -16,7 +16,7 @@ namespace RP2040
 struct pads_qspi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 12;   /*!< pads_qspi's identifier. */
+    static constexpr struct_id_t id = 11;   /*!< pads_qspi's identifier. */
     static constexpr std::size_t size = 28; /*!< pads_qspi's size in bytes. */
 
     /* Fields. */

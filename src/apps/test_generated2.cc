@@ -6,7 +6,6 @@
 #include "../generated/structs/busctrl.h"
 #include "../generated/structs/clocks.h"
 #include "../generated/structs/dma.h"
-#include "../generated/structs/i2c.h"
 #include "../generated/structs/io_bank.h"
 #include "../generated/structs/io_qspi.h"
 #include "../generated/structs/pads_bank.h"
@@ -30,8 +29,6 @@ int main(void)
     (void)BUSCTRL;
     (void)CLOCKS;
     (void)DMA;
-    (void)I2C0;
-    (void)I2C1;
     (void)IO_BANK0;
     (void)IO_QSPI;
     (void)PADS_BANK0;

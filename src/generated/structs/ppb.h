@@ -15,7 +15,7 @@ namespace RP2040
 struct ppb
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 17;      /*!< ppb's identifier. */
+    static constexpr struct_id_t id = 16;      /*!< ppb's identifier. */
     static constexpr std::size_t size = 60836; /*!< ppb's size in bytes. */
 
     /* Fields. */
