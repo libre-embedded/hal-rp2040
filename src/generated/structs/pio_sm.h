@@ -15,7 +15,7 @@ namespace RP2040
 struct pio_sm
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 13;   /*!< pio_sm's identifier. */
+    static constexpr struct_id_t id = 12;   /*!< pio_sm's identifier. */
     static constexpr std::size_t size = 24; /*!< pio_sm's size in bytes. */
 
     /* Fields. */

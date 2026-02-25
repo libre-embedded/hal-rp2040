@@ -20,7 +20,7 @@ namespace RP2040
 struct rosc
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 21;   /*!< rosc's identifier. */
+    static constexpr struct_id_t id = 20;   /*!< rosc's identifier. */
     static constexpr std::size_t size = 36; /*!< rosc's size in bytes. */
 
     /* Fields. */

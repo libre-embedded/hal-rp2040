@@ -5,7 +5,6 @@ includes:
   - busctrl/include.yaml
   - clocks/include.yaml
   - dma/include.yaml
-  - i2c/include.yaml
   - io_bank/include.yaml
   - io_qspi/include.yaml
   - pads_bank/include.yaml

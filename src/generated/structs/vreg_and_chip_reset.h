@@ -20,7 +20,7 @@ struct vreg_and_chip_reset
 {
     /* Constant attributes. */
     static constexpr struct_id_t id =
-        31; /*!< vreg_and_chip_reset's identifier. */
+        30; /*!< vreg_and_chip_reset's identifier. */
     static constexpr std::size_t size =
         12; /*!< vreg_and_chip_reset's size in bytes. */
 

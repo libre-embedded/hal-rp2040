@@ -16,7 +16,7 @@ struct pio_interrupt_cluster
 {
     /* Constant attributes. */
     static constexpr struct_id_t id =
-        14; /*!< pio_interrupt_cluster's identifier. */
+        13; /*!< pio_interrupt_cluster's identifier. */
     static constexpr std::size_t size =
         12; /*!< pio_interrupt_cluster's size in bytes. */
 

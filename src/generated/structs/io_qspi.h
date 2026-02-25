@@ -23,7 +23,7 @@ namespace RP2040
 struct io_qspi
 {
     /* Constant attributes. */
-    static constexpr struct_id_t id = 10;   /*!< io_qspi's identifier. */
+    static constexpr struct_id_t id = 9;    /*!< io_qspi's identifier. */
     static constexpr std::size_t size = 88; /*!< io_qspi's size in bytes. */
 
     /* Fields. */
